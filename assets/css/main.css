@@ -502,7 +502,7 @@ footer {
 .img-two img { width: 100%; display: block; border-radius: var(--radius); }
 
 /* Brand / supporting illustrations */
-.img-brand { max-width: 500px; margin: 40px auto; padding: 0 40px; }
+.img-brand { max-width: var(--max); margin: 48px auto; padding: 0 40px; }
 .img-brand img { width: 100%; display: block; border-radius: var(--radius); }
 
 .case-section { max-width: var(--max); margin: 0 auto; padding: 0 40px 72px; }
