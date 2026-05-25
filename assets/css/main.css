@@ -687,7 +687,7 @@ footer {
   /* Nav */
   nav.nav-home { padding: 14px 20px; }
   nav.nav-home.scrolled { padding: 10px 20px; }
-  .nav-name { font-size: 13px; }
+  .nav-name { display: none; }
   .nav-links { gap: 16px; font-size: 10px; letter-spacing: .06em; }
   .nav-avail { font-size: 10px; gap: 5px; }
   .nav-dot { width: 6px; height: 6px; }
@@ -708,8 +708,8 @@ footer {
   .hero-label { font-size: 10px; margin-bottom: 16px; }
   .hero h1 { font-size: 32px; line-height: 1.12; margin-bottom: 20px; }
   .hero-sub { font-size: 14px; margin-bottom: 32px; max-width: 100%; }
-  .hero-ctas { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .btn-primary { padding: 12px 24px; font-size: 11px; }
+  .hero-ctas { flex-direction: column; align-items: stretch; gap: 16px; }
+  .btn-primary { padding: 12px 24px; font-size: 11px; width: 100%; text-align: center; box-sizing: border-box; }
 
   /* Ticker */
   .ticker-item { padding: 0 20px; font-size: 10px; }
@@ -803,8 +803,9 @@ footer {
    ============================================================ */
 @media (max-width: 360px) {
   .hero h1 { font-size: 28px; }
-  .nav-links { display: none; }
+  .nav-links { gap: 12px; font-size: 9px; letter-spacing: .04em; }
   .contact-right { grid-template-columns: 1fr; }
+  .about-availability { grid-template-columns: 1fr; }
   .case-hero h1 { font-size: 24px; }
   .case-section h2 { font-size: 20px; }
   .meta-row { grid-template-columns: 1fr; }
