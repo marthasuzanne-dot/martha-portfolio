@@ -190,7 +190,7 @@ nav.nav-case {
 .btn-primary span { position: relative; z-index: 1; }
 
 .btn-secondary {
-  font-family: var(--body); font-size: 13px; color: var(--mid);
+  font-family: var(--body); font-size: 13px; color: var(--ink); font-weight: 400;
   text-decoration: none; letter-spacing: .04em;
   border-bottom: 1px solid var(--light); padding-bottom: 2px;
   transition: color .2s, border-color .2s;
