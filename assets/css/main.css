@@ -295,7 +295,7 @@ nav.nav-case {
 .proj-title { font-family: var(--serif); font-size: 24px; font-weight: 500; line-height: 1.18; margin-bottom: 11px; letter-spacing: -.02em; color: var(--ink); }
 .proj-desc { font-family: var(--body); font-size: 14px; color: var(--mid); line-height: 1.72; max-width: 450px; }
 .proj-meta { font-family: var(--body); font-size: 11px; color: var(--muted); margin-top: 15px; letter-spacing: .04em; }
-.proj-arrow { position: absolute; top: 42px; right: 16px; font-size: 20px; color: var(--gold); opacity: 0; transition: all .25s; }
+.proj-arrow { position: absolute; top: 10px; right: 10px; font-size: 18px; color: var(--gold); opacity: 0; transition: all .25s; }
 
 .proj-visual {
   height: 200px; border-radius: var(--radius); overflow: hidden;
