@@ -11,8 +11,9 @@
   --teal-light:   #3d8a8a;
   --teal-pale:    #d4e8e8;
   --gold:         #C4922A;
+  --gold-deep:    #9a6d10;
   --gold-pale:    #f0deb0;
-  --olive:        #5a6a35;
+  --olive:        #4a5a28;
   --olive-pale:   #dde5cc;
   --cream:        #f6f2eb;
   --cream-dark:   #ede7db;
@@ -30,7 +31,7 @@
 }
 
 html { scroll-behavior: smooth; }
-body { background: var(--cream); color: var(--ink); font-family: var(--body); font-weight: 300; overflow-x: hidden; }
+body { background: var(--cream); color: var(--ink); font-family: var(--body); font-weight: 400; overflow-x: hidden; }
 
 
 /* ============================================================
@@ -284,7 +285,7 @@ nav.nav-case {
 
 .proj-tags { display: flex; gap: 7px; margin-bottom: 13px; flex-wrap: wrap; }
 .tag {
-  font-family: var(--body); font-size: 9.5px; font-weight: 500; letter-spacing: .11em;
+  font-family: var(--body); font-size: 9.5px; font-weight: 600; letter-spacing: .11em;
   text-transform: uppercase; color: var(--olive); border: 1px solid var(--olive-pale);
   padding: 3px 10px; border-radius: 20px; background: rgba(221,229,204,.5);
   transition: background .2s, border-color .2s;
@@ -365,7 +366,7 @@ nav.nav-case {
   display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
 }
 .contact-left h2 { font-family: var(--serif); font-size: clamp(30px,3.8vw,48px); font-weight: 500; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 28px; color: var(--ink); }
-.contact-left h2 em { font-style: italic; color: var(--gold); font-weight: 400; font-family: var(--serif); }
+.contact-left h2 em { font-style: italic; color: var(--gold-deep); font-weight: 400; font-family: var(--serif); }
 .contact-email {
   font-family: var(--serif); font-size: 17px; font-style: italic; font-weight: 400;
   color: var(--teal); text-decoration: none;
@@ -508,7 +509,7 @@ footer {
 .section-num { font-family: var(--body); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
 .section-kicker { font-family: var(--body); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; font-weight: 500; }
 .case-section h2 { font-family: var(--serif); font-size: clamp(24px,3.5vw,36px); font-weight: 400; line-height: 1.15; letter-spacing: -.02em; margin-bottom: 24px; }
-.case-section h2 em { font-style: italic; color: var(--gold); }
+.case-section h2 em { font-style: italic; color: var(--gold-deep); }
 .case-section p { font-family: var(--body); font-size: 15px; color: var(--mid); line-height: 1.82; margin-bottom: 20px; }
 .case-section p strong { color: var(--ink); font-weight: 500; }
 .case-section p:last-child { margin-bottom: 0; }
@@ -528,7 +529,7 @@ footer {
 .decisions { margin-top: 28px; }
 .decision { padding: 24px 0; border-bottom: 1px solid var(--teal-pale); }
 .decision:last-child { border-bottom: none; }
-.decision-num { font-family: var(--body); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 500; }
+.decision-num { font-family: var(--body); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; font-weight: 500; }
 .decision h3 { font-family: var(--serif); font-size: 19px; font-weight: 400; line-height: 1.2; margin-bottom: 10px; }
 .decision h3 em { font-style: italic; color: var(--teal-light); }
 .decision p { font-family: var(--body); font-size: 14px; color: var(--mid); line-height: 1.75; margin: 0; }
@@ -544,7 +545,7 @@ footer {
 .outcomes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
 .outcome-card { background: var(--white); border: 1px solid var(--teal-pale); border-radius: var(--radius); padding: 24px; }
 .outcome-num { font-family: var(--serif); font-size: 44px; font-weight: 400; line-height: 1; letter-spacing: -.03em; color: var(--teal); margin-bottom: 8px; }
-.outcome-num em { font-style: italic; color: var(--gold); }
+.outcome-num em { font-style: italic; color: var(--gold-deep); }
 .outcome-label { font-family: var(--body); font-size: 12px; color: var(--mid); line-height: 1.6; }
 
 .reflection { background: var(--ink); color: var(--cream); padding: 72px 0; }
