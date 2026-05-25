@@ -554,6 +554,32 @@ footer {
 .reflection p { font-family: var(--body); font-size: 15px; line-height: 1.82; color: rgba(246,242,235,.65); margin-bottom: 20px; }
 .reflection p strong { color: var(--cream); font-weight: 400; }
 
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+.about-availability {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--teal-pale);
+}
+.avail-group p { font-family: var(--body); font-size: 14px; color: var(--mid); line-height: 1.9; }
+.avail-label { font-family: var(--body); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 500; }
+.avail-link { font-family: var(--body); font-size: 14px; color: var(--teal); text-decoration: none; display: block; line-height: 1.9; transition: color .2s; }
+.avail-link:hover { color: var(--gold); }
+.about-contact {
+  max-width: var(--max); margin: 0 auto; padding: 64px 40px;
+  border-top: 1px solid var(--teal-pale);
+}
+.about-contact p { font-family: var(--serif); font-size: 13px; font-style: italic; color: var(--muted); margin-bottom: 12px; }
+
+@media (max-width: 768px) {
+  .about-availability { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .about-contact { padding: 48px 24px; }
+}
+@media (max-width: 390px) {
+  .about-availability { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .about-contact { padding: 40px 20px; }
+}
+
 /* Image placeholder */
 .img-placeholder {
   width: 100%; background: var(--cream-dark); border-radius: var(--radius);
