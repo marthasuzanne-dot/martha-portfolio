@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body class="has-cursor">
+<div class="page-tint" id="pageTint"></div>
 
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
@@ -201,11 +202,46 @@
 <div class="palette-strip" role="presentation">
   <h5>Palette</h5>
   <div class="swatch-group">
-    <div class="swatch"><div class="swatch-circle" style="background:#1a2828"></div><span>Ink</span></div>
-    <div class="swatch"><div class="swatch-circle" style="background:#2d6b6b"></div><span>Teal</span></div>
-    <div class="swatch"><div class="swatch-circle" style="background:#3d8a8a"></div><span>Teal Light</span></div>
-    <div class="swatch"><div class="swatch-circle" style="background:#C4922A"></div><span>Gold</span></div>
-    <div class="swatch"><div class="swatch-circle" style="background:#f6f2eb;border:1px solid #d4e8e8"></div><span>Cream</span></div>
+    <div class="swatch" data-hex="#1a2828" tabindex="0" role="button" aria-label="Ink — click to copy #1a2828">
+      <div class="swatch-circle" style="background:#1a2828"></div>
+      <span>Ink</span>
+      <div class="swatch-detail">
+        <span class="swatch-hex">#1a2828</span>
+        <span class="swatch-use">Primary text</span>
+      </div>
+    </div>
+    <div class="swatch" data-hex="#2d6b6b" tabindex="0" role="button" aria-label="Teal — click to copy #2d6b6b">
+      <div class="swatch-circle" style="background:#2d6b6b"></div>
+      <span>Teal</span>
+      <div class="swatch-detail">
+        <span class="swatch-hex">#2d6b6b</span>
+        <span class="swatch-use">Brand · links · CTAs</span>
+      </div>
+    </div>
+    <div class="swatch" data-hex="#3d8a8a" tabindex="0" role="button" aria-label="Teal Light — click to copy #3d8a8a">
+      <div class="swatch-circle" style="background:#3d8a8a"></div>
+      <span>Teal Light</span>
+      <div class="swatch-detail">
+        <span class="swatch-hex">#3d8a8a</span>
+        <span class="swatch-use">Italic accents · borders</span>
+      </div>
+    </div>
+    <div class="swatch" data-hex="#C4922A" tabindex="0" role="button" aria-label="Gold — click to copy #C4922A">
+      <div class="swatch-circle" style="background:#C4922A"></div>
+      <span>Gold</span>
+      <div class="swatch-detail">
+        <span class="swatch-hex">#C4922A</span>
+        <span class="swatch-use">Highlights · hover states</span>
+      </div>
+    </div>
+    <div class="swatch" data-hex="#f6f2eb" tabindex="0" role="button" aria-label="Cream — click to copy #f6f2eb">
+      <div class="swatch-circle" style="background:#f6f2eb;border:1px solid #d4e8e8"></div>
+      <span>Cream</span>
+      <div class="swatch-detail">
+        <span class="swatch-hex">#f6f2eb</span>
+        <span class="swatch-use">Page background</span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -267,6 +303,37 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelector('.ticker').style.animationPlayState = 'paused';
   }
+
+  // Palette strip — hover tint + click to copy
+  const pageTint = document.getElementById('pageTint');
+  document.querySelectorAll('.swatch').forEach(swatch => {
+    const hex = swatch.dataset.hex;
+
+    swatch.addEventListener('mouseenter', () => {
+      pageTint.style.background = hex;
+      pageTint.style.opacity = '0.07';
+    });
+    swatch.addEventListener('mouseleave', () => {
+      pageTint.style.opacity = '0';
+    });
+
+    const copyHex = () => {
+      navigator.clipboard.writeText(hex).then(() => {
+        const existing = swatch.querySelector('.copied-flash');
+        if (existing) existing.remove();
+        const flash = document.createElement('div');
+        flash.className = 'copied-flash';
+        flash.textContent = 'Copied!';
+        swatch.appendChild(flash);
+        setTimeout(() => flash.remove(), 1000);
+      });
+    };
+
+    swatch.addEventListener('click', copyHex);
+    swatch.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyHex(); }
+    });
+  });
 </script>
 </body>
 </html>

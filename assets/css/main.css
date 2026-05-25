@@ -383,12 +383,74 @@ nav.nav-case {
   background: var(--cream-dark); padding: 24px 56px;
   display: flex; align-items: center; gap: 32px;
   border-top: 1px solid var(--teal-pale); font-family: var(--body);
+  overflow: visible; position: relative;
 }
 .palette-strip h5 { font-size: 10px; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); font-weight: 500; margin-right: 4px; }
-.swatch-group { display: flex; gap: 14px; align-items: center; }
-.swatch { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.swatch-circle { width: 30px; height: 30px; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
-.swatch span { font-size: 9px; letter-spacing: .05em; color: var(--muted); }
+.swatch-group { display: flex; gap: 22px; align-items: center; }
+
+.swatch {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  position: relative; cursor: pointer;
+}
+.swatch-circle {
+  width: 30px; height: 30px; border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s;
+}
+.swatch:hover .swatch-circle {
+  transform: scale(1.45);
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+.swatch > span { font-size: 9px; letter-spacing: .05em; color: var(--muted); transition: color .2s; }
+.swatch:hover > span { color: var(--ink); }
+
+/* Tooltip card */
+.swatch-detail {
+  position: absolute; bottom: calc(100% + 16px); left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: var(--ink); border-radius: 8px; padding: 9px 13px;
+  text-align: center; white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 10;
+}
+.swatch-detail::after {
+  content: ''; position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent; border-top-color: var(--ink);
+}
+.swatch:hover .swatch-detail { opacity: 1; transform: translateX(-50%) translateY(0); }
+.swatch-hex {
+  display: block; font-family: var(--body); font-size: 11px;
+  color: var(--gold); letter-spacing: .06em; margin-bottom: 3px;
+}
+.swatch-use {
+  display: block; font-family: var(--body); font-size: 10px;
+  color: rgba(246,242,235,.5); letter-spacing: .03em;
+}
+
+/* "Copied!" flash */
+.copied-flash {
+  position: absolute; bottom: calc(100% + 16px); left: 50%;
+  transform: translateX(-50%);
+  background: var(--teal); color: var(--white); border-radius: 6px;
+  padding: 5px 11px; font-family: var(--body); font-size: 10px;
+  letter-spacing: .09em; text-transform: uppercase; white-space: nowrap;
+  pointer-events: none; z-index: 11;
+  animation: copiedFlash 1s ease forwards;
+}
+@keyframes copiedFlash {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  15%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  70%  { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+}
+
+/* Page tint overlay */
+.page-tint {
+  position: fixed; inset: 0; pointer-events: none; z-index: 50;
+  opacity: 0; transition: background .35s ease, opacity .35s ease;
+}
 
 
 /* ============================================================
