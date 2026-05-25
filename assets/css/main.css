@@ -446,11 +446,6 @@ nav.nav-case {
   100% { opacity: 0; transform: translateX(-50%) translateY(-6px); }
 }
 
-/* Page tint overlay */
-.page-tint {
-  position: fixed; inset: 0; pointer-events: none; z-index: 50;
-  opacity: 0; transition: background .35s ease, opacity .35s ease;
-}
 
 
 /* ============================================================
