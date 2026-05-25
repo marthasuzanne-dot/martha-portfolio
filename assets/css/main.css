@@ -94,7 +94,7 @@ nav.nav-home.scrolled {
 .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--gold); transition: width .25s ease; }
 .nav-links a:hover { color: var(--ink); }
 .nav-links a:hover::after { width: 100%; }
-.nav-avail { display: flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 300; letter-spacing: .04em; color: var(--muted); font-family: var(--body); }
+.hero-avail { display: flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 300; letter-spacing: .04em; color: var(--muted); font-family: var(--body); margin-bottom: 12px; }
 .nav-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: pulse 2.5s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
 
