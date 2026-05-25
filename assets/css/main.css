@@ -467,7 +467,7 @@ footer {
    ============================================================ */
 :root { --max: 800px; }
 
-.case-hero { max-width: var(--max); margin: 0 auto; padding: 72px 40px 48px; }
+.case-hero { max-width: var(--max); margin: 0 auto; padding: 112px 40px 48px; }
 .case-tag {
   font-family: var(--body); font-size: 11px; letter-spacing: .16em;
   text-transform: uppercase; color: var(--teal); margin-bottom: 20px;
@@ -661,7 +661,7 @@ footer {
   footer { padding: 18px 24px; }
 
   /* Case study */
-  .case-hero { padding: 56px 24px 40px; }
+  .case-hero { padding: 96px 24px 40px; }
   .case-section { padding: 0 24px 56px; }
   .img-full { padding: 0 24px; }
   .img-wide { padding: 0 24px; }
@@ -754,7 +754,7 @@ footer {
   footer { padding: 16px 20px; flex-direction: column; gap: 6px; text-align: center; }
 
   /* Case study */
-  .case-hero { padding: 48px 20px 32px; }
+  .case-hero { padding: 88px 20px 32px; }
   .case-tag { font-size: 10px; }
   .case-hero h1 { font-size: 28px; line-height: 1.12; }
   .case-hero .lead { font-size: 14px; margin-bottom: 32px; }
