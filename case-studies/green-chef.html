@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Hanken+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/main.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
@@ -15,12 +16,12 @@
 <nav class="nav-home" id="mainNav">
   <a href="../index.html" class="nav-logo">
     <svg width="36" height="36" viewBox="0 0 1032 1034" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0;">
-      <path d="M520 60.5V95.5C749.198 95.5 935 281.302 935 510.5H970H1005C1005 242.642 787.858 25.5 520 25.5V60.5ZM970 510.5H935C935 739.698 749.198 925.5 520 925.5V960.5V995.5C787.858 995.5 1005 778.358 1005 510.5H970ZM520 960.5V925.5C290.802 925.5 105 739.698 105 510.5H70H35C35 778.358 252.142 995.5 520 995.5V960.5ZM70 510.5H105C105 281.302 290.802 95.5 520 95.5V60.5V25.5C252.142 25.5 35 242.642 35 510.5H70Z" fill="#CE8F00"/>
-      <line x1="157.353" y1="667.597" x2="406.097" y2="326.647" stroke="#CE8F00" stroke-width="70" stroke-linecap="round"/>
-      <path d="M670 319.5L887 664.5" stroke="#CE8F00" stroke-width="70" stroke-linecap="round" fill="none"/>
-      <line x1="666.449" y1="320.587" x2="413.587" y2="695.551" stroke="#CE8F00" stroke-width="70" stroke-linecap="round"/>
-      <line x1="520.44" y1="522.003" x2="794.439" y2="526.018" stroke="#CE8F00" stroke-width="60"/>
-      <line x1="413.32" y1="318.23" x2="650.73" y2="691.18" stroke="#CE8F00" stroke-width="70" stroke-linecap="round"/>
+      <path d="M520 60.5V95.5C749.198 95.5 935 281.302 935 510.5H970H1005C1005 242.642 787.858 25.5 520 25.5V60.5ZM970 510.5H935C935 739.698 749.198 925.5 520 925.5V960.5V995.5C787.858 995.5 1005 778.358 1005 510.5H970ZM520 960.5V925.5C290.802 925.5 105 739.698 105 510.5H70H35C35 778.358 252.142 995.5 520 995.5V960.5ZM70 510.5H105C105 281.302 290.802 95.5 520 95.5V60.5V25.5C252.142 25.5 35 242.642 35 510.5H70Z" fill="#A36A00"/>
+      <line x1="157.353" y1="667.597" x2="406.097" y2="326.647" stroke="#A36A00" stroke-width="70" stroke-linecap="round"/>
+      <path d="M670 319.5L887 664.5" stroke="#A36A00" stroke-width="70" stroke-linecap="round" fill="none"/>
+      <line x1="666.449" y1="320.587" x2="413.587" y2="695.551" stroke="#A36A00" stroke-width="70" stroke-linecap="round"/>
+      <line x1="520.44" y1="522.003" x2="794.439" y2="526.018" stroke="#A36A00" stroke-width="60"/>
+      <line x1="413.32" y1="318.23" x2="650.73" y2="691.18" stroke="#A36A00" stroke-width="70" stroke-linecap="round"/>
     </svg>
     <span class="nav-name">Martha Asselin</span>
   </a>
@@ -60,14 +61,14 @@
 
 <!-- HERO IMAGE -->
 <div class="img-full reveal">
-  <div class="img-placeholder" style="min-height:480px">Hero image: final carousel onboarding flow, mobile and desktop</div>
+  <img src="../assets/images/cs-greenchef-carousel.webp" alt="Five-step carousel onboarding flow shown across mobile screens">
 </div>
 <div class="img-contained reveal" style="margin-top:-16px">
   <p class="img-caption">Fig 01. Five-step carousel onboarding flow across mobile and desktop</p>
 </div>
 
 <!-- 01 CHALLENGE -->
-<div class="case-section reveal">
+<div class="case-section reveal" style="padding-bottom: 0">
   <p class="section-num">01</p>
   <p class="section-kicker">The Challenge</p>
   <h2>Subscribers were cancelling before they placed their <em>first order.</em></h2>
@@ -87,7 +88,7 @@
 <div class="divider"><hr></div>
 
 <!-- 02 RESEARCH -->
-<div class="case-section reveal">
+<div class="case-section reveal" style="padding-bottom: 24px">
   <p class="section-num">02</p>
   <p class="section-kicker">Research &amp; Discovery</p>
   <h2>Survey data from sign-up and cancellation pointed to the <em>same friction.</em></h2>
@@ -96,17 +97,24 @@
 </div>
 
 <!-- Research charts -->
-<div class="img-wide reveal">
-  <div class="img-placeholder" style="min-height:300px">Chart: top reasons customers cancel</div>
-  <p class="img-caption" style="margin-top:12px">Fig 02. Top cancellation reasons from exit survey data</p>
+<div class="charts-grid reveal">
+  <div class="chart-card">
+    <p class="chart-kicker">Top Reasons to Cancel</p>
+    <div class="chart-canvas-wrap">
+      <canvas id="cancelChart"></canvas>
+    </div>
+    <p class="img-caption">Fig 02. Top cancellation reasons from exit survey data</p>
+  </div>
+  <div class="chart-card">
+    <p class="chart-kicker">Top Sign-Up Questions</p>
+    <div class="chart-canvas-wrap">
+      <canvas id="signupChart"></canvas>
+    </div>
+    <p class="img-caption">Fig 03. Most frequently asked questions during sign-up</p>
+  </div>
 </div>
 
-<div class="img-wide reveal">
-  <div class="img-placeholder" style="min-height:300px">Chart: most frequently asked questions at sign-up</div>
-  <p class="img-caption" style="margin-top:12px">Fig 03. Most frequently asked questions during sign-up</p>
-</div>
-
-<div class="case-section reveal">
+<div class="case-section reveal" style="padding-bottom: 24px">
   <h2>Card sorting told us which features <em>mattered</em> to subscribers.</h2>
   <p>I ran card sorting exercises with active subscribers to find out which account features they considered most important. The exercise grounded scope decisions in real user priorities rather than internal assumptions about what to design first.</p>
   <div class="decisions">
@@ -129,8 +137,32 @@
 </div>
 
 <!-- Persona -->
-<div class="img-contained reveal">
-  <div class="img-placeholder" style="min-height:380px">Persona: Everly, 35, working professional</div>
+<div class="persona-wrap reveal">
+  <div class="persona-card">
+    <div class="persona-top">
+      <img src="../assets/images/persona-everly.jpg" alt="Everly, primary persona" class="persona-photo">
+      <div class="persona-intro">
+        <p class="persona-tag">Primary Persona</p>
+        <h3 class="persona-name">Everly</h3>
+        <p class="persona-role">35 &middot; Working Professional</p>
+      </div>
+    </div>
+    <div class="persona-stats">
+      <div class="persona-stat">
+        <p class="persona-stat-label">Household Income</p>
+        <p class="persona-stat-value">$110,000</p>
+      </div>
+      <div class="persona-stat">
+        <p class="persona-stat-label">Education</p>
+        <p class="persona-stat-value">Bachelor's Degree</p>
+      </div>
+      <div class="persona-stat">
+        <p class="persona-stat-label">Cooks for Family</p>
+        <p class="persona-stat-value">4&times; per week</p>
+      </div>
+    </div>
+    <blockquote class="persona-quote">"Health and nutrition are important to me and my family. Balancing my busy career and taking care of my family are my main priorities."</blockquote>
+  </div>
   <p class="img-caption">Fig 04. Primary persona: Everly, 35 years old, $110K household income, cooks dinner for family four times per week</p>
 </div>
 
@@ -164,7 +196,7 @@
 <div class="divider"><hr></div>
 
 <!-- 04 EXECUTION -->
-<div class="case-section reveal">
+<div class="case-section reveal" style="padding-bottom: 0">
   <p class="section-num">04</p>
   <p class="section-kicker">Design Execution</p>
   <h2>The first approach <em>failed.</em> That was useful information.</h2>
@@ -175,11 +207,11 @@
 
 <!-- Coach marks wireframes -->
 <div class="img-wide reveal">
-  <div class="img-placeholder" style="min-height:380px">Coach marks wireframes: first iteration, five steps overlaid on the account page</div>
+  <img src="../assets/images/cs-greenchef-coachmarks.webp" alt="Coach marks first iteration: five tooltip overlays on the Green Chef account page">
   <p class="img-caption" style="margin-top:12px">Fig 05. Coach marks approach: five tooltip steps overlaid on the existing account interface</p>
 </div>
 
-<div class="case-section reveal">
+<div class="case-section reveal" style="padding-bottom: 0">
   <h2>The pivot: introduce the interface <em>before</em> the interface.</h2>
   <p>Rather than layering explanations over a cluttered account page, the carousel model covered each concept on its own screen before the user landed in the account. One idea per step, with space to absorb it before the real UI appeared.</p>
   <p>The revised design streamlined the copy, reduced the total number of steps, removed a cut-off date that had been shown in the first step and was causing confusion, and adapted every screen for both mobile and desktop. Five steps total, each covering one action.</p>
@@ -214,19 +246,25 @@
 
 <!-- Carousel wireframes -->
 <div class="img-wide reveal">
-  <div class="img-placeholder" style="min-height:380px">Carousel wireframes: pivoted direction, five steps, one concept per screen</div>
+  <img src="../assets/images/cs-greenchef-wireframes.webp" alt="Carousel wireframes: six-screen flow, one concept per screen">
   <p class="img-caption" style="margin-top:12px">Fig 06. Carousel model after pivot: five steps across mobile and desktop</p>
 </div>
 
-<!-- Final designs -->
+<!-- Final designs — desktop -->
 <div class="img-wide reveal">
-  <div class="img-placeholder" style="min-height:400px">Final high-fidelity designs: mobile and desktop, all five steps</div>
-  <p class="img-caption" style="margin-top:12px">Fig 07. Final high-fidelity carousel onboarding, mobile and desktop</p>
+  <img src="../assets/images/cs-greenchef-desktop.webp" alt="Final high-fidelity desktop designs: five-step carousel onboarding">
+  <p class="img-caption" style="margin-top:12px">Fig 07. Final high-fidelity carousel onboarding, desktop</p>
+</div>
+
+<!-- Final designs — mobile -->
+<div class="img-wide reveal">
+  <img src="../assets/images/cs-greenchef-mobile-final.webp" alt="Final high-fidelity mobile designs: five-step carousel onboarding">
+  <p class="img-caption" style="margin-top:12px">Fig 08. Final high-fidelity carousel onboarding, mobile</p>
 </div>
 
 <!-- Brand image 2 -->
 <div class="img-brand reveal">
-  <div class="img-placeholder" style="min-height:300px">Supporting image: Green Chef product or design detail</div>
+  <img src="../assets/images/cs-greenchef-brand2.webp" alt="Green Chef carousel onboarding displayed on MacBook Pro and iPhone">
 </div>
 
 <div class="divider"><hr></div>
@@ -293,6 +331,65 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Research charts
+  Chart.defaults.font.family = "'Hanken Grotesk', sans-serif";
+  Chart.defaults.font.size = 11;
+  Chart.defaults.color = '#556666';
+
+  const gcColors = ['#1D5C3C', '#2E8755', '#5FAF85', '#A36A00', '#DEB868'];
+
+  const sharedOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '62%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          padding: 14,
+          usePointStyle: true,
+          pointStyle: 'circle',
+          pointStyleWidth: 8,
+          font: { size: 11 }
+        }
+      },
+      tooltip: {
+        backgroundColor: '#1a2828',
+        bodyColor: '#f6f2eb',
+        bodyFont: { size: 12, weight: '400' },
+        padding: 12,
+        cornerRadius: 6,
+        displayColors: true,
+        boxWidth: 10,
+        boxHeight: 10,
+        boxPadding: 5,
+        callbacks: {
+          title: () => '',
+          label: (ctx) => `  ${ctx.label} — ${ctx.parsed} responses`
+        }
+      }
+    },
+    animation: { animateRotate: true, duration: 900, easing: 'easeInOutQuart' }
+  };
+
+  new Chart(document.getElementById('cancelChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Cutting back on budget', 'Not enough value', 'Account management', 'Did not like recipes', 'Wanted more recipes'],
+      datasets: [{ data: [120, 90, 70, 50, 50], backgroundColor: gcColors, borderWidth: 0, hoverOffset: 10 }]
+    },
+    options: sharedOptions
+  });
+
+  new Chart(document.getElementById('signupChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Commitment', 'Subscription', 'How to choose meals', 'Price and discounts', 'Delivery methods'],
+      datasets: [{ data: [150, 135, 125, 75, 65], backgroundColor: gcColors, borderWidth: 0, hoverOffset: 10 }]
+    },
+    options: sharedOptions
+  });
 </script>
 </body>
 </html>
