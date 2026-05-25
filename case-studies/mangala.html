@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mangala Shri Bhuti &mdash; Martha Asselin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Hanken+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+<style>
+  .coming-soon-wrap {
+    min-height: calc(100vh - 120px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 80px 40px;
+  }
+  .coming-soon-inner {
+    max-width: 560px; text-align: center;
+  }
+  .coming-soon-tag {
+    font-family: var(--body); font-size: 11px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 24px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .coming-soon-tag::before,
+  .coming-soon-tag::after { content: ''; display: block; width: 24px; height: 1px; background: var(--teal-light); }
+  .coming-soon-wrap h1 {
+    font-family: var(--serif); font-size: clamp(28px, 4vw, 44px); font-weight: 400;
+    line-height: 1.12; letter-spacing: -.025em; margin-bottom: 20px; color: var(--ink);
+  }
+  .coming-soon-wrap h1 em { font-style: italic; color: var(--teal-light); }
+  .coming-soon-wrap p {
+    font-family: var(--body); font-size: 15px; color: var(--mid);
+    line-height: 1.8; margin-bottom: 40px;
+  }
+  .coming-soon-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--body); font-size: 11px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--muted);
+    border: 1px solid var(--teal-pale); border-radius: 20px;
+    padding: 8px 18px; margin-bottom: 40px;
+  }
+  .coming-soon-badge .nav-dot { flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="nav-case">
+  <a href="../index.html" class="nav-back">Home</a>
+  <a href="../index.html" class="nav-case-name">Martha Asselin</a>
+  <span class="nav-next" style="opacity:0;pointer-events:none;">&#8203;</span>
+</nav>
+
+<div class="coming-soon-wrap">
+  <div class="coming-soon-inner reveal">
+    <p class="coming-soon-tag">Case Study &middot; 04 &middot; Nonprofit</p>
+    <h1>Mangala Shri Bhuti:<br><em>Members Site</em> Redesign</h1>
+    <p>A full redesign of the digital home for a Buddhist meditation community, from user research through a complete information architecture overhaul. The site is in production. The case study is in progress.</p>
+    <div class="coming-soon-badge">
+      <div class="nav-dot"></div>Case study in progress
+    </div>
+    <br>
+    <a href="../index.html" class="next-link" style="justify-content:center;">View all work</a>
+  </div>
+</div>
+
+<footer>
+  <span>&copy; 2026 Martha Asselin &middot; Boulder, CO</span>
+  <span class="footer-built">Built with Claude Code</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
