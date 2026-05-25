@@ -544,8 +544,8 @@ footer {
 .outcome-num em { font-style: italic; color: var(--gold); }
 .outcome-label { font-family: var(--body); font-size: 12px; color: var(--mid); line-height: 1.6; }
 
-.reflection { background: var(--ink); color: var(--cream); padding: 72px 40px; }
-.reflection-inner { max-width: var(--max); margin: 0 auto; }
+.reflection { background: var(--ink); color: var(--cream); padding: 72px 0; }
+.reflection-inner { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
 .reflection .section-kicker { color: var(--gold); }
 .reflection h2 { font-family: var(--serif); font-size: clamp(24px,3.5vw,36px); font-weight: 400; line-height: 1.15; letter-spacing: -.02em; margin-bottom: 24px; color: var(--cream); }
 .reflection h2 em { font-style: italic; color: var(--gold); }
@@ -635,7 +635,8 @@ footer {
   .meta-item:nth-child(2n) { border-right: none; }
   .meta-item:nth-child(3), .meta-item:nth-child(4) { border-top: 1px solid var(--teal-pale); }
   .outcomes-grid { grid-template-columns: 1fr 1fr; }
-  .reflection { padding: 56px 24px; }
+  .reflection { padding: 56px 0; }
+  .reflection-inner { padding: 0 24px; }
   .next-case { padding: 48px 24px; }
 }
 
@@ -750,7 +751,8 @@ footer {
   .outcome-num { font-size: 36px; }
   .outcome-card { padding: 20px; }
   .outcome-label { font-size: 12px; }
-  .reflection { padding: 48px 20px; }
+  .reflection { padding: 48px 0; }
+  .reflection-inner { padding: 0 20px; }
   .reflection h2 { font-size: 22px; }
   .reflection p { font-size: 14px; }
   .next-case { padding: 40px 20px; flex-direction: column; align-items: flex-start; gap: 20px; }
