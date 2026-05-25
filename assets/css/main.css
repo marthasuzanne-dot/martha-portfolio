@@ -561,12 +561,12 @@ footer {
    ABOUT PAGE
    ============================================================ */
 .about-availability {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px 28px;
   margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--teal-pale);
 }
-.avail-group p { font-family: var(--body); font-size: 14px; color: var(--mid); line-height: 1.9; }
-.avail-label { font-family: var(--body); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 500; }
-.avail-link { font-family: var(--body); font-size: 14px; color: var(--teal); text-decoration: none; display: block; line-height: 1.9; transition: color .2s; }
+.avail-group p { font-family: var(--body); color: var(--mid); line-height: 1.9; display: block; }
+.avail-label { font-family: var(--body); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; font-weight: 500; }
+.avail-link { font-family: var(--body); color: var(--teal); text-decoration: none; display: block; line-height: 1.9; transition: color .2s; }
 .avail-link:hover { color: var(--gold); }
 .about-contact {
   max-width: var(--max); margin: 0 auto; padding: 64px 40px;
