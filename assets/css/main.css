@@ -562,7 +562,7 @@ footer {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px 28px;
   margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--teal-pale);
 }
-.avail-group p { font-family: var(--body); color: var(--mid); line-height: 1.9; display: block; }
+.avail-group p { font-family: var(--body); color: var(--mid); line-height: 1.9; display: block; font-size: 13px; margin-bottom: 0; }
 .avail-label { font-family: var(--body); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; font-weight: 500; }
 .avail-link { font-family: var(--body); color: var(--teal); text-decoration: none; display: block; line-height: 1.9; transition: color .2s; }
 .avail-link:hover { color: var(--gold); }
