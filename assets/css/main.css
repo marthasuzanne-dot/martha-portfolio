@@ -119,7 +119,10 @@ nav.nav-case {
 .nav-case-name {
   font-family: var(--display); font-size: 14px; font-weight: 500;
   color: var(--ink); letter-spacing: -.01em; text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
 }
+.nav-case-name svg { transition: transform .4s cubic-bezier(.34,1.56,.64,1); flex-shrink: 0; }
+.nav-case-name:hover svg { transform: rotate(12deg) scale(1.1); }
 .nav-next {
   font-family: var(--body); font-size: 12px; font-weight: 400; letter-spacing: .08em;
   text-transform: uppercase; color: var(--teal); text-decoration: none;
