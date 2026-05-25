@@ -110,7 +110,7 @@ nav.nav-case {
   position: sticky; top: 0; z-index: 100;
 }
 .nav-back {
-  font-family: var(--body); font-size: 12px; letter-spacing: .08em;
+  font-family: var(--body); font-size: 12px; font-weight: 400; letter-spacing: .08em;
   text-transform: uppercase; color: var(--teal); text-decoration: none;
   display: flex; align-items: center; gap: 8px; transition: color .2s;
 }
@@ -121,11 +121,11 @@ nav.nav-case {
   color: var(--ink); letter-spacing: -.01em; text-decoration: none;
 }
 .nav-next {
-  font-family: var(--body); font-size: 12px; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--muted); text-decoration: none;
+  font-family: var(--body); font-size: 12px; font-weight: 400; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--teal); text-decoration: none;
   display: flex; align-items: center; gap: 8px; transition: color .2s;
 }
-.nav-next:hover { color: var(--teal); }
+.nav-next:hover { color: var(--gold); }
 .nav-next::after { content: '→'; font-size: 14px; }
 
 
