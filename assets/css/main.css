@@ -748,8 +748,17 @@ footer {
   .contact-right { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
 
   /* Palette / footer */
-  .palette-strip { padding: 18px 20px; gap: 16px; flex-wrap: wrap; }
-  .swatch-circle { width: 24px; height: 24px; }
+  .palette-strip {
+    padding: 18px 0; gap: 0; flex-wrap: nowrap;
+    overflow-x: auto; overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .palette-strip::-webkit-scrollbar { display: none; }
+  .palette-strip h5 { padding-left: 20px; white-space: nowrap; flex-shrink: 0; }
+  .swatch-group { padding: 0 20px 0 0; gap: 18px; flex-shrink: 0; }
+  .swatch-group:first-of-type { padding-left: 12px; }
+  .swatch-circle { width: 26px; height: 26px; }
   .swatch span { font-size: 8px; }
   footer { padding: 16px 20px; flex-direction: column; gap: 6px; text-align: center; }
 
