@@ -85,8 +85,7 @@ nav.nav-home.scrolled {
   backdrop-filter: blur(14px);
 }
 .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
-.nav-logo svg { transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
-.nav-logo:hover svg { transform: rotate(12deg) scale(1.1); }
+.nav-logo svg { }
 .nav-name { font-family: var(--display); font-size: 15px; font-weight: 500; color: var(--ink); letter-spacing: -.01em; }
 .nav-right { display: flex; align-items: center; gap: 40px; }
 .nav-links { display: flex; gap: 30px; list-style: none; font-size: 12px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; font-family: var(--body); }
@@ -121,8 +120,7 @@ nav.nav-case {
   color: var(--ink); letter-spacing: -.01em; text-decoration: none;
   display: flex; align-items: center; gap: 10px;
 }
-.nav-case-name svg { transition: transform .4s cubic-bezier(.34,1.56,.64,1); flex-shrink: 0; }
-.nav-case-name:hover svg { transform: rotate(12deg) scale(1.1); }
+.nav-case-name svg { flex-shrink: 0; }
 .nav-next {
   font-family: var(--body); font-size: 12px; font-weight: 400; letter-spacing: .08em;
   text-transform: uppercase; color: var(--teal); text-decoration: none;
