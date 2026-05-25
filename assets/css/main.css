@@ -657,7 +657,7 @@ footer {
   .contact { padding: 64px 24px; grid-template-columns: 1fr; gap: 48px; }
 
   /* Palette / footer */
-  .palette-strip { padding: 20px 24px; }
+  .palette-strip { display: none; }
   footer { padding: 18px 24px; }
 
   /* Case study */
@@ -748,7 +748,6 @@ footer {
   .contact-right { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
 
   /* Palette / footer */
-  .palette-strip { display: none; }
   footer { padding: 16px 20px; flex-direction: column; gap: 6px; text-align: center; }
 
   /* Case study */
