@@ -203,7 +203,7 @@ nav.nav-case {
    ============================================================ */
 .hero-photo-wrap { position: relative; opacity: 0; animation: fadeUp .9s .35s forwards; }
 .photo-clip { overflow: hidden; border-radius: var(--radius); position: relative; cursor: none; }
-.hero-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center 8%; display: block; filter: saturate(.9); }
+.hero-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center 15%; display: block; filter: saturate(.9); }
 
 .photo-overlay {
   position: absolute; inset: 0;
