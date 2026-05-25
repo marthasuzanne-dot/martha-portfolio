@@ -749,15 +749,11 @@ footer {
 
   /* Palette / footer */
   .palette-strip {
-    padding: 18px 0; gap: 0; flex-wrap: nowrap;
-    overflow-x: auto; overflow-y: visible;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    padding: 20px 20px; gap: 14px;
+    flex-direction: column; align-items: flex-start;
+    overflow: visible;
   }
-  .palette-strip::-webkit-scrollbar { display: none; }
-  .palette-strip h5 { padding-left: 20px; white-space: nowrap; flex-shrink: 0; }
-  .swatch-group { padding: 0 20px 0 0; gap: 18px; flex-shrink: 0; }
-  .swatch-group:first-of-type { padding-left: 12px; }
+  .swatch-group { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 8px; width: 100%; }
   .swatch-circle { width: 26px; height: 26px; }
   .swatch span { font-size: 8px; }
   footer { padding: 16px 20px; flex-direction: column; gap: 6px; text-align: center; }
