@@ -428,7 +428,7 @@ nav.nav-case {
 }
 .swatch-use {
   display: block; font-family: var(--body); font-size: 10px;
-  color: rgba(246,242,235,.5); letter-spacing: .03em;
+  color: var(--cream); letter-spacing: .03em;
 }
 
 /* "Copied!" flash */
