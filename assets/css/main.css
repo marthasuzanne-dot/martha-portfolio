@@ -35,6 +35,16 @@ body { background: var(--cream); color: var(--ink); font-family: var(--body); fo
 
 
 /* ============================================================
+   FOCUS STATES
+   ============================================================ */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ============================================================
    PROGRESS BAR
    ============================================================ */
 .progress-bar {
