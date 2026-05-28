@@ -388,7 +388,9 @@ nav.nav-case {
 .contact-right { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 28px; }
 .cg h4 { font-family: var(--body); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; font-weight: 500; }
 .cg p, .cg a { font-family: var(--body); color: var(--mid); text-decoration: none; line-height: 1.9; display: block; transition: color .2s; }
-.cg a:hover { color: var(--gold); }
+.cg a { color: #2d6b6b; }
+.cg a:hover { color: #C4922A; }
+.link-arrow { font-family: var(--body); font-style: normal; font-size: 13px; font-weight: 400; }
 
 
 /* ============================================================
