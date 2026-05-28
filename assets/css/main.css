@@ -333,7 +333,7 @@ nav.nav-case {
    ============================================================ */
 .approach { background: var(--ink); color: var(--cream); padding: 88px 56px; }
 .approach-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: start; }
-.approach h2 { font-family: var(--serif); font-size: 38px; font-weight: 500; line-height: 1.14; letter-spacing: -.02em; color: var(--cream); }
+.approach h2 { font-family: var(--serif); font-size: 38px; font-weight: 400; line-height: 1.14; letter-spacing: -.02em; color: var(--cream); }
 .approach h2 em { font-style: italic; color: var(--gold); font-weight: 400; font-family: var(--serif); }
 .approach-right p { font-family: var(--body); font-size: 15px; line-height: 1.82; color: var(--mid-on-dark); margin-bottom: 22px; }
 .approach-right p strong { color: var(--cream); font-weight: 500; }
