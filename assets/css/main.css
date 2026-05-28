@@ -360,13 +360,13 @@ nav.nav-case {
 .about-right h3 em { font-style: italic; color: var(--teal-light); font-weight: 400; font-family: var(--serif); }
 .about-right p { font-family: var(--body); font-size: 15px; color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
 .about-link {
-  font-family: var(--body); font-size: 11px; color: var(--teal); text-decoration: none;
+  font-family: var(--body); font-size: 11px; color: #C4922A; text-decoration: none;
   letter-spacing: .08em; text-transform: uppercase;
   display: flex; align-items: center; gap: 8px;
   transition: color .2s; white-space: nowrap;
 }
 .about-link::after { content: '→'; font-size: 16px; }
-.about-link:hover { color: var(--gold); }
+.about-link:hover { color: var(--cream); }
 
 
 /* ============================================================
@@ -469,7 +469,7 @@ nav.nav-case {
 footer {
   background: var(--ink); padding: 22px 56px;
   display: flex; justify-content: space-between; align-items: center;
-  font-family: var(--body); font-size: 11px; color: var(--mid-on-dark); letter-spacing: .05em;
+  font-family: var(--body); font-size: 11px; color: rgba(246,242,235,0.5); letter-spacing: .05em;
 }
 .footer-built { color: var(--gold); }
 
