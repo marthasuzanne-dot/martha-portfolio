@@ -261,7 +261,7 @@ nav.nav-case {
   display: flex; justify-content: space-between; align-items: baseline;
   margin-bottom: 52px; padding-bottom: 16px; border-bottom: 1px solid var(--teal-pale);
 }
-.section-label { font-family: var(--serif); font-size: 13px; font-weight: 400; font-style: italic; color: var(--mid); }
+.section-label { font-family: var(--serif); font-size: 16px; font-weight: 400; color: var(--ink); }
 .section-count { font-family: var(--body); font-size: 10.5px; letter-spacing: .11em; text-transform: uppercase; color: var(--muted); }
 
 .project-row {
