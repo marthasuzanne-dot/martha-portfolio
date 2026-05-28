@@ -376,7 +376,7 @@ nav.nav-case {
   padding: 88px 56px 72px; max-width: 1160px; margin: 0 auto;
   display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
 }
-.contact-left h2 { font-family: var(--serif); font-size: clamp(30px,3.8vw,48px); font-weight: 500; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 28px; color: var(--ink); }
+.contact-left h2 { font-family: var(--serif); font-size: 38px; font-weight: 500; line-height: 1.14; letter-spacing: -.02em; margin-bottom: 28px; color: var(--ink); }
 .contact-left h2 em { font-style: italic; color: var(--gold-deep); font-weight: 400; font-family: var(--serif); }
 .contact-email {
   font-family: var(--serif); font-size: 17px; font-style: italic; font-weight: 400;
