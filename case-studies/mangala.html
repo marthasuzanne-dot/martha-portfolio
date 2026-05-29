@@ -9,6 +9,74 @@
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+  .device-browser {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.13);
+    overflow: hidden;
+    width: 100%;
+  }
+  .device-bar {
+    background: #ebebeb;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.07);
+    flex-shrink: 0;
+  }
+  .device-dots {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .device-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+  }
+  .device-dot:nth-child(1) { background: #ff5f57; }
+  .device-dot:nth-child(2) { background: #febc2e; }
+  .device-dot:nth-child(3) { background: #28c840; }
+  .device-url {
+    flex: 1;
+    background: #fff;
+    border-radius: 5px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--body);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: .02em;
+    border: 1px solid rgba(0,0,0,.08);
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .device-content img { width: 100%; display: block; border-radius: 0; }
+  .device-content .img-placeholder { border-radius: 0; border: none; border-top: 1px solid var(--teal-pale); }
+
+  .device-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .device-split-label {
+    font-family: var(--body);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .device-split { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
@@ -62,7 +130,19 @@
 
 <!-- HERO IMAGE -->
 <div class="img-full reveal">
-  <div class="img-placeholder" style="min-height:420px">Current homepage screenshot</div>
+  <div class="device-browser">
+    <div class="device-bar">
+      <div class="device-dots">
+        <span class="device-dot"></span>
+        <span class="device-dot"></span>
+        <span class="device-dot"></span>
+      </div>
+      <div class="device-url">members.mangalashribhuti.org</div>
+    </div>
+    <div class="device-content">
+      <div class="img-placeholder" style="min-height:420px">Current homepage screenshot</div>
+    </div>
+  </div>
 </div>
 <div class="img-contained reveal" style="margin-top:-16px">
   <p class="img-caption">Fig 01. MSB members site homepage, post-launch</p>
@@ -194,13 +274,58 @@
 
 <!-- Execution images -->
 <div class="img-wide reveal" style="margin-top: 48px">
-  <div class="img-placeholder" style="min-height:360px">Current vs. old homepage, side by side</div>
-  <p class="img-caption">Fig 04. Homepage before and after: sidebar navigation replaced with quick-access cards and mega menu</p>
+  <div class="device-split">
+    <div>
+      <p class="device-split-label">Before</p>
+      <div class="device-browser">
+        <div class="device-bar">
+          <div class="device-dots">
+            <span class="device-dot"></span>
+            <span class="device-dot"></span>
+            <span class="device-dot"></span>
+          </div>
+          <div class="device-url">members.mangalashribhuti.org</div>
+        </div>
+        <div class="device-content">
+          <div class="img-placeholder" style="min-height:300px">Old homepage screenshot</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="device-split-label">After</p>
+      <div class="device-browser">
+        <div class="device-bar">
+          <div class="device-dots">
+            <span class="device-dot"></span>
+            <span class="device-dot"></span>
+            <span class="device-dot"></span>
+          </div>
+          <div class="device-url">members.mangalashribhuti.org</div>
+        </div>
+        <div class="device-content">
+          <div class="img-placeholder" style="min-height:300px">New homepage screenshot</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="img-caption" style="margin-top:16px">Fig 04. Homepage before and after: sidebar navigation replaced with quick-access cards and mega menu</p>
 </div>
 
 <div class="img-wide reveal">
-  <div class="img-placeholder" style="min-height:320px">Mega menu detail, category groupings and link hierarchy</div>
-  <p class="img-caption">Fig 05. Mega menu detail showing Courses and Practice Resources sections</p>
+  <div class="device-browser">
+    <div class="device-bar">
+      <div class="device-dots">
+        <span class="device-dot"></span>
+        <span class="device-dot"></span>
+        <span class="device-dot"></span>
+      </div>
+      <div class="device-url">members.mangalashribhuti.org</div>
+    </div>
+    <div class="device-content">
+      <div class="img-placeholder" style="min-height:320px">Mega menu detail, category groupings and link hierarchy</div>
+    </div>
+  </div>
+  <p class="img-caption" style="margin-top:16px">Fig 05. Mega menu detail showing Courses and Practice Resources sections</p>
 </div>
 
 <div class="divider"><hr></div>
