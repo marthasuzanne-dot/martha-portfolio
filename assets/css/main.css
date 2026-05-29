@@ -271,8 +271,8 @@ nav.nav-case {
   display: flex; justify-content: space-between; align-items: baseline;
   margin-bottom: 52px; padding-bottom: 16px; border-bottom: 1px solid var(--teal-pale);
 }
-.section-label { font-family: var(--body); font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 12px; }
-.section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--muted); }
+.section-label { font-family: var(--body); font-size: 11px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 12px; }
+.section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--teal-light); }
 .section-count { font-family: var(--body); font-size: 10px; letter-spacing: .11em; text-transform: uppercase; color: var(--muted); }
 
 .project-row {
@@ -352,7 +352,7 @@ nav.nav-case {
    HOMEPAGE SKILLS SECTION
    ============================================================ */
 .hp-skills { background: var(--cream); padding: 88px 56px; }
-.hp-skills-inner { max-width: 900px; margin: 0 auto; }
+.hp-skills-inner { max-width: 1160px; margin: 0 auto; }
 .hp-skills-kicker {
   font-family: var(--body); font-size: 11px; letter-spacing: .16em;
   text-transform: uppercase; color: var(--teal); margin-bottom: 20px;
