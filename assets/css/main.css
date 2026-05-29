@@ -348,6 +348,59 @@ nav.nav-case {
 
 
 /* ============================================================
+   HOMEPAGE SKILLS SECTION
+   ============================================================ */
+.hp-skills { background: var(--cream); padding: 88px 56px; }
+.hp-skills-inner { max-width: 900px; margin: 0 auto; }
+.hp-skills-kicker {
+  font-family: var(--body); font-size: 11px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hp-skills-kicker::before { content: ''; display: block; width: 24px; height: 1px; background: var(--teal-light); }
+.hp-skills h2 {
+  font-family: var(--serif); font-size: 38px; font-weight: 400;
+  line-height: 1.15; letter-spacing: -.02em; color: var(--ink); margin-bottom: 48px;
+}
+.hp-skills h2 em { font-style: italic; color: var(--teal-light); font-weight: 400; font-family: var(--serif); }
+.hp-skills .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 0; }
+.hp-skills .skill-card {
+  background: var(--white); border: 1px solid var(--teal-pale);
+  border-radius: 16px; padding: 32px;
+  transition: box-shadow .3s, transform .3s;
+}
+.hp-skills .skill-card:hover { box-shadow: 0 8px 32px rgba(45,107,107,.1); transform: translateY(-3px); }
+.hp-skills .skill-icon {
+  width: 48px; height: 48px; background: var(--teal-pale);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.hp-skills .skill-icon svg { width: 24px; height: 24px; }
+.hp-skills .skill-title {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: 17px; font-weight: 600; letter-spacing: -.01em;
+  color: var(--ink); margin-bottom: 12px;
+}
+.hp-skills .skill-desc { font-family: var(--body); font-size: 14px; line-height: 1.75; color: var(--mid); }
+
+@media (max-width: 768px) {
+  .hp-skills { padding: 64px 24px; }
+  .hp-skills .skills-grid { grid-template-columns: 1fr; }
+  .hp-skills .skill-card { padding: 24px; }
+  .hp-skills h2 { font-size: 28px; }
+}
+@media (max-width: 390px) {
+  .hp-skills { padding: 40px 20px; }
+  .hp-skills-kicker { font-size: 10px; }
+  .hp-skills h2 { font-size: 24px; }
+  .hp-skills .skill-card { padding: 20px; }
+  .hp-skills .skill-title { font-size: 15px; }
+  .hp-skills .skill-desc { font-size: 13px; }
+  .hp-skills .skill-card:hover { transform: none; box-shadow: none; }
+}
+
+
+/* ============================================================
    ABOUT STRIP
    ============================================================ */
 .about-strip {
