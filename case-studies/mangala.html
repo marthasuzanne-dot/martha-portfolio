@@ -8,43 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<style>
-  .coming-soon-wrap {
-    min-height: calc(100vh - 120px);
-    display: flex; align-items: center; justify-content: center;
-    padding: 80px 40px;
-  }
-  @media (max-width: 390px) {
-    .coming-soon-wrap { padding: 60px 20px; }
-  }
-  .coming-soon-inner {
-    max-width: 560px; text-align: center;
-  }
-  .coming-soon-tag {
-    font-family: var(--body); font-size: 11px; letter-spacing: .16em;
-    text-transform: uppercase; color: var(--teal); margin-bottom: 24px;
-    display: flex; align-items: center; justify-content: center; gap: 12px;
-  }
-  .coming-soon-tag::before,
-  .coming-soon-tag::after { content: ''; display: block; width: 24px; height: 1px; background: var(--teal-light); }
-  .coming-soon-wrap h1 {
-    font-family: var(--serif); font-size: clamp(28px, 4vw, 44px); font-weight: 400;
-    line-height: 1.12; letter-spacing: -.025em; margin-bottom: 20px; color: var(--ink);
-  }
-  .coming-soon-wrap h1 em { font-style: italic; color: var(--teal); }
-  .coming-soon-wrap p {
-    font-family: var(--body); font-size: 15px; color: var(--mid);
-    line-height: 1.8; margin-bottom: 40px;
-  }
-  .coming-soon-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--body); font-size: 11px; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--muted);
-    border: 1px solid var(--teal-pale); border-radius: 20px;
-    padding: 8px 18px; margin-bottom: 40px;
-  }
-  .coming-soon-badge .nav-dot { flex-shrink: 0; }
-</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
@@ -71,17 +35,221 @@
   </div>
 </nav>
 
-<div class="coming-soon-wrap">
-  <div class="coming-soon-inner reveal">
-    <p class="coming-soon-tag">Case Study &middot; 04 &middot; Nonprofit</p>
-    <h1>Mangala Shri Bhuti:<br><em>Members Site</em> Redesign</h1>
-    <p>A full redesign of the digital home for a Buddhist meditation community, from user research through a complete information architecture overhaul. The site is in production. The case study is in progress.</p>
-    <div class="coming-soon-badge">
-      <div class="nav-dot"></div>Case study in progress
+<!-- HERO -->
+<div class="case-hero reveal">
+  <p class="case-tag">Case Study &middot; 04 &middot; Nonprofit</p>
+  <h1>MSB Members Site: <em>Navigation</em> Redesign</h1>
+  <p class="lead">Members couldn't find resources they needed. I surveyed 53 members, reorganized the information architecture from a bloated sidebar to a focused mega menu, and surfaced high-priority resources on the homepage. The site is now in production.</p>
+  <div class="meta-row">
+    <div class="meta-item">
+      <div class="meta-label">Role</div>
+      <div class="meta-value">Lead Designer</div>
     </div>
-    <br>
-    <a href="../index.html" class="next-link" style="justify-content:center;">View all work</a>
+    <div class="meta-item" style="padding-left:20px">
+      <div class="meta-label">Duration</div>
+      <div class="meta-value">1 month<br>Jan 2026</div>
+    </div>
+    <div class="meta-item" style="padding-left:20px">
+      <div class="meta-label">Platform</div>
+      <div class="meta-value">Website<br>Redesign</div>
+    </div>
+    <div class="meta-item" style="padding-left:20px">
+      <div class="meta-label">Tools</div>
+      <div class="meta-value">Figma, Claude<br>&amp; WordPress</div>
+    </div>
   </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="img-full reveal">
+  <div class="img-placeholder" style="min-height:420px">Current homepage screenshot</div>
+</div>
+<div class="img-contained reveal" style="margin-top:-16px">
+  <p class="img-caption">Fig 01. MSB members site homepage, post-launch</p>
+</div>
+
+<!-- 01 THE CHALLENGE -->
+<div class="case-section reveal" style="padding-bottom: 0">
+  <p class="section-num">01</p>
+  <p class="section-kicker">The Challenge</p>
+  <h2>Only 21% of members found information <em>easily.</em></h2>
+  <p>The members site had six collapsing sidebar sections with dozens of links. Members reported difficulty finding resources and rarely used the site. Survey data showed 63.5% found navigation manageable but required effort. The search function was the top complaint. Course materials were buried. Basic tasks like paying dues were hard to locate.</p>
+  <p>Yet 84.9% visited for Study and Practice materials. The problem wasn't engagement. It was structure.</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- 02 RESEARCH & DISCOVERY -->
+<div class="case-section reveal" style="padding-bottom: 24px">
+  <p class="section-num">02</p>
+  <p class="section-kicker">Research &amp; Discovery</p>
+  <h2>The survey revealed exactly <em>what mattered.</em></h2>
+  <p>I conducted a member survey reaching 522 people with a 10.1% response rate — 53 members. The data was consistent. Study materials drove visits (84.9%), followed by Member Programs (75.5%) and Member Directory (45.3%). When asked what frustrated them, members cited navigation, search failures, and buried content.</p>
+  <p>When asked for improvements, navigation and table of contents appeared repeatedly. Members wanted faster access to the resources they already valued.</p>
+</div>
+
+<!-- Research charts -->
+<div class="charts-grid reveal" style="grid-template-columns: 1fr 1fr">
+  <div class="chart-card">
+    <p class="chart-kicker">Finding Information Experience</p>
+    <div class="chart-canvas-wrap">
+      <canvas id="experienceChart"></canvas>
+    </div>
+    <p class="img-caption">Fig 02. How members rated their ability to find information on the site</p>
+  </div>
+  <div class="chart-card">
+    <p class="chart-kicker">Top Frustrations by Members</p>
+    <div class="chart-canvas-wrap">
+      <canvas id="frustrationsChart"></canvas>
+    </div>
+    <p class="img-caption">Fig 03. Primary frustrations reported in the member survey</p>
+  </div>
+</div>
+
+<div class="case-section reveal" style="padding-bottom: 24px">
+  <h2>Visit patterns showed the highest-value <em>destinations.</em></h2>
+  <p>The survey asked members directly what brought them to the site. Three categories accounted for the majority of visits — and none of them were easy to find in the existing sidebar structure.</p>
+  <div class="decisions">
+    <div class="decision">
+      <p class="decision-num">84.9%</p>
+      <h3>Study and <em>Practice</em> materials</h3>
+      <p>The clear majority of visits were for practice support — liturgies, instructions, online sessions, and course materials. These were buried three levels deep in collapsing sidebar menus.</p>
+    </div>
+    <div class="decision">
+      <p class="decision-num">75.5%</p>
+      <h3>Member <em>Programs</em></h3>
+      <p>Program information, registration, and schedules were the second most-visited category. Members had to know exactly where to look. Discoverability was near zero for anyone new to the site.</p>
+    </div>
+    <div class="decision">
+      <p class="decision-num">45.3%</p>
+      <h3>Member <em>Directory</em></h3>
+      <p>Nearly half of members visited for the directory — one of the most consistently hard-to-find pages. It appeared in a collapsed sidebar section with no homepage shortcut.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- 03 DESIGN STRATEGY -->
+<div class="case-section reveal">
+  <p class="section-num">03</p>
+  <p class="section-kicker">Design Strategy</p>
+  <h2>A mega menu reorganized 35 pages into <em>7 categories.</em></h2>
+  <p>Rather than redesign the entire site, I focused on navigation. A horizontal mega menu at the top would surface high-traffic resources on the homepage while maintaining comprehensive navigation for deeper content.</p>
+  <p>The homepage got two jobs: quick access to the most-used pages — Member Directory, Calendar, Courses, Liturgies, Prayer Requests, Sangha Bulletin Board — and current updates. The mega menu handled the remaining 35 pages, organized by member intent: Programs, Courses, Practice Resources, Archives, Community, Seva, News.</p>
+
+  <div class="ai-callout">
+    <p class="ai-label">AI-Assisted Research Synthesis</p>
+    <p>Claude synthesized qualitative survey responses, revealing patterns in minutes rather than hours of manual review. The synthesis surfaced the distinction between <strong>navigation frustration</strong> (can't find the menu item) and <strong>search frustration</strong> (can't find the content once there) — which shaped the two-part solution of mega menu plus homepage shortcuts.</p>
+  </div>
+
+  <div class="decisions" style="margin-top:36px">
+    <div class="decision">
+      <p class="decision-num">Constraint</p>
+      <h3>No full <em>rebuild</em></h3>
+      <p>The WordPress theme was staying. The approach had to work within the existing infrastructure. That constraint focused the solution: information architecture and navigation, not a new design system.</p>
+    </div>
+    <div class="decision">
+      <p class="decision-num">Homepage</p>
+      <h3>Quick access to <em>six resources</em></h3>
+      <p>Surface the highest-traffic destinations directly on the homepage — no navigation required. Directory, Calendar, Courses, Liturgies, Prayer Requests, Bulletin Board. Everything else lives in the mega menu.</p>
+    </div>
+    <div class="decision">
+      <p class="decision-num">Mega Menu</p>
+      <h3>35 pages into <em>7 categories</em></h3>
+      <p>Organize by member intent rather than site structure. Programs, Courses, Practice Resources, Archives, Community, Seva, News. Each category maps to a real reason someone visits the site.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- 04 DESIGN EXECUTION -->
+<div class="case-section reveal" style="padding-bottom: 0">
+  <p class="section-num">04</p>
+  <p class="section-kicker">Design Execution</p>
+  <h2>From survey data to stakeholder approval to <em>production.</em></h2>
+  <p>I started with wireframes in Google Slides. The first version combined Study and Practice into one dropdown. Stakeholders flagged it as cramped. I split it into Courses and Practice Resources. Clearer immediately.</p>
+  <p>Each mega menu section got intentional grouping. Courses distinguished between Practice Courses, Study Courses, and Foundational offerings. Practice Resources held daily practice, online sessions, and ritual materials. Each section felt scannable.</p>
+  <p>High-fidelity mockups in Figma showed the full page and each mega menu section. Button labels followed a consistent pattern: VIEW for browsing, ACCESS for gated content, DONATE for transactions. Copy was tightened throughout.</p>
+
+  <div class="decisions" style="margin-top:36px">
+    <div class="decision">
+      <p class="decision-num">Version 01</p>
+      <h3>Study and Practice as <em>one dropdown</em></h3>
+      <p>The first pass grouped all study and practice content into a single mega menu column. Stakeholders reviewed it and flagged crowding — too many items, no clear hierarchy within the section.</p>
+    </div>
+    <div class="decision">
+      <p class="decision-num">Revision</p>
+      <h3>Split into Courses and <em>Practice Resources</em></h3>
+      <p>Separating them made the distinction explicit: Courses for structured learning, Practice Resources for daily and ritual materials. The change was immediately legible. I revised rather than defended.</p>
+    </div>
+    <div class="decision">
+      <p class="decision-num">Stakeholder Challenge</p>
+      <h3>Proposed a <em>double-menu</em> system</h3>
+      <p>The team initially suggested running two menus — the original sidebar alongside the new mega menu. Survey data explained why: breaking navigation conventions would split member attention and increase confusion. Eventually they agreed.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Execution images -->
+<div class="img-wide reveal" style="margin-top: 48px">
+  <div class="img-placeholder" style="min-height:360px">Current vs. old homepage — side by side comparison</div>
+  <p class="img-caption">Fig 04. Homepage before and after: sidebar navigation replaced with quick-access cards and mega menu</p>
+</div>
+
+<div class="img-wide reveal">
+  <div class="img-placeholder" style="min-height:320px">Mega menu detail — category groupings and link hierarchy</div>
+  <p class="img-caption">Fig 05. Mega menu detail showing Courses and Practice Resources sections</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- 05 OUTCOMES -->
+<div class="case-section reveal">
+  <p class="section-num">05</p>
+  <p class="section-kicker">Outcomes</p>
+  <h2>The site launched in Q1 2026. Members <em>access resources faster.</em></h2>
+  <p>No major engineering work was required. The mega menu integrated into the existing WordPress theme. The new homepage made frequently-needed pages immediately visible. The information architecture created a scalable pattern for future additions.</p>
+  <div class="outcomes-grid">
+    <div class="outcome-card">
+      <div class="outcome-num">53</div>
+      <div class="outcome-label">Members surveyed from a reach of 522 — a 10.1% response rate that produced statistically useful signal</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num">84.9<em>%</em></div>
+      <div class="outcome-label">Of members visited for Study and Practice materials — the category most buried in the original sidebar structure</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num">35<em> → 7</em></div>
+      <div class="outcome-label">Pages reorganized from a flat sidebar into seven intent-based mega menu categories</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num">0</div>
+      <div class="outcome-label">Major engineering changes required — the redesign integrated fully into the existing WordPress theme</div>
+    </div>
+  </div>
+</div>
+
+<!-- REFLECTION -->
+<div class="reflection">
+  <div class="reflection-inner reveal">
+    <p class="section-kicker">Reflection</p>
+    <h2>Revise rather than <em>defend.</em></h2>
+    <p>Using AI changed my process. Claude synthesized qualitative survey data in minutes, freeing time for strategy over data processing. That shift — from analysis to decision-making — was where the project moved fastest.</p>
+    <p>Stakeholder management required backing decisions with evidence. When the team proposed a double-menu system, survey data provided the argument: members were already struggling with one navigation structure. Adding a second would increase confusion, not reduce it. Eventually they agreed.</p>
+    <p>The split of Practice into two sections came from feedback after the first pass showed crowding. Revising rather than defending that decision produced a cleaner result and built stakeholder trust for the rest of the project.</p>
+    <p><strong>What I would do differently:</strong> test the mega menu prototype with actual members before finalizing. Stakeholder feedback was valuable, but user testing would have validated category names against actual mental models — and might have surfaced a naming issue before production.</p>
+  </div>
+</div>
+
+<!-- NEXT CASE -->
+<div class="next-case reveal">
+  <div>
+    <p class="next-label">Next Case Study</p>
+    <p class="next-title">Ourself Health: <em>Integration-Ready</em> Metrics System</p>
+  </div>
+  <a href="ourself-health.html" class="next-link">View case study</a>
 </div>
 
 <footer>
@@ -92,12 +260,87 @@
 <script>
   window.addEventListener('scroll', () => {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
   }, { passive: true });
 
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.07 });
+  }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Charts
+  Chart.defaults.font.family = "'Hanken Grotesk', sans-serif";
+  Chart.defaults.font.size = 11;
+  Chart.defaults.color = '#556666';
+
+  const msbBlue    = '#203574';
+  const msbGold    = '#F2A301';
+  const msbRed     = '#BF442E';
+  const msbMidBlue = '#4C5D90';
+  const msbGray    = '#c0c6cf';
+
+  const sharedOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '62%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          padding: 14,
+          usePointStyle: true,
+          pointStyle: 'circle',
+          pointStyleWidth: 8,
+          font: { size: 11 }
+        }
+      },
+      tooltip: {
+        backgroundColor: '#1a2828',
+        bodyColor: '#f6f2eb',
+        bodyFont: { size: 12, weight: '400' },
+        padding: 12,
+        cornerRadius: 6,
+        displayColors: true,
+        boxWidth: 10,
+        boxHeight: 10,
+        boxPadding: 5,
+        callbacks: {
+          title: () => '',
+          label: (ctx) => `  ${ctx.label} — ${ctx.formattedValue}%`
+        }
+      }
+    },
+    animation: { animateRotate: true, duration: 900, easing: 'easeInOutQuart' }
+  };
+
+  new Chart(document.getElementById('experienceChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Very easy', 'Manageable', 'Difficult'],
+      datasets: [{
+        data: [21.2, 63.5, 15.4],
+        backgroundColor: [msbBlue, msbGold, msbRed],
+        borderWidth: 0,
+        hoverOffset: 10
+      }]
+    },
+    options: sharedOptions
+  });
+
+  new Chart(document.getElementById('frustrationsChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Finding what they want', 'Search function', 'Navigation', 'Site speed', 'Other issues'],
+      datasets: [{
+        data: [21, 13, 11, 8, 47],
+        backgroundColor: [msbBlue, msbRed, msbGold, msbMidBlue, msbGray],
+        borderWidth: 0,
+        hoverOffset: 10
+      }]
+    },
+    options: sharedOptions
+  });
 </script>
 </body>
 </html>
