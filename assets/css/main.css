@@ -351,8 +351,8 @@ nav.nav-case {
 /* ============================================================
    HOMEPAGE SKILLS SECTION
    ============================================================ */
-.hp-skills { background: var(--cream); padding: 88px 56px; }
-.hp-skills-inner { max-width: 1160px; margin: 0 auto; }
+.hp-skills { background: var(--cream); padding: 88px 0; }
+.hp-skills-inner { max-width: 1160px; margin: 0 auto; padding: 0 56px; }
 .hp-skills-kicker {
   font-family: var(--body); font-size: 11px; letter-spacing: .16em;
   text-transform: uppercase; color: var(--teal); margin-bottom: 20px;
@@ -385,13 +385,15 @@ nav.nav-case {
 .hp-skills .skill-desc { font-family: var(--body); font-size: 14px; line-height: 1.75; color: var(--mid); }
 
 @media (max-width: 768px) {
-  .hp-skills { padding: 64px 24px; }
+  .hp-skills { padding: 64px 0; }
+  .hp-skills-inner { padding: 0 24px; }
   .hp-skills .skills-grid { grid-template-columns: 1fr; }
   .hp-skills .skill-card { padding: 24px; }
   .hp-skills h2 { font-size: 28px; }
 }
 @media (max-width: 390px) {
-  .hp-skills { padding: 40px 20px; }
+  .hp-skills { padding: 40px 0; }
+  .hp-skills-inner { padding: 0 20px; }
   .hp-skills-kicker { font-size: 10px; }
   .hp-skills h2 { font-size: 24px; }
   .hp-skills .skill-card { padding: 20px; }
