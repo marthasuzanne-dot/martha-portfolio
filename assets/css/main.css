@@ -216,7 +216,7 @@ nav.nav-case {
    ============================================================ */
 .hero-photo-wrap { position: relative; opacity: 0; animation: fadeUp .9s .35s forwards; }
 .photo-clip { overflow: hidden; border-radius: var(--radius); position: relative; cursor: none; }
-.hero-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center 15%; display: block; filter: saturate(.9); }
+.hero-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center 20%; display: block; filter: saturate(.9); }
 
 .photo-overlay {
   position: absolute; inset: 0;
@@ -821,7 +821,7 @@ footer {
   .hero-wrap { padding: 0 20px; }
   .hero { grid-template-columns: 1fr; gap: 32px; padding: 88px 0 56px; }
   .hero-photo-wrap { order: -1; max-width: 100%; }
-  .hero-photo { aspect-ratio: 4/3; object-position: center 15%; }
+  .hero-photo { aspect-ratio: 4/3; object-position: center 20%; }
   .photo-overlay { padding: 20px; }
   .overlay-location { font-size: 12px; }
   .overlay-tags { gap: 6px; }
