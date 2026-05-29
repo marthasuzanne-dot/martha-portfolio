@@ -271,7 +271,8 @@ nav.nav-case {
   display: flex; justify-content: space-between; align-items: baseline;
   margin-bottom: 52px; padding-bottom: 16px; border-bottom: 1px solid var(--teal-pale);
 }
-.section-label { font-family: var(--body); font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.section-label { font-family: var(--body); font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 12px; }
+.section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--muted); }
 .section-count { font-family: var(--body); font-size: 10px; letter-spacing: .11em; text-transform: uppercase; color: var(--muted); }
 
 .project-row {
