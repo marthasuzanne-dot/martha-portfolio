@@ -16,7 +16,26 @@
     box-shadow: 0 12px 48px rgba(0,0,0,.13);
     overflow: hidden;
     width: 100%;
+    position: relative;
   }
+  .scroll-hint {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 32px 0 14px;
+    background: linear-gradient(transparent, rgba(255,255,255,.9));
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-family: var(--body);
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  .device-browser:hover .scroll-hint { opacity: 1; }
   .device-bar {
     background: #ebebeb;
     padding: 10px 14px;
@@ -212,6 +231,7 @@
         <img src="../assets/images/cs-msb-homepage-v2.jpg" alt="MSB members site homepage after redesign">
       </div>
     </div>
+    <div class="scroll-hint">&#8597;&nbsp;&nbsp;Scroll to explore</div>
   </div>
 </div>
 <div class="img-contained reveal" style="margin-top:-16px">
@@ -333,6 +353,7 @@
             <img src="../assets/images/cs-msb-before.jpg" alt="MSB members site before redesign">
           </div>
         </div>
+        <div class="scroll-hint">&#8597;&nbsp;&nbsp;Scroll to explore</div>
       </div>
     </div>
     <div>
@@ -351,6 +372,7 @@
             <img src="../assets/images/cs-msb-homepage-v2.jpg" alt="MSB members site after redesign">
           </div>
         </div>
+        <div class="scroll-hint">&#8597;&nbsp;&nbsp;Scroll to explore</div>
       </div>
     </div>
   </div>
