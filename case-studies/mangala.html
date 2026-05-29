@@ -394,6 +394,7 @@
 <div class="reveal" style="max-width:920px;margin:48px auto;padding:0 40px;">
   <div id="menuOuter">
     <div id="menuTrack">
+      <img src="../assets/images/cs-msb-menu-practice.jpg" alt="Practice Resources mega menu dropdown">
       <img src="../assets/images/cs-msb-menu-study.jpg" alt="Study mega menu dropdown">
       <img src="../assets/images/cs-msb-menu-community.jpg" alt="Community mega menu dropdown">
       <img src="../assets/images/cs-msb-menu-archive.jpg" alt="Archive mega menu dropdown">
@@ -405,7 +406,7 @@
   <div class="menu-controls">
     <button class="menu-arrow" id="menuPrev" aria-label="Previous">&#8592;</button>
     <div class="menu-center">
-      <span class="menu-label-text" id="menuLabel">Study</span>
+      <span class="menu-label-text" id="menuLabel">Practice Resources</span>
       <div class="menu-dot-row" id="menuDots">
         <button class="menu-dot-btn active" data-i="0"></button>
         <button class="menu-dot-btn" data-i="1"></button>
@@ -413,12 +414,13 @@
         <button class="menu-dot-btn" data-i="3"></button>
         <button class="menu-dot-btn" data-i="4"></button>
         <button class="menu-dot-btn" data-i="5"></button>
+        <button class="menu-dot-btn" data-i="6"></button>
       </div>
     </div>
-    <span class="menu-counter" id="menuCounter">1 / 6</span>
+    <span class="menu-counter" id="menuCounter">1 / 7</span>
     <button class="menu-arrow" id="menuNext" aria-label="Next">&#8594;</button>
   </div>
-  <p class="img-caption" style="margin-top:8px">Fig 05. Mega menu — 6 categories organized by member intent. Click arrows to explore each dropdown.</p>
+  <p class="img-caption" style="margin-top:8px">Fig 05. Mega menu — 7 categories organized by member intent. Click arrows to explore each dropdown.</p>
 </div>
 
 <div class="divider"><hr></div>
@@ -562,7 +564,7 @@
 
   // Mega menu carousel
   (function() {
-    const labels = ['Study','Community','Archive','Programs','Seva','News'];
+    const labels = ['Practice Resources','Study','Community','Archive','Programs','Seva','News'];
     const outer  = document.getElementById('menuOuter');
     const track  = document.getElementById('menuTrack');
     const dots   = document.querySelectorAll('#menuDots .menu-dot-btn');
