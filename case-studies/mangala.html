@@ -95,14 +95,15 @@
   }
 
   /* Mega menu paginator */
-  .menu-slider-wrap { overflow: hidden; position: relative; }
+  .menu-slider-wrap { overflow: hidden; position: relative; width: 100%; display: block; }
   .menu-slider-track {
     display: flex;
+    width: 100%;
     transition: transform .4s cubic-bezier(.4,0,.2,1);
     will-change: transform;
   }
-  .menu-slide { min-width: 100%; flex-shrink: 0; }
-  .menu-slide img { width: 100%; display: block; }
+  .menu-slide { flex: 0 0 100%; width: 100%; min-width: 0; }
+  .menu-slide img { width: 100%; display: block; height: auto; }
   .menu-controls {
     display: flex;
     align-items: center;
