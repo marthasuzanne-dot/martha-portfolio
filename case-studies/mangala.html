@@ -185,7 +185,7 @@
     <ul class="nav-links">
       <li><a href="../index.html#work">Work</a></li>
       <li><a href="../about.html">About</a></li>
-      <li><a href="mailto:marthaasselin@gmail.com">Contact</a></li>
+      <li><a href="#" onclick="copyEmail();return false;">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -496,6 +496,17 @@
 </footer>
 
 <script>
+  function copyEmail() {
+    navigator.clipboard.writeText('marthaasselin@gmail.com').then(() => {
+      let t = document.getElementById('copyToast');
+      if (!t) { t = document.createElement('div'); t.id = 'copyToast'; t.className = 'copy-toast'; document.body.appendChild(t); }
+      t.textContent = 'Copied — marthaasselin@gmail.com';
+      t.classList.add('show');
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.remove('show'), 2400);
+    }).catch(() => { window.location.href = 'mailto:marthaasselin@gmail.com'; });
+  }
+
   window.addEventListener('scroll', () => {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
     const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;

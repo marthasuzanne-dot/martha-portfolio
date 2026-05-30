@@ -24,10 +24,8 @@
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
-<body class="has-cursor">
+<body>
 
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 <div class="progress-bar" id="progressBar"></div>
 
 <nav class="nav-home" id="mainNav">
@@ -46,7 +44,7 @@
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="mailto:marthaasselin@gmail.com">Contact</a></li>
+      <li><a href="#" onclick="copyEmail();return false;">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -58,7 +56,7 @@
       <h1>I design for purpose-driven organizations, leading with strategy and finding the <em>potential</em> in every problem.</h1>
       <p class="hero-sub">With a background in psychology and user research, I start with people before I start solving. Every project holds more potential than it arrives with. My job is to find it.</p>
       <div class="hero-ctas">
-        <a href="mailto:marthaasselin@gmail.com" class="btn-primary"><span>Contact</span></a>
+        <button class="btn-primary" onclick="copyEmail()"><span>Contact</span></button>
         <a href="assets/Martha_Asselin_Resume.pdf" target="_blank" class="btn-secondary">Resume</a>
       </div>
     </div>
@@ -109,7 +107,7 @@
   </div>
 
   <a href="case-studies/ourself-health.html" style="text-decoration:none;color:inherit;display:block;width:100%;">
-    <div class="project-row reveal d1" style="cursor:pointer;">
+    <div class="project-row reveal d1">
       <span class="proj-num">(01)</span>
       <div>
         <div class="proj-tags"><span class="tag">Health Tech</span><span class="tag">UX Design</span><span class="tag">AI Workflow</span></div>
@@ -126,7 +124,7 @@
   </a>
 
   <a href="case-studies/green-chef.html" style="text-decoration:none;color:inherit;display:block;width:100%;">
-    <div class="project-row reveal d2" style="cursor:pointer;">
+    <div class="project-row reveal d2">
       <span class="proj-num">(02)</span>
       <div>
         <div class="proj-tags"><span class="tag">B2C E-commerce</span><span class="tag">Retention</span><span class="tag">Research-Led</span></div>
@@ -143,7 +141,7 @@
   </a>
 
   <a href="case-studies/polly-banerjee.html" style="text-decoration:none;color:inherit;display:block;width:100%;">
-    <div class="project-row reveal d3" style="cursor:pointer;">
+    <div class="project-row reveal d3">
       <span class="proj-num">(03)</span>
       <div>
         <div class="proj-tags"><span class="tag">Healthcare</span><span class="tag">AI-Enhanced</span><span class="tag">End-to-End</span></div>
@@ -160,7 +158,7 @@
   </a>
 
   <a href="case-studies/mangala.html" style="text-decoration:none;color:inherit;display:block;width:100%;">
-    <div class="project-row reveal d3" style="cursor:pointer;">
+    <div class="project-row reveal d3">
       <span class="proj-num">(04)</span>
       <div>
         <div class="proj-tags"><span class="tag">UX Research</span><span class="tag">Information Architecture</span><span class="tag">AI-Led Process</span></div>
@@ -262,7 +260,7 @@
 <section class="contact" id="contact">
   <div class="contact-left reveal">
     <h2>Let's build something <em>thoughtful</em> together.</h2>
-    <a href="mailto:marthaasselin@gmail.com" class="contact-email">marthaasselin@gmail.com <span class="link-arrow" aria-hidden="true">&nearr;</span></a>
+    <button class="contact-email" onclick="copyEmail()">marthaasselin@gmail.com <span class="link-arrow" aria-hidden="true">&nearr;</span></button>
   </div>
   <div class="contact-right reveal d2">
     <div class="cg"><h4>Role</h4><p>UX Designer</p><p>Project Manager</p></div>
@@ -278,24 +276,16 @@
 </footer>
 
 <script>
-  const dot = document.getElementById('cursorDot');
-  const ring = document.getElementById('cursorRing');
-  let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
-
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX; mouseY = e.clientY;
-    dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px';
-  });
-  (function animateRing() {
-    ringX += (mouseX - ringX) * .12; ringY += (mouseY - ringY) * .12;
-    ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px';
-    requestAnimationFrame(animateRing);
-  })();
-
-  document.querySelectorAll('a,button,.project-row,.pill,.nav-logo').forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-  });
+  function copyEmail() {
+    navigator.clipboard.writeText('marthaasselin@gmail.com').then(() => {
+      let t = document.getElementById('copyToast');
+      if (!t) { t = document.createElement('div'); t.id = 'copyToast'; t.className = 'copy-toast'; document.body.appendChild(t); }
+      t.textContent = 'Copied — marthaasselin@gmail.com';
+      t.classList.add('show');
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.remove('show'), 2400);
+    }).catch(() => { window.location.href = 'mailto:marthaasselin@gmail.com'; });
+  }
 
   window.addEventListener('scroll', () => {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
