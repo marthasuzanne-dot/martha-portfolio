@@ -240,7 +240,7 @@ nav.nav-case {
 .ticker-wrap { overflow: hidden; padding: 14px 0; background: var(--ink); }
 .ticker { display: flex; white-space: nowrap; animation: ticker 60s linear infinite; }
 .ticker-item { font-family: var(--body); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--cream); padding: 0 36px; flex-shrink: 0; }
-.ticker-item .dot { color: var(--gold); margin-right: 10px; }
+.ticker-item .dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); margin-right: 10px; vertical-align: middle; }
 @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
 
