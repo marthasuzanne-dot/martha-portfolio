@@ -16,16 +16,37 @@
     margin-top: 40px;
   }
   .outside-card {
-    background: var(--white);
     border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: 0 2px 20px rgba(0,0,0,.07);
+    box-shadow: 0 2px 20px rgba(0,0,0,.08);
   }
+  /* Color themes */
+  .outside-card.theme-bronze { background: #f5ede0; }
+  .outside-card.theme-earth  { background: #eceadf; }
+  .outside-card.theme-sky    { background: #dde8ee; }
+
+  /* Side-by-side image pair */
+  .outside-img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+  .outside-img-pair > div { overflow: hidden; }
+  .outside-img-pair img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease;
+  }
+  .outside-card:hover .outside-img-pair img { transform: scale(1.04); }
+
+  /* Single image */
   .outside-img {
     width: 100%;
     aspect-ratio: 4 / 3;
     overflow: hidden;
-    background: var(--cream-dark);
   }
   .outside-img img {
     width: 100%; height: 100%;
@@ -33,30 +54,27 @@
     display: block;
     transition: transform .4s ease;
   }
-  .outside-card:hover .outside-img img { transform: scale(1.03); }
+  .outside-card:hover .outside-img img { transform: scale(1.04); }
+
   .outside-body { padding: 20px 24px 26px; }
-  .outside-tag {
-    font-family: var(--body);
-    font-size: 10px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 10px;
-  }
   .outside-card h3 {
     font-family: var(--serif);
     font-size: 1.15rem;
     font-weight: 400;
     line-height: 1.35;
-    color: var(--ink);
     margin-bottom: 10px;
   }
+  .theme-bronze h3 { color: #6b3d10; }
+  .theme-earth  h3 { color: #3a4020; }
+  .theme-sky    h3 { color: #1e3d54; }
   .outside-card p {
     font-size: 0.875rem;
-    color: var(--mid);
     line-height: 1.65;
     margin: 0;
   }
+  .theme-bronze p { color: #7a5535; }
+  .theme-earth  p { color: #4a5030; }
+  .theme-sky    p { color: #3a5568; }
   @media (max-width: 720px) {
     .outside-grid { grid-template-columns: 1fr; }
   }
@@ -127,36 +145,34 @@
   <h2>What I return to <em>beyond the screen.</em></h2>
   <div class="outside-grid">
 
-    <div class="outside-card">
-      <div class="outside-img">
-        <img src="assets/images/outside-restoration.jpg" alt="Buddhist statue restoration">
+    <div class="outside-card theme-bronze">
+      <div class="outside-img-pair">
+        <div><img src="assets/images/outside-statue-1.jpg" alt="Buddhist statue restoration"></div>
+        <div><img src="assets/images/outside-statue-2.jpg" alt="Buddhist statue restoration"></div>
       </div>
       <div class="outside-body">
-        <p class="outside-tag">Sacred Craft</p>
         <h3>Buddhist Statue <em>Restoration</em></h3>
-        <p>Cleaning, repairing, and regilding antique Tibetan statues. A meditative practice that connects careful craft to something much older than design systems.</p>
+        <p>Cleaning, repairing, and regilding antique statues. A meditative practice that connects careful craft to something much older than design systems.</p>
       </div>
     </div>
 
-    <div class="outside-card">
+    <div class="outside-card theme-earth">
       <div class="outside-img">
-        <img src="assets/images/outside-travel.jpg" alt="Travel">
+        <img src="assets/images/outside-travel.jpg" alt="Travel — Athens, Greece">
       </div>
       <div class="outside-body">
-        <p class="outside-tag">Adventure</p>
         <h3>Travel</h3>
         <p>Seeking places with deep history, unfamiliar food, and the kind of context you can only get by being there. The slower the itinerary, the better.</p>
       </div>
     </div>
 
-    <div class="outside-card">
+    <div class="outside-card theme-sky">
       <div class="outside-img">
-        <img src="assets/images/outside-sommelier.jpg" alt="Wine and sommelier study">
+        <img src="assets/images/outside-photography.jpg" alt="Photography">
       </div>
       <div class="outside-body">
-        <p class="outside-tag">The Table</p>
-        <h3><em>Sommelier</em> Studies</h3>
-        <p>Working toward certification. Wine pairing is a design problem — balance, contrast, and knowing when to let one element lead and the other support.</p>
+        <h3>Photography</h3>
+        <p>Finding the frame within the chaos. Light, texture, and atmosphere — the same principles that make a good interface make a compelling photograph.</p>
       </div>
     </div>
 
