@@ -108,15 +108,15 @@
   }
 
   /* Mega menu carousel */
-  #menuOuter { overflow: hidden; width: 100%; border-radius: var(--radius); }
-  #menuTrack {
+  #menuOuter, #mobileMenuOuter { overflow: hidden; width: 100%; border-radius: var(--radius); }
+  #menuTrack, #mobileMenuTrack {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100%;
     transition: transform .4s cubic-bezier(.4,0,.2,1);
     will-change: transform;
   }
-  #menuTrack img { width: 100%; height: auto; display: block; }
+  #menuTrack img, #mobileMenuTrack img { width: 100%; height: auto; display: block; }
   .menu-controls {
     display: flex;
     align-items: center;
@@ -454,7 +454,7 @@
   </div>
 </div>
 
-<!-- Mobile carousel — Fig 07 -->
+<!-- Mega menu carousel — Fig 07 -->
 <div class="reveal" style="max-width:400px;margin:32px auto 0;padding:0 40px;">
   <div id="menuOuter">
     <div id="menuTrack">
@@ -484,7 +484,40 @@
     <span class="menu-counter" id="menuCounter">1 / 7</span>
     <button class="menu-arrow" id="menuNext" aria-label="Next">&#8594;</button>
   </div>
-  <p class="img-caption" style="margin-top:8px">Fig 07. Mobile navigation — 7 categories organized by member intent. Tap arrows to explore each section.</p>
+  <p class="img-caption" style="margin-top:8px">Fig 07. Mega menu — 7 categories organized by member intent. Tap arrows to explore each section.</p>
+</div>
+
+<!-- Mobile dropdown carousel — Fig 08 -->
+<div class="reveal" style="max-width:400px;margin:32px auto 0;padding:0 40px;">
+  <div id="mobileMenuOuter">
+    <div id="mobileMenuTrack">
+      <img src="../assets/images/cs-msb-mobile-menu-practice.jpg" alt="Practice Resources mobile dropdown">
+      <img src="../assets/images/cs-msb-mobile-menu-study.jpg" alt="Study mobile dropdown">
+      <img src="../assets/images/cs-msb-mobile-menu-community.jpg" alt="Community mobile dropdown">
+      <img src="../assets/images/cs-msb-mobile-menu-archive.jpg" alt="Archive mobile dropdown">
+      <img src="../assets/images/cs-msb-mobile-menu-programs.jpg" alt="Programs mobile dropdown">
+      <img src="../assets/images/cs-msb-mobile-menu-seva.jpg" alt="Seva mobile dropdown">
+      <img src="../assets/images/cs-msb-mobile-menu-news.jpg" alt="News mobile dropdown">
+    </div>
+  </div>
+  <div class="menu-controls">
+    <button class="menu-arrow" id="mobileMenuPrev" aria-label="Previous">&#8592;</button>
+    <div class="menu-center">
+      <span class="menu-label-text" id="mobileMenuLabel">Practice Resources</span>
+      <div class="menu-dot-row" id="mobileMenuDots">
+        <button class="menu-dot-btn active" data-i="0"></button>
+        <button class="menu-dot-btn" data-i="1"></button>
+        <button class="menu-dot-btn" data-i="2"></button>
+        <button class="menu-dot-btn" data-i="3"></button>
+        <button class="menu-dot-btn" data-i="4"></button>
+        <button class="menu-dot-btn" data-i="5"></button>
+        <button class="menu-dot-btn" data-i="6"></button>
+      </div>
+    </div>
+    <span class="menu-counter" id="mobileMenuCounter">1 / 7</span>
+    <button class="menu-arrow" id="mobileMenuNext" aria-label="Next">&#8594;</button>
+  </div>
+  <p class="img-caption" style="margin-top:8px">Fig 08. Mobile dropdown — 7 categories organized by member intent. Tap arrows to explore each section.</p>
 </div>
 
 <div class="divider"><hr></div>
@@ -661,6 +694,29 @@
     dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
   })();
 
+  // Mobile dropdown carousel
+  (function() {
+    const labels = ['Practice Resources','Study','Community','Archive','Programs','Seva','News'];
+    const outer  = document.getElementById('mobileMenuOuter');
+    const track  = document.getElementById('mobileMenuTrack');
+    const dots   = document.querySelectorAll('#mobileMenuDots .menu-dot-btn');
+    const label  = document.getElementById('mobileMenuLabel');
+    const counter= document.getElementById('mobileMenuCounter');
+    let cur = 0;
+
+    function goTo(n) {
+      cur = (n + labels.length) % labels.length;
+      track.style.transform = `translateX(-${cur * outer.offsetWidth}px)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+      label.textContent = labels[cur];
+      counter.textContent = `${cur + 1} / ${labels.length}`;
+    }
+
+    window.addEventListener('resize', () => goTo(cur));
+    document.getElementById('mobileMenuPrev').addEventListener('click', () => goTo(cur - 1));
+    document.getElementById('mobileMenuNext').addEventListener('click', () => goTo(cur + 1));
+    dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
+  })();
 
   // Interactive auto-scroll device frames
   document.querySelectorAll('.device-scroll-wrap').forEach(wrap => {
