@@ -71,7 +71,7 @@
 <div class="case-section reveal" style="padding-bottom: 0">
   <p class="section-num">01</p>
   <p class="section-kicker">The Challenge</p>
-  <h2>Designing for placeholder and <em>integrated</em> states at once.</h2>
+  <h2>Designing for placeholder and <em>integrated</em> states at once</h2>
   <p>Ourself Health is a wellness app built around longevity and daily habit tracking. Their core product aggregates fitness data from Apple Health and Fitbit into a single interface, giving users a unified view of their health across devices and platforms.</p>
   <p>They needed a fitness tracking interface that could work immediately with manual placeholder data and then transition seamlessly to live Apple Health and Fitbit integration when device syncing launched. The constraint was unusual: <strong>no original UX patterns, only exact replication of existing platform conventions</strong> so that future integration would require zero redesign.</p>
   <p>Many health metrics like gait cadence, asymmetry, and cycling speed are device-derived and not intuitive for users to self-report. The UI needed to account for both temporary manual states and eventual automatic syncing without creating two separate design systems.</p>
@@ -89,7 +89,7 @@
 <div class="case-section reveal" style="padding-bottom: 0">
   <p class="section-num">02</p>
   <p class="section-kicker">Research & Discovery</p>
-  <h2>Understanding how platforms <em>measure</em> things.</h2>
+  <h2>Understanding how platforms <em>measure</em> things</h2>
   <p>I conducted a comparative platform audit of Apple Health and Fitbit interfaces, documenting how each metric is measured, aggregated, represented visually, and expected to behave when device data is available. This wasn't just visual research. It required understanding the underlying data logic. I used Claude and ChatGPT throughout to pressure test whether my interpretations matched how these platforms behave.</p>
   <p>For example, step cadence in Fitbit is calculated continuously during activity and shown as a daily average in steps per minute, while Flights Climbed is a cumulative daily count. <strong>Understanding those distinctions was essential for classifying metrics and defining interface behavior correctly.</strong></p>
 </div>
@@ -106,7 +106,7 @@
 <div class="case-section reveal" style="padding-bottom: 0">
   <p class="section-num">03</p>
   <p class="section-kicker">Design Strategy</p>
-  <h2>A classification model that made every <em>decision</em> easier.</h2>
+  <h2>A classification model that made every <em>decision</em> easier</h2>
   <p>Based on the audit, I developed a metric classification model to guide all design decisions. Every metric fell into one of two categories, with clear rules for how each should behave in the interim manual state and at the point of device integration.</p>
   <div class="decisions">
     <div class="decision">
@@ -134,7 +134,7 @@
 <div class="case-section reveal" style="padding-bottom: 0">
   <p class="section-num">04</p>
   <p class="section-kicker">Design Execution</p>
-  <h2>21 metrics. Three states each. <em>Zero</em> ambiguity.</h2>
+  <h2>21 metrics. Three states each. <em>Zero</em> ambiguity</h2>
   <p>For each metric I mapped the corresponding Apple Health or Fitbit representation and built designs that precisely matched terminology and units, presentation patterns, and interaction expectations. Each metric included three states: empty entry, active data input, and collapsed summary.</p>
   <div class="decisions">
     <div class="decision">
@@ -173,7 +173,7 @@
 <div class="case-section reveal">
   <p class="section-num">05</p>
   <p class="section-kicker">Outcomes</p>
-  <h2>Delivered in <em>4 weeks.</em></h2>
+  <h2>Delivered in <em>4 weeks</em></h2>
   <p>The project delivered two distinct types of value: an immediate design deliverable and a longer-term strategic asset that the product team could use to categorize every metric that came after.</p>
   <div class="outcomes-grid">
     <div class="outcome-card">
@@ -199,7 +199,7 @@
 <div class="reflection">
   <div class="reflection-inner reveal">
     <p class="section-kicker">Reflection</p>
-    <h2>This project was a lesson in what <em>precision</em> requires.</h2>
+    <h2>This project was a lesson in what <em>precision</em> requires</h2>
     <p>This project strengthened my ability to work within tight product constraints while still producing clear, usable designs. When the constraint is exact replication, the craft is in the detail: accuracy of units, consistency of structure, precision of microcopy.</p>
     <p>It also reinforced how useful <strong>AI can be throughout the design process</strong>. Using AI to pressure test logic, validate research interpretations, and refine copy at scale let me move faster while maintaining the accuracy this type of health data demands.</p>
     <p><strong>What I'd do differently:</strong> I built the classification model mid-project after encountering metrics that didn't fit either category cleanly. If I'd established it in the first week, the research conversations with the product team would have been sharper from the start. We spent time in early check-ins debating edge cases that the framework would have resolved in a single conversation.</p>
