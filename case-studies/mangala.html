@@ -194,7 +194,7 @@
 <div class="case-hero reveal">
   <p class="case-tag">Case Study &middot; 04 &middot; Nonprofit</p>
   <h1>MSB Members Site: <em>Navigation</em> Redesign</h1>
-  <p class="lead">Members couldn't find resources they needed. I surveyed 53 members, reorganized the information architecture from a bloated sidebar to a focused mega menu, and surfaced high-priority resources on the homepage. The site is now in production.</p>
+  <p class="lead">The members site had a navigation problem everyone already knew about. My job was to fix it. I surveyed 53 members, used that data to reorganize 35 pages into a focused mega menu, and redesigned the homepage to surface what members needed. The site launched in Q1 2026 and is in production.</p>
   <div class="meta-row">
     <div class="meta-item">
       <div class="meta-label">Role</div>
@@ -242,17 +242,13 @@
 <div class="case-section reveal" style="padding-bottom: 0">
   <p class="section-num">01</p>
   <p class="section-kicker">The Challenge</p>
-  <h2>Only 21% of members found information <em>easily.</em></h2>
-  <p>The members site had six collapsing sidebar sections with dozens of links. Members reported difficulty finding resources and rarely used the site. Survey data showed 63.5% found navigation manageable but required effort. The search function was the top complaint. Course materials were buried. Basic tasks like paying dues were hard to locate.</p>
+  <h2>Members knew what they needed. They just <em>couldn't find it.</em></h2>
+  <p>The members site had a collapsible sidebar with six sections and dozens of nested links. Members were visiting regularly. Survey data showed 84.9% came for Study and Practice materials. But finding anything required effort. The search function consistently failed. Course materials were buried. The structure was getting in the way of people who already knew what they were looking for.</p>
 </div>
 
 <div class="img-contained reveal">
   <img src="../assets/images/cs-msb-sidebar.jpg" alt="MSB original sidebar navigation showing six collapsing sections">
   <p class="img-caption">Fig 02. Original sidebar navigation: six collapsing sections with dozens of links</p>
-</div>
-
-<div class="case-section reveal" style="padding-bottom: 0; padding-top: 0">
-  <p>Yet 84.9% visited for Study and Practice materials. The problem wasn't engagement. It was structure.</p>
 </div>
 
 <div class="divider"><hr></div>
@@ -261,7 +257,7 @@
 <div class="case-section reveal" style="padding-bottom: 24px">
   <p class="section-num">02</p>
   <p class="section-kicker">Research &amp; Discovery</p>
-  <h2>The survey revealed exactly <em>what mattered.</em></h2>
+  <h2>53 members told me where things were <em>breaking down.</em></h2>
   <p>I conducted a member survey reaching 522 people with a 10.1% response rate: 53 members. The data was consistent. Study materials drove visits (84.9%), followed by Member Programs (75.5%) and Member Directory (45.3%). When asked what frustrated them, members cited navigation, search failures, and buried content.</p>
   <p>When asked for improvements, navigation and table of contents appeared repeatedly. Members wanted faster access to the resources they already valued.</p>
 </div>
@@ -285,7 +281,7 @@
 </div>
 
 <div class="case-section reveal" style="padding-bottom: 24px">
-  <h2>Visit patterns showed the highest-value <em>destinations.</em></h2>
+  <h2>Three categories drove most visits. None were <em>easy to find.</em></h2>
   <p>The survey asked members directly what brought them to the site. Three categories accounted for the majority of visits, and none were easy to find in the existing sidebar structure.</p>
   <div class="decisions">
     <div class="decision">
@@ -312,29 +308,28 @@
 <div class="case-section reveal">
   <p class="section-num">03</p>
   <p class="section-kicker">Design Strategy</p>
-  <h2>A mega menu reorganized 35 pages into <em>7 categories.</em></h2>
-  <p>Rather than redesign the entire site, I focused on navigation. A horizontal mega menu at the top would surface high-traffic resources on the homepage while maintaining comprehensive navigation for deeper content.</p>
-  <p>The homepage got two jobs: quick access to the most-used pages (Member Directory, Calendar, Courses, Liturgies, Prayer Requests, Sangha Bulletin Board) and current updates. The mega menu handled the remaining 35 pages, organized by member intent: Programs, Courses, Practice Resources, Archives, Community, Seva, News.</p>
+  <h2>Two solutions for <em>two different problems.</em></h2>
+  <p>The problem had two parts. Members who knew what they wanted couldn't get there without effort. Members who were exploring couldn't make sense of what was available. I designed for both. The homepage got quick-access cards for the six most-visited pages: Directory, Calendar, Courses, Liturgies, Prayer Requests, and the Bulletin Board. The mega menu handled the remaining 35 pages, organized by what members come to the site for rather than how the content was structured internally.</p>
 
   <div class="ai-callout">
     <p class="ai-label">AI-Assisted Research Synthesis</p>
-    <p>Claude synthesized qualitative survey responses, revealing patterns in minutes rather than hours of manual review. The synthesis surfaced the distinction between <strong>navigation frustration</strong> (can't find the menu item) and <strong>search frustration</strong> (can't find the content once there), which shaped the two-part solution of mega menu plus homepage shortcuts.</p>
+    <p>I used Claude to synthesize the qualitative survey responses. What would have taken hours of manual review took minutes. The synthesis helped me see something that shaped the whole project: some members couldn't find the menu item they needed, while others found the menu item but couldn't locate the content. Two different frustrations. That's why the solution needed two parts.</p>
   </div>
 
   <div class="decisions" style="margin-top:36px">
     <div class="decision">
       <p class="decision-num">Constraint</p>
-      <h3>No full <em>rebuild</em></h3>
-      <p>The WordPress theme was staying. The approach had to work within the existing infrastructure. That constraint focused the solution: information architecture and navigation, not a new design system.</p>
+      <h3>Working within <em>what existed</em></h3>
+      <p>The WordPress theme wasn't changing. That was fine. It meant the work had to live in the information architecture and navigation, which is where the real problem was anyway.</p>
     </div>
     <div class="decision">
       <p class="decision-num">Homepage</p>
-      <h3>Quick access to <em>six resources</em></h3>
+      <h3>Surface what members <em>use most</em></h3>
       <p>Surface the highest-traffic destinations directly on the homepage, no navigation required. Directory, Calendar, Courses, Liturgies, Prayer Requests, Bulletin Board. Everything else lives in the mega menu.</p>
     </div>
     <div class="decision">
       <p class="decision-num">Mega Menu</p>
-      <h3>35 pages into <em>7 categories</em></h3>
+      <h3>Organize by intent, not by <em>site structure</em></h3>
       <p>Organize by member intent rather than site structure. Programs, Courses, Practice Resources, Archives, Community, Seva, News. Each category maps to a real reason someone visits the site.</p>
     </div>
   </div>
@@ -414,25 +409,23 @@
 <div class="case-section reveal" style="padding-bottom: 0">
   <p class="section-num">04</p>
   <p class="section-kicker">Design Execution</p>
-  <h2>From survey data to stakeholder approval to <em>production.</em></h2>
-  <p>I started with wireframes in Google Slides. The first version combined Study and Practice into one dropdown. Stakeholders flagged it as cramped. I split it into Courses and Practice Resources. Clearer immediately.</p>
-  <p>Each mega menu section got intentional grouping. Courses distinguished between Practice Courses, Study Courses, and Foundational offerings. Practice Resources held daily practice, online sessions, and ritual materials. Each section felt scannable.</p>
-  <p>High-fidelity mockups in Figma showed the full page and each mega menu section. Button labels followed a consistent pattern: VIEW for browsing, ACCESS for gated content, DONATE for transactions. Copy was tightened throughout.</p>
+  <h2>Wireframes, feedback, and one <em>meaningful pivot.</em></h2>
+  <p>I started with wireframes in Google Slides to move through the structural decisions before going into Figma for high-fidelity mockups. Once the architecture felt settled I worked through each mega menu section in detail. I paid attention to the button labels throughout. VIEW for browsing, ACCESS for gated content, DONATE for transactions. Consistent labeling made each section more scannable and reduced the cognitive load that had been frustrating members.</p>
 
   <div class="decisions" style="margin-top:36px">
     <div class="decision">
       <p class="decision-num">Version 01</p>
-      <h3>Study and Practice as <em>one dropdown</em></h3>
-      <p>The first pass grouped all study and practice content into a single mega menu column. Stakeholders reviewed it and flagged crowding: too many items, no clear hierarchy within the section.</p>
+      <h3>The first pass was <em>too crowded</em></h3>
+      <p>The first version grouped all study and practice content into one mega menu column. It was too much. Stakeholders flagged it and they were right. There was no clear hierarchy and the section felt hard to navigate.</p>
     </div>
     <div class="decision">
       <p class="decision-num">Revision</p>
-      <h3>Split into Courses and <em>Practice Resources</em></h3>
-      <p>Separating them made the distinction explicit: Courses for structured learning, Practice Resources for daily and ritual materials. The change was immediately legible. I revised rather than defended.</p>
+      <h3>Splitting it made <em>the difference</em></h3>
+      <p>Separating them into Courses and Practice Resources made the distinction clear. Courses for structured learning, Practice Resources for daily and ritual materials. It was easier to read and easier to use. I revised without hesitation.</p>
     </div>
     <div class="decision">
       <h3>The core design <em>question</em></h3>
-      <p>The core challenge was not whether to remove the sidebar, that was already agreed. The challenge was what to replace it with. With 35 pages of content and members visiting for a wide range of reasons, the question was how to surface what mattered without burying everything else. The mega menu solved the depth problem. The homepage quick-access cards solved the frequency problem. Together they gave members two ways in: fast access to what they used most, and a clear map to everything else.</p>
+      <p>Removing the sidebar was already agreed. The harder question was what to replace it with. With 35 pages of content and members visiting for a wide range of reasons, the challenge was how to surface what mattered without making everything else harder to find. The mega menu handled the depth. The homepage cards handled the frequency. Together they gave members two ways in depending on what they needed.</p>
     </div>
   </div>
 </div>
@@ -475,7 +468,7 @@
 <div class="case-section reveal">
   <p class="section-num">05</p>
   <p class="section-kicker">Outcomes</p>
-  <h2>The site launched in Q1 2026. Members <em>access resources faster.</em></h2>
+  <h2>Launched in Q1 2026. <em>No engineering work required.</em></h2>
   <p>No major engineering work was required. The mega menu integrated into the existing WordPress theme. The new homepage made frequently-needed pages immediately visible. The information architecture created a scalable pattern for future additions.</p>
   <div class="outcomes-grid">
     <div class="outcome-card">
@@ -501,11 +494,10 @@
 <div class="reflection">
   <div class="reflection-inner reveal">
     <p class="section-kicker">Reflection</p>
-    <h2>Revise rather than <em>defend.</em></h2>
-    <p>Using AI changed my process. Claude synthesized qualitative survey data in minutes, freeing time for strategy over data processing. That shift, from analysis to decision-making, was where the project moved fastest.</p>
-    <p>Stakeholder management required backing decisions with evidence. When the team proposed a double-menu system, survey data provided the argument: members were already struggling with one navigation structure. Adding a second would increase confusion, not reduce it. Eventually they agreed.</p>
-    <p>The split of Practice into two sections came from feedback after the first pass showed crowding. Revising rather than defending that decision produced a cleaner result and built stakeholder trust for the rest of the project.</p>
-    <p><strong>What I would do differently:</strong> test the mega menu prototype with actual members before finalizing. Stakeholder feedback was valuable, but user testing would have validated category names against actual mental models, and might have surfaced naming issues before production.</p>
+    <h2>What I learned <em>along the way.</em></h2>
+    <p>Using Claude to synthesize the survey data meant I could spend my time on the design decisions rather than sorting through qualitative responses. That freed up energy for the parts of the project that needed my judgment.</p>
+    <p>The pivot from one mega menu section to two came from stakeholder feedback after the first round of mockups. They were right to flag it. Revising without resistance built trust that carried through the rest of the project.</p>
+    <p>If I did this again I would test the mega menu with members before finalizing. Stakeholder feedback was useful but watching someone try to find what they need tells you something different. User testing would have validated the category names against real mental models and might have caught naming issues before the site went live.</p>
   </div>
 </div>
 
