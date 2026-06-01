@@ -526,7 +526,7 @@
   </div>
 </div>
 <div class="img-contained reveal" style="margin-top:-16px">
-  <p class="img-caption">Fig 01. MSB members' site homepage, post-launch</p>
+  <p class="img-caption">Fig 08. MSB Members' site homepage final design</p>
 </div>
 
 <div class="divider"><hr></div>
@@ -693,51 +693,6 @@
     dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
   })();
 
-  // Interactive auto-scroll device frames
-  document.querySelectorAll('.device-scroll-wrap').forEach(wrap => {
-    const img = wrap.querySelector('img');
-    const PAUSE_TOP  = 4000;
-    const PAUSE_BOT  = 8000;
-    const SCROLL_MS  = 17000;
-    let phase = 'pause_top', phaseElapsed = 0, last = null;
-    let userScrolling = false, resumeTimer = null, rafId = null;
-
-    function tick(ts) {
-      const dt = last ? Math.min(ts - last, 100) : 0;
-      last = ts;
-      const max = wrap.scrollHeight - wrap.clientHeight;
-      if (max > 0 && !userScrolling) {
-        phaseElapsed += dt;
-        if (phase === 'pause_top') {
-          if (phaseElapsed >= PAUSE_TOP) { phase = 'down'; phaseElapsed = 0; }
-        } else if (phase === 'down') {
-          wrap.scrollTop += (max / SCROLL_MS) * dt;
-          if (wrap.scrollTop >= max) { wrap.scrollTop = max; phase = 'pause_bot'; phaseElapsed = 0; }
-        } else if (phase === 'pause_bot') {
-          if (phaseElapsed >= PAUSE_BOT) { phase = 'up'; phaseElapsed = 0; }
-        } else if (phase === 'up') {
-          wrap.scrollTop -= (max / SCROLL_MS) * dt;
-          if (wrap.scrollTop <= 0) { wrap.scrollTop = 0; phase = 'pause_top'; phaseElapsed = 0; }
-        }
-      }
-      rafId = requestAnimationFrame(tick);
-    }
-
-    wrap.addEventListener('scroll', () => {
-      userScrolling = true;
-      clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(() => {
-        userScrolling = false;
-        const max = wrap.scrollHeight - wrap.clientHeight;
-        phase = wrap.scrollTop >= max - 10 ? 'pause_bot' : 'down';
-        phaseElapsed = 0;
-      }, 2500);
-    }, { passive: true });
-
-    const start = () => { rafId = requestAnimationFrame(tick); };
-    if (img.complete) start();
-    else img.addEventListener('load', start);
-  });
 </script>
 </body>
 </html>
