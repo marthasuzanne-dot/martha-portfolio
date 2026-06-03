@@ -67,14 +67,14 @@ nav.nav-home {
   display: flex; justify-content: space-between; align-items: center;
   padding: 22px 56px;
   border-bottom: 1px solid var(--teal-pale);
-  background: var(--cream);
+  background: var(--white);
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   transition: padding .35s, box-shadow .35s, background .35s;
 }
 nav.nav-home.scrolled {
   padding: 13px 56px;
   box-shadow: 0 1px 0 var(--teal-pale), 0 4px 28px rgba(26,40,40,.07);
-  background: rgba(246,242,235,.94);
+  background: rgba(250,248,244,.94);
   backdrop-filter: blur(14px);
 }
 .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
