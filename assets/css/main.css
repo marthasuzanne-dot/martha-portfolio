@@ -33,7 +33,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 }
 
 html { scroll-behavior: smooth; }
-body { background: var(--cream); color: var(--ink); font-family: var(--body); font-weight: 400; overflow-x: hidden; cursor: default; }
+body { background: var(--white); color: var(--ink); font-family: var(--body); font-weight: 400; overflow-x: hidden; cursor: default; }
 a, button, label, [role="button"] { cursor: default; }
 
 
