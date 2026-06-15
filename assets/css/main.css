@@ -788,7 +788,8 @@ footer {
   .comp-num { font-size: 42px; }
   .divider { padding: 0 24px; }
   .meta-row { grid-template-columns: 1fr 1fr; }
-  .meta-item:nth-child(2n) { border-right: none; }
+  .meta-item { padding-left: 0 !important; }
+  .meta-item:nth-child(2n) { border-right: none; padding-left: 16px !important; }
   .meta-item:nth-child(3), .meta-item:nth-child(4) { border-top: 1px solid var(--teal-pale); }
   .outcomes-grid { grid-template-columns: 1fr 1fr; }
   .reflection { padding: 56px 0; }
@@ -877,7 +878,7 @@ footer {
   .meta-row { grid-template-columns: 1fr 1fr; }
   .meta-item { padding: 16px 0; }
   .meta-item:nth-child(2) { padding-left: 16px !important; }
-  .meta-item:nth-child(3) { border-top: 1px solid var(--teal-pale); border-right: 1px solid var(--teal-pale); padding-top: 16px; }
+  .meta-item:nth-child(3) { border-top: 1px solid var(--teal-pale); border-right: 1px solid var(--teal-pale); padding-top: 16px; padding-left: 0 !important; }
   .meta-item:nth-child(4) { border-top: 1px solid var(--teal-pale); padding-left: 16px !important; padding-top: 16px; }
   .meta-label { font-size: 10px; }
   .meta-value { font-size: 12px; }
