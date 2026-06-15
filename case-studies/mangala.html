@@ -200,7 +200,7 @@
 <div class="case-hero reveal">
   <p class="case-tag">Case Study &middot; 04 &middot; Nonprofit</p>
   <h1>MSB Members' Site: <em>Homepage and Navigation</em> Redesign</h1>
-  <p class="lead">The members' site had a navigation problem everyone already knew about. My job was to fix it. I surveyed 53 members, redesigned the full homepage, reorganized 35 pages of content into a focused mega menu, and brought the community's most-needed resources to the surface. The redesign went to production in Q1 2026.</p>
+  <p class="lead">The members' site had a navigation problem everyone already knew about. My job was to fix it. I surveyed 53 members, restructured the site's information architecture, redesigned the homepage, reorganized 35 pages of content into a focused mega menu, and brought the community's most-needed resources to the surface. The redesign went to production in Q1 2026.</p>
   <div class="meta-row">
     <div class="meta-item">
       <div class="meta-label">Role</div>
@@ -261,6 +261,7 @@
   <h2>53 members told me where things were <em>breaking down</em></h2>
   <p>I conducted a member survey reaching 522 people with a 10.1% response rate: 53 members. The data was consistent. Study materials drove visits (84.9%), followed by Member Programs (75.5%) and Member Directory (45.3%). When asked what frustrated them, members cited navigation, search failures, and buried content.</p>
   <p>When asked for improvements, navigation and table of contents appeared repeatedly. Members wanted faster access to the resources they already valued.</p>
+  <p style="margin-top:16px"><a href="../assets/members-survey-results.pdf" target="_blank" rel="noopener" style="font-family:var(--body);font-size:0.85rem;color:var(--teal);text-decoration:underline;text-underline-offset:3px;">View Full Survey Results (PDF)</a></p>
 </div>
 
 <!-- Research charts -->
@@ -315,21 +316,36 @@
   </div>
 </div>
 
+<!-- Key Research Findings callout -->
+<div class="case-section reveal" style="padding-top:0;padding-bottom:0">
+  <div class="ai-callout">
+    <p class="ai-label">Key Research Findings</p>
+    <ul style="margin:0;padding-left:1.2em;font-family:var(--body);font-size:0.95rem;color:var(--ink);line-height:1.75;">
+      <li>Only 21% of members described finding information as easy.</li>
+      <li>Search was one of the most frequently cited frustrations.</li>
+      <li>Study &amp; Practice materials accounted for 84.9% of visits.</li>
+      <li>Members repeatedly requested better navigation and a table of contents.</li>
+      <li>High-value resources were difficult to locate despite being used regularly.</li>
+    </ul>
+  </div>
+</div>
+
 <div class="divider"><hr></div>
 
 <!-- 03 DESIGN STRATEGY -->
 <div class="case-section reveal">
   <p class="section-num">03</p>
   <p class="section-kicker">Design Strategy</p>
-  <h2>Three things needed to <em>change</em></h2>
-  <p>The survey made three things clear. Navigation needed a complete rethink. The most-used resources needed to be on the homepage, not buried in menus. And the site needed to feel like it belonged to the members who used it.</p>
-  <p>The mega menu reorganized 35 pages into 7 categories based on why members visit: Practice Resources, Study, Community, Archive, Programs, Seva, and News. The sidebar was gone.</p>
-  <p>The homepage got a dedicated resources section with direct links to the Calendar, Prayer Requests, and submitting personal practice records. These had all been buried and were among the most frequently needed pages. Bringing them to the surface changed how the site felt to use.</p>
-  <p>The visual design brought in photographs of members and Buddhist iconography throughout. The previous site had felt generic and institutional. The redesigned site feels like it belongs to the people who use it.</p>
+  <h2>Turning Research Into <em>Design Decisions</em></h2>
+  <p>The survey revealed a clear pattern: members weren't looking for more content. They were looking for faster access to the content they already used most. Study &amp; Practice materials, Member Programs, and the Member Directory accounted for the majority of visits, yet these resources were buried within a complex navigation structure.</p>
+  <p>To address this, I reorganized 35 pages into seven member-centered categories: Practice Resources, Study, Community, Archive, Programs, Seva, and News. The goal was to align the information architecture with how members think about their needs rather than how content had been organized historically.</p>
+  <p>The homepage was redesigned around direct access to high-value resources. Dedicated cards surfaced the most frequently used destinations, including My Courses, Online Practices, the Member Directory, and monthly dues. Instead of requiring members to navigate multiple levels deep, key tasks became available from the homepage.</p>
+  <p>Stakeholders also wanted to increase visibility for important community resources and organizational priorities. Additional homepage cards highlighted Giving, the community Photo Album, and Wisdom Productions, providing easier access to livestreams, recorded teachings, and digital learning resources.</p>
+  <p>The visual design introduced photography of sangha members and Buddhist imagery throughout the experience. The previous site felt functional but generic. The redesign aimed to create a stronger sense of belonging and better reflect the community the site was built to serve.</p>
 
   <div class="ai-callout">
     <p class="ai-label">AI-Assisted Research Synthesis</p>
-    <p>I used Claude to synthesize the qualitative survey responses. What would have taken hours of manual review took minutes. The synthesis helped me see something that shaped the whole project: some members couldn't find the menu item they needed, while others found the menu item but couldn't locate the content. Two different frustrations. That is why the solution needed more than one part.</p>
+    <p>Claude was used to accelerate synthesis of open-ended survey responses, allowing more time for analysis, information architecture, and design decisions. The insights helped identify patterns in member frustrations and informed the navigation strategy.</p>
   </div>
 
   <div class="decisions" style="margin-top:36px">
@@ -345,8 +361,8 @@
     </div>
     <div class="decision">
       <p class="decision-num">Mega Menu</p>
-      <h3>Organize by intent, not by <em>site structure</em></h3>
-      <p>35 pages reorganized into 7 categories, each one mapped to why members visit rather than how the content was structured internally. Practice Resources, Study, Community, Archive, Programs, Seva, News.</p>
+      <h3>Organize content around <em>member needs</em></h3>
+      <p>35 pages were reorganized into 7 categories based on how members look for information. The new structure prioritized common tasks and frequently used resources rather than the site's internal content hierarchy. The new navigation structure was informed by survey findings, which repeatedly highlighted navigation, search, and discoverability as primary frustrations.</p>
     </div>
     <div class="decision">
       <p class="decision-num">Visual Design</p>
@@ -535,8 +551,14 @@
 <div class="case-section reveal">
   <p class="section-num">05</p>
   <p class="section-kicker">Outcomes</p>
-  <h2>Designs handed off. <em>Currently in development</em></h2>
-  <p>The designs were completed and handed off to a WordPress developer for implementation. The project worked within the existing WordPress theme structure, which kept the development scope focused. Once live, the homepage resources section will bring the most-needed pages to the surface and the mega menu will make the full site findable for the first time.</p>
+  <h2>Research-Informed Redesign <em>Delivered</em></h2>
+  <ul style="margin:0 0 32px;padding-left:1.2em;font-family:var(--body);font-size:0.95rem;color:var(--ink);line-height:1.85;">
+    <li>Homepage redesigned around high-frequency member tasks</li>
+    <li>Information architecture simplified into seven member-centered categories</li>
+    <li>Navigation restructured based on survey findings</li>
+    <li>Key resources surfaced from deep navigation to homepage access points</li>
+    <li>Final designs delivered for implementation</li>
+  </ul>
   <div class="outcomes-grid">
     <div class="outcome-card">
       <div class="outcome-num">53</div>
@@ -562,6 +584,7 @@
   <div class="reflection-inner reveal">
     <p class="section-kicker">Reflection</p>
     <h2>What I learned <em>along the way</em></h2>
+    <p>The survey changed my understanding of the problem. Members valued the content and visited the site regularly. The issue wasn't a lack of resources — it was the effort required to find them. Improving navigation, information architecture, and content discoverability had a greater impact than adding new features or content.</p>
     <p>Using Claude to synthesize the survey data meant I could spend my time on the design decisions rather than sorting through qualitative responses. That freed up energy for the parts of the project that needed my judgment.</p>
     <p>The pivot from one mega menu section to two came from stakeholder feedback after the first round of mockups. They were right to flag it. Revising without resistance built trust that carried through the rest of the project.</p>
     <p>If I did this again I would test the mega menu with members before finalizing. Stakeholder feedback was useful but watching someone try to find what they need tells you something different. User testing would have validated the category names against real mental models and might have caught naming issues before the site went live.</p>
