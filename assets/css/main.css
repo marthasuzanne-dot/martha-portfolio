@@ -934,6 +934,6 @@ footer {
   .case-hero h1 { font-size: 24px; }
   .case-section h2 { font-size: 20px; }
   .meta-row { grid-template-columns: 1fr; }
-  .meta-item { border-right: none !important; border-top: none; }
+  .meta-item { border-right: none !important; border-top: none; padding-left: 0 !important; }
   .meta-item + .meta-item { border-top: 1px solid var(--teal-pale) !important; }
 }
