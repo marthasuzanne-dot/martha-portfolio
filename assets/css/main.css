@@ -317,6 +317,7 @@ nav.nav-case {
    APPROACH
    ============================================================ */
 .approach { background: var(--ink); color: var(--cream); padding: 88px 56px; }
+.approach .section-label::before { background: var(--gold); }
 .approach-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: start; }
 .approach h2 { font-family: var(--serif); font-size: 38px; font-weight: 400; line-height: 1.14; letter-spacing: -.02em; color: var(--cream); }
 .approach h2 em { font-style: italic; color: var(--gold); font-weight: 400; font-family: var(--serif); }
