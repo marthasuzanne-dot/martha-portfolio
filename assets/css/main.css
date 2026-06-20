@@ -401,12 +401,12 @@ nav.nav-case {
 .about-right h3 em { font-style: italic; color: var(--teal); font-weight: 400; font-family: var(--serif); }
 .about-right p { font-family: var(--body); font-size: 15px; color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
 .about-link {
-  font-family: var(--body); font-size: 11px; color: #C4922A; text-decoration: none;
-  letter-spacing: .08em; text-transform: uppercase;
-  display: flex; align-items: center; gap: 8px;
+  font-family: var(--body); font-size: 14px; color: #C4922A; text-decoration: none;
+  letter-spacing: .06em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 9px;
   transition: color .2s; white-space: nowrap;
 }
-.about-link::after { content: '→'; font-size: 16px; }
+.about-link::after { content: '→'; font-size: 18px; }
 .about-link:hover { color: var(--cream); }
 
 
@@ -528,8 +528,14 @@ footer {
   display: flex; justify-content: space-between; align-items: center;
   font-family: var(--body); font-size: 14px; color: rgba(246,242,235,0.5); letter-spacing: .05em;
 }
-.footer-linkedin { color: var(--gold); text-decoration: none; transition: color .2s; }
+.footer-linkedin {
+  font-family: var(--body); font-size: 14px; letter-spacing: .06em;
+  color: var(--gold); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 9px;
+  transition: color .2s;
+}
 .footer-linkedin:hover { color: var(--cream); }
+.footer-linkedin .link-arrow { font-size: 15px; }
 
 
 /* ============================================================
@@ -707,12 +713,12 @@ footer {
 .next-title { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink); letter-spacing: -.02em; }
 .next-title em { font-style: italic; color: var(--teal); }
 .next-link {
-  font-family: var(--body); font-size: 11px; letter-spacing: .08em;
+  font-family: var(--body); font-size: 14px; letter-spacing: .06em;
   text-transform: uppercase; color: var(--teal); text-decoration: none;
-  display: flex; align-items: center; gap: 8px; transition: color .2s; white-space: nowrap;
+  display: flex; align-items: center; gap: 9px; transition: color .2s; white-space: nowrap;
 }
 .next-link:hover { color: var(--gold); }
-.next-link::after { content: '→'; font-size: 16px; }
+.next-link::after { content: '→'; font-size: 18px; }
 
 
 /* ============================================================
