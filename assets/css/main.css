@@ -401,7 +401,7 @@ nav.nav-case {
 .about-right h3 em { font-style: italic; color: var(--teal); font-weight: 400; font-family: var(--serif); }
 .about-right p { font-family: var(--body); font-size: 15px; color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
 .about-link {
-  font-family: var(--body); font-size: 14px; color: #C4922A; text-decoration: none;
+  font-family: var(--body); font-size: 14px; color: var(--gold); text-decoration: none;
   letter-spacing: .06em; text-transform: uppercase;
   display: flex; align-items: center; gap: 9px;
   transition: color .2s; white-space: nowrap;
