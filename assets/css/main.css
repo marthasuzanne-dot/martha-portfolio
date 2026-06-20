@@ -440,7 +440,7 @@ nav.nav-case {
   z-index: 9999; white-space: nowrap;
 }
 .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-.contact-right { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 28px; }
+.contact-right { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px 28px; }
 .cg h4 { font-family: var(--body); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; font-weight: 500; }
 .cg p, .cg a { font-family: var(--body); color: var(--mid); text-decoration: none; line-height: 1.9; display: block; transition: color .2s; }
 .cg a { color: #2d6b6b; }
@@ -528,7 +528,8 @@ footer {
   display: flex; justify-content: space-between; align-items: center;
   font-family: var(--body); font-size: 11px; color: rgba(246,242,235,0.5); letter-spacing: .05em;
 }
-.footer-built { color: var(--gold); }
+.footer-linkedin { color: var(--gold); text-decoration: none; transition: color .2s; }
+.footer-linkedin:hover { color: var(--gold-deep); }
 
 
 /* ============================================================
