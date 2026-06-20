@@ -530,6 +530,7 @@ footer {
 }
 .footer-linkedin {
   font-family: var(--body); font-size: 14px; letter-spacing: .06em;
+  text-transform: uppercase;
   color: var(--gold); text-decoration: none;
   display: inline-flex; align-items: center; gap: 9px;
   transition: color .2s;
