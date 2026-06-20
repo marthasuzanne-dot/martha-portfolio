@@ -529,7 +529,7 @@ footer {
   font-family: var(--body); font-size: 14px; color: rgba(246,242,235,0.5); letter-spacing: .05em;
 }
 .footer-linkedin { color: var(--gold); text-decoration: none; transition: color .2s; }
-.footer-linkedin:hover { color: var(--gold-deep); }
+.footer-linkedin:hover { color: var(--cream); }
 
 
 /* ============================================================
