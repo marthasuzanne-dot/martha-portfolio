@@ -720,6 +720,7 @@ footer {
 }
 .next-link:hover { color: var(--gold); }
 .next-link::after { content: '→'; font-size: 18px; }
+.next-link--external::after { content: '↗'; }
 
 
 /* ============================================================
