@@ -27,7 +27,7 @@
   </a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="../index.html#work">Work</a></li>
+      <li><a href="../index.html#work" class="active">Work</a></li>
       <li><a href="../about.html">About</a></li>
       <li><a href="#" onclick="copyEmail();return false;">Contact</a></li>
     </ul>
@@ -36,7 +36,7 @@
 
 <!-- HERO -->
 <div class="case-hero reveal">
-  <p class="case-tag">Case Study &middot; 01 &middot; Health Tech</p>
+  <p class="case-tag">Case study · Health Tech</p>
   <h1>Ourself Health: A Metrics System Built for Integration</h1>
   <p class="lead">21 pixel-accurate metric designs built to mirror Apple Health and Fitbit conventions exactly, so engineering could integrate without rework and the product team had a scalable framework for every metric that followed.</p>
   <div class="meta-row">
@@ -69,7 +69,7 @@
 
 <!-- 01 CHALLENGE -->
 <div class="case-section reveal" style="padding-bottom: 0">
-  <p class="section-num">01</p>
+  <p class="section-num">1</p>
   <p class="section-kicker">The Challenge</p>
   <h2>Designing for placeholder and integrated states at once</h2>
   <p>Ourself Health is a wellness app built around longevity and daily habit tracking. Their core product aggregates fitness data from Apple Health and Fitbit into a single interface, giving users a unified view of their health across devices and platforms.</p>
@@ -87,7 +87,7 @@
 
 <!-- 02 RESEARCH -->
 <div class="case-section reveal" style="padding-bottom: 0">
-  <p class="section-num">02</p>
+  <p class="section-num">2</p>
   <p class="section-kicker">Research & Discovery</p>
   <h2>Understanding how platforms measure things</h2>
   <p>I conducted a comparative platform audit of Apple Health and Fitbit interfaces, documenting how each metric is measured, aggregated, represented visually, and expected to behave when device data is available. This wasn't just visual research. It required understanding the underlying data logic. I used Claude and ChatGPT throughout to pressure test whether my interpretations matched how these platforms behave.</p>
@@ -104,18 +104,18 @@
 
 <!-- 03 STRATEGY -->
 <div class="case-section reveal" style="padding-bottom: 0">
-  <p class="section-num">03</p>
+  <p class="section-num">3</p>
   <p class="section-kicker">Design Strategy</p>
   <h2>A classification model that made every decision easier</h2>
   <p>Based on the audit, I developed a metric classification model to guide all design decisions. Every metric fell into one of two categories, with clear rules for how each should behave in the interim manual state and at the point of device integration.</p>
   <div class="decisions">
     <div class="decision">
-      <p class="decision-num">Category 01</p>
+      <p class="decision-num">Category 1</p>
       <h3>Device-derived, read-only summaries</h3>
       <p>Metrics like cadence and wheel speed that come directly from sensor data. These appear as static aggregated values when device data is available and as clearly-marked placeholder states in the interim.</p>
     </div>
     <div class="decision">
-      <p class="decision-num">Category 02</p>
+      <p class="decision-num">Category 2</p>
       <h3>Manual placeholder aggregations</h3>
       <p>Metrics like Heart Points or Move Minutes that accumulate over the day and can be represented as numeric totals in the interim, mirroring Fitbit's pattern exactly.</p>
     </div>
@@ -132,23 +132,23 @@
 
 <!-- 04 EXECUTION -->
 <div class="case-section reveal" style="padding-bottom: 0">
-  <p class="section-num">04</p>
+  <p class="section-num">4</p>
   <p class="section-kicker">Design Execution</p>
   <h2>21 metrics. Three states each. Zero ambiguity</h2>
   <p>For each metric I mapped the corresponding Apple Health or Fitbit representation and built designs that precisely matched terminology and units, presentation patterns, and interaction expectations. Each metric included three states: empty entry, active data input, and collapsed summary.</p>
   <div class="decisions">
     <div class="decision">
-      <p class="decision-num">Metric 01</p>
+      <p class="decision-num">Metric 1</p>
       <h3>Heart Points (manual placeholder)</h3>
       <p>A Google Fit metric that accumulates throughout the day based on activity intensity. Mirrored as a numeric daily total the user can self-report in the interim, using Google's exact unit and threshold language.</p>
     </div>
     <div class="decision">
-      <p class="decision-num">Metric 02</p>
+      <p class="decision-num">Metric 2</p>
       <h3>Step and Cycling Cadence (device-derived, read-only)</h3>
       <p>Both measured in steps/min or RPM, values that sensors calculate continuously. Displayed as daily averages with a locked entry state and a placeholder label until device data is available.</p>
     </div>
     <div class="decision">
-      <p class="decision-num">Metric 03</p>
+      <p class="decision-num">Metric 3</p>
       <h3>Walking Steadiness and Gait Asymmetry (device-derived, read-only)</h3>
       <p>Apple Health metrics derived from iPhone motion sensors. Among the trickiest to handle: percentages users can't self-report. These got the most deliberate placeholder state, clearly marked as device-only with no entry affordance.</p>
     </div>
@@ -171,7 +171,7 @@
 
 <!-- 05 OUTCOMES -->
 <div class="case-section reveal">
-  <p class="section-num">05</p>
+  <p class="section-num">5</p>
   <p class="section-kicker">Outcomes</p>
   <h2>Delivered in 4 weeks</h2>
   <p>The project delivered two distinct types of value: an immediate design deliverable and a longer-term strategic asset that the product team could use to categorize every metric that came after.</p>
