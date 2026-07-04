@@ -244,13 +244,13 @@ nav.nav-case {
 .section-header { margin-bottom: 40px; }
 
 .section-heading {
-  font-family: var(--body);
-  font-size: 14px;
-  font-weight: 500;
+  font-family: var(--serif);
+  font-size: clamp(26px, 2.5vw, 36px);
+  font-weight: 400;
   color: var(--heading);
-  letter-spacing: 0;
-  line-height: 1.4;
-  margin-bottom: 12px;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  margin-bottom: 40px;
 }
 
 .project-row {
@@ -282,13 +282,13 @@ nav.nav-case {
 }
 .project-row:hover .tag { background: rgba(221,229,204,.8); border-color: var(--olive); }
 
-.proj-title { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.18; margin-bottom: 11px; letter-spacing: -.02em; color: var(--heading); }
+.proj-title { font-family: var(--serif); font-size: 24px; font-weight: 400; line-height: 1.18; margin-bottom: 11px; letter-spacing: -.02em; color: var(--heading); }
 .proj-desc { font-family: var(--body); font-size: 15px; color: var(--mid); line-height: 1.72; max-width: 450px; }
 .proj-meta { font-family: var(--body); font-size: 11px; color: var(--muted); margin-top: 15px; letter-spacing: .04em; }
 .proj-arrow { position: absolute; top: 10px; right: 10px; font-size: 18px; color: var(--gold); opacity: 0; transition: all .25s; }
 
 .proj-visual {
-  height: 280px; border-radius: var(--radius); overflow: hidden;
+  height: 200px; border-radius: var(--radius); overflow: hidden;
   position: relative; transition: transform .35s ease, box-shadow .35s ease;
   background: var(--cream-dark);
 }
@@ -313,7 +313,7 @@ nav.nav-case {
    ============================================================ */
 .approach { background: var(--ink); color: var(--cream); padding: 88px 56px; }
 .approach-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: start; }
-.approach h2 { font-family: var(--serif); font-size: clamp(28px,2.8vw,40px); font-weight: 400; line-height: 1.1; letter-spacing: -.02em; color: var(--cream); }
+.approach h2 { font-family: var(--serif); font-size: 38px; font-weight: 400; line-height: 1.1; letter-spacing: -.02em; color: var(--cream); }
 .approach h2 em { font-style: normal; color: inherit; font-weight: 400; }
 .approach-right p { font-family: var(--body); font-size: 15px; line-height: 1.82; color: var(--mid-on-dark); margin-bottom: 22px; }
 .approach-right p strong { color: var(--cream); font-weight: 500; }
@@ -352,20 +352,22 @@ nav.nav-case {
 }
 .hp-skills .skill-desc { font-family: var(--body); font-size: 14px; line-height: 1.75; color: var(--mid); }
 
-.skills-list { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 64px; margin-top: 24px; }
-.skill-item h3 { font-family: var(--body); font-size: 15px; font-weight: 600; color: var(--heading); margin-bottom: 10px; letter-spacing: -.01em; }
-.skill-item p { font-family: var(--body); font-size: 14px; color: var(--mid); line-height: 1.75; margin: 0; }
-
 @media (max-width: 768px) {
   .hp-skills { padding: 64px 0; }
   .hp-skills-inner { padding: 0 24px; }
-  .skills-list { grid-template-columns: 1fr; gap: 28px; }
+  .hp-skills .skills-grid { grid-template-columns: 1fr; }
+  .hp-skills .skill-card { padding: 24px; }
+  .hp-skills h2 { font-size: 28px; }
 }
 @media (max-width: 390px) {
   .hp-skills { padding: 40px 0; }
   .hp-skills-inner { padding: 0 20px; }
-  .skill-item h3 { font-size: 14px; }
-  .skill-item p { font-size: 13px; }
+  .hp-skills-kicker { font-size: 10px; }
+  .hp-skills h2 { font-size: 24px; }
+  .hp-skills .skill-card { padding: 20px; }
+  .hp-skills .skill-title { font-size: 15px; }
+  .hp-skills .skill-desc { font-size: 13px; }
+  .hp-skills .skill-card:hover { transform: none; box-shadow: none; }
 }
 
 
@@ -395,9 +397,9 @@ nav.nav-case {
    CONTACT
    ============================================================ */
 .contact {
-  padding: 88px 56px 72px; max-width: 800px; margin: 0 auto;
+  padding: 88px 56px 72px; max-width: 1160px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
 }
-.contact-note { font-family: var(--body); font-size: 14px; color: var(--muted); margin-top: 20px; line-height: 1.6; }
 .contact-left h2 { font-family: var(--serif); font-size: 38px; font-weight: 400; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 28px; color: var(--heading); }
 .contact-left h2 em { font-style: normal; color: inherit; font-weight: 400; }
 .contact-email {
@@ -723,7 +725,7 @@ footer {
     grid-template-rows: auto auto !important;
     gap: 0 !important; padding: 32px 0 !important; align-items: start !important;
   }
-  .project-row .proj-visual { grid-column: 1 !important; grid-row: 1 !important; width: 100% !important; height: 240px !important; margin-bottom: 16px !important; }
+  .project-row .proj-visual { grid-column: 1 !important; grid-row: 1 !important; width: 100% !important; height: 200px !important; margin-bottom: 16px !important; }
   .project-row > div:not([class]) { grid-column: 1 !important; grid-row: 2 !important; }
   .proj-arrow { display: none !important; }
   .project-row::before { display: none !important; }
@@ -744,7 +746,7 @@ footer {
   .about-photo { max-width: 260px; aspect-ratio: 1/1; }
 
   /* Contact */
-  .contact { padding: 64px 24px; }
+  .contact { padding: 64px 24px; grid-template-columns: 1fr; gap: 48px; }
 
   /* Palette / footer */
   .palette-strip { display: none; }
@@ -827,7 +829,10 @@ footer {
   /* Approach */
   .approach { padding: 56px 20px; }
   .approach-inner { grid-template-columns: 1fr; gap: 32px; }
+  .approach h2 { font-size: 26px; }
   .approach-right p { font-size: 14px; }
+  .approach-pills { gap: 6px; }
+  .pill { font-size: 10px; padding: 4px 11px; }
 
   /* About */
   .about-strip { padding: 56px 20px; grid-template-columns: 1fr; gap: 28px; }
@@ -836,9 +841,10 @@ footer {
   .about-right p { font-size: 14px; }
 
   /* Contact */
-  .contact { padding: 56px 20px 48px; }
+  .contact { padding: 56px 20px 48px; grid-template-columns: 1fr; gap: 40px; }
   .contact-left h2 { font-size: 26px; }
   .contact-email { font-size: 14px; }
+  .contact-right { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
 
   /* Palette / footer */
   footer { padding: 16px 20px; flex-direction: column; gap: 6px; text-align: center; }
