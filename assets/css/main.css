@@ -440,7 +440,11 @@ nav.nav-case {
   z-index: 9999; white-space: nowrap;
 }
 .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-.contact-right { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px 28px; }
+.contact-right {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px 28px;
+  border: 1px solid var(--teal-pale); border-radius: var(--radius);
+  padding: 28px 32px; align-self: center;
+}
 .cg h4 { font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--heading); margin-bottom: 10px; }
 .cg p, .cg a { font-family: var(--body); color: var(--mid); text-decoration: none; line-height: 1.9; display: block; transition: color .2s; }
 .cg a { color: #2d6b6b; }
