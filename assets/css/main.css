@@ -525,8 +525,7 @@ footer {
   font-family: var(--body); font-size: 14px; color: rgba(246,242,235,0.5); letter-spacing: .05em;
 }
 .footer-linkedin {
-  font-family: var(--body); font-size: 14px; letter-spacing: .06em;
-  text-transform: uppercase;
+  font-family: var(--body); font-size: 13px; letter-spacing: .01em;
   color: var(--gold); text-decoration: none;
   display: inline-flex; align-items: center; gap: 9px;
   transition: color .2s;
@@ -699,12 +698,13 @@ footer {
 .next-title { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--heading); letter-spacing: -.02em; }
 .next-title em { font-style: normal; color: inherit; }
 .next-link {
-  font-family: var(--body); font-size: 14px;
+  font-family: var(--body); font-size: 13px; font-weight: 500;
   color: var(--gold); text-decoration: none;
-  display: flex; align-items: center; gap: 9px; transition: color .2s; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 7px; transition: color .2s; white-space: nowrap;
 }
 .next-link:hover { color: var(--gold-deep); }
-.next-link::after { content: '→'; font-size: 18px; }
+.next-link::after { content: '→'; font-size: 14px; display: inline-block; transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
+.next-link:hover::after { transform: translateX(5px); }
 .next-link--external::after { content: '↗'; }
 
 
