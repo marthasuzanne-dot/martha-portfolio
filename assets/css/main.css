@@ -218,7 +218,7 @@ nav.nav-case {
    HERO PHOTO
    ============================================================ */
 .hero-photo-wrap { position: relative; opacity: 0; animation: fadeUp .9s .35s forwards; display: flex; flex-direction: column; }
-.photo-clip { overflow: hidden; border-radius: var(--radius); position: relative; flex: 1; }
+.photo-clip { overflow: hidden; border-radius: var(--radius); position: relative; flex: 1; border: 1px solid var(--teal-pale); }
 .hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; filter: saturate(.9); }
 
 .photo-overlay {
@@ -444,6 +444,7 @@ nav.nav-case {
   display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px 28px;
   border: 1px solid var(--teal-pale); border-radius: var(--radius);
   padding: 28px 32px; align-self: center;
+  background: var(--white);
 }
 .cg h4 { font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--heading); margin-bottom: 10px; }
 .cg p, .cg a { font-family: var(--body); color: var(--mid); text-decoration: none; line-height: 1.9; display: block; transition: color .2s; }
