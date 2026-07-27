@@ -845,9 +845,9 @@ footer {
   .overlay-location { font-size: 12px; }
   .overlay-tags { gap: 6px; }
   .overlay-tag { font-size: 10px; padding: 3px 10px; }
-  .hero-label { margin-bottom: 16px; }
-  .hero h1 { font-size: 32px; line-height: 1.12; margin-bottom: 20px; }
-  .hero-sub { font-size: 14px; margin-bottom: 32px; max-width: 100%; }
+  .hero-label { margin: 0; }
+  .hero h1 { font-size: 32px; line-height: 1.12; margin: 0; }
+  .hero-sub { font-size: 14px; margin: 0; max-width: 100%; }
   .hero-ctas { flex-direction: column; align-items: stretch; gap: 16px; }
   .btn-primary { padding: 14px 28px; font-size: 13px; width: 100%; justify-content: center; box-sizing: border-box; }
 
