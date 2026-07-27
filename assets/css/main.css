@@ -154,28 +154,32 @@ nav.nav-case {
 .hero-wrap { max-width: 1160px; margin: 0 auto; padding: 0 var(--gutter); }
 .hero {
   display: grid; grid-template-columns: 1fr 300px; gap: 64px;
-  align-items: start; padding: var(--section-gap) 0;
+  align-items: start; padding: 13px 0 var(--section-gap);
 }
+.hero-left {
+  display: flex; flex-direction: column; gap: 13px;
+}
+.hero-left > * { margin-top: 0; margin-bottom: 0; }
 
 @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
 
 .hero-label {
   font-family: var(--body); font-size: 13px; font-weight: 500;
-  color: var(--gold); margin-bottom: 1.5rem;
+  color: var(--gold); margin: 0;
   text-transform: uppercase; letter-spacing: .04em;
   opacity: 0; animation: fadeUp .7s .15s forwards;
 }
 
 .hero h1 {
   font-family: var(--serif); font-size: clamp(34px,3.5vw,52px); font-weight: 400;
-  line-height: 1.15; letter-spacing: -.02em; margin-bottom: 1.5rem; max-width: 660px;
+  line-height: 1.15; letter-spacing: -.02em; margin: 0; max-width: 660px;
   color: var(--ink); opacity: 0; animation: fadeUp .8s .35s forwards;
 }
 .hero h1 em { font-style: normal; color: inherit; font-weight: 400; }
 
 .hero-sub {
   font-family: var(--body); font-size: 16px; color: var(--mid);
-  max-width: 430px; line-height: 1.7; margin-bottom: 2.5rem;
+  max-width: 430px; line-height: 1.7; margin: 0;
   opacity: 0; animation: fadeUp .7s .6s forwards;
 }
 .hero-ctas {
