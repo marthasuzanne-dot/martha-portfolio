@@ -154,7 +154,7 @@ nav.nav-case {
 .hero-wrap { max-width: 1160px; margin: 0 auto; padding: 0 var(--gutter); }
 .hero {
   display: grid; grid-template-columns: 1fr 300px; gap: 64px;
-  align-items: start; padding: 280px 0 96px;
+  align-items: start; padding: 187px 0 96px;
 }
 .hero-left {
   display: flex; flex-direction: column;
