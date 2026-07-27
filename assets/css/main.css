@@ -154,10 +154,10 @@ nav.nav-case {
 .hero-wrap { max-width: 1160px; margin: 0 auto; padding: 0 var(--gutter); }
 .hero {
   display: grid; grid-template-columns: 1fr 300px; gap: 64px;
-  align-items: start; padding: 6rem 0 var(--section-gap);
+  align-items: start; padding: 6rem 0 48px;
 }
 .hero-left {
-  display: flex; flex-direction: column; gap: 13px;
+  display: flex; flex-direction: column;
 }
 .hero-left > * { margin-top: 0; margin-bottom: 0; }
 
@@ -165,21 +165,21 @@ nav.nav-case {
 
 .hero-label {
   font-family: var(--body); font-size: 13px; font-weight: 500;
-  color: var(--gold); margin: 0;
+  color: var(--gold); margin: 0 0 12px;
   text-transform: uppercase; letter-spacing: .04em;
   opacity: 0; animation: fadeUp .7s .15s forwards;
 }
 
 .hero h1 {
   font-family: var(--serif); font-size: clamp(34px,3.5vw,52px); font-weight: 400;
-  line-height: 1.15; letter-spacing: -.02em; margin: 0; max-width: 660px;
+  line-height: 1.15; letter-spacing: -.02em; margin: 0 0 20px; max-width: 660px;
   color: var(--ink); opacity: 0; animation: fadeUp .8s .35s forwards;
 }
 .hero h1 em { font-style: normal; color: inherit; font-weight: 400; }
 
 .hero-sub {
   font-family: var(--body); font-size: 16px; color: var(--mid);
-  max-width: 430px; line-height: 1.7; margin: 0;
+  max-width: 430px; line-height: 1.7; margin: 0 0 32px;
   opacity: 0; animation: fadeUp .7s .6s forwards;
 }
 .hero-ctas {
@@ -845,9 +845,9 @@ footer {
   .overlay-location { font-size: 12px; }
   .overlay-tags { gap: 6px; }
   .overlay-tag { font-size: 10px; padding: 3px 10px; }
-  .hero-label { margin: 0; }
-  .hero h1 { font-size: 32px; line-height: 1.12; margin: 0; }
-  .hero-sub { font-size: 14px; margin: 0; max-width: 100%; }
+  .hero-label { margin: 0 0 12px; }
+  .hero h1 { font-size: 32px; line-height: 1.12; margin: 0 0 20px; }
+  .hero-sub { font-size: 14px; margin: 0 0 32px; max-width: 100%; }
   .hero-ctas { flex-direction: column; align-items: stretch; gap: 16px; }
   .btn-primary { padding: 14px 28px; font-size: 13px; width: 100%; justify-content: center; box-sizing: border-box; }
 
