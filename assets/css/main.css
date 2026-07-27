@@ -161,33 +161,26 @@ nav.nav-case {
 
 .hero-label {
   font-family: var(--body); font-size: 13px; font-weight: 500;
-  color: var(--gold); margin-bottom: 20px;
+  color: var(--gold); margin-bottom: 16px;
   text-transform: uppercase; letter-spacing: .04em;
   opacity: 0; animation: fadeUp .7s .15s forwards;
 }
 
 .hero h1 {
   font-family: var(--serif); font-size: clamp(34px,3.5vw,52px); font-weight: 400;
-  line-height: 1.08; letter-spacing: -.02em; margin-bottom: 24px; max-width: 660px;
+  line-height: 1.08; letter-spacing: -.02em; margin-bottom: 20px; max-width: 660px;
   color: var(--ink); opacity: 0; animation: fadeUp .8s .35s forwards;
 }
 .hero h1 em { font-style: normal; color: inherit; font-weight: 400; }
 
 .hero-sub {
   font-family: var(--body); font-size: 16px; color: var(--mid);
-  max-width: 430px; line-height: 1.8; margin-bottom: 16px;
+  max-width: 430px; line-height: 1.6; margin-bottom: 28px;
   opacity: 0; animation: fadeUp .7s .6s forwards;
-}
-.hero-proof {
-  font-family: var(--body); font-size: 14px; color: var(--muted);
-  line-height: 1.55; max-width: 430px;
-  padding-left: 14px; border-left: 2px solid var(--gold);
-  margin-bottom: 28px;
-  opacity: 0; animation: fadeUp .7s .75s forwards;
 }
 .hero-ctas {
   display: flex; gap: 20px; align-items: center;
-  opacity: 0; animation: fadeUp .7s .92s forwards;
+  opacity: 0; animation: fadeUp .7s .78s forwards;
 }
 
 .btn-primary {
@@ -226,8 +219,8 @@ nav.nav-case {
    ============================================================ */
 .hero-photo-wrap { position: relative; opacity: 0; animation: fadeUp .9s .35s forwards; display: flex; flex-direction: column; }
 .photo-clip { overflow: hidden; border-radius: var(--radius); position: relative; flex: 1; border: 1px solid var(--teal-pale); }
-.hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; filter: saturate(.9); }
-.hero .hero-photo { filter: url(#duotone); }
+.hero .photo-clip { max-height: 480px; }
+.hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 
 .photo-overlay {
   position: absolute; inset: 0;
