@@ -223,7 +223,7 @@ nav.nav-case {
    ============================================================ */
 .hero-photo-wrap { position: relative; opacity: 0; animation: fadeUp .9s .35s forwards; display: flex; flex-direction: column; margin-top: 40px; }
 .photo-clip { overflow: hidden; border-radius: var(--radius); position: relative; flex: 1; border: 1px solid var(--teal-pale); }
-.hero .photo-clip { max-height: 480px; }
+.hero .photo-clip { max-height: 380px; }
 .hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 
 .photo-overlay {
