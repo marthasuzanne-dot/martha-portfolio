@@ -426,7 +426,7 @@ nav.nav-case {
 .contact-sub { font-family: var(--body); font-size: 16px; color: var(--mid); line-height: 1.6; margin-bottom: 28px; }
 .contact-email-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
 .contact-email-link {
-  font-family: var(--body); font-size: 17px; font-weight: 400;
+  font-family: var(--body); font-size: 17px; font-weight: 400; font-style: italic;
   color: var(--teal); text-decoration: none;
   border-bottom: 1px solid var(--teal-pale); padding: 0 0 3px 0;
   transition: border-color .2s, color .2s;
@@ -438,7 +438,7 @@ nav.nav-case {
   background: none; border: 1px solid var(--teal-pale); border-radius: 6px;
   padding: 4px 10px; transition: border-color .2s, color .2s; flex-shrink: 0;
 }
-.btn-copy:hover { border-color: var(--teal); color: var(--teal); }
+.btn-copy:hover { border-color: var(--gold-pale); color: var(--gold); }
 .contact-email {
   font-family: var(--body); font-size: 17px; font-style: normal; font-weight: 400;
   color: var(--teal); text-decoration: none;
