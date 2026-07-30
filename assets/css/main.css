@@ -154,7 +154,7 @@ nav.nav-case {
 .hero-wrap { max-width: 1160px; margin: 0 auto; padding: 0 var(--gutter); }
 .hero {
   display: grid; grid-template-columns: 1fr 300px; gap: 64px;
-  align-items: center; padding: 187px 0 96px;
+  align-items: center; padding: 120px 0 96px;
 }
 .hero-left {
   display: flex; flex-direction: column; margin-bottom: 48px;
@@ -165,7 +165,7 @@ nav.nav-case {
 
 .hero-label {
   font-family: var(--body); font-size: 13px; font-weight: 500;
-  color: var(--gold); margin: 20px 0 0;
+  color: var(--gold); margin: 0 0 32px;
   text-transform: uppercase; letter-spacing: .04em;
   opacity: 0; animation: fadeUp .7s .15s forwards;
 }
