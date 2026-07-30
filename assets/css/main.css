@@ -179,7 +179,7 @@ nav.nav-case {
 
 .hero-sub {
   font-family: var(--body); font-size: 16px; color: var(--mid);
-  max-width: 430px; line-height: 1.7; margin: 0 0 40px;
+  max-width: 430px; line-height: 1.7; margin: 0;
   opacity: 0; animation: fadeUp .7s .6s forwards;
 }
 .hero-ctas {
@@ -763,7 +763,7 @@ footer {
   .hero-photo { height: auto; aspect-ratio: 3/4; }
   .hero-label { margin: 0 0 12px; }
   .hero h1 { margin: 0 0 16px; }
-  .hero-sub { margin: 0 0 20px; }
+  .hero-sub { margin: 0; }
 
   /* Work section */
   .section { padding: var(--section-gap) 20px !important; }
@@ -863,8 +863,7 @@ footer {
   .overlay-tag { font-size: 10px; padding: 3px 10px; }
   .hero-label { margin: 0 0 12px; }
   .hero h1 { font-size: 32px; line-height: 1.12; margin: 0 0 16px; }
-  .hero-sub { font-size: 14px; margin: 0 0 20px; max-width: 100%; }
-  .hero-ctas { flex-direction: column; align-items: stretch; gap: 16px; }
+  .hero-sub { font-size: 14px; margin: 0; max-width: 100%; }
   .btn-primary { padding: 14px 28px; font-size: 13px; width: 100%; justify-content: center; box-sizing: border-box; }
 
   /* Work */
