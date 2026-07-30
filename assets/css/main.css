@@ -439,8 +439,9 @@ nav.nav-case {
   padding: 4px 12px; transition: background .2s, border-color .2s, color .2s; flex-shrink: 0;
 }
 .btn-copy:hover { border-color: var(--gold-pale); color: var(--gold); }
-.btn-copy.is-copied {
-  background: var(--ink); border-color: var(--ink); color: var(--gold);
+.btn-copy.is-copied,
+.btn-copy.is-copied:hover {
+  background: var(--ink); border-color: var(--ink); color: #fff;
 }
 .btn-copy.is-copied svg { display: none; }
 .btn-copy.is-copied .copy-label::before { content: '✓'; margin-right: 3px; }
