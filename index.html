@@ -274,8 +274,12 @@
     navigator.clipboard.writeText('marthaasselin@gmail.com').then(() => {
       const label = btn.querySelector('.copy-label');
       label.textContent = 'Copied';
+      btn.classList.add('is-copied');
       clearTimeout(btn._timer);
-      btn._timer = setTimeout(() => { label.textContent = 'Copy'; }, 2000);
+      btn._timer = setTimeout(() => {
+        label.textContent = 'Copy';
+        btn.classList.remove('is-copied');
+      }, 2000);
     });
   }
   function copyEmail() {
