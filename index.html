@@ -243,7 +243,18 @@
   <div class="contact-inner">
     <div class="contact-left reveal">
       <h2>Get in touch</h2>
-      <button class="contact-email" onclick="copyEmail()">marthaasselin@gmail.com <span class="link-arrow" aria-hidden="true">&rarr;</span></button>
+      <p class="contact-sub">Have a project in mind or want to chat? Feel free to reach out.</p>
+      <div class="contact-email-row">
+        <a href="mailto:marthaasselin@gmail.com" class="contact-email-link">marthaasselin@gmail.com</a>
+        <button class="btn-copy" onclick="copyEmailBtn(this)" aria-label="Copy email address">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="5.5" y="2" width="8.5" height="10.5" rx="1.5"/>
+            <path d="M5.5 4.5H3.5A1.5 1.5 0 0 0 2 6v8A1.5 1.5 0 0 0 3.5 15.5h6A1.5 1.5 0 0 0 11 14v-1"/>
+          </svg>
+          <span class="copy-label">Copy</span>
+        </button>
+      </div>
+      <a href="https://www.linkedin.com/in/martha-asselin/" target="_blank" rel="noopener" class="contact-linkedin">LinkedIn <span aria-hidden="true">&rarr;</span></a>
     </div>
     <div class="contact-right reveal d2">
       <div class="cg"><h4>Role</h4><p>UX Designer</p><p>Project Manager</p></div>
@@ -260,6 +271,14 @@
 </footer>
 
 <script>
+  function copyEmailBtn(btn) {
+    navigator.clipboard.writeText('marthaasselin@gmail.com').then(() => {
+      const label = btn.querySelector('.copy-label');
+      label.textContent = 'Copied';
+      clearTimeout(btn._timer);
+      btn._timer = setTimeout(() => { label.textContent = 'Copy'; }, 2000);
+    });
+  }
   function copyEmail() {
     navigator.clipboard.writeText('marthaasselin@gmail.com').then(() => {
       let t = document.getElementById('copyToast');

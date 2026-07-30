@@ -421,8 +421,30 @@ nav.nav-case {
   max-width: 1160px; margin: 0 auto; padding: 0 var(--gutter);
   display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
 }
-.contact-left h2 { font-family: var(--serif); font-size: clamp(26px,2.8vw,38px); font-weight: 400; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 28px; color: var(--heading); }
+.contact-left h2 { font-family: var(--serif); font-size: clamp(26px,2.8vw,38px); font-weight: 400; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 12px; color: var(--heading); }
 .contact-left h2 em { font-style: normal; color: inherit; font-weight: 400; }
+.contact-sub { font-family: var(--body); font-size: 16px; color: var(--mid); line-height: 1.6; margin-bottom: 28px; }
+.contact-email-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.contact-email-link {
+  font-family: var(--body); font-size: 17px; font-weight: 400;
+  color: var(--teal); text-decoration: none;
+  border-bottom: 1px solid var(--teal-pale); padding: 0 0 3px 0;
+  transition: border-color .2s, color .2s;
+}
+.contact-email-link:hover { border-bottom-color: var(--gold); color: var(--gold-deep); }
+.btn-copy {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--body); font-size: 12px; font-weight: 500; color: var(--mid);
+  background: none; border: 1px solid var(--teal-pale); border-radius: 6px;
+  padding: 4px 10px; transition: border-color .2s, color .2s; flex-shrink: 0;
+}
+.btn-copy:hover { border-color: var(--teal); color: var(--teal); }
+.contact-linkedin {
+  font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--mid);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 5px;
+  transition: color .2s;
+}
+.contact-linkedin:hover { color: var(--teal); }
 .contact-email {
   font-family: var(--body); font-size: 17px; font-style: normal; font-weight: 400;
   color: var(--teal); text-decoration: none;
