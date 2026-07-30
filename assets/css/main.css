@@ -265,6 +265,7 @@ nav.nav-case {
    WORK SECTION
    ============================================================ */
 .section { padding: var(--section-gap) var(--gutter); max-width: 1160px; margin: 0 auto; }
+#work { padding-top: 64px; }
 .section-header { margin-bottom: 40px; }
 .section-header h2 { font-family: var(--serif); font-size: clamp(26px,2.8vw,38px); font-weight: 400; line-height: 1.1; letter-spacing: -.02em; color: var(--heading); margin-bottom: 0; }
 
