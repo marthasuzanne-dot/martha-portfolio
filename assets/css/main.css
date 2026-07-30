@@ -440,7 +440,7 @@ nav.nav-case {
 }
 .btn-copy:hover { border-color: var(--gold-pale); color: var(--gold); }
 .btn-copy.is-copied {
-  background: var(--ink); border-color: var(--ink); color: var(--white);
+  background: var(--ink); border-color: var(--ink); color: var(--gold);
 }
 .btn-copy.is-copied svg { display: none; }
 .btn-copy.is-copied .copy-label::before { content: '✓'; margin-right: 3px; }
