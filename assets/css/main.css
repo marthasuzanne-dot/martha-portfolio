@@ -755,6 +755,7 @@ footer {
   nav.nav-home { padding: 16px var(--gutter); }
   nav.nav-home.scrolled { padding: 12px var(--gutter); }
   nav.nav-case { padding: 16px var(--gutter); }
+  .nav-links { gap: 22px; }
 
   /* Hero */
   .hero-wrap { padding: 0 var(--gutter); }
@@ -837,6 +838,14 @@ footer {
 
 
 /* ============================================================
+   RESPONSIVE — Mobile 480px (nav name threshold)
+   ============================================================ */
+@media (max-width: 480px) {
+  .nav-name { display: none; }
+}
+
+
+/* ============================================================
    RESPONSIVE — Mobile 390px
    ============================================================ */
 @media (max-width: 390px) {
@@ -844,7 +853,6 @@ footer {
   /* Nav */
   nav.nav-home { padding: 14px 20px; }
   nav.nav-home.scrolled { padding: 10px 20px; }
-  .nav-name { display: none; }
   .nav-links { gap: 16px; }
   .nav-avail { font-size: 10px; gap: 5px; }
   .nav-dot { width: 6px; height: 6px; }
