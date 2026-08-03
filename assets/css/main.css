@@ -279,7 +279,7 @@ nav.nav-case {
 
 .project-row {
   display: grid; grid-template-columns: 1fr 290px; gap: 36px;
-  align-items: center; padding: 42px 16px;
+  align-items: center; padding: 28px 16px;
   border-top: 1px solid var(--teal-pale);
   position: relative; cursor: default;
   transition: background .3s, padding-left .3s;
