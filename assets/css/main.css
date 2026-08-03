@@ -415,7 +415,7 @@ nav.nav-case {
    ============================================================ */
 .contact {
   background: var(--surface-tint);
-  padding: var(--section-gap) 0;
+  padding: calc(var(--section-gap) - 40px) 0;
 }
 .contact-inner {
   max-width: 1160px; margin: 0 auto; padding: 0 var(--gutter);
@@ -470,9 +470,7 @@ nav.nav-case {
 .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .contact-right {
   display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px 28px;
-  border: 1px solid var(--teal-pale); border-radius: var(--radius);
-  padding: 28px 32px; align-self: center;
-  background: var(--white);
+  align-self: center;
 }
 .cg h4 { font-family: var(--body); font-size: 14px; font-weight: 500; color: var(--heading); margin-bottom: 10px; }
 .cg p, .cg a { font-family: var(--body); color: var(--mid); text-decoration: none; line-height: 1.9; display: block; transition: color .2s; }
@@ -798,7 +796,7 @@ footer {
   .about-photo { max-width: 260px; aspect-ratio: 1/1; }
 
   /* Contact */
-  .contact { padding: var(--section-gap) 0; }
+  .contact { padding: calc(var(--section-gap) - 40px) 0; }
   .contact-inner { grid-template-columns: 1fr; gap: 48px; }
 
   /* Skills */
@@ -901,7 +899,7 @@ footer {
   .about-right p { font-size: 14px; }
 
   /* Contact */
-  .contact { padding: var(--section-gap) 0; }
+  .contact { padding: calc(var(--section-gap) - 40px) 0; }
   .contact-inner { gap: 40px; padding: 0 20px; }
   .contact-left h2 { font-size: 26px; }
   .contact-email { font-size: 14px; }
