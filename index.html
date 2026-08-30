@@ -26,8 +26,6 @@
 </head>
 <body>
 
-<div class="progress-bar" id="progressBar"></div>
-
 <nav class="nav-home" id="mainNav">
   <a href="index.html" class="nav-logo">
     <svg width="36" height="36" viewBox="0 0 1032 1034" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0;">
@@ -42,23 +40,30 @@
   </a>
   <div class="nav-right">
     <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
+  <div class="progress-bar" id="progressBar"></div>
 </nav>
 
+<div class="aurora-zone" id="auroraZone">
 <div class="hero-wrap">
   <section class="hero">
     <div class="hero-left">
       <p class="hero-label">UX Design &nbsp;&middot;&nbsp; Project Management &nbsp;&middot;&nbsp; Team &amp; Client Collaboration</p>
       <h1>Design, strategy, and delivery for purpose-driven organizations</h1>
       <p class="hero-sub">I work in the space between design and delivery, aligning stakeholders, sharpening products, and keeping teams on track from first question to launch.</p>
+      <div class="hero-ctas">
+        <a href="#work" class="btn-primary">View my work</a>
+        <a href="about.html" class="btn-secondary">About me</a>
+      </div>
     </div>
     <div class="hero-photo-wrap">
       <div class="photo-clip" role="img" aria-label="Martha Asselin, UX Designer based in Boulder, CO">
-        <img class="hero-photo" src="assets/images/hero-photo.jpg" alt="Martha Asselin">
+        <img class="hero-photo" src="assets/images/hero-photo.png" alt="Martha Asselin">
         <div class="photo-overlay" aria-hidden="true">
           <div class="overlay-card">
             <div class="overlay-sub">Boulder, CO &middot; US</div>
@@ -151,6 +156,7 @@
     </div>
   </a>
 </section>
+</div><!-- /aurora-zone -->
 
 <div class="approach" id="approach">
   <div class="approach-inner">
@@ -300,6 +306,43 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  (function () {
+    var navLinks = document.querySelectorAll('.nav-links a');
+    function syncNav() {
+      var hash = window.location.hash;
+      navLinks.forEach(function (a) { a.classList.remove('active'); });
+      var target = hash === '#work'    ? 'a[href="#work"]'    :
+                   hash === '#contact' ? 'a[href="#contact"]' :
+                                        'a[href="index.html"]';
+      var el = document.querySelector('.nav-links ' + target);
+      if (el) el.classList.add('active');
+    }
+    syncNav();
+    window.addEventListener('hashchange', syncNav);
+  })();
+
+  (function () {
+    var zone = document.getElementById('auroraZone');
+    if (!zone || window.matchMedia('(pointer:coarse)').matches) return;
+    var NAV_EXT = 80; // matches top: -80px on ::before
+    var tx = 50, ty = 20, cx = 50, cy = 20;
+    window.addEventListener('mousemove', function (e) {
+      var r = zone.getBoundingClientRect();
+      var canvasTop = r.top - NAV_EXT;
+      var canvasHeight = r.height + NAV_EXT;
+      tx = e.clientX / window.innerWidth * 100;
+      ty = (e.clientY - canvasTop) / canvasHeight * 100;
+    }, { passive: true });
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    (function tick() {
+      cx = lerp(cx, tx, 0.055);
+      cy = lerp(cy, ty, 0.055);
+      zone.style.setProperty('--aurora-x', cx.toFixed(2) + '%');
+      zone.style.setProperty('--aurora-y', cy.toFixed(2) + '%');
+      requestAnimationFrame(tick);
+    })();
+  })();
 
 
 </script>
