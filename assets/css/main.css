@@ -61,7 +61,7 @@ a, button, label, [role="button"] { cursor: default; }
    PROGRESS BAR
    ============================================================ */
 .progress-bar {
-  position: absolute; top: 0; left: 0; height: 2px;
+  position: absolute; top: 0; left: 0; height: 3px;
   background: linear-gradient(90deg, var(--teal-pale), var(--teal) 45%, var(--gold));
   z-index: 1; width: 0%; transition: width .1s linear;
 }
@@ -79,6 +79,8 @@ nav.nav-home {
   border-bottom: 1px solid transparent;
   background: var(--white);
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  opacity: 0;
+  animation: navDown .8s .3s ease forwards;
   transition: padding .35s, box-shadow .35s, background .35s, border-color .35s;
 }
 nav.nav-home.scrolled {
@@ -162,7 +164,8 @@ nav.nav-case {
 }
 .hero-left > * { margin-top: 0; margin-bottom: 0; }
 
-@keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeUp  { from{opacity:0;transform:translateY(18px)}  to{opacity:1;transform:translateY(0)} }
+@keyframes navDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:translateY(0)} }
 
 .hero-label {
   font-family: var(--body); font-size: 13px; font-weight: 500;
