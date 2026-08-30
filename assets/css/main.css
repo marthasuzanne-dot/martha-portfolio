@@ -258,7 +258,7 @@ nav.nav-case {
   border: 1px solid rgba(246,242,235,.25); color: var(--cream);
   background: rgba(246,242,235,.1); backdrop-filter: blur(4px);
 }
-.overlay-tag.gold { border-color: rgba(163,106,0,.6); color: var(--gold); background: rgba(163,106,0,.12); }
+.overlay-tag.gold { border-color: rgba(212,232,232,.70); color: var(--teal-pale); background: rgba(212,232,232,.12); }
 .overlay-hint {
   position: absolute; top: 18px; right: 18px;
   font-family: var(--body); font-size: 10px; letter-spacing: .1em;
@@ -387,7 +387,7 @@ nav.nav-case {
   border-radius: 16px; padding: 32px;
   transition: box-shadow .3s, transform .3s cubic-bezier(.34,1.56,.64,1), background .3s, border-color .3s;
 }
-.hp-skills .skill-card:hover { box-shadow: 0 10px 36px rgba(45,107,107,.12); transform: translateY(-4px); background: var(--surface-tint); border-color: var(--teal-pale); }
+.hp-skills .skill-card:hover { box-shadow: 0 10px 36px rgba(45,107,107,.12); transform: translateY(-4px); border-color: var(--teal-pale); }
 .hp-skills .skill-header {
   display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
 }
@@ -411,7 +411,7 @@ nav.nav-case {
   .hp-skills .skill-card { padding: 20px; }
   .hp-skills .skill-title { font-size: 15px; }
   .hp-skills .skill-desc { font-size: 13px; }
-  .hp-skills .skill-card:hover { transform: none; box-shadow: none; background: var(--white); }
+  .hp-skills .skill-card:hover { transform: none; box-shadow: none; }
 }
 
 
