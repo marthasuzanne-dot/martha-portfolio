@@ -710,7 +710,12 @@ footer {
 .metric-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal-light); flex-shrink: 0; }
 
 .outcomes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
-.outcome-card { background: var(--white); border: 1px solid var(--teal-pale); border-radius: var(--radius); padding: 24px; }
+.outcome-card {
+  background: var(--white); border: 1px solid var(--teal-pale);
+  border-radius: var(--radius); padding: 24px;
+  transition: box-shadow .3s, transform .3s cubic-bezier(.34,1.56,.64,1), border-color .3s;
+}
+.outcome-card:hover { box-shadow: 0 10px 36px rgba(45,107,107,.12); transform: translateY(-4px); border-color: var(--teal-pale); }
 .outcome-num { font-family: var(--serif); font-size: 44px; font-weight: 400; line-height: 1; letter-spacing: -.03em; color: var(--teal); margin-bottom: 8px; }
 .outcome-num em { font-style: normal; color: inherit; }
 .outcome-label { font-family: var(--body); font-size: 11px; color: var(--mid); line-height: 1.6; }
@@ -980,6 +985,7 @@ footer {
   .outcomes-grid { grid-template-columns: 1fr; gap: 12px; }
   .outcome-num { font-size: 36px; }
   .outcome-card { padding: 20px; }
+  .outcome-card:hover { transform: none; box-shadow: none; }
   .outcome-label { font-size: 11px; }
   .reflection { padding: 48px 0; }
   .reflection-inner { padding: 0 20px; }
