@@ -795,8 +795,8 @@ footer {
   .hero { grid-template-columns: 1fr; gap: 40px; padding: var(--section-gap) 0 0; }
   .hero-photo-wrap { order: -1; max-width: 320px; margin: 0 auto; }
   .photo-clip { flex: none; }
-  .hero .photo-clip { box-shadow: none; border-radius: var(--radius); }
-  .hero-photo { height: auto; aspect-ratio: 3/4; filter: grayscale(1); }
+  .hero .photo-clip { box-shadow: none; border-radius: var(--radius); height: auto; }
+  .hero-photo { height: auto; aspect-ratio: 3/4; filter: grayscale(1); object-position: center top; }
   .hero-label { margin: 0 0 22px; }
   .hero h1 { margin: 0 0 20px; }
   .hero-sub { margin: 0; }
