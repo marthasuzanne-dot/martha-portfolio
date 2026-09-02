@@ -25,56 +25,65 @@
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
-<body>
+<body class="home">
 
-<div class="progress-bar" id="progressBar"></div>
-
-<nav class="nav-home" id="mainNav">
-  <a href="index.html" class="nav-logo">
-    <svg width="36" height="36" viewBox="0 0 1032 1034" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0;">
-      <path d="M520 60.5V95.5C749.198 95.5 935 281.302 935 510.5H970H1005C1005 242.642 787.858 25.5 520 25.5V60.5ZM970 510.5H935C935 739.698 749.198 925.5 520 925.5V960.5V995.5C787.858 995.5 1005 778.358 1005 510.5H970ZM520 960.5V925.5C290.802 925.5 105 739.698 105 510.5H70H35C35 778.358 252.142 995.5 520 995.5V960.5ZM70 510.5H105C105 281.302 290.802 95.5 520 95.5V60.5V25.5C252.142 25.5 35 242.642 35 510.5H70Z" fill="#A36A00"/>
-      <line x1="157.353" y1="667.597" x2="406.097" y2="326.647" stroke="#A36A00" stroke-width="70" stroke-linecap="round"/>
-      <path d="M670 319.5L887 664.5" stroke="#A36A00" stroke-width="70" stroke-linecap="round" fill="none"/>
-      <line x1="666.449" y1="320.587" x2="413.587" y2="695.551" stroke="#A36A00" stroke-width="70" stroke-linecap="round"/>
-      <line x1="520.44" y1="522.003" x2="794.439" y2="526.018" stroke="#A36A00" stroke-width="60"/>
-      <line x1="413.32" y1="318.23" x2="650.73" y2="691.18" stroke="#A36A00" stroke-width="70" stroke-linecap="round"/>
-    </svg>
-    <span class="nav-name">Martha Asselin</span>
-  </a>
-  <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+<header class="site-header" id="siteHeader">
+  <div class="progress-bar" id="progressBar"></div>
+  <div class="header-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="34" height="34" viewBox="0 0 1032 1034" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0;" aria-hidden="true">
+        <path d="M520 60.5V95.5C749.198 95.5 935 281.302 935 510.5H970H1005C1005 242.642 787.858 25.5 520 25.5V60.5ZM970 510.5H935C935 739.698 749.198 925.5 520 925.5V960.5V995.5C787.858 995.5 1005 778.358 1005 510.5H970ZM520 960.5V925.5C290.802 925.5 105 739.698 105 510.5H70H35C35 778.358 252.142 995.5 520 995.5V960.5ZM70 510.5H105C105 281.302 290.802 95.5 520 95.5V60.5V25.5C252.142 25.5 35 242.642 35 510.5H70Z" fill="#B87A00"/>
+        <line x1="157.353" y1="667.597" x2="406.097" y2="326.647" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+        <path d="M670 319.5L887 664.5" stroke="#B87A00" stroke-width="70" stroke-linecap="round" fill="none"/>
+        <line x1="666.449" y1="320.587" x2="413.587" y2="695.551" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+        <line x1="520.44" y1="522.003" x2="794.439" y2="526.018" stroke="#B87A00" stroke-width="60"/>
+        <line x1="413.32" y1="318.23" x2="650.73" y2="691.18" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-name">Martha Asselin</span>
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
-</nav>
+</header>
 
-<div class="hero-wrap">
-  <section class="hero">
-    <div class="hero-left">
-      <p class="hero-label">UX Design &nbsp;&middot;&nbsp; Project Management &nbsp;&middot;&nbsp; Team &amp; Client Collaboration</p>
-      <h1>Design, strategy, and delivery for purpose-driven organizations</h1>
-      <p class="hero-sub">I work in the space between design and delivery, aligning stakeholders, sharpening products, and keeping teams on track from first question to launch.</p>
+<section class="hero-v6">
+  <div class="hero-v6-text">
+    <p class="eyebrow">UX design &middot; Project management &middot; Team &amp; client collaboration</p>
+    <h1>Design, strategy,<br>and delivery</h1>
+    <p class="hero-lede">I work in the space between design and delivery, aligning stakeholders, sharpening products, and keeping teams on track from first question to launch.</p>
+    <div class="hero-ctas-v6">
+      <a href="#work" class="btn-primary-v6">View my work</a>
+      <a href="about.html" class="btn-secondary-v6">About me <span aria-hidden="true">&#x2192;</span></a>
     </div>
-    <div class="hero-photo-wrap">
-      <div class="photo-clip" role="img" aria-label="Martha Asselin, UX Designer based in Boulder, CO">
-        <img class="hero-photo" src="assets/images/hero-photo.jpg" alt="Martha Asselin">
-        <div class="photo-overlay" aria-hidden="true">
-          <div class="overlay-card">
-            <div class="overlay-sub">Boulder, CO &middot; US</div>
-            <div class="overlay-tags">
-              <span class="overlay-tag gold">&bull; Open for work</span>
-              <span class="overlay-tag">Onsite</span>
-              <span class="overlay-tag">Hybrid</span>
-              <span class="overlay-tag">Remote</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-avail"><div class="nav-dot"></div>Available for work</div>
-    </div>
-  </section>
+  </div>
+  <div class="hero-v6-portrait">
+    <img src="assets/images/martha-portrait.png" alt="Martha Asselin, UX designer and project manager" class="portrait-img">
+  </div>
+</section>
+
+<div class="fact-strip">
+  <div class="fact-cell fact-cell--first">
+    <span class="fact-label">Based in</span>
+    <span class="fact-value">Boulder, Colorado &middot; Remote (US)</span>
+  </div>
+  <div class="fact-cell">
+    <span class="fact-label">Practice</span>
+    <span class="fact-value">UX design &middot; Project management</span>
+  </div>
+  <div class="fact-cell">
+    <span class="fact-label">Open for</span>
+    <span class="fact-value">Full-time, contract, consulting</span>
+  </div>
+  <div class="fact-cell fact-cell--last">
+    <span class="fact-label">Span</span>
+    <span class="fact-value">2020 &mdash; 2026 &middot; Five projects</span>
+  </div>
 </div>
 
 
@@ -291,7 +300,7 @@
   }
 
   window.addEventListener('scroll', () => {
-    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+    document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 40);
     const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
     document.getElementById('progressBar').style.width = pct + '%';
   }, { passive: true });
