@@ -414,7 +414,8 @@ nav.nav-case {
 }
 .case-link::after { content: '→'; }
 .case-link:hover,
-.work-row:hover .case-link { color: var(--teal-deep); border-color: var(--teal-deep); }
+.case-link:active,
+.work-row:hover .case-link { color: var(--gold); border-color: var(--gold); }
 .row-meta { font-family: var(--body); font-size: 13px; font-weight: 400; letter-spacing: 0.02em; color: var(--mist); }
 .row-image { align-self: stretch; overflow: hidden; border-radius: 10px; }
 .row-img {

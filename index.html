@@ -343,6 +343,19 @@
     spy();
   })();
 
+  (function () {
+    var hash = window.location.hash;
+    if (hash === '#contact' || hash === '#work') {
+      var target = document.querySelector(hash);
+      if (!target) return;
+      history.replaceState(null, '', window.location.pathname);
+      window.scrollTo(0, 0);
+      setTimeout(function () {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }, 80);
+    }
+  })();
+
 </script>
 </body>
 </html>
