@@ -20,10 +20,10 @@
     overflow: hidden;
     box-shadow: 0 2px 20px rgba(0,0,0,.08);
   }
-  /* Color themes */
-  .outside-card.theme-bronze { background: #f5ede0; }
-  .outside-card.theme-earth  { background: #eceadf; }
-  .outside-card.theme-sky    { background: #dde8ee; }
+  /* Color themes — unified warm card fill */
+  .outside-card.theme-bronze,
+  .outside-card.theme-earth,
+  .outside-card.theme-sky    { background: #FAF8F4; }
 
   /* Side-by-side image pair */
   .outside-img-pair {
@@ -58,23 +58,19 @@
 
   .outside-body { padding: 20px 24px 26px; }
   .outside-card h3 {
-    font-family: var(--serif);
-    font-size: 1.15rem;
-    font-weight: 400;
+    font-family: var(--body);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
     line-height: 1.35;
     margin-bottom: 10px;
   }
-  .theme-bronze h3 { color: #6b3d10; }
-  .theme-earth  h3 { color: #3a4020; }
-  .theme-sky    h3 { color: #1e3d54; }
   .outside-card p {
-    font-size: 0.875rem;
+    font-size: 15px;
     line-height: 1.65;
+    color: var(--slate);
     margin: 0;
   }
-  .theme-bronze p { color: #7a5535; }
-  .theme-earth  p { color: #4a5030; }
-  .theme-sky    p { color: #3a5568; }
   @media (max-width: 720px) {
     .outside-grid { grid-template-columns: 1fr; }
   }
@@ -108,13 +104,13 @@
 <!-- INTRO -->
 <div class="case-hero reveal" style="padding-bottom: 16px">
   <p class="case-tag">About</p>
-  <h1>I'm a designer and project lead based in Boulder, CO</h1>
+  <h1>I bring both structure and heart to every project</h1>
   <p class="lead" style="margin-bottom: 0">Background in psychology, user research, and team leadership. I take work from discovery through delivery, keep clients and teams aligned, and use AI throughout to reach better decisions faster. Currently open to full-time, contract, and consulting roles.</p>
 </div>
 
 <!-- HIKING PHOTO -->
 <div class="img-full reveal" style="margin-top: 24px; max-width: var(--max); padding: 0 40px;">
-  <img src="assets/images/about-hero.jpg" alt="Martha Asselin">
+  <img src="assets/images/about-hero.jpg" alt="Martha Asselin" style="aspect-ratio: 3/1; object-fit: cover; object-position: center 30%;">
 </div>
 
 <!-- BACKGROUND -->
