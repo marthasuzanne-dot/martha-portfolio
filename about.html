@@ -87,17 +87,18 @@
 <nav class="nav-home" id="mainNav">
   <a href="index.html" class="nav-logo">
     <svg width="36" height="36" viewBox="0 0 1032 1034" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0;">
-      <path d="M520 60.5V95.5C749.198 95.5 935 281.302 935 510.5H970H1005C1005 242.642 787.858 25.5 520 25.5V60.5ZM970 510.5H935C935 739.698 749.198 925.5 520 925.5V960.5V995.5C787.858 995.5 1005 778.358 1005 510.5H970ZM520 960.5V925.5C290.802 925.5 105 739.698 105 510.5H70H35C35 778.358 252.142 995.5 520 995.5V960.5ZM70 510.5H105C105 281.302 290.802 95.5 520 95.5V60.5V25.5C252.142 25.5 35 242.642 35 510.5H70Z" fill="#A36A00"/>
-      <line x1="157.353" y1="667.597" x2="406.097" y2="326.647" stroke="#A36A00" stroke-width="70" stroke-linecap="round"/>
-      <path d="M670 319.5L887 664.5" stroke="#A36A00" stroke-width="70" stroke-linecap="round" fill="none"/>
-      <line x1="666.449" y1="320.587" x2="413.587" y2="695.551" stroke="#A36A00" stroke-width="70" stroke-linecap="round"/>
-      <line x1="520.44" y1="522.003" x2="794.439" y2="526.018" stroke="#A36A00" stroke-width="60"/>
-      <line x1="413.32" y1="318.23" x2="650.73" y2="691.18" stroke="#A36A00" stroke-width="70" stroke-linecap="round"/>
+      <path d="M520 60.5V95.5C749.198 95.5 935 281.302 935 510.5H970H1005C1005 242.642 787.858 25.5 520 25.5V60.5ZM970 510.5H935C935 739.698 749.198 925.5 520 925.5V960.5V995.5C787.858 995.5 1005 778.358 1005 510.5H970ZM520 960.5V925.5C290.802 925.5 105 739.698 105 510.5H70H35C35 778.358 252.142 995.5 520 995.5V960.5ZM70 510.5H105C105 281.302 290.802 95.5 520 95.5V60.5V25.5C252.142 25.5 35 242.642 35 510.5H70Z" fill="#B87A00"/>
+      <line x1="157.353" y1="667.597" x2="406.097" y2="326.647" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+      <path d="M670 319.5L887 664.5" stroke="#B87A00" stroke-width="70" stroke-linecap="round" fill="none"/>
+      <line x1="666.449" y1="320.587" x2="413.587" y2="695.551" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+      <line x1="520.44" y1="522.003" x2="794.439" y2="526.018" stroke="#B87A00" stroke-width="60"/>
+      <line x1="413.32" y1="318.23" x2="650.73" y2="691.18" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
     </svg>
     <span class="nav-name">Martha Asselin</span>
   </a>
   <div class="nav-right">
     <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
       <li><a href="index.html#work">Work</a></li>
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="index.html#contact">Contact</a></li>
@@ -129,7 +130,7 @@
 
 <!-- HOW I WORK -->
 <div class="case-section reveal">
-  <p class="section-kicker">How I Work</p>
+  <p class="section-kicker">How I work</p>
   <h2>Research first, AI throughout</h2>
   <p>I start every project with research. Designing without it means working toward the wrong problem, and I have seen that happen. User interviews, competitive audits, card sorting, usability testing: the method depends on what the project needs.</p>
   <p>I integrate AI into my workflow to support better research, ideation, and design decisions. Claude helped me run an 8-site competitive audit for Polly Banerjee in a fraction of the time it would have taken manually. ChatGPT helped me pressure test data logic during the Ourself Health metric audit. I keep exploring how these tools fit into human-centered design.</p>
@@ -140,7 +141,7 @@
 
 <!-- OUTSIDE WORK -->
 <div class="case-section reveal" style="padding-bottom:16px">
-  <p class="section-kicker">Outside of Work</p>
+  <p class="section-kicker">Outside of work</p>
   <h2>How I spend my time</h2>
 </div>
 
@@ -184,7 +185,7 @@
 <!-- CONTACT STRIP -->
 <div class="about-contact reveal">
   <p>Get in touch</p>
-  <button class="contact-email" onclick="copyEmail()">marthaasselin@gmail.com</button>
+  <button class="contact-email" onclick="copyEmail()">martha.asselin@gmail.com</button>
 </div>
 
 <footer>
@@ -194,14 +195,14 @@
 
 <script>
   function copyEmail() {
-    navigator.clipboard.writeText('marthaasselin@gmail.com').then(() => {
+    navigator.clipboard.writeText('martha.asselin@gmail.com').then(() => {
       let t = document.getElementById('copyToast');
       if (!t) { t = document.createElement('div'); t.id = 'copyToast'; t.className = 'copy-toast'; document.body.appendChild(t); }
-      t.textContent = 'Copied: marthaasselin@gmail.com';
+      t.textContent = 'Copied: martha.asselin@gmail.com';
       t.classList.add('show');
       clearTimeout(t._timer);
       t._timer = setTimeout(() => t.classList.remove('show'), 2400);
-    }).catch(() => { window.location.href = 'mailto:marthaasselin@gmail.com'; });
+    }).catch(() => { window.location.href = 'mailto:martha.asselin@gmail.com'; });
   }
 
   window.addEventListener('scroll', () => {

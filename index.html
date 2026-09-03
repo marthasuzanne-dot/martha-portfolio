@@ -31,7 +31,7 @@
   <div class="progress-bar" id="progressBar"></div>
   <div class="header-inner">
     <a href="index.html" class="nav-logo">
-      <svg width="34" height="34" viewBox="0 0 1032 1034" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0;" aria-hidden="true">
+      <svg width="36" height="36" viewBox="0 0 1032 1034" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0;" aria-hidden="true">
         <path d="M520 60.5V95.5C749.198 95.5 935 281.302 935 510.5H970H1005C1005 242.642 787.858 25.5 520 25.5V60.5ZM970 510.5H935C935 739.698 749.198 925.5 520 925.5V960.5V995.5C787.858 995.5 1005 778.358 1005 510.5H970ZM520 960.5V925.5C290.802 925.5 105 739.698 105 510.5H70H35C35 778.358 252.142 995.5 520 995.5V960.5ZM70 510.5H105C105 281.302 290.802 95.5 520 95.5V60.5V25.5C252.142 25.5 35 242.642 35 510.5H70Z" fill="#B87A00"/>
         <line x1="157.353" y1="667.597" x2="406.097" y2="326.647" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
         <path d="M670 319.5L887 664.5" stroke="#B87A00" stroke-width="70" stroke-linecap="round" fill="none"/>
@@ -43,7 +43,7 @@
     </a>
     <nav class="header-nav" aria-label="Main navigation">
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html" id="navHome">Home</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -54,15 +54,15 @@
 
 <section class="hero-v6">
   <div class="hero-v6-text">
-    <p class="eyebrow">UX design &middot; Project management &middot; Team &amp; client collaboration</p>
-    <h1>Design, strategy,<br>and delivery</h1>
-    <p class="hero-lede">I work in the space between design and delivery, aligning stakeholders, sharpening products, and keeping teams on track from first question to launch.</p>
-    <div class="hero-ctas-v6">
+    <p class="eyebrow reveal">UX design &middot; Project management &middot; Team &amp; client collaboration</p>
+    <h1 class="reveal d1">Design, strategy,<br>and delivery</h1>
+    <p class="hero-lede reveal d2">I work in the space between design and delivery, aligning stakeholders, sharpening products, and keeping teams on track from first question to launch.</p>
+    <div class="hero-ctas-v6 reveal d3">
       <a href="#work" class="btn-primary-v6">View my work</a>
-      <a href="about.html" class="btn-secondary-v6">About me <span aria-hidden="true">&#x2192;</span></a>
+      <a href="about.html" class="btn-secondary-v6">About me</a>
     </div>
   </div>
-  <div class="hero-v6-portrait">
+  <div class="hero-v6-portrait reveal d2">
     <img src="assets/images/martha-portrait.png" alt="Martha Asselin, UX designer and project manager" class="portrait-img">
   </div>
 </section>
@@ -82,81 +82,105 @@
   </div>
   <div class="fact-cell fact-cell--last">
     <span class="fact-label">Span</span>
-    <span class="fact-value">2020 &mdash; 2026 &middot; Five projects</span>
+    <span class="fact-value">2020 to 2026 &middot; Four projects</span>
   </div>
 </div>
 
 
 <section class="section" id="work">
-  <div class="section-header reveal">
-    <p class="section-heading">Selected work</p>
-    <h2>Recent projects</h2>
+  <div class="work-intro reveal">
+    <p class="eyebrow">Selected work</p>
+    <h2>Four projects, four different roles</h2>
+    <p class="work-intro-body">On two I was the designer inside an existing team. On two I ran the project and designed it. Each is listed with the role I actually held.</p>
   </div>
 
-  <a href="case-studies/ourself-health.html" style="text-decoration:none;color:inherit;display:block;width:100%;">
-    <div class="project-row reveal d1">
-
-      <div>
-        <div class="proj-tags"><span class="tag">Health Tech</span><span class="tag">UX Design</span><span class="tag">AI-assisted</span></div>
-        <h3 class="proj-title">Ourself Health: Integration-Ready Metrics System</h3>
-        <p class="proj-desc">Designed 21 pixel-accurate metric cards mapped to Apple Health and Fitbit conventions, enabling zero-rework engineering integration.</p>
-        <p class="proj-meta">2025 &middot; UX Designer &amp; Consultant &middot; Health Platform</p>
+  <a href="case-studies/green-chef.html" class="work-row work-row--odd work-row--1 reveal" style="text-decoration:none;color:inherit;">
+    <div class="row-text">
+      <div class="row-tags">
+        <span class="row-tag">Subscription e-commerce</span>
+        <span class="row-tag">Retention</span>
+        <span class="row-tag">AI-assisted</span>
       </div>
-      <div class="proj-visual vis-02">
-        <img src="assets/images/project-ourself.jpg" alt="Ourself Health app, individual health tracking">
-        <div class="stat-badge">21 metrics</div>
-        <span class="proj-arrow" aria-hidden="true">&nearr;</span>
+      <h3>Green Chef: Onboarding Redesign</h3>
+      <p>Led research and iterative design for a retention-focused onboarding overhaul, pivoting direction based on usability testing. Shipped to production and adopted platform-wide.</p>
+      <div class="row-outcome">
+        <span class="row-outcome-num">+13%</span>
+        <span class="row-outcome-label">retention</span>
+      </div>
+      <div class="row-link-row">
+        <span class="case-link">Read the case study</span>
+        <span class="row-meta">2020 &middot; UX/UI designer</span>
+      </div>
+    </div>
+    <div class="row-image">
+      <img src="assets/images/project-greenchef.jpg" alt="Green Chef onboarding redesign, desktop and mobile" class="row-img">
+    </div>
+  </a>
+
+  <a href="case-studies/ourself-health.html" class="work-row work-row--even work-row--2 reveal" style="text-decoration:none;color:inherit;">
+    <div class="row-image">
+      <img src="assets/images/project-ourself.jpg" alt="Ourself Health app, individual health tracking" class="row-img">
+    </div>
+    <div class="row-text">
+      <div class="row-tags">
+        <span class="row-tag">Health tech</span>
+        <span class="row-tag">Design systems</span>
+      </div>
+      <h3>Ourself Health: A Metrics System Built for Integration</h3>
+      <p>21 pixel-accurate metric designs mirroring Apple Health and Fitbit conventions, so engineering could integrate without rework.</p>
+      <div class="row-outcome">
+        <span class="row-outcome-num">0</span>
+        <span class="row-outcome-label">redesign sprints at integration</span>
+      </div>
+      <div class="row-link-row">
+        <span class="case-link">Read the case study</span>
+        <span class="row-meta">2025 &middot; UX designer &amp; consultant</span>
       </div>
     </div>
   </a>
 
-  <a href="case-studies/green-chef.html" style="text-decoration:none;color:inherit;display:block;width:100%;">
-    <div class="project-row reveal d2">
-
-      <div>
-        <div class="proj-tags"><span class="tag">B2C E-commerce</span><span class="tag">Retention</span><span class="tag">Research-Led</span></div>
-        <h3 class="proj-title">Green Chef: Onboarding Redesign</h3>
-        <p class="proj-desc">Led research and iterative design for a retention-focused onboarding overhaul, pivoting direction based on usability testing. Shipped to production and adopted platform-wide.</p>
-        <p class="proj-meta">2020 &middot; UX/UI Designer &middot; Subscription E-commerce</p>
+  <a href="case-studies/mangala.html" class="work-row work-row--odd work-row--3 reveal" style="text-decoration:none;color:inherit;">
+    <div class="row-text">
+      <div class="row-tags">
+        <span class="row-tag">Nonprofit</span>
+        <span class="row-tag">Information architecture</span>
+        <span class="row-tag">AI-assisted</span>
       </div>
-      <div class="proj-visual">
-        <img src="assets/images/project-greenchef.jpg" alt="Green Chef onboarding redesign, desktop and mobile">
-        <div class="stat-badge">+13% Retention</div>
-        <span class="proj-arrow" aria-hidden="true">&nearr;</span>
+      <h3>Mangala Shri Bhuti: Members&#x2019; Portal Redesign</h3>
+      <p>Ran the project from first conversation to handoff. Full homepage and navigation redesign for a Buddhist community portal, from user research through information architecture, mega menu design, and visual direction.</p>
+      <div class="row-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="status-label">In production</span>
       </div>
+      <div class="row-link-row">
+        <span class="case-link">Read the case study</span>
+        <span class="row-meta">2026 &middot; Project manager &amp; designer</span>
+      </div>
+    </div>
+    <div class="row-image">
+      <img src="assets/images/project-mangala.jpg" alt="Mangala Shri Bhuti members portal" class="row-img">
     </div>
   </a>
 
-  <a href="case-studies/polly-banerjee.html" style="text-decoration:none;color:inherit;display:block;width:100%;">
-    <div class="project-row reveal d3">
-
-      <div>
-        <div class="proj-tags"><span class="tag">Healthcare</span><span class="tag">AI-assisted</span><span class="tag">End-to-End</span></div>
-        <h3 class="proj-title">Polly Banerjee Counseling: Full Site Redesign</h3>
-        <p class="proj-desc">Solo end-to-end redesign including research, content strategy, and implementation. Used Claude.ai throughout, resulting in a 55% increase in consultation bookings within 6 months.</p>
-        <p class="proj-meta">2024 &middot; UX Designer &amp; Consultant &middot; Mental Health</p>
-      </div>
-      <div class="proj-visual">
-        <img src="assets/images/project-polly.jpg" alt="Polly Banerjee Counseling website redesign">
-        <div class="stat-badge">+55% Bookings</div>
-        <span class="proj-arrow" aria-hidden="true">&nearr;</span>
-      </div>
+  <a href="case-studies/polly-banerjee.html" class="work-row work-row--even work-row--4 reveal" style="text-decoration:none;color:inherit;">
+    <div class="row-image">
+      <img src="assets/images/project-polly.jpg" alt="Polly Banerjee Counseling website redesign" class="row-img">
     </div>
-  </a>
-
-  <a href="case-studies/mangala.html" style="text-decoration:none;color:inherit;display:block;width:100%;">
-    <div class="project-row reveal d3">
-
-      <div>
-        <div class="proj-tags"><span class="tag">UX Research</span><span class="tag">Information Architecture</span><span class="tag">AI-assisted</span></div>
-        <h3 class="proj-title">Mangala Shri Bhuti: Members' Portal Redesign</h3>
-        <p class="proj-desc">Led the full homepage and navigation redesign of a Buddhist community members' portal, from user research through information architecture, mega menu design, and visual direction. In production.</p>
-        <p class="proj-meta">Spring 2026 &middot; UX Research &amp; Design Lead &middot; Nonprofit Community Organization</p>
+    <div class="row-text">
+      <div class="row-tags">
+        <span class="row-tag">Private practice</span>
+        <span class="row-tag">End-to-end</span>
+        <span class="row-tag">AI-assisted</span>
       </div>
-      <div class="proj-visual vis-01">
-        <img src="assets/images/project-mangala.jpg" alt="Mangala Shri Bhuti members portal">
-        <div class="stat-badge">In Production</div>
-        <span class="proj-arrow" aria-hidden="true">&nearr;</span>
+      <h3>Polly Banerjee Counseling: Full Site Redesign</h3>
+      <p>Ran the project from first conversation to handoff: research, content strategy, and implementation. An 8-site competitive audit fed a redesign that made booking the clearest action on the page.</p>
+      <div class="row-outcome">
+        <span class="row-outcome-num">+55%</span>
+        <span class="row-outcome-label">consultation bookings in 6 months</span>
+      </div>
+      <div class="row-link-row">
+        <span class="case-link">Read the case study</span>
+        <span class="row-meta">2024 &middot; Project manager &amp; designer</span>
       </div>
     </div>
   </a>
@@ -165,7 +189,7 @@
 <div class="approach" id="approach">
   <div class="approach-inner">
     <div class="reveal">
-      <p class="section-heading" style="color:var(--gold);margin-bottom:20px;">About</p>
+      <p class="section-heading" style="color:var(--mint);margin-bottom:20px;">About</p>
       <h2>I bring both structure and heart to every project</h2>
       <div class="approach-pills">
         <span class="pill">Psychology background</span>
@@ -250,23 +274,12 @@
   <div class="contact-inner">
     <div class="contact-left reveal">
       <h2>Get in touch</h2>
-      <p class="contact-sub">Have a project in mind or want to chat? Feel free to reach out.</p>
-      <div class="contact-email-row">
-        <a href="mailto:marthaasselin@gmail.com" class="contact-email-link">marthaasselin@gmail.com</a>
-        <button class="btn-copy" onclick="copyEmailBtn(this)" aria-label="Copy email address">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="5.5" y="2" width="8.5" height="10.5" rx="1.5"/>
-            <path d="M5.5 4.5H3.5A1.5 1.5 0 0 0 2 6v8A1.5 1.5 0 0 0 3.5 15.5h6A1.5 1.5 0 0 0 11 14v-1"/>
-          </svg>
-          <span class="copy-label">Copy</span>
-        </button>
-      </div>
-      <a href="https://www.linkedin.com/in/martha-asselin/" target="_blank" rel="noopener" class="btn-secondary" style="font-size:15px">LinkedIn</a>
+      <p class="contact-sub">Open to full-time, contract, and consulting roles. Based in Boulder, CO and available remotely across the US.</p>
     </div>
-    <div class="contact-right reveal d2">
-      <div class="cg"><h4>Role</h4><p>UX Designer</p><p>Project Manager</p></div>
-      <div class="cg"><h4>Type</h4><p>Full-time</p><p>Contract</p><p>Consulting</p></div>
-      <div class="cg"><h4>Location</h4><p>Boulder, CO</p><p>Remote (US)</p></div>
+    <div class="contact-actions reveal d2">
+      <a href="mailto:martha.asselin@gmail.com" class="contact-email-btn">martha.asselin@gmail.com</a>
+      <a href="https://www.linkedin.com/in/martha-asselin/" target="_blank" rel="noopener" class="contact-text-link">LinkedIn</a>
+      <a href="assets/Martha_Asselin_Resume.pdf" target="_blank" rel="noopener" class="contact-text-link">R&eacute;sum&eacute;</a>
     </div>
   </div>
 </section>
@@ -300,7 +313,7 @@
   }
 
   window.addEventListener('scroll', () => {
-    document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 60);
     const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
     document.getElementById('progressBar').style.width = pct + '%';
   }, { passive: true });
@@ -310,6 +323,25 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
+  (function () {
+    var navLinks = document.querySelectorAll('.nav-links a');
+    var sections = [
+      { el: document.getElementById('work'),    link: document.querySelector('.nav-links a[href="#work"]') },
+      { el: document.getElementById('contact'), link: document.querySelector('.nav-links a[href="#contact"]') }
+    ];
+    var homeLink = document.getElementById('navHome');
+    function spy() {
+      var mid = window.scrollY + window.innerHeight * 0.5;
+      var active = homeLink;
+      sections.forEach(function (s) {
+        if (s.el && mid >= s.el.offsetTop) active = s.link;
+      });
+      navLinks.forEach(function (a) { a.classList.remove('active'); });
+      if (active) active.classList.add('active');
+    }
+    window.addEventListener('scroll', spy, { passive: true });
+    spy();
+  })();
 
 </script>
 </body>
