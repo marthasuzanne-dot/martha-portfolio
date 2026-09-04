@@ -49,7 +49,7 @@ body { overflow-x: hidden; max-width: 100%; }
   --radius:       16px;
   /* ── Spacing ── */
   --section-gap:  120px;
-  --gutter:        72px;
+  --gutter:        48px;
   --case-gutter:   40px;
   --sub-gap:       72px;
   --content-gap:   64px;
