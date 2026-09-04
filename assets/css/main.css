@@ -1138,16 +1138,17 @@ body.home { background: var(--paper); }
 
 /* Fact strip — full-width band, content pinned to 1160px grid */
 .fact-strip {
-  display: grid; grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
+}
+.fact-strip-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 var(--gutter);
+  display: grid; grid-template-columns: repeat(3, 1fr);
 }
 .fact-cell {
   padding: 24px 32px;
   display: flex; flex-direction: column; gap: 5px;
 }
-.fact-cell--first { padding-left: max(var(--gutter), calc((100vw - 1160px) / 2 + var(--gutter))); }
-.fact-cell--last  { padding-right: max(var(--gutter), calc((100vw - 1160px) / 2 + var(--gutter))); }
 .fact-label {
   font-family: var(--body); font-size: 12px; font-weight: 600;
   letter-spacing: 0.06em; text-transform: uppercase; color: var(--mist);
@@ -1169,7 +1170,5 @@ body.home { background: var(--paper); }
   .hero-v6-text { padding: 40px var(--case-gutter) 48px; }
   .hero-v6 h1 { font-size: 44px; }
   .hero-lede { font-size: 18px; }
-  .fact-strip { grid-template-columns: 1fr 1fr; }
-  .fact-cell--last { padding-right: var(--case-gutter); }
-  .fact-cell--first { padding-left: var(--case-gutter); }
+  .fact-strip-inner { grid-template-columns: 1fr; padding: 0 var(--case-gutter); }
 }
