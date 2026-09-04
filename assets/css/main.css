@@ -534,13 +534,15 @@ nav.nav-case {
 .contact-email-btn:hover { background: var(--teal-deep); }
 .contact-text-link {
   font-family: var(--body); font-size: 15px; font-weight: 600;
-  color: var(--amber-deep); text-decoration: none;
+  color: var(--gold); text-decoration: none;
   display: inline-flex; align-items: center; gap: 7px;
-  border-bottom: 1px solid var(--amber-deep); padding-bottom: 3px;
+  border-bottom: 1px solid var(--gold); padding-bottom: 3px;
   transition: color .15s ease, border-color .15s ease;
 }
-.contact-text-link::after { content: '→'; }
-.contact-text-link:hover { color: var(--amber-deep-hover); border-color: var(--amber-deep-hover); }
+.contact-text-link::after { content: '→'; display: inline-block; transition: transform .2s ease; }
+.contact-text-link:hover { color: var(--teal); border-color: var(--teal); }
+.contact-text-link:hover::after { transform: translateX(4px); }
+.contact-text-link:active { color: var(--teal-deep); border-color: var(--teal-deep); }
 
 
 /* ============================================================
