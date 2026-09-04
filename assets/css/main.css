@@ -25,7 +25,7 @@ body { overflow-x: hidden; max-width: 100%; }
   --gold-pale:    #f0deb0;
   --olive:        #4a5a28;
   --olive-pale:   #dde5cc;
-  --paper:        #FAFAF8;
+  --paper:        #FFFFFF;
   --cream:        #FAFAF8;
   --cream-dark:   #EDE8E1;
   --mid:          #3B4D4B;   /* alias → slate */
@@ -376,7 +376,7 @@ nav.nav-case {
   cursor: pointer;
   text-decoration: none; color: inherit;
 }
-.work-row:hover { box-shadow: inset 3px 0 0 var(--gold); background: var(--surface-tint); }
+.work-row:hover { background: var(--surface-tint); }
 .work-row--odd  { grid-template-columns: 1fr 460px; }
 .work-row--even { grid-template-columns: 460px 1fr; }
 .work-row--odd:hover  .row-text { transform: translateX(6px); }
