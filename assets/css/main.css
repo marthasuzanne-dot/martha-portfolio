@@ -1138,7 +1138,7 @@ body.home { background: var(--paper); }
 
 /* Fact strip — full-width band, content pinned to 1160px grid */
 .fact-strip {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
 }
