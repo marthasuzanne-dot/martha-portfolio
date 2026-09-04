@@ -414,10 +414,13 @@ nav.nav-case {
   display: inline-flex; align-items: center; gap: 7px;
   transition: color .15s ease, border-color .15s ease;
 }
-.case-link::after { content: '→'; }
+.case-link::after { content: '→'; display: inline-block; transition: transform .2s ease; }
 .case-link:hover,
 .case-link:active,
-.work-row:hover .case-link { color: var(--teal-deep); border-color: var(--teal-deep); }
+.work-row:hover .case-link { color: var(--gold); border-color: var(--gold); }
+.case-link:hover::after,
+.case-link:active::after,
+.work-row:hover .case-link::after { transform: translateX(4px); }
 .row-meta { font-family: var(--body); font-size: 13px; font-weight: 400; letter-spacing: 0.02em; color: var(--mist); }
 .row-image { align-self: stretch; overflow: hidden; border-radius: 10px; }
 .row-img {
@@ -501,8 +504,9 @@ nav.nav-case {
   border-bottom: 1px solid var(--teal); padding-bottom: 3px;
   transition: color .15s ease, border-color .15s ease;
 }
-.about-link::after { content: '→'; }
-.about-link:hover { color: var(--teal-deep); border-color: var(--teal-deep); }
+.about-link::after { content: '→'; display: inline-block; transition: transform .2s ease; }
+.about-link:hover { color: var(--gold); border-color: var(--gold); }
+.about-link:hover::after { transform: translateX(4px); }
 
 
 /* ============================================================
@@ -809,8 +813,9 @@ footer {
   border-bottom: 1px solid var(--teal); padding-bottom: 3px;
   transition: color .15s ease, border-color .15s ease; white-space: nowrap;
 }
-.next-link::after { content: '→'; }
-.next-link:hover { color: var(--teal-deep); border-color: var(--teal-deep); }
+.next-link::after { content: '→'; display: inline-block; transition: transform .2s ease; }
+.next-link:hover { color: var(--gold); border-color: var(--gold); }
+.next-link:hover::after { transform: translateX(4px); }
 .next-link--external::after { content: '↗'; }
 
 
@@ -1106,8 +1111,9 @@ body.home { background: var(--paper); }
   border-bottom: 1px solid var(--teal); padding-bottom: 3px;
   transition: color .15s ease, border-color .15s ease;
 }
-.btn-secondary-v6::after { content: '→'; }
-.btn-secondary-v6:hover { color: var(--teal-deep); border-color: var(--teal-deep); }
+.btn-secondary-v6::after { content: '→'; display: inline-block; transition: transform .2s ease; }
+.btn-secondary-v6:hover { color: var(--gold); border-color: var(--gold); }
+.btn-secondary-v6:hover::after { transform: translateX(4px); }
 .hero-v6-portrait {
   padding: 48px var(--gutter) 48px 0;
   overflow: hidden;
