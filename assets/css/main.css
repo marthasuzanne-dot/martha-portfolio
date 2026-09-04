@@ -660,11 +660,11 @@ footer {
 .meta-value { font-family: var(--body); font-size: 13px; font-weight: 400; color: var(--slate); line-height: 1.5; letter-spacing: 0.02em; }
 
 /* Hero — widest, anchors the page */
-.img-full { max-width: 1100px; margin: 56px auto; padding: 0 var(--case-gutter); overflow: hidden; background: #F4F2ED; border-radius: var(--radius); }
+.img-full { max-width: 1100px; margin: 56px auto; padding: 0 var(--case-gutter); overflow: hidden; }
 .img-full img { width: 100%; display: block; border-radius: var(--radius); }
 
 /* Multi-state mockup spreads */
-.img-wide { max-width: 920px; margin: 48px auto; padding: 0 var(--case-gutter); overflow: hidden; background: #F4F2ED; border-radius: var(--radius); }
+.img-wide { max-width: 920px; margin: 48px auto; padding: 0 var(--case-gutter); overflow: hidden; }
 .img-wide img { width: 100%; display: block; border-radius: var(--radius); }
 
 /* Single screen / portrait mockup */
@@ -1111,8 +1111,6 @@ body.home { background: var(--paper); }
 .hero-v6-portrait {
   padding: 48px var(--gutter) 48px 0;
   overflow: hidden;
-  background: #EDEAE4;
-  border-radius: 14px;
 }
 .portrait-img {
   width: 100%; aspect-ratio: 4/5;
