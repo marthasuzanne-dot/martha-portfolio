@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Instrument+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="../assets/css/main.css?v=11">
+<link rel="stylesheet" href="../assets/css/main.css?v=12">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 </head>
 <body>
@@ -37,7 +37,8 @@
 
 <!-- HERO -->
 <div class="case-hero reveal">
-  <h1 class="t-display">Ourself Health: A Metrics System Built for Integration</h1>
+  <h1 class="t-display">Ourself Health</h1>
+  <p class="t-subtitle">A metrics system built for integration</p>
   <p class="lead t-intro">21 pixel-accurate metric designs built to mirror Apple Health and Fitbit conventions exactly, so engineering could integrate without rework and the product team had a scalable framework for every metric that followed.</p>
   <div class="meta-row">
     <div class="meta-item">
@@ -69,7 +70,8 @@
 
 <!-- 01 CHALLENGE -->
 <div class="case-section reveal" style="padding-bottom: 0">
-  <h2 class="t-heading">Designing for placeholder and integrated states at once</h2>
+  <h2 class="t-heading">The challenge</h2>
+  <h3 class="t-subtitle">Designing for placeholder and integrated states at once</h3>
   <p class="t-body">Ourself Health is a wellness app built around longevity and daily habit tracking. Their core product aggregates fitness data from Apple Health and Fitbit into a single interface, giving users a unified view of their health across devices and platforms.</p>
   <p class="t-body">They needed a fitness tracking interface that could work immediately with manual placeholder data and then transition seamlessly to live Apple Health and Fitbit integration when device syncing launched. The constraint was unusual: <strong>no original UX patterns, only exact replication of existing platform conventions</strong> so that future integration would require zero redesign.</p>
   <p class="t-body">Many health metrics like gait cadence, asymmetry, and cycling speed are device-derived and not intuitive for users to self-report. The UI needed to account for both temporary manual states and eventual automatic syncing without creating two separate design systems.</p>
@@ -85,7 +87,8 @@
 
 <!-- 02 RESEARCH -->
 <div class="case-section reveal" style="padding-bottom: 0">
-  <h2 class="t-heading">How Apple Health and Fitbit measure things</h2>
+  <h2 class="t-heading">Research and discovery</h2>
+  <h3 class="t-subtitle">How Apple Health and Fitbit measure things</h3>
   <p class="t-body">I conducted a comparative platform audit of Apple Health and Fitbit interfaces, documenting how each metric is measured, aggregated, represented visually, and expected to behave when device data is available. This went beyond visual research. I had to understand the underlying data logic, since the same metric can be calculated differently on each platform. I used Claude and ChatGPT throughout to pressure test whether my interpretations matched how these platforms behave.</p>
   <p class="t-body">For example, step cadence in Fitbit is calculated continuously during activity and shown as a daily average in steps per minute, while Flights Climbed is a cumulative daily count. Understanding those distinctions was essential for classifying metrics and defining interface behavior correctly.</p>
 </div>
@@ -100,7 +103,8 @@
 
 <!-- 03 STRATEGY -->
 <div class="case-section reveal" style="padding-bottom: 0">
-  <h2 class="t-heading">The classification model</h2>
+  <h2 class="t-heading">Design strategy</h2>
+  <h3 class="t-subtitle">The classification model</h3>
   <p class="t-body">Based on the audit, I developed a metric classification model to guide all design decisions. Every metric fell into one of two categories, with clear rules for how each should behave in the interim manual state and at the point of device integration.</p>
   <div class="decisions">
     <div class="decision">
@@ -126,7 +130,8 @@
 
 <!-- 04 EXECUTION -->
 <div class="case-section reveal" style="padding-bottom: 0">
-  <h2 class="t-heading">Designing all 21 metrics</h2>
+  <h2 class="t-heading">Design execution</h2>
+  <h3 class="t-subtitle">Designing all 21 metrics</h3>
   <p class="t-body">For each metric I mapped the corresponding Apple Health or Fitbit representation and built designs that precisely matched terminology and units, presentation patterns, and interaction expectations. Each metric included three states: empty entry, active data input, and collapsed summary.</p>
   <div class="decisions">
     <div class="decision">
@@ -163,7 +168,8 @@
 
 <!-- 05 OUTCOMES -->
 <div class="case-section reveal">
-  <h2 class="t-heading">Delivered in 4 weeks</h2>
+  <h2 class="t-heading">Outcomes</h2>
+  <h3 class="t-subtitle">Delivered in 4 weeks</h3>
   <p class="t-body">The team got two things out of this. The 21 metric designs, and a classification framework they can use for every metric that comes after.</p>
   <div class="outcomes-grid">
     <div class="outcome-card">
@@ -188,7 +194,8 @@
 <!-- REFLECTION -->
 <div class="reflection on-dark">
   <div class="reflection-inner reveal">
-    <h2 class="t-heading">What I learned</h2>
+    <h2 class="t-heading">Reflection</h2>
+    <h3 class="t-subtitle">What I learned</h3>
     <p class="t-body">When the brief is exact replication, the work is in the details. Units, structure, microcopy. Getting steps/min right instead of steps is the whole job.</p>
     <p class="t-body">It also reinforced how useful AI can be throughout the design process. Using AI to pressure test logic, validate research interpretations, and refine copy at scale let me move faster while maintaining the accuracy this type of health data demands.</p>
     <p class="t-body"><strong>What I'd do differently:</strong> I built the classification model mid-project after encountering metrics that didn't fit either category cleanly. If I'd established it in the first week, the research conversations with the product team would have been sharper from the start. We spent time in early check-ins debating edge cases that the framework would have resolved in a single conversation.</p>
