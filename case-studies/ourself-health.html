@@ -37,6 +37,7 @@
 
 <!-- HERO -->
 <div class="case-hero reveal">
+  <p class="case-tag">Case study · Health Tech</p>
   <h1>Ourself Health: A Metrics System Built for Integration</h1>
   <p class="lead">21 pixel-accurate metric designs built to mirror Apple Health and Fitbit conventions exactly, so engineering could integrate without rework and the product team had a scalable framework for every metric that followed.</p>
   <div class="meta-row">
@@ -70,6 +71,7 @@
 <!-- 01 CHALLENGE -->
 <div class="case-section reveal" style="padding-bottom: 0">
   <p class="section-num">1</p>
+  <p class="section-kicker">The challenge</p>
   <h2>Designing for placeholder and integrated states at once</h2>
   <p>Ourself Health is a wellness app built around longevity and daily habit tracking. Their core product aggregates fitness data from Apple Health and Fitbit into a single interface, giving users a unified view of their health across devices and platforms.</p>
   <p>They needed a fitness tracking interface that could work immediately with manual placeholder data and then transition seamlessly to live Apple Health and Fitbit integration when device syncing launched. The constraint was unusual: <strong>no original UX patterns, only exact replication of existing platform conventions</strong> so that future integration would require zero redesign.</p>
@@ -87,6 +89,7 @@
 <!-- 02 RESEARCH -->
 <div class="case-section reveal" style="padding-bottom: 0">
   <p class="section-num">2</p>
+  <p class="section-kicker">Research &amp; discovery</p>
   <h2>How Apple Health and Fitbit measure things</h2>
   <p>I conducted a comparative platform audit of Apple Health and Fitbit interfaces, documenting how each metric is measured, aggregated, represented visually, and expected to behave when device data is available. This went beyond visual research. I had to understand the underlying data logic, since the same metric can be calculated differently on each platform. I used Claude and ChatGPT throughout to pressure test whether my interpretations matched how these platforms behave.</p>
   <p>For example, step cadence in Fitbit is calculated continuously during activity and shown as a daily average in steps per minute, while Flights Climbed is a cumulative daily count. Understanding those distinctions was essential for classifying metrics and defining interface behavior correctly.</p>
@@ -103,6 +106,7 @@
 <!-- 03 STRATEGY -->
 <div class="case-section reveal" style="padding-bottom: 0">
   <p class="section-num">3</p>
+  <p class="section-kicker">Design strategy</p>
   <h2>The classification model</h2>
   <p>Based on the audit, I developed a metric classification model to guide all design decisions. Every metric fell into one of two categories, with clear rules for how each should behave in the interim manual state and at the point of device integration.</p>
   <div class="decisions">
@@ -130,6 +134,7 @@
 <!-- 04 EXECUTION -->
 <div class="case-section reveal" style="padding-bottom: 0">
   <p class="section-num">4</p>
+  <p class="section-kicker">Design execution</p>
   <h2>Designing all 21 metrics</h2>
   <p>For each metric I mapped the corresponding Apple Health or Fitbit representation and built designs that precisely matched terminology and units, presentation patterns, and interaction expectations. Each metric included three states: empty entry, active data input, and collapsed summary.</p>
   <div class="decisions">
@@ -168,6 +173,7 @@
 <!-- 05 OUTCOMES -->
 <div class="case-section reveal">
   <p class="section-num">5</p>
+  <p class="section-kicker">Outcomes</p>
   <h2>Delivered in 4 weeks</h2>
   <p>The team got two things out of this. The 21 metric designs, and a classification framework they can use for every metric that comes after.</p>
   <div class="outcomes-grid">
@@ -193,6 +199,7 @@
 <!-- REFLECTION -->
 <div class="reflection">
   <div class="reflection-inner reveal">
+    <p class="section-kicker">Reflection</p>
     <h2>What I learned</h2>
     <p>When the brief is exact replication, the work is in the details. Units, structure, microcopy. Getting steps/min right instead of steps is the whole job.</p>
     <p>It also reinforced how useful AI can be throughout the design process. Using AI to pressure test logic, validate research interpretations, and refine copy at scale let me move faster while maintaining the accuracy this type of health data demands.</p>
