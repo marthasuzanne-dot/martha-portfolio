@@ -718,8 +718,8 @@ footer {
 .chart-card .img-caption { text-align: center; margin-top: 16px; }
 
 .case-section { max-width: var(--max); margin: 0 auto; padding: 0 var(--case-gutter) var(--sub-gap); }
-.section-num { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--teal); line-height: 1.4; display: inline; margin-right: 10px; }
-.section-kicker { font-family: var(--body); font-size: 13px; font-weight: 500; color: var(--teal); margin-bottom: 16px; line-height: 1.4; display: inline-block; }
+.case-section .section-num { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--teal); line-height: 1.4; display: inline; margin-right: 10px; margin-bottom: 0; }
+.case-section .section-kicker { font-family: var(--body); font-size: 13px; font-weight: 500; color: var(--teal); margin-bottom: 16px; line-height: 1.4; display: inline-block; }
 .case-section h2 { font-family: var(--serif); font-size: clamp(34px,3.5vw,44px); font-weight: 600; line-height: 1.08; letter-spacing: -0.022em; margin-bottom: 24px; color: var(--ink); }
 .case-section h2 em { font-style: normal; color: inherit; }
 .case-section p { font-family: var(--body); font-size: 17px; color: var(--slate); line-height: 1.75; margin-bottom: 20px; }
