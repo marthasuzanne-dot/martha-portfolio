@@ -718,7 +718,7 @@ footer {
 .chart-card .img-caption { text-align: center; margin-top: 16px; }
 
 .case-section { max-width: var(--max); margin: 0 auto; padding: 0 var(--case-gutter) var(--sub-gap); }
-.section-num { font-family: var(--serif); font-size: 15px; font-weight: 500; color: var(--mist); line-height: 1.4; display: inline; margin-right: 8px; }
+.section-num { font-family: var(--serif); font-size: 15px; font-weight: 500; color: var(--mist); line-height: 1.4; display: inline; margin-right: 2px; }
 .section-kicker { font-family: var(--body); font-size: 15px; font-weight: 500; color: var(--mist); margin-bottom: 16px; line-height: 1.4; display: inline-block; }
 .case-section h2 { font-family: var(--serif); font-size: clamp(34px,3.5vw,44px); font-weight: 600; line-height: 1.08; letter-spacing: -0.022em; margin-bottom: 24px; color: var(--ink); }
 .case-section h2 em { font-style: normal; color: inherit; }
