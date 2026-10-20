@@ -983,6 +983,7 @@ body.home { background: var(--paper); }
   .hero-v6-text { padding: 48px 32px 56px var(--gutter); }
   .hero-v6-portrait { padding: 40px 40px 40px 0; }
 }
+@media (max-width: 768px) { .br-desktop { display: none; } }
 @media (max-width: 767px) {
   .hero-v6 { grid-template-columns: 1fr; }
   .hero-v6-portrait { display: none; }
