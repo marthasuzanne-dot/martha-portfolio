@@ -923,10 +923,10 @@ body.home { background: var(--paper); }
   max-width: 1400px; margin: 131px auto 0;
 }
 .hero-v6-text {
-  padding: 160px 40px 68px var(--gutter);
-  display: flex; flex-direction: column; gap: 24px; justify-content: center;
+  padding: 80px 40px 68px var(--gutter);
+  display: flex; flex-direction: column; gap: 40px; justify-content: flex-start;
 }
-.hero-v6 h1 { color: var(--ink); margin: 0; }
+.hero-v6 h1 { color: var(--ink); margin: 0; font-size: clamp(44px, 5vw, 64px); }
 .hero-lede { color: var(--slate); max-width: 480px; margin: 0; }
 .hero-ctas-v6 { display: flex; gap: 42px; align-items: center; }
 .btn-primary-v6 {
@@ -1006,7 +1006,7 @@ body.home { background: var(--paper); }
 /* Homepage hero responsive */
 @media (max-width: 1023px) {
   .hero-v6 { grid-template-columns: 1fr 340px; }
-  .hero-v6-text { padding: 148px 32px 56px var(--gutter); }
+  .hero-v6-text { padding: 80px 32px 56px var(--gutter); }
   .hero-v6-portrait { padding: 40px 40px 40px 0; }
 }
 @media (max-width: 768px) { .br-desktop { display: none; } }
