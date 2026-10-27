@@ -51,7 +51,7 @@ body { overflow-x: hidden; max-width: 100%; }
   --sub-gap:       72px;
   --content-gap:   64px;
   /* ── Case study layout ── */
-  --max:          840px;
+  --max:          960px;
   --case-gutter:   40px;
   /* ── Surface tint ── */
   --surface-tint: #EAF0F0;
