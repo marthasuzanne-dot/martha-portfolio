@@ -407,9 +407,9 @@ nav.nav-case {
 .about-right h3 em, .about-right h2 em { font-style: normal; color: inherit; font-weight: 600; }
 .about-right p { color: var(--slate); margin-bottom: 16px; }
 .about-link {
-  color: var(--teal); text-decoration: none;
+  color: var(--amber-hover); text-decoration: none;
   display: inline-flex; align-items: center; gap: 7px;
-  border-bottom: 1px solid var(--teal); padding-bottom: 3px;
+  border-bottom: 1px solid var(--amber-hover); padding-bottom: 3px;
   transition: color .15s ease, border-color .15s ease;
 }
 .about-link::after { content: '→'; display: inline-block; transition: transform .2s ease; }
