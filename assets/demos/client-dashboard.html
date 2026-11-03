@@ -1587,7 +1587,7 @@ const DEMO = (() => {
       { key: "data", id: "F0DEMODATA", title: "Data project", url: "", groupBy: "stage", strip: STRIP.data, columns: ["stage", "assignee", "due", "priority", "status"], color: "teal",
         stages: { "Stage 1": { name: "Foundation and connectivity", weeks: "Weeks 1 to 3" }, "Stage 2": { name: "Job history and estimating files", weeks: "Weeks 3 to 6" }, "Stage 3": { name: "Shop production system", weeks: "Weeks 5 to 9" }, "Stage 4": { name: "Accounting and handover", weeks: "Weeks 9 to 12" } } },
     ],
-    meeting: { title: "Tuesday standup", weekday: 2, time: "9:00 a.m. Mountain", source: "Meeting notes in the Services folder in Drive", notesMatch: ["Internal Project Review"], notesFolder: "demo-folder" },
+    meeting: { title: "Tuesday standup", weekday: 2, time: "9:00 a.m. Mountain", source: "Meeting notes in the project folder in Drive", notesMatch: ["Weekly standup"], notesFolder: "demo-folder" },
     /* Earlier standups, stored as counts for each project (sample). The Progress tab adds the live point. */
     history: [
       { at: off(-28), lists: { data: { scope: 12, done: 0, open: 12, overdue: 0, slipped: 0, owed: 1 }, aibi: { scope: 2, done: 0, open: 2, overdue: 0, slipped: 0, owed: 0 } } },
@@ -1643,9 +1643,9 @@ const DEMO = (() => {
   const watchers = new Set(); let recN = 100;
   const pushLists = () => watchers.forEach((w) => setTimeout(() => w.cb({ type: "data", result: { payload: { result: csv(w.listId) }, cache: { storedAt: Date.now() } } }), 250));
   const notes = [
-    { id: "demo-note-new", title: `Internal Project Review - ${slash(-1)} 09:00 MST - Notes by Gemini`, mimeType: "application/vnd.google-apps.document", viewUrl: "" },
-    { id: "demo-note-0", title: `Internal Project Review - ${slash(-7)} 09:00 MST - Notes by Gemini`, mimeType: "application/vnd.google-apps.document", viewUrl: "" },
-    { id: "demo-note-old", title: `Internal Project Review - ${slash(-30)} 09:00 MST - Notes by Gemini`, mimeType: "application/vnd.google-apps.document", viewUrl: "" },
+    { id: "demo-note-new", title: `Weekly standup - ${slash(-1)} - Meeting notes`, mimeType: "application/vnd.google-apps.document", viewUrl: "" },
+    { id: "demo-note-0", title: `Weekly standup - ${slash(-7)} - Meeting notes`, mimeType: "application/vnd.google-apps.document", viewUrl: "" },
+    { id: "demo-note-old", title: `Weekly standup - ${slash(-30)} - Meeting notes`, mimeType: "application/vnd.google-apps.document", viewUrl: "" },
   ];
   const mcp = {
     watchTool(server, tool, args, cb) { const w = { listId: args.list_id, cb }; watchers.add(w); setTimeout(() => cb({ type: "data", result: { payload: { result: csv(args.list_id) }, cache: { storedAt: Date.now() } } }), 350); return () => watchers.delete(w); },
@@ -1663,7 +1663,7 @@ const DEMO = (() => {
         pushLists(); return { payload: { ok: true, record_id: id } };
       }
       if (tool === "search_files") { await wait(500); return { payload: { files: notes } }; }
-      if (tool === "read_file_content") { await wait(400); return { payload: { fileContent: `Internal Project Review, ${slash(-1)}\n\nSummary\nThe team reviewed both lists. Job history is loading, with duplicate job numbers in 2023 to sort out. The estimating exports from Ridgeline are now overdue. Owen asked whether the WIP report can go out every Monday.\n\nNext steps\n- Priya: send the WIP report every Monday starting next week\n- Marco: fix the duplicate 2023 job numbers before loading the rest\n- Theo: ask Kate again for the estimating exports, by Friday\n- Lena: book a call with Owen on the activity codes\n- Martha: order lunch for the training day` } }; }
+      if (tool === "read_file_content") { await wait(400); return { payload: { fileContent: `Weekly standup, ${slash(-1)}\n\nSummary\nThe team reviewed both lists. Job history is loading, with duplicate job numbers in 2023 to sort out. The estimating exports from Ridgeline are now overdue. Owen asked whether the WIP report can go out every Monday.\n\nNext steps\n- Priya: send the WIP report every Monday starting next week\n- Marco: fix the duplicate 2023 job numbers before loading the rest\n- Theo: ask Kate again for the estimating exports, by Friday\n- Lena: book a call with Owen on the activity codes\n- Martha: order lunch for the training day` } }; }
       return { payload: {} };
     },
   };
@@ -3404,7 +3404,7 @@ $("#records").addEventListener("drop", (e) => {
 });
 
 /* =====================================================================
-   20. MEETING NOTES: find new Gemini notes in Drive for this client's
+   20. MEETING NOTES: find new meeting notes in Drive for this client's
    meeting, have Claude draft the summary, decisions and action items, and
    save only what a person approves. Runs on a click, never on load.
    ===================================================================== */
@@ -3459,7 +3459,7 @@ async function draftNotes(f) {
   let text = "";
   try { const p = payloadOf(await m.callTool(DRIVE, "read_file_content", { fileId: f.id })); text = typeof p === "string" ? p : (p?.fileContent || ""); }
   catch (e) { closeDialog(); toast(connectorMsg(e, DRIVE)); return; }
-  // Gemini's summary, decisions, next steps and details come before the transcript; that's what's needed.
+  // The notes' summary, decisions, next steps and details come before the transcript; that's what's needed.
   const cut = text.search(/\n#\s*\*{0,2}[^\n]{0,12}Transcript/); if (cut > 0) text = text.slice(0, cut);
   text = text.slice(0, 40000);
   step("Drafting the summary, decisions and action items…");
