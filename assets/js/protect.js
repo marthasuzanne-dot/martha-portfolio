@@ -13,7 +13,7 @@
     '.pw-locked body > *:not(.pw-gate){display:none !important}' +
     '.pw-gate{min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--paper,#fff)}' +
     '.pw-card{width:100%;max-width:420px;padding:40px;border:1px solid var(--teal-pale,#d8e4e2);border-radius:12px;background:var(--paper,#fff)}' +
-    '.pw-card h1{font:600 28px/1.2 var(--serif,Georgia,serif);color:var(--ink,#1D2B29);margin:0 0 10px}' +
+    '.pw-card h1{font:600 28px/1.2 var(--serif,Georgia,serif);color:var(--ink,#1D2B29);margin:0 0 24px}' +
     '.pw-card p{font:400 16px/1.6 var(--sans,system-ui,sans-serif);color:var(--slate,#3B4D4B);margin:0 0 24px}' +
     '.pw-card label{display:block;font:500 13px/1.4 var(--sans,system-ui,sans-serif);color:var(--slate,#3B4D4B);margin-bottom:8px}' +
     '.pw-row{display:flex;gap:10px}' +
@@ -38,14 +38,14 @@
     gate.innerHTML =
       '<form class="pw-card" novalidate>' +
         '<h1>This case study is password protected</h1>' +
-        '<p>It covers client work under NDA. Enter the password to read it.</p>' +
         '<label for="pw-input">Password</label>' +
-        '<div class="pw-row"><input id="pw-input" type="password" autocomplete="current-password" required><button type="submit">View</button></div>' +
+        '<div class="pw-row"><input id="pw-input" name="case-access" type="password" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false" data-1p-ignore data-lpignore="true" required><button type="submit">View</button></div>' +
         '<div class="pw-err" role="alert" aria-live="polite"></div>' +
         '<a class="pw-back" href="../index.html#work">Back to all work</a>' +
       '</form>';
     document.body.prepend(gate);
     var form = gate.querySelector('form'), input = gate.querySelector('input'), err = gate.querySelector('.pw-err');
+    input.value = ''; setTimeout(function () { input.value = ''; }, 300); // clear anything a password manager filled in
     input.focus();
     form.addEventListener('submit', function (e) {
       e.preventDefault();
