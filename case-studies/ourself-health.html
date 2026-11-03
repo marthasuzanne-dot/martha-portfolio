@@ -39,7 +39,7 @@
 <div class="case-hero reveal">
   <h1 class="t-display">Ourself Health</h1>
   <p class="t-subtitle">A metrics system built for integration</p>
-  <p class="lead t-intro">21 pixel-accurate metric designs built to mirror Apple Health and Fitbit conventions exactly, so engineering could integrate without rework and the product team had a scalable framework for every metric that followed.</p>
+  <p class="lead t-intro">Ourself Health needed 21 health metrics designed to work with manual entry now and switch to Apple Health, Fitbit, and Google Fit data once device syncing is ready. I matched each one to how those platforms already show it, down to the units, so engineering would have a direct reference to build from. The team also got a model for classifying every metric that comes after.</p>
   <div class="meta-row">
     <div class="meta-item">
       <div class="meta-label t-strip">Role</div>
@@ -55,7 +55,7 @@
     </div>
     <div class="meta-item" style="padding-left:20px">
       <div class="meta-label t-strip">Tools</div>
-      <div class="meta-value t-meta">Figma &<br>AI Research</div>
+      <div class="meta-value t-meta">Figma &<br>Claude</div>
     </div>
   </div>
 </div>
@@ -65,17 +65,16 @@
   <img src="../assets/images/cs-ourself-hero.png" alt="Blood pressure entry flow across four states">
 </div>
 <div class="img-contained reveal" style="margin-top:-16px">
-  <p class="img-caption">Fig 01. Blood pressure metric across four states: entry, data input, time selection, and collapsed summary</p>
+  <p class="img-caption">Fig 01. Blood pressure metric across four screens: entry, data input, time selection, and collapsed summary</p>
 </div>
 
 <!-- 01 CHALLENGE -->
 <div class="case-section reveal" style="padding-top: var(--sub-gap); padding-bottom: 0">
   <h2 class="t-heading">The challenge</h2>
-  <h3 class="t-subtitle">Designing for placeholder and integrated states at once</h3>
-  <p class="t-body">Ourself Health is a wellness app built around longevity and daily habit tracking. Their core product aggregates fitness data from Apple Health and Fitbit into a single interface, giving users a unified view of their health across devices and platforms.</p>
-  <p class="t-body">They needed a fitness tracking interface that could work immediately with manual placeholder data and then transition seamlessly to live Apple Health and Fitbit integration when device syncing launched. The constraint was unusual: <strong>no original UX patterns, only exact replication of existing platform conventions</strong> so that future integration would require zero redesign.</p>
-  <p class="t-body">Many health metrics like gait cadence, asymmetry, and cycling speed are device-derived and not intuitive for users to self-report. The UI needed to account for both temporary manual states and eventual automatic syncing without creating two separate design systems.</p>
-  <p class="t-body">The hard part was designing for a future state that had to work correctly the moment device syncing launched.</p>
+  <h3 class="t-subtitle">Manual entry now, device syncing later</h3>
+  <p class="t-body">Ourself Health is a wellness app focused on longevity and daily habits. It's built to pull fitness data from Apple Health, Fitbit, and Google Fit into one place, so people can see their health across all their devices.</p>
+  <p class="t-body">Device syncing wasn't ready yet, so the app needed a tracking interface that worked with manual entry first and could switch to live data later without a redesign. The brief was strict about how to get there. I couldn't introduce new UX patterns, and every metric had to match how Apple Health, Fitbit, or Google Fit already presents it.</p>
+  <p class="t-body">That got tricky with metrics like Walking Asymmetry, step cadence, and cycling speed. Phones and watches calculate these from sensors, and nobody can estimate them by hand. The interface had to cover those placeholder states and the eventual synced states with one set of components.</p>
 </div>
 
 <!-- Brand image 1 -->
@@ -88,15 +87,15 @@
 <!-- 02 RESEARCH -->
 <div class="case-section reveal" style="padding-bottom: 0">
   <h2 class="t-heading">Research and discovery</h2>
-  <h3 class="t-subtitle">How Apple Health and Fitbit measure things</h3>
-  <p class="t-body">I conducted a comparative platform audit of Apple Health and Fitbit interfaces, documenting how each metric is measured, aggregated, represented visually, and expected to behave when device data is available. This went beyond visual research. I had to understand the underlying data logic, since the same metric can be calculated differently on each platform. I used Claude and ChatGPT throughout to pressure test whether my interpretations matched how these platforms behave.</p>
-  <p class="t-body">For example, step cadence in Fitbit is calculated continuously during activity and shown as a daily average in steps per minute, while Flights Climbed is a cumulative daily count. Understanding those distinctions was essential for classifying metrics and defining interface behavior correctly.</p>
+  <h3 class="t-subtitle">How Apple Health, Fitbit, and Google Fit measure things</h3>
+  <p class="t-body">I audited how Apple Health, Fitbit, and Google Fit handle each metric: how it's measured, how it's totaled or averaged over a day, how it's displayed, and what changes once device data comes in. The same metric can be calculated differently on each platform, so I needed to understand the data logic and not only the screens. I used Claude along the way to check whether my read on each platform held up.</p>
+  <p class="t-body">Take two Apple Health metrics. Flights Climbed is a count that keeps adding up through the day, while Walking Asymmetry is a percentage the iPhone estimates from how you walk. Differences like that decided which category each metric went into and how its screens behaved.</p>
 </div>
 
 <!-- Single close-up phone -->
 <div class="img-contained reveal">
   <img src="../assets/images/cs-ourself-phone.png" alt="Ourself Health individual tracking screen">
-  <p class="img-caption">Fig 02. Individual tracking screen showing metric categories and blood pressure entry state</p>
+  <p class="img-caption">Fig 02. Individual tracking screen showing metric categories and the blood pressure entry state</p>
 </div>
 
 <div class="divider"><hr></div>
@@ -105,20 +104,26 @@
 <div class="case-section reveal" style="padding-bottom: 0">
   <h2 class="t-heading">Design strategy</h2>
   <h3 class="t-subtitle">The classification model</h3>
-  <p class="t-body">Based on the audit, I developed a metric classification model to guide all design decisions. Every metric fell into one of two categories, with clear rules for how each should behave in the interim manual state and at the point of device integration.</p>
+  <p class="t-body">Based on the audit, I sorted every metric into one of two categories. Each category had its own rules for how a metric behaves during manual entry and after device syncing.</p>
   <div class="decisions">
     <div class="decision">
       <p class="decision-num t-label">Category 1</p>
       <h3 class="t-subhead">Device-derived, read-only summaries</h3>
-      <p class="t-body">Metrics like cadence and wheel speed that come directly from sensor data. These appear as static aggregated values when device data is available and as clearly-marked placeholder states in the interim.</p>
+      <p class="t-body">Metrics like cadence and cycling speed come straight from sensor data. Once a device is connected they show as a daily value, and until then they show a placeholder clearly marked as device-only.</p>
     </div>
     <div class="decision">
       <p class="decision-num t-label">Category 2</p>
-      <h3 class="t-subhead">Manual placeholder aggregations</h3>
-      <p class="t-body">Metrics like Heart Points or Move Minutes that accumulate over the day and can be represented as numeric totals in the interim, mirroring Fitbit's pattern exactly.</p>
+      <h3 class="t-subhead">Manual placeholder totals</h3>
+      <p class="t-body">Metrics like Heart Points and Move Minutes build up over the course of a day, so people can enter a daily total by hand until syncing is ready. Both come from Google Fit, so they follow Google Fit's units and display.</p>
     </div>
   </div>
-  <p class="t-body" style="margin-top:24px;">Core principles across both categories: match Apple Health and Fitbit units exactly (steps/min, not steps; bpm, not beats), use a single daily aggregated value per metric rather than raw streams, apply consistent UI components so the system scales, and clearly distinguish between placeholder entry states and read-only device states through microcopy and visual treatment.</p>
+  <p class="t-body" style="margin-top:24px;">Rules for both categories:</p>
+      <ul class="t-body" style="margin-top:8px;padding-left:1.4em;line-height:1.85;">
+        <li>Use the same units the platforms use (steps/min instead of steps, bpm instead of beats)</li>
+        <li>Show one value per metric per day, not a stream of raw readings</li>
+        <li>Reuse the same components across all 21 metrics so the system can grow</li>
+        <li>Make placeholder states look and read differently from synced, read-only states</li>
+      </ul>
 </div>
 
 <!-- Brand image 2 -->
@@ -132,22 +137,22 @@
 <div class="case-section reveal" style="padding-bottom: 0">
   <h2 class="t-heading">Design execution</h2>
   <h3 class="t-subtitle">Designing all 21 metrics</h3>
-  <p class="t-body">For each metric I mapped the corresponding Apple Health or Fitbit representation and built designs that precisely matched terminology and units, presentation patterns, and interaction expectations. Each metric included three states: empty entry, active data input, and collapsed summary.</p>
+  <p class="t-body">For each metric, I matched the Apple Health, Fitbit, or Google Fit version: the name, the unit, how it's displayed, and how people expect to interact with it. Every metric has an empty entry state, a data input state, and a collapsed summary, plus a time picker for metrics that need one.</p>
   <div class="decisions">
     <div class="decision">
-      <p class="decision-num t-label">Metric 1</p>
+      <p class="decision-num t-label">Example 1</p>
       <h3 class="t-subhead">Heart Points (manual placeholder)</h3>
-      <p class="t-body">A Google Fit metric that accumulates throughout the day based on activity intensity. Mirrored as a numeric daily total the user can self-report in the interim, using Google's exact unit and threshold language.</p>
+      <p class="t-body">Heart Points is a Google Fit metric that builds up through the day based on how hard you're moving. Until syncing launches, people enter it as a daily total, using Google's unit and threshold language as written.</p>
     </div>
     <div class="decision">
-      <p class="decision-num t-label">Metric 2</p>
+      <p class="decision-num t-label">Example 2</p>
       <h3 class="t-subhead">Step and Cycling Cadence (device-derived, read-only)</h3>
-      <p class="t-body">Both measured in steps/min or RPM, values that sensors calculate continuously. Displayed as daily averages with a locked entry state and a placeholder label until device data is available.</p>
+      <p class="t-body">Step cadence is measured in steps per minute and cycling cadence in RPM, and sensors calculate both continuously. They show as daily averages, with a locked entry state and a placeholder label until device data comes in.</p>
     </div>
     <div class="decision">
-      <p class="decision-num t-label">Metric 3</p>
-      <h3 class="t-subhead">Walking Steadiness and Gait Asymmetry (device-derived, read-only)</h3>
-      <p class="t-body">Apple Health metrics derived from iPhone motion sensors. Among the trickiest to handle: percentages users can't self-report. These got the most deliberate placeholder state, clearly marked as device-only with no entry affordance.</p>
+      <p class="decision-num t-label">Example 3</p>
+      <h3 class="t-subhead">Walking Steadiness and Walking Asymmetry (device-derived, read-only)</h3>
+      <p class="t-body">Apple Health estimates both from the iPhone's motion sensors, and neither is something a person could work out by hand. These got the most careful placeholder treatment, marked as device-only with no way to enter a value.</p>
     </div>
   </div>
 </div>
@@ -170,23 +175,23 @@
 <div class="case-section reveal">
   <h2 class="t-heading">Outcomes</h2>
   <h3 class="t-subtitle">Delivered in 4 weeks</h3>
-  <p class="t-body">The team got two things out of this. The 21 metric designs, and a classification framework they can use for every metric that comes after.</p>
+  <p class="t-body">The team came away with designs for all 21 metrics and a classification model they can use to sort new metrics before anyone starts designing them.</p>
   <div class="outcomes-grid">
     <div class="outcome-card">
       <div class="outcome-num t-numeral">21</div>
-      <div class="outcome-label t-label">Pixel-accurate metric designs delivered, each mapped to Apple Health and Fitbit conventions with exact units and terminology</div>
+      <div class="outcome-label t-label">Metric designs, each matched to the source platform's units and terminology</div>
     </div>
     <div class="outcome-card">
-      <div class="outcome-num t-numeral">0</div>
-      <div class="outcome-label t-label">Redesign sprints needed at integration: engineering gets a direct UI reference, not a starting point to interpret</div>
+      <div class="outcome-num t-numeral">2</div>
+      <div class="outcome-label t-label">Categories in the classification model, with rules for manual and synced states</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num t-numeral">3</div>
+      <div class="outcome-label t-label">Platforms audited: Apple Health, Fitbit, and Google Fit</div>
     </div>
     <div class="outcome-card">
       <div class="outcome-num t-numeral">4 wk</div>
-      <div class="outcome-label t-label">From kickoff to handoff, including platform audit, classification model, and all 21 metric designs</div>
-    </div>
-    <div class="outcome-card">
-      <div class="outcome-num t-numeral">1</div>
-      <div class="outcome-label t-label">Reusable framework handed to the product team for classifying every future metric before design begins</div>
+      <div class="outcome-label t-label">From kickoff to handoff, including the platform audit and all 21 designs</div>
     </div>
   </div>
 </div>
@@ -196,9 +201,9 @@
   <div class="reflection-inner reveal">
     <h2 class="t-heading">Reflection</h2>
     <h3 class="t-subtitle">What I learned</h3>
-    <p class="t-body">When the brief is exact replication, the work is in the details. Units, structure, microcopy. Getting steps/min right instead of steps is the whole job.</p>
-    <p class="t-body">It also reinforced how useful AI can be throughout the design process. Using AI to pressure test logic, validate research interpretations, and refine copy at scale let me move faster while maintaining the accuracy this type of health data demands.</p>
-    <p class="t-body"><strong>What I'd do differently:</strong> I built the classification model mid-project after encountering metrics that didn't fit either category cleanly. If I'd established it in the first week, the research conversations with the product team would have been sharper from the start. We spent time in early check-ins debating edge cases that the framework would have resolved in a single conversation.</p>
+    <p class="t-body">Matching another platform exactly meant spending a lot of time on small things, like units, labels, and the wording on placeholder states. If a metric showed a plain step count where Apple Health shows steps per minute, engineering would have had to come back and fix it once syncing goes live.</p>
+    <p class="t-body">I used Claude to test my read on how each platform calculated a metric, and to tighten the microcopy across all 21 designs. With health data, a wrong unit or label can mislead someone, so I wanted a second check before anything went to engineering.</p>
+    <p class="t-body"><strong>What I'd do differently:</strong> I built the classification model partway through the project, after running into metrics that didn't fit either category cleanly. If I'd set it up in the first week, my early conversations with the product team would have been more focused. We spent time in those first check-ins debating edge cases that the model would have settled quickly.</p>
   </div>
 </div>
 

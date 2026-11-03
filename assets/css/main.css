@@ -1016,3 +1016,7 @@ body.home { background: var(--paper); }
   .hero-v6-text { padding: 100px var(--gutter) 48px; }
   .fact-strip-inner { grid-template-columns: 1fr; padding: 0 var(--gutter); }
 }
+
+/* Password-protected case study label on a work card */
+.row-lock { display: inline-flex; align-items: center; gap: 6px; background: transparent; box-shadow: inset 0 0 0 1px var(--teal-pale); }
+.row-lock svg { flex-shrink: 0; }

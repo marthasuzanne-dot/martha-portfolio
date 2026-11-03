@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consciens, Martha Asselin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/main.css?v=29">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script src="../assets/js/protect.js"></script>
+<style>
+  /* Tasks tab and charts carousels */
+  #chartOuter { overflow: hidden; width: 100%; border-radius: var(--radius); }
+  #chartTrack { display: grid; grid-auto-flow: column; grid-auto-columns: 100%; transition: transform .4s cubic-bezier(.4,0,.2,1); will-change: transform; }
+  #chartTrack img { width: 100%; height: auto; display: block; }
+  #dashOuter { overflow: hidden; width: 100%; border-radius: var(--radius); }
+  #dashTrack {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    transition: transform .4s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+  }
+  #dashTrack img { width: 100%; height: auto; display: block; }
+  .menu-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    gap: 12px;
+  }
+  .menu-arrow {
+    background: none;
+    border: 1px solid #d0d0d0;
+    border-radius: 50%;
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 14px; color: #555;
+    flex-shrink: 0;
+    transition: background .15s, border-color .15s;
+    line-height: 1;
+  }
+  .menu-arrow:hover { background: rgba(0,0,0,.05); border-color: #999; }
+  .menu-center { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; }
+  .menu-label-text {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #555;
+    white-space: nowrap;
+  }
+  .menu-dot-row { display: flex; gap: 6px; align-items: center; }
+  .menu-dot-btn {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #ccc;
+    border: none; padding: 0;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+  }
+  .menu-dot-btn.active { background: var(--teal); transform: scale(1.3); }
+  .menu-counter {
+    font-family: var(--sans);
+    font-size: 10px;
+    color: #aaa;
+    letter-spacing: .06em;
+    flex-shrink: 0;
+  }
+
+  /* Hotspots figure */
+  .csd-hs-wrap{--csd-gold:#A36A00;--csd-gold-tint:#F6EEDF;--csd-ink:#1E1B17;--csd-muted:#6A6258;display:flex;flex-direction:column;gap:14px;margin:0}
+  .csd-hs{position:relative}
+  .csd-hs img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 0 0 1px rgba(30,20,5,.08),0 24px 50px -24px rgba(60,40,10,.45)}
+  .csd-dot{position:absolute;z-index:4;width:28px;height:28px;margin:-14px 0 0 -14px;padding:0;border:0;border-radius:50%;background:var(--csd-gold);color:#fff;font-family:inherit;font-size:13px;font-weight:600;line-height:28px;text-align:center;cursor:pointer;box-shadow:0 0 0 3px #fff,0 6px 14px rgba(0,0,0,.35);transition:transform .2s}
+  .csd-dot::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--csd-gold);opacity:0;animation:csd-pulse 2.4s ease-out infinite}
+  .csd-dot[aria-expanded="true"]{transform:scale(1.12);background:#7d5100}
+  .csd-dot[aria-expanded="true"]::after{animation:none}
+  @keyframes csd-pulse{0%{transform:scale(.7);opacity:.7}80%,100%{transform:scale(1.35);opacity:0}}
+  @media (prefers-reduced-motion:reduce){.csd-dot::after{animation:none}}
+  .csd-pop{position:absolute;z-index:5;pointer-events:none;width:min(300px,70vw);background:#fff;color:var(--csd-ink);border-radius:12px;padding:16px 18px;box-shadow:0 0 0 1px rgba(30,20,5,.10),0 20px 40px -14px rgba(40,25,5,.45);font-size:14.5px;line-height:1.5}
+  .csd-pop[hidden]{display:none}
+  .csd-pop h3{font:500 20px/1.2 "Literata",Georgia,serif;margin:0 0 6px}
+  .csd-pop p{margin:0;color:var(--csd-muted)}
+  .csd-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:4px 22px}
+  .csd-list button{all:unset;cursor:pointer;display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.4;color:var(--csd-ink);padding:6px 0}
+  .csd-list button span{flex:none;width:22px;height:22px;border-radius:50%;background:var(--csd-gold-tint);color:var(--csd-gold);font-size:12px;font-weight:600;line-height:22px;text-align:center}
+  .csd-list button[aria-current="true"] span{background:var(--csd-gold);color:#fff}
+  .csd-dot:focus-visible,.csd-list button:focus-visible{outline:2px solid var(--csd-gold);outline-offset:3px}
+  @media (max-width:640px){.csd-pop{position:static;width:auto}.csd-dot{width:22px;height:22px;margin:-11px 0 0 -11px;line-height:22px;font-size:11px}}
+
+  /* Prototype embed */
+  .csd-proto-wrap{--csd-gold:#A36A00;display:flex;flex-direction:column;gap:12px;margin:0}
+  .csd-proto{border-radius:14px;overflow:hidden;background:#0c111e;box-shadow:0 0 0 1px rgba(30,20,5,.12),0 30px 60px -28px rgba(40,25,5,.55)}
+  .csd-bar{height:34px;display:flex;align-items:center;gap:7px;padding:0 14px;background:#141a28;position:relative}
+  .csd-bar i{width:10px;height:10px;border-radius:50%;background:#2b3243}
+  .csd-bar span{position:absolute;left:50%;transform:translateX(-50%);font-size:12px;font-weight:500;color:#8a93a5;background:#0d1220;padding:6px 14px;border-radius:7px;white-space:nowrap}
+  .csd-view{position:relative;width:100%;aspect-ratio:1440/900;overflow:hidden}
+  .csd-view iframe{position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0;background:#0c111e}
+  .csd-cover{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(12,17,30,.15),rgba(12,17,30,.55))}
+  .csd-cover[hidden]{display:none}
+  .csd-start{font:inherit;font-weight:600;font-size:15px;color:#1E1B17;background:#fff;border:0;border-radius:999px;padding:14px 22px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .csd-start:focus-visible{outline:2px solid var(--csd-gold);outline-offset:3px}
+  .csd-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14.5px}
+  .csd-links a{color:var(--csd-gold);font-weight:600}
+  .csd-phone{display:none}
+  .csd-phone img{display:block;width:100%;height:auto;border-radius:12px}
+  @media (max-width:700px){.csd-proto{display:none}.csd-phone{display:block}}
+
+  /* Data tables */
+  .cs-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+  .cs-table th { text-align: left; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--mist); padding: 10px 14px; border-bottom: 2px solid var(--teal-pale); }
+  .cs-table td { font-family: var(--sans); font-size: 14.5px; line-height: 1.55; padding: 12px 14px; border-bottom: 1px solid var(--teal-pale); vertical-align: top; }
+  .cs-table tr:last-child td { border-bottom: none; }
+  .cs-table td:first-child { font-weight: 500; }
+</style>
+</head>
+<body>
+
+<nav class="nav-home" id="mainNav">
+  <a href="../index.html" class="nav-logo">
+    <svg width="36" height="36" viewBox="0 0 1032 1034" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0;">
+      <path d="M520 60.5V95.5C749.198 95.5 935 281.302 935 510.5H970H1005C1005 242.642 787.858 25.5 520 25.5V60.5ZM970 510.5H935C935 739.698 749.198 925.5 520 925.5V960.5V995.5C787.858 995.5 1005 778.358 1005 510.5H970ZM520 960.5V925.5C290.802 925.5 105 739.698 105 510.5H70H35C35 778.358 252.142 995.5 520 995.5V960.5ZM70 510.5H105C105 281.302 290.802 95.5 520 95.5V60.5V25.5C252.142 25.5 35 242.642 35 510.5H70Z" fill="#B87A00"/>
+      <line x1="157.353" y1="667.597" x2="406.097" y2="326.647" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+      <path d="M670 319.5L887 664.5" stroke="#B87A00" stroke-width="70" stroke-linecap="round" fill="none"/>
+      <line x1="666.449" y1="320.587" x2="413.587" y2="695.551" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+      <line x1="520.44" y1="522.003" x2="794.439" y2="526.018" stroke="#B87A00" stroke-width="60"/>
+      <line x1="413.32" y1="318.23" x2="650.73" y2="691.18" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-name">Martha Asselin</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#work" class="active">Work</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="progress-bar" id="progressBar"></div>
+</nav>
+
+<!-- HERO -->
+<div class="case-hero reveal">
+  <h1 class="t-display">Consciens</h1>
+  <p class="t-subtitle">A live project dashboard built around how the team already worked</p>
+  <p class="lead t-intro">A project dashboard for our work with a construction industry client, built around the weekly standup I started. It replaced two Slack lists, updates every day from email, meeting transcripts, Slack messages and Google Drive, and nothing saves until a person approves it. It's now the template for future client dashboards, a key feature in Cerino.</p>
+  <div class="meta-row">
+    <div class="meta-item">
+      <div class="meta-label t-strip">Role</div>
+      <div class="meta-value t-meta">Product Designer (UX/UI)<br>&amp; Project Manager</div>
+    </div>
+    <div class="meta-item" style="padding-left:20px">
+      <div class="meta-label t-strip">Duration</div>
+      <div class="meta-value t-meta">5 days</div>
+    </div>
+    <div class="meta-item" style="padding-left:20px">
+      <div class="meta-label t-strip">Platform</div>
+      <div class="meta-value t-meta">Web dashboard,<br>desktop and phone</div>
+    </div>
+    <div class="meta-item" style="padding-left:20px">
+      <div class="meta-label t-strip">Tools</div>
+      <div class="meta-value t-meta">Claude, Slack<br>&amp; Google Drive</div>
+    </div>
+  </div>
+  <p style="margin-top:20px;font-family:var(--sans);font-size:12px;line-height:1.6;color:var(--mist);">To keep client and company information private, the client, team names, tasks and numbers in these screens and the prototype are made up. The process and design decisions come from the actual project.</p>
+</div>
+
+<!-- Hero: live prototype -->
+<div class="img-full reveal">
+  <figure class="csd-proto-wrap">
+    <div class="csd-proto">
+      <div class="csd-bar"><i></i><i></i><i></i><span>Client dashboard demo</span></div>
+      <div class="csd-view" id="csd-view">
+        <iframe id="csd-frame" title="Client dashboard prototype" src="../assets/demos/client-dashboard.html" loading="lazy" tabindex="-1"></iframe>
+        <div class="csd-cover" id="csd-cover">
+          <button type="button" class="csd-start" id="csd-start">Click to try the prototype</button>
+        </div>
+      </div>
+    </div>
+    <div class="csd-phone">
+      <img src="../assets/images/cs-dash-hero.jpg" alt="Client dashboard on desktop and phone">
+    </div>
+    <figcaption class="csd-links">
+      <span>Sample data only. Edits reset when you reload.</span>
+      <a href="../assets/demos/client-dashboard.html" target="_blank" rel="noopener">Open full screen</a>
+    </figcaption>
+  </figure>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- THE CHALLENGE -->
+<div class="case-section reveal" style="padding-bottom:0">
+  <h2 class="t-heading">The challenge</h2>
+  <h3 class="t-subtitle">No project management to start from</h3>
+  <p class="t-body">I joined Consciens early, when the startup had no project management set up. When we took on a client in the construction industry, I started tracking that project's tasks in two Slack lists and started our weekly standup meetings.</p>
+  <p class="t-body">The lists held the tasks, but decisions lived in meeting notes in Google Drive, and the latest news came in through Slack messages and email. At standup nobody had one place to see what had changed, what was overdue or what the client owed us, so we pieced it together every week.</p>
+  <p class="t-body">Stephen, our founder, asked for a dashboard with three requirements. It had to update itself instead of being a static checklist. It had to keep stable client information apart from task status, so people weren't rereading the same facts every week. And it had to match the design system of Cerino, our product.</p>
+</div>
+
+<!-- Fig 01 -->
+<div class="img-full reveal">
+  <img src="../assets/images/cs-dash-01-before.jpg" alt="Project updates spread across Slack messages, email, and Google Drive before the dashboard" loading="lazy">
+  <p class="img-caption">Fig 01. Before: project updates spread across Slack and Google Drive</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- HOW I WORKED -->
+<div class="case-section reveal" style="padding-bottom:0">
+  <h2 class="t-heading">How I worked</h2>
+  <h3 class="t-subtitle">What I did over five days</h3>
+  <p class="t-body">I designed and built the dashboard in Claude and shared each version with the team early, while it was still easy to change.</p>
+  <ol class="t-body" style="margin-top:8px;padding-left:1.4em;line-height:1.85;">
+    <li>Mapped how our standup ran and who needed what from it.</li>
+    <li>Compared four project management tools.</li>
+    <li>Built a first version that read the two Slack lists live, so the team could test it on their own tasks.</li>
+    <li>Ran a design critique on screenshots and fixed what it found.</li>
+    <li>Watched the team use it during the week and changed what got in their way.</li>
+    <li>Ran standup from the dashboard, then held a design review with the team and Stephen.</li>
+    <li>Grouped the feedback into themes and made the changes before approval.</li>
+  </ol>
+</div>
+
+<!-- Fig 02 -->
+<div class="img-full reveal">
+  <img src="../assets/images/cs-dash-02-process.jpg" alt="The seven steps of the design process, each with the tool used" loading="lazy">
+  <p class="img-caption">Fig 02. The seven steps, each with the tool I used for it</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- RESEARCH AND DISCOVERY -->
+<div class="case-section reveal" style="padding-bottom:0">
+  <h2 class="t-heading">Research and discovery</h2>
+  <h3 class="t-subtitle">Who the dashboard is for</h3>
+  <p class="t-body">Before designing screens, I worked out who would use the dashboard and what each person needed from it. Three groups came up, each with a different question.</p>
+  <table class="cs-table">
+    <thead>
+      <tr>
+        <th>Who</th>
+        <th>Their question</th>
+        <th>What it became</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>The team at standup</td>
+        <td>What changed, what's overdue and what the client owes us</td>
+        <td>The Tasks tab, with each task marked New, Updated or Slipped since the last standup</td>
+      </tr>
+      <tr>
+        <td>Each person during the week</td>
+        <td>What do I need to do today?</td>
+        <td>My Day, with a My Week view</td>
+      </tr>
+      <tr>
+        <td>Stephen, our founder</td>
+        <td>Where the project stands with the client</td>
+        <td>The Overview tab for client details and decisions, and the Reports tab for a monthly client report</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 class="t-subtitle" style="margin-top:var(--content-gap)">Four tools I compared</h3>
+  <p class="t-body">I compared Linear, ClickUp, Notion and Jira for how they design dashboards, which features they offer and how they track projects. Monday came up again in the review. Most were built for more than we needed, and a new subscription didn't make sense when we already had our own Claude setup. GitHub became the main reference for the UI, for its dashboards and its restrained use of color.</p>
+</div>
+
+<!-- Fig 03 -->
+<div class="img-full reveal">
+  <img src="../assets/images/cs-dash-03-tools.jpg" alt="The four project management tools compared, with notes on what I took from each" loading="lazy">
+  <p class="img-caption">Fig 03. The tools I compared and what I took from each</p>
+</div>
+
+<div class="case-section reveal" style="padding-bottom:0">
+  <h3 class="t-subtitle">A design critique on rendered screens</h3>
+  <p class="t-body">Before the team saw it, I ran a structured design critique on screenshots of the dashboard. It found four problems. The standup agenda was buried under stale dates, the details panel covered the toolbar, the toolbar competed with the tasks, and on a phone the filters were cramped. I fixed all four.</p>
+</div>
+
+<!-- Fig 04 -->
+<div class="img-full reveal">
+  <img src="../assets/images/cs-dash-04-critique.jpg" alt="Four problems found in the design critique, annotated with where each fix landed" loading="lazy">
+  <p class="img-caption">Fig 04. Four problems from the design critique, and where each fix landed</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- DESIGN STRATEGY -->
+<div class="case-section reveal" style="padding-bottom:0">
+  <h2 class="t-heading">Design strategy</h2>
+  <h3 class="t-subtitle">Design principles</h3>
+  <p class="t-body">I set six principles from Stephen's requirements and from what the team already used, and I checked each screen against them.</p>
+  <ol class="t-body" style="margin-top:8px;padding-left:1.4em;line-height:1.85;">
+    <li>Every task lives in the dashboard, and daily updates from email, meeting transcripts, Slack messages and Google Drive come into it, so nobody keeps a second list.</li>
+    <li>The rows started out matching the Slack lists' columns exactly, so moving over meant nothing new to learn.</li>
+    <li>Client details and decisions stay in Overview, apart from the week's task changes in Tasks.</li>
+    <li>Nothing disappears by accident. Finished tasks fade instead of vanishing, archiving is a separate step, and undo covers mistakes.</li>
+    <li>Claude can draft updates, meeting summaries and action items, but nothing saves until a person accepts it.</li>
+    <li>Every status has a word and an icon, and color follows the company's rules, so color is never the only signal.</li>
+  </ol>
+  <h3 class="t-subtitle" style="margin-top:var(--content-gap)">Tasks and standup in one place</h3>
+  <p class="t-body">The Tasks tab shows tasks as a board, a list or a stage timeline, and every field edits in place. Standup runs from the same tab. Each task is marked New, Updated or Slipped since the last standup, and Finish standup saves a snapshot that next week's markers start from.</p>
+</div>
+
+<!-- Fig 05: Tasks tab carousel -->
+<div class="reveal" style="max-width:920px;margin:48px auto;padding:0 40px;">
+  <div id="dashOuter">
+    <div id="dashTrack">
+      <img src="../assets/images/cs-dash-05-list.jpg" alt="Tasks tab in list view">
+      <img src="../assets/images/cs-dash-05-board.jpg" alt="Tasks tab in board view">
+      <img src="../assets/images/cs-dash-05-timeline.jpg" alt="Tasks tab in timeline view">
+    </div>
+  </div>
+  <div class="menu-controls">
+    <button class="menu-arrow" id="dashPrev" aria-label="Previous">&#8592;</button>
+    <div class="menu-center">
+      <span class="menu-label-text" id="dashLabel">List view</span>
+      <div class="menu-dot-row" id="dashDots">
+        <button class="menu-dot-btn active" data-i="0"></button>
+        <button class="menu-dot-btn" data-i="1"></button>
+        <button class="menu-dot-btn" data-i="2"></button>
+      </div>
+    </div>
+    <span class="menu-counter" id="dashCounter">1 / 3</span>
+    <button class="menu-arrow" id="dashNext" aria-label="Next">&#8594;</button>
+  </div>
+  <p class="img-caption" style="margin-top:8px">Fig 05. Tasks tab: one set of tasks in three views. Tap the arrows to switch.</p>
+</div>
+
+<!-- Fig 06 -->
+<div class="img-full reveal">
+  <img src="../assets/images/cs-dash-06-standup.jpg" alt="Standup running from the task list with tasks marked New, Updated or Slipped" loading="lazy">
+  <p class="img-caption">Fig 06. Standup run from the task list</p>
+</div>
+
+<div class="case-section reveal" style="padding-bottom:0">
+  <h3 class="t-subtitle">Meetings</h3>
+  <p class="t-body">The Meetings tab pulls meeting transcripts from Google Drive. Claude drafts the summary, decisions and action items, and a person approves them before anything saves.</p>
+</div>
+
+<!-- Fig 07 -->
+<div class="img-full reveal">
+  <img src="../assets/images/cs-dash-07-meetings.jpg" alt="Meetings tab showing Claude's draft summary and action items waiting for approval" loading="lazy">
+  <p class="img-caption">Fig 07. A person approves Claude's draft before anything saves</p>
+</div>
+
+<div class="case-section reveal" style="padding-bottom:0">
+  <h3 class="t-subtitle">My Day</h3>
+  <p class="t-body">My Day became the team's favorite feature. It shows each person only their own work for the day: what's overdue, what's due, what's in progress, what changed since the last standup, and what's waiting on the client. Action items approved in Meetings show up there too, so each person sees what they agreed to without going back through the notes. My Week shows the same view across the whole week, and you can switch the view to see a teammate's day. It works on a phone as well as a laptop.</p>
+</div>
+
+<!-- Fig 08 -->
+<div class="img-wide reveal">
+  <img src="../assets/images/cs-dash-08-myday-phones.jpg" alt="My Day and My Week on two phones, showing one person's tasks for the day and the week" loading="lazy">
+  <p class="img-caption">Fig 08. My Day and My Week on a phone</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- TESTING AND REVIEW -->
+<div class="case-section reveal" style="padding-bottom:0">
+  <h2 class="t-heading">Testing and review</h2>
+  <h3 class="t-subtitle">The first standup on the dashboard</h3>
+  <p class="t-body">The team ran standup from the dashboard and added and edited tasks live while we talked. Stephen said the calmer palette lowered his anxiety and made it clear what to pay attention to.</p>
+  <h3 class="t-subtitle">What the design review found</h3>
+  <p class="t-body">After the trial, I held a design review with the team. I walked through the dashboard live and shared a page with three task row styles side by side, so people could compare the options directly. The team kept the original rows. I grouped the rest of the feedback into four themes and changed the design for each one.</p>
+  <table class="cs-table" style="margin-top:24px">
+    <thead>
+      <tr>
+        <th>Theme</th>
+        <th>What we saw</th>
+        <th>What changed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Getting lost between pages</td>
+        <td>Leaving Tasks dropped the second bar, and I got lost in my own dashboard while presenting it</td>
+        <td>Page tabs grouped at the right of the top bar, and a second bar on every page: tools on the first row, context and the standup controls on the second</td>
+      </tr>
+      <tr>
+        <td>Too many ways to add a task</td>
+        <td>Add task had five entry points, and the team found that confusing</td>
+        <td>Two entry points: the toolbar button and a link at the bottom of each list</td>
+      </tr>
+      <tr>
+        <td>Two signals for done</td>
+        <td>Finished tasks showed a green check and a Done pill</td>
+        <td>The green check is the only done signal</td>
+      </tr>
+      <tr>
+        <td>Problems found in use</td>
+        <td>Finish standup did nothing when clicked, and the &#8220;owes&#8221; label used the client's name</td>
+        <td>Finish standup works and shows three states: ready, saving, and saved with the time. &#8220;Client owes&#8221; works for any client, which was Stephen's suggestion. Assignees edit in the row and the task panel, with the founder as the default</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Fig 09 -->
+<div class="img-full reveal">
+  <img src="../assets/images/cs-dash-09-themes.jpg" alt="Feedback from the trial and design review grouped into four themes" loading="lazy">
+  <p class="img-caption">Fig 09. Feedback from the trial and the review, grouped into themes</p>
+</div>
+
+<div class="case-section reveal" style="padding-bottom:0">
+  <p class="t-body">I called getting lost in my own dashboard a red flag. In the final design nothing moves between pages, layouts or groupings, and I checked it at several screen widths. The second bar follows Asana's pattern of views first and then the create action: List, Board and Timeline, then Filter and Group, then Add task, then Search.</p>
+</div>
+
+<!-- Fig 10 -->
+<div class="img-full reveal">
+  <img src="../assets/images/cs-dash-10-navigation.jpg" alt="Navigation before and after the design review" loading="lazy">
+  <p class="img-caption">Fig 10. Navigation before and after the review</p>
+</div>
+
+<!-- Fig 11 -->
+<div class="img-wide reveal">
+  <img src="../assets/images/cs-dash-11-row-styles.jpg" alt="Three task row styles shown side by side for comparison" loading="lazy">
+  <p class="img-caption">Fig 11. The three row styles shared with the team, recreated with sample data</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- DESIGN EXECUTION -->
+<div class="case-section reveal" style="padding-bottom:0">
+  <h2 class="t-heading">Design execution</h2>
+  <h3 class="t-subtitle">Decisions and trade-offs</h3>
+  <table class="cs-table">
+    <thead>
+      <tr>
+        <th>Decision</th>
+        <th>Options</th>
+        <th>What I chose</th>
+        <th>Why</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Buy or build</td>
+        <td>Subscribe to Linear, ClickUp, Notion or Jira, or build our own</td>
+        <td>Build our own in Claude</td>
+        <td>Those tools did more than we needed, and our own build connects to the tools the team already uses without a new subscription</td>
+      </tr>
+      <tr>
+        <td>How to launch</td>
+        <td>Build it inside Cerino now, or as a standalone dashboard first</td>
+        <td>Standalone first</td>
+        <td>The team could test it and Stephen could approve the design before it moves into the product</td>
+      </tr>
+      <tr>
+        <td>Where the standup runs</td>
+        <td>A separate walk-through page, or the Tasks tab</td>
+        <td>The Tasks tab</td>
+        <td>One editable list was faster than a page that only showed tasks</td>
+      </tr>
+      <tr>
+        <td>Navigation</td>
+        <td>A toolbar that changes from page to page, or one bar that stays the same</td>
+        <td>One bar on every page</td>
+        <td>When the bar changed, people lost their place</td>
+      </tr>
+      <tr>
+        <td>Adding tasks</td>
+        <td>An add button everywhere, or a few clear places</td>
+        <td>Two places</td>
+        <td>Five entry points confused the team</td>
+      </tr>
+      <tr>
+        <td>Saving Claude's drafts</td>
+        <td>Save automatically, or approve first</td>
+        <td>Approve first, with &#8220;Accept all suggestions&#8221;</td>
+        <td>Nothing saves without someone seeing it, and good suggestions take one click to accept</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 class="t-subtitle" style="margin-top:var(--content-gap)">Color in two rounds</h3>
+  <p class="t-body">With every status in gray, the task list was hard to scan, so the first version used a full palette of seven colors. Stephen reviewed it against Cerino's color rules, which keep the interface mostly monochrome and let words and icons carry meaning. I had added the colors because they make progress easy to see at a glance, and I said so. We agreed to try the simpler system first.</p>
+  <p class="t-body">The final set uses four colors. Green means done, orange means something needs attention, red means archive or delete, and blue marks where you are. Blocked is the only status shown in color, which the team agreed on at the trial.</p>
+</div>
+
+<!-- Fig 12 -->
+<div class="img-full reveal">
+  <img src="../assets/images/cs-dash-12-color.jpg" alt="Status color system after the company color rules were applied" loading="lazy">
+  <p class="img-caption">Fig 12. Status colors after the company color rules</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- OUTCOMES -->
+<div class="case-section reveal" style="padding-bottom:0">
+  <h2 class="t-heading">Outcomes</h2>
+  <h3 class="t-subtitle">What shipped</h3>
+  <ul class="t-body" style="margin-bottom:32px;padding-left:1.4em;line-height:1.85;">
+    <li>A dashboard that replaced both Slack lists and updates every day from email, meeting transcripts, Slack messages and Google Drive</li>
+    <li>A standup that runs from the task list and saves a snapshot each week</li>
+    <li>Claude-drafted updates and meeting summaries, with a person approving every save</li>
+    <li>Navigation that stays in place across every page, layout and grouping</li>
+    <li>A color system cut to four colors, with a word and an icon on every status</li>
+  </ul>
+  <div class="outcomes-grid">
+    <div class="outcome-card">
+      <div class="outcome-num t-numeral">5 days</div>
+      <div class="outcome-label t-label">From the first version to approval</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num t-numeral">2</div>
+      <div class="outcome-label t-label">Slack lists replaced by one dashboard</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num t-numeral">7 to 4</div>
+      <div class="outcome-label t-label">Status colors cut to our company's four</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num t-numeral">5 to 2</div>
+      <div class="outcome-label t-label">Ways to add a task, after the review</div>
+    </div>
+  </div>
+  <p class="t-body" style="margin-top:32px">The dashboard is now the standard template for client dashboards in Cerino, and Devendra approved extending my work to more project areas.</p>
+</div>
+
+<!-- Fig 13: Final design with interactive principles hotspot -->
+<div class="img-full reveal">
+  <figure class="csd-hs-wrap">
+    <div class="csd-hs" id="csd-hs">
+      <img src="../assets/images/cs-dash-13-final.jpg" alt="Final Tasks tab with six numbered points marking the design principles" loading="lazy">
+    </div>
+    <ol class="csd-list" id="csd-list"></ol>
+    <figcaption class="img-caption">Fig 13. Final design. Tap a number to see the principle behind that part of the screen.</figcaption>
+  </figure>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- NEXT STEPS -->
+<div class="case-section reveal" style="padding-bottom:0">
+  <h2 class="t-heading">Next steps</h2>
+  <h3 class="t-subtitle">A Progress tab for trends</h3>
+  <p class="t-body">The current version shows where every task stands this week, but not whether the project is getting better or worse. Every Finish standup already saves a snapshot, so I used those snapshots to design a Progress tab for the next version. It's in the demo with the same sample data, and it answers four questions from standup. Will the data project finish by week 12? Which stages are behind? What does the client owe us, and for how long? And are overdue and slipped tasks going up or down?</p>
+</div>
+
+<!-- Fig 14 -->
+<div class="img-full reveal">
+  <img src="../assets/images/cs-dash-14-progress.jpg" alt="The Progress tab showing burn-up, bullet, and bar charts for the project" loading="lazy">
+  <p class="img-caption">Fig 14. The Progress tab, planned for the next version</p>
+</div>
+
+<div class="case-section reveal" style="padding-bottom:0">
+  <p class="t-body">I picked a chart for each question. A burn-up chart shows scope and completed tasks since kickoff, with a dashed line that carries the current pace out to the week 12 handover. A bullet chart compares each stage's progress with where the plan expects it to be today. Horizontal bars show how many days each client item has been waiting, with a line at seven days, when we follow up. Two small column charts show overdue and slipped tasks at each standup. Every chart follows the same color rules and has a Show the numbers button that swaps it for a table, for screen readers and for anyone who prefers numbers.</p>
+</div>
+
+<!-- Fig 15: charts carousel -->
+<div class="reveal" style="max-width:920px;margin:48px auto;padding:0 40px;">
+  <div class="chartOuter" id="chartOuter">
+    <div class="chartTrack" id="chartTrack">
+      <img src="../assets/images/cs-dash-15-burnup.jpg" alt="Burn-up chart of scope and completed tasks since kickoff, with the current pace carried out to the week 12 handover" loading="lazy">
+      <img src="../assets/images/cs-dash-15-stages.jpg" alt="Bullet chart comparing each stage's progress with where the plan expects it today" loading="lazy">
+      <img src="../assets/images/cs-dash-15-owed.jpg" alt="Horizontal bars showing how many days each client item has been waiting, with a line at seven days" loading="lazy">
+      <img src="../assets/images/cs-dash-15-trend.jpg" alt="Column charts of overdue and slipped tasks at each standup" loading="lazy">
+    </div>
+  </div>
+  <div class="menu-controls">
+    <button class="menu-arrow" id="chartPrev" aria-label="Previous">&#8592;</button>
+    <div class="menu-center">
+      <span class="menu-label-text" id="chartLabel">Burn-up chart</span>
+      <div class="menu-dot-row" id="chartDots">
+        <button class="menu-dot-btn active" data-i="0"></button>
+        <button class="menu-dot-btn" data-i="1"></button>
+        <button class="menu-dot-btn" data-i="2"></button>
+        <button class="menu-dot-btn" data-i="3"></button>
+      </div>
+    </div>
+    <span class="menu-counter" id="chartCounter">1 / 4</span>
+    <button class="menu-arrow" id="chartNext" aria-label="Next">&#8594;</button>
+  </div>
+  <p class="img-caption" style="margin-top:8px">Fig 15. The charts up close. Tap the arrows to switch.</p>
+</div>
+
+<div class="case-section reveal">
+  <h3 class="t-subtitle">The next round</h3>
+  <p class="t-body">Next, I'll design for Cerino's screen sizes, about 1020px standard and 1640px expanded, and set shared rules for headers, subheaders, search and filters across tools. I also want a deeper competitive analysis. One known issue stays for now. A row moves to a new spot when its date changes, because Stephen prefers sorting by what's next up.</p>
+</div>
+
+<!-- REFLECTION -->
+<div class="reflection on-dark">
+  <div class="reflection-inner reveal">
+    <h2 class="t-heading">Reflection</h2>
+    <h3 class="t-subtitle">What I learned</h3>
+    <p class="t-body">Starting from the three groups who would use the dashboard kept it to five tabs. Each one answers a question one of those groups asked.</p>
+    <p class="t-body">Most of the important changes came from watching the team use it. Getting lost in my own navigation during the review was the clearest example, and keeping the bars in place on every page is a rule I'll carry into the Cerino tools.</p>
+  </div>
+</div>
+
+<!-- NEXT CASE -->
+<div class="next-case reveal">
+  <div>
+    <p class="next-label t-label">Next case study</p>
+    <p class="next-title t-title">MSB: Members' Portal Redesign</p>
+  </div>
+  <a href="mangala.html" class="next-link t-action">View case study</a>
+</div>
+
+<footer>
+  <span>&copy; 2026 Martha Asselin</span>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  }, { passive: true });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Tasks tab carousel
+  (function() {
+    const labels = ['List view', 'Board view', 'Timeline view'];
+    const outer  = document.getElementById('dashOuter');
+    const track  = document.getElementById('dashTrack');
+    const dots   = document.querySelectorAll('#dashDots .menu-dot-btn');
+    const label  = document.getElementById('dashLabel');
+    const counter = document.getElementById('dashCounter');
+    let cur = 0;
+    function goTo(n) {
+      cur = (n + labels.length) % labels.length;
+      track.style.transform = `translateX(-${cur * outer.offsetWidth}px)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+      label.textContent = labels[cur];
+      counter.textContent = `${cur + 1} / ${labels.length}`;
+    }
+    window.addEventListener('resize', () => goTo(cur));
+    document.getElementById('dashPrev').addEventListener('click', () => goTo(cur - 1));
+    document.getElementById('dashNext').addEventListener('click', () => goTo(cur + 1));
+    dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
+  })();
+
+  // Charts carousel
+  (function() {
+    const labels = ['Burn-up chart', 'Bullet chart', 'Aging bars', 'Column charts'];
+    const outer = document.getElementById('chartOuter'), track = document.getElementById('chartTrack');
+    const dots = document.querySelectorAll('#chartDots .menu-dot-btn'), label = document.getElementById('chartLabel'), counter = document.getElementById('chartCounter');
+    if (!outer) return;
+    let cur = 0;
+    function goTo(n) {
+      cur = (n + labels.length) % labels.length;
+      track.style.transform = `translateX(-${cur * outer.offsetWidth}px)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+      label.textContent = labels[cur];
+      counter.textContent = `${cur + 1} / ${labels.length}`;
+    }
+    window.addEventListener('resize', () => goTo(cur));
+    document.getElementById('chartPrev').addEventListener('click', () => goTo(cur - 1));
+    document.getElementById('chartNext').addEventListener('click', () => goTo(cur + 1));
+    dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
+  })();
+
+  // Hotspots — positions calibrated to cs-dash-13-final.jpg
+  (function() {
+    var P = [
+      {x:97.6, y:2.8,  t:"Every task in one place",           d:"Every task lives in the dashboard, and daily updates from email, meeting transcripts, Slack messages and Google Drive come into it, so nobody keeps a second list."},
+      {x:64.3, y:20.1, t:"The same columns as Slack",          d:"The rows started out matching the Slack lists' columns exactly, so moving over meant nothing new to learn."},
+      {x:85.7, y:2.8,  t:"Client details in Overview",         d:"Client details and decisions stay in Overview, apart from the week's task changes in Tasks."},
+      {x:94.6, y:24.1, t:"Nothing disappears by accident",     d:"Finished tasks fade instead of vanishing, archiving is a separate step, and undo covers mistakes."},
+      {x:65.4, y:2.8,  t:"A person approves Claude's drafts",  d:"Claude can draft updates, meeting summaries and action items, but nothing saves until a person accepts it."},
+      {x:63.0, y:33.0, t:"A word and an icon on every status", d:"Every status has a word and an icon, and color follows the company's rules, so color is never the only signal."}
+    ];
+    var box = document.getElementById('csd-hs');
+    var list = document.getElementById('csd-list');
+    var pop = document.createElement('div');
+    var dots = [], items = [], cur = -1;
+    pop.className = 'csd-pop'; pop.hidden = true; pop.setAttribute('role', 'status');
+    box.appendChild(pop);
+    P.forEach(function(p, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'csd-dot'; b.textContent = i + 1;
+      b.style.left = p.x + '%'; b.style.top = p.y + '%';
+      b.setAttribute('aria-label', (i + 1) + '. ' + p.t);
+      b.setAttribute('aria-expanded', 'false');
+      b.addEventListener('click', function() { show(cur === i ? -1 : i); });
+      box.appendChild(b); dots.push(b);
+      var li = document.createElement('li');
+      var lb = document.createElement('button');
+      lb.type = 'button';
+      lb.innerHTML = '<span>' + (i + 1) + '</span>' + p.t;
+      lb.addEventListener('click', function() { show(i); });
+      li.appendChild(lb); list.appendChild(li); items.push(lb);
+    });
+    function show(i) {
+      cur = i;
+      dots.forEach(function(d, j) { d.setAttribute('aria-expanded', String(j === i)); });
+      items.forEach(function(d, j) { d.setAttribute('aria-current', String(j === i)); });
+      if (i < 0) { pop.hidden = true; return; }
+      var p = P[i];
+      pop.innerHTML = '<h3>' + p.t + '</h3><p>' + p.d + '</p>';
+      pop.hidden = false;
+      if (window.matchMedia('(max-width:640px)').matches) { pop.style.left = pop.style.top = ''; return; }
+      var w = box.clientWidth, h = box.clientHeight;
+      var px = p.x / 100 * w, py = p.y / 100 * h, pw = pop.offsetWidth;
+      var left = px > w * .6 ? px - pw - 22 : px + 22;
+      left = Math.max(8, Math.min(left, w - pw - 8));
+      pop.style.left = left + 'px';
+      pop.style.top = (py < h * .15 ? py + 22 : py - 20) + 'px';
+    }
+    show(0);
+    window.addEventListener('resize', function() { if (cur >= 0) show(cur); });
+  })();
+
+  // Prototype
+  (function() {
+    var v = document.getElementById('csd-view');
+    var f = document.getElementById('csd-frame');
+    var c = document.getElementById('csd-cover');
+    function fit() { f.style.transform = 'scale(' + (v.clientWidth / 1440) + ')'; }
+    fit(); window.addEventListener('resize', fit);
+    document.getElementById('csd-start').addEventListener('click', function() {
+      c.hidden = true; f.removeAttribute('tabindex');
+      try { f.focus(); } catch(e) {}
+    });
+  })();
+</script>
+
+<!-- Notes left off the page:
+  1. Testing and review, after "I grouped the rest of the feedback into four themes and changed the design for each one":
+     [Check: confirm you grouped the feedback into themes this way, or reword to how you sorted it.]
+  2. Reflection, after the final paragraph:
+     [If I did this again: one or two sentences in your own words.]
+-->
+</body>
+</html>
