@@ -10,8 +10,8 @@
   root.classList.add('pw-locked');
   var css = document.createElement('style');
   css.textContent =
-    '.pw-locked body > *:not(.pw-gate){display:none !important}' +
-    '.pw-gate{min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--paper,#fff)}' +
+    '.pw-locked body > *:not(.pw-gate):not(nav):not(header):not(.progress-bar){display:none !important}' +
+    '.pw-gate{min-height:100vh;display:grid;place-items:center;padding:110px 24px 24px;background:var(--paper,#fff)}' +
     '.pw-card{width:100%;max-width:420px;padding:40px;border:1px solid var(--teal-pale,#d8e4e2);border-radius:12px;background:var(--paper,#fff)}' +
     '.pw-card h1{font:600 28px/1.2 var(--serif,Georgia,serif);color:var(--ink,#1D2B29);margin:0 0 24px}' +
     '.pw-card p{font:400 16px/1.6 var(--sans,system-ui,sans-serif);color:var(--slate,#3B4D4B);margin:0 0 24px}' +
@@ -53,6 +53,7 @@
         if (h === HASH) {
           try { sessionStorage.setItem(KEY, HASH); } catch (x) {}
           gate.remove(); root.classList.remove('pw-locked'); window.scrollTo(0, 0);
+          window.dispatchEvent(new Event('resize')); // the page was hidden, so anything sized on load measures again
         } else {
           err.textContent = "That password didn't work. Try again.";
           input.select();
