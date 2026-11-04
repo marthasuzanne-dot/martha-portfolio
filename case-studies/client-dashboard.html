@@ -11,6 +11,9 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <script src="../assets/js/protect.js"></script>
 <style>
+  /* Hero watermark: the Consciens mark in place of mine on this case study */
+  .case-hero::before { background-image: url('../assets/images/consciens-mark.svg'); opacity: 0.1; top: 120px; }
+
   /* Tasks tab and charts carousels */
   #chartOuter { overflow: hidden; width: 100%; border-radius: var(--radius); }
   #chartTrack { display: grid; grid-auto-flow: column; grid-auto-columns: 100%; transition: transform .4s cubic-bezier(.4,0,.2,1); will-change: transform; }
