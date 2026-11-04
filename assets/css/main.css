@@ -9,14 +9,14 @@ body { overflow-x: hidden; max-width: 100%; }
 
 :root {
   /* ── Core palette ── */
-  --ink:          #1B2433;
-  --heading:      #1B2433;
-  --slate:        #3E4A5C;
-  --mist:         #5B6878;
-  --teal:         #3B5F8A;
-  --teal-light:   #4F74A0;
-  --teal-deep:    #2E4C72;
-  --teal-pale:    #D9E3EF;
+  --ink:          #1D2B29;
+  --heading:      #1D2B29;
+  --slate:        #3B4D4B;
+  --mist:         #5B7270;
+  --teal:         #3D7872;
+  --teal-light:   #4e8f8a;
+  --teal-deep:    #2F625D;
+  --teal-pale:    #d4e8e8;
   --gold:         #B87A00;   /* outcome numerals ≥24px; links on dark bands; logo */
   --amber-hover:  #D99A1F;   /* amber link hover on dark bands */
   --amber-deep:   #8F5D00;   /* small text links on light grounds */
@@ -27,18 +27,18 @@ body { overflow-x: hidden; max-width: 100%; }
   --paper:        #FFFFFF;
   --cream:        #FFFFFF;
   --cream-dark:   #EDE8E1;
-  --mid:          #3E4A5C;   /* alias → slate */
-  --mid-on-dark:  #B6C2D2;
-  --muted:        #5B6878;   /* alias → mist */
-  --light:        #93AACB;
+  --mid:          #3B4D4B;   /* alias → slate */
+  --mid-on-dark:  #B2C4C2;
+  --muted:        #5B7270;   /* alias → mist */
+  --light:        #8AB8B3;
   --white:        #FFFFFF;
-  --band:         #172231;
-  --mint:         #93AACB;
-  --on-dark:      #EAEFF5;
-  --on-dark-2:    #B6C2D2;
-  --on-dark-muted: #8E9BB0;
+  --band:         #132725;
+  --mint:         #8AB8B3;
+  --on-dark:      #E8F0EF;
+  --on-dark-2:    #B2C4C2;
+  --on-dark-muted: #8BA3A1;
   --hairline:     #E2DDD4;
-  --tag-fill:     #E3E6EC;
+  --tag-fill:     #E4E6DF;
   --card-fill:    #FAF8F4;
   /* ── Type ── */
   --serif:        'Literata', Georgia, 'Times New Roman', serif;
@@ -963,7 +963,7 @@ body.home { background: var(--paper); }
 .portrait-wrap:hover .portrait-img { filter: grayscale(0) contrast(1); }
 .portrait-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(23,34,49,.78) 0%, rgba(23,34,49,.18) 55%, transparent 100%);
+  background: linear-gradient(to top, rgba(19,39,37,.78) 0%, rgba(19,39,37,.18) 55%, transparent 100%);
   opacity: 0; transition: opacity .4s ease;
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 28px; pointer-events: none;
