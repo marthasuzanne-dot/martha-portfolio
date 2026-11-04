@@ -106,8 +106,10 @@
   @media (max-width:640px){.csd-pop{position:static;width:auto}.csd-dot{width:22px;height:22px;margin:-11px 0 0 -11px;line-height:22px;font-size:11px}}
 
   /* Prototype embed */
-  .csd-proto-wrap{--csd-gold:#A36A00;display:flex;flex-direction:column;gap:12px;margin:0}
-  .csd-proto{border-radius:14px;overflow:hidden;background:#0c111e;box-shadow:0 0 0 1px rgba(30,20,5,.12),0 30px 60px -28px rgba(40,25,5,.55)}
+  .csd-proto-wrap{--csd-gold:#A36A00;display:flex;flex-direction:column;gap:32px;margin:0}
+  /* The prototype's shadow needs room: its container must not clip it, and the caption sits clear below it. */
+  .img-full:has(.csd-proto-wrap){overflow:visible;padding-bottom:8px}
+  .csd-proto{border-radius:14px;overflow:hidden;background:#0c111e;box-shadow:0 0 0 1px rgba(30,20,5,.12),0 18px 36px -20px rgba(40,25,5,.45)}
   .csd-bar{height:34px;display:flex;align-items:center;gap:7px;padding:0 14px;background:#141a28;position:relative}
   .csd-bar i{width:10px;height:10px;border-radius:50%;background:#2b3243}
   .csd-bar span{position:absolute;left:50%;transform:translateX(-50%);font-size:12px;font-weight:500;color:#8a93a5;background:#0d1220;padding:6px 14px;border-radius:7px;white-space:nowrap}
