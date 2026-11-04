@@ -11,8 +11,17 @@
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <style>
-  /* Hero watermark: the Green Chef logo in place of mine on this case study */
-  .case-hero::before { background-image: url('../assets/images/greenchef-mark.png'); opacity: 0.12; top: 130px; width: 220px; }
+  /* wm:start */
+  /* Hero watermark: the Green Chef logo in place of mine on this case study.
+     On wider screens it sits just after the H1, so it stays close to the title whatever its length. */
+  .case-hero::before { background-image: url('../assets/images/greenchef-mark.png'); opacity: 0.12; top: 120px; }
+  @media (min-width: 901px) {
+    .case-hero::before { display: none; }
+    .case-hero h1 { display: inline-block; position: relative; }
+    .case-hero h1::after { content: ''; position: absolute; left: calc(100% + 48px); top: 50%; width: 176px; height: 98px; transform: translateY(-50%);
+      background: url('../assets/images/greenchef-mark.png') center / contain no-repeat; opacity: 0.12; pointer-events: none; }
+  }
+  /* wm:end */
 </style>
 </head>
 <body>

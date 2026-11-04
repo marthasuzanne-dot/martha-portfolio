@@ -10,8 +10,17 @@
 <link rel="stylesheet" href="../assets/css/main.css?v=29">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <style>
-  /* Hero watermark: the Ourself Health mark in place of mine on this case study */
+  /* wm:start */
+  /* Hero watermark: the Ourself Health mark in place of mine on this case study.
+     On wider screens it sits just after the H1, so it stays close to the title whatever its length. */
   .case-hero::before { background-image: url('../assets/images/ourself-mark.png'); opacity: 0.14; top: 120px; }
+  @media (min-width: 901px) {
+    .case-hero::before { display: none; }
+    .case-hero h1 { display: inline-block; position: relative; }
+    .case-hero h1::after { content: ''; position: absolute; left: calc(100% + 48px); top: 50%; width: 124px; height: 124px; transform: translateY(-50%);
+      background: url('../assets/images/ourself-mark.png') center / contain no-repeat; opacity: 0.14; pointer-events: none; }
+  }
+  /* wm:end */
 </style>
 </head>
 <body>
