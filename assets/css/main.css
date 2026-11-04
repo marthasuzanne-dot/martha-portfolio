@@ -9,8 +9,8 @@ body { overflow-x: hidden; max-width: 100%; }
 
 :root {
   /* ── Core palette ── */
-  --ink:          #1D2B29;
-  --heading:      #1D2B29;
+  --ink:          #1C2B22;
+  --heading:      #1C2B22;
   --slate:        #3B4D4B;
   --mist:         #5B7270;
   --teal:         #3D7872;
@@ -32,7 +32,7 @@ body { overflow-x: hidden; max-width: 100%; }
   --muted:        #5B7270;   /* alias → mist */
   --light:        #8AB8B3;
   --white:        #FFFFFF;
-  --band:         #132725;
+  --band:         #13261B;
   --mint:         #8AB8B3;
   --on-dark:      #E8F0EF;
   --on-dark-2:    #B2C4C2;
@@ -604,10 +604,10 @@ h2 + .t-subtitle            { margin: 0 0 24px; }
 .divider { max-width: var(--max); margin: 0 auto var(--sub-gap); padding: 0 var(--case-gutter); }
 .divider hr { border: none; border-top: 1px solid var(--teal-pale); }
 
-.ai-callout { background: var(--ink); color: var(--cream); border-radius: var(--radius); padding: 28px 32px; margin: 28px 0; }
-.ai-label { color: var(--mint); margin-bottom: 10px; display: flex; align-items: center; gap: 7px; }
-.ai-callout p { color: var(--on-dark-2); margin: 0; }
-.ai-callout p strong { color: var(--cream); font-weight: 400; }
+.ai-callout { background: #F6F2EB; color: var(--ink); border-left: 3px solid var(--teal); border-radius: var(--radius); padding: 24px 28px; margin: 28px 0; }
+.ai-label { color: var(--teal-deep); margin-bottom: 10px; display: flex; align-items: center; gap: 7px; }
+.ai-callout p { color: var(--slate); margin: 0; }
+.ai-callout p strong { color: var(--ink); font-weight: 600; }
 
 .pull-quote { margin: 28px 0; }
 .pull-quote p { color: var(--ink); margin: 0; }
@@ -963,7 +963,7 @@ body.home { background: var(--paper); }
 .portrait-wrap:hover .portrait-img { filter: grayscale(0) contrast(1); }
 .portrait-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(19,39,37,.78) 0%, rgba(19,39,37,.18) 55%, transparent 100%);
+  background: linear-gradient(to top, rgba(19,38,27,.78) 0%, rgba(19,38,27,.18) 55%, transparent 100%);
   opacity: 0; transition: opacity .4s ease;
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 28px; pointer-events: none;
