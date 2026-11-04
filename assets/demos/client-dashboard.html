@@ -21,6 +21,11 @@ body { background: #0c111e; color: #f8fafc; height: 100%; margin: 0; font-family
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: #0c111e; }
 /* The side gutter, on every band's inner edge, clear of a side system bar. */
 .gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 900px) { .gutter { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); } }
+/* Pages other than Tasks end their content column in a thin line that runs the full height, so short pages don't drop off. */
+#records { min-height: 100%; }
+.pagecol { min-height: 100%; box-sizing: border-box; }
+@media (min-width: 900px) { .pagecol { width: max-content; max-width: 100%; border-right: 1px solid rgba(255,255,255,.10); } }
 #tool-header { position: sticky; top: env(safe-area-inset-top, 0px); }
 /* Refresh icon: a steady spin while Slack answers, then one last turn that eases to a stop at the same speed it was going. */
 @keyframes rf-turn { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -1466,26 +1471,26 @@ li.done-card > div:last-child > :not(:last-child) { opacity: 0.45; }
      in this page's database. -->
 <div id="tool" class="flex h-full min-w-0 flex-col bg-surface-context text-text">
 
- <header id="tool-header" class="gutter z-30 flex shrink-0 flex-wrap items-center gap-x-4 border-b border-white/[0.13] bg-surface-context">
-  <div class="flex h-14 min-w-0 flex-1 items-center gap-1 min-[900px]:flex-none">
-   <button type="button" id="client-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Client" class="-ml-2 inline-flex min-w-0 items-center gap-1.5 rounded-lg px-2 py-1 text-left transition-colors hover:bg-surface-hover">
-    <h1 id="tool-title" class="truncate text-[18px] font-semibold leading-7 text-text min-[900px]:text-[20px]">Client dashboard</h1>
-    <span id="client-chev" class="shrink-0 text-text-2"></span>
-   </button>
-   <span aria-hidden="true" class="shrink-0 text-[20px] font-light text-text-3">/</span>
-   <button type="button" id="project-btn" aria-haspopup="menu" aria-expanded="false" class="inline-flex min-w-0 shrink-0 items-center gap-1.5 rounded-lg px-2 py-1 text-left transition-colors hover:bg-surface-hover">
-    <span class="sr-only">Project: </span><span id="project-label" class="truncate text-[18px] font-semibold leading-7 text-text min-[900px]:text-[20px]">All projects</span>
-    <span id="project-chev" class="shrink-0 text-text-2"></span>
-   </button>
+ <header id="tool-header" class="z-30 flex shrink-0 flex-col bg-surface-context">
+  <div class="gutter flex h-12 items-center gap-1">
+   <div class="flex min-w-0 flex-1 items-center gap-0.5">
+    <button type="button" id="client-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Client" class="-ml-2 inline-flex min-w-0 items-center gap-1 rounded-lg px-2 py-1 text-left transition-colors hover:bg-surface-hover">
+     <h1 id="tool-title" class="truncate text-[15px] font-medium leading-6 text-text-2">Client dashboard</h1>
+     <span id="client-chev" class="shrink-0 text-text-3"></span>
+    </button>
+    <span aria-hidden="true" class="shrink-0 px-0.5 text-[15px] text-text-3">/</span>
+    <button type="button" id="project-btn" aria-haspopup="menu" aria-expanded="false" class="inline-flex min-w-0 shrink-0 items-center gap-1 rounded-lg px-2 py-1 text-left transition-colors hover:bg-surface-hover">
+     <span class="sr-only">Project: </span><span id="project-label" class="truncate text-[15px] font-semibold leading-6 text-text">All Projects</span>
+     <span id="project-chev" class="shrink-0 text-text-2"></span>
+    </button>
+   </div>
+   <button type="button" id="refresh" aria-label="Refresh from Slack" data-tip="Refresh from Slack" class="-mr-2.5 grid h-11 w-11 shrink-0 place-items-center rounded-full text-text transition-colors hover:bg-surface-hover"></button>
   </div>
-  <nav id="views" aria-label="Views" class="scrollbar-none order-last -mx-1 flex w-full items-end gap-1 overflow-x-auto px-1 min-[900px]:order-none min-[900px]:mx-0 min-[900px]:h-14 min-[900px]:w-auto min-[900px]:flex-1 min-[900px]:px-0"></nav>
-  <div class="flex h-14 shrink-0 items-center gap-1.5">
-   <button type="button" id="refresh" aria-label="Refresh from Slack" data-tip="Refresh from Slack" class="grid h-11 w-11 place-items-center rounded-full text-text transition-colors hover:bg-surface-hover"></button>
-  </div>
+  <nav id="views" aria-label="Views" class="gutter scrollbar-none flex h-11 items-stretch gap-7 overflow-x-auto shadow-[inset_0_-1.5px_0_rgba(255,255,255,0.13)]"></nav>
  </header>
 
  <div id="main" class="relative flex min-h-0 flex-1 flex-col">
-  <div id="filterbar" class="gutter relative z-[15] shrink-0 border-b border-white/[0.10] py-2"></div>
+  <div id="filterbar" class="gutter relative z-[15] shrink-0 border-b border-white/[0.10] py-3"></div>
   <div id="banner" hidden class="gutter flex shrink-0 items-start gap-2 border-b border-white/[0.10] py-2 text-[13px] text-text-2"></div>
   <div id="body" class="relative min-h-0 flex-1 overflow-y-auto overflow-x-hidden scrollbar-thin">
    <p id="count-live" class="sr-only" aria-live="polite"></p>
@@ -1535,7 +1540,7 @@ const DEMO = (() => {
     ["RecA09", "Owen to confirm who receives the monthly report", "Not started", 1, P.martha, 1, [[-1, "Asked in the client channel"]], "", false, { isNew: true }],
     ["RecA10", "Send the October client report", "Done", 2, P.martha, -1, [[-1, "Sent to Owen and Kate"]], "", true, { status: "In progress", done: false, due: -1, note: [-8, "Draft started from the Reports tab"] }],
     ["RecA11", "Clean up the shared drive folder structure", "On Hold", 1, P.lena, null, [[-4, "On hold until the new job numbering is decided"]], "", false, { status: "In progress", note: [-4, "On hold until the new job numbering is decided"] }],
-    ["RecA12", "Set up the project tracker dashboard", "In progress", 3, P.martha, 4, [[0, "Trial run at standup this week"], [-2, "Tasks, Meetings and Reports tabs working"]], "", false, { isNew: true }],
+    ["RecA12", "Map the change order process with the project managers", "In progress", 3, P.theo, 4, [[0, "Walkthrough booked for Thursday"], [-2, "First draft of the steps from Kate's notes"]], "", false, { isNew: true }],
     ["RecA13", "Prepare Q4 reporting priorities for Owen", "Not started", 2, P.priya, 16, [[-8, "Pull from the monthly review notes"]], "", false, {}],
   ];
   const DATA = [
@@ -1623,7 +1628,6 @@ const DEMO = (() => {
     .forEach(([text, owner, done, taskRef], i) => put(base + "actions", `${off(-7)}-0${i + 1}`, { meetingId: off(-7), text, owner, done, doneAt: done ? new Date(off(-5)).toISOString() : "", order: i + 1, ...(taskRef ? { taskRef } : {}) }));
   put(base + "agenda", "t1", { meetingDate: "", title: "Retagging old activity codes: which option?", owner: "Lena", state: "open", order: 1 });
   put(base + "agenda", "t2", { meetingDate: "", title: "Who receives the monthly report", owner: "Martha", state: "open", order: 2 });
-  put(base + "subtasks", "RecA12", { title: "Set up the project tracker dashboard", items: [{ id: "s1", text: "Match rows to the Slack lists", done: true }, { id: "s2", text: "Apply the color rules", done: true }, { id: "s3", text: "Add My Day", done: false }, { id: "s4", text: "Trial at standup", done: false }], updatedAt: new Date().toISOString() });
 
   const emit = (p) => { const docs = [...col(p).entries()].map(([id, d]) => ({ id, data: () => JSON.parse(JSON.stringify(d)) })); (listeners.get(p) || new Set()).forEach((cb) => setTimeout(() => cb({ docs }), 0)); };
   const split = (p) => { const i = p.lastIndexOf("/"); return [p.slice(0, i), p.slice(i + 1)]; };
@@ -1703,12 +1707,13 @@ const TOOL = {
     { k: "On Hold", glyph: "hold" }, { k: "Done", glyph: 4 },
   ],
   views: [
-    { id: "tasks", label: "Tasks", icon: "lucide:ListChecks" },
-    { id: "meetings", label: "Meetings", icon: "lucide:CalendarDays" },
-    { id: "progress", label: "Progress", icon: "lucide:ChartColumn" },
-    { id: "reports", label: "Reports", icon: "lucide:TrendingUp" },
-    { id: "overview", label: "Overview", icon: "lucide:Briefcase" },
-    { id: "myday", label: "My Day", icon: "lucide:Sun" },
+    { id: "tasks", label: "Tasks" },
+    { id: "myday", label: "My Day" },
+    { id: "meetings", label: "Standup prep" },   // id stays "meetings" so saved preferences keep working
+    { id: "reports", label: "Reports" },
+    { id: "timeline", label: "Timeline" },
+    { id: "progress", label: "Progress" },
+    { id: "overview", label: "Overview" },
   ],
   groups: [["person", "Assignee"], ["stage", "Stage"], ["status", "Status"], ["due", "Due date"], ["none", "None"]],
   dueBuckets: ["Overdue", "Due this week", "Due next week", "Later", "Earlier", "No date"],
@@ -2082,7 +2087,6 @@ const QUICK = [
   { k: "attention", label: "Needs attention", test: (t) => t.issues.length > 0, main: true },
   { k: "week", label: "Due this week", test: (t) => t.thisWeek },
   { k: "scope", label: "Scope requests", test: (t) => t.scope && !t.done },
-  { k: "mine", label: "Assigned to me", test: (t) => isMine(t) && !t.done },
   { k: "archived", label: "Archived", test: () => true },
 ];
 const quickLabel = (k) => k === "waiting" ? `Waiting on ${C()?.short || "client"}` : k === "changed" ? "Changed since standup" : QUICK.find((x) => x.k === k)?.label || "All open";
@@ -2163,17 +2167,18 @@ const BTN1 = "inline-flex h-11 shrink-0 items-center justify-center gap-1.5 roun
    ready (white button, presses in when clicked) → saving (spinner) → saved ("Standup saved · 9:42 AM" with a green check).
    "Saved" holds while today's standup is the latest snapshot and nothing has changed since; press it to save again. */
 const FINISH_PRESS = " transition-[transform,filter] duration-100 hover:brightness-90 active:scale-[0.96] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--sand)]";
-const FINISH_SAVED = "inline-flex h-11 min-w-[13.75rem] shrink-0 items-center justify-center gap-1.5 rounded-full border border-border-sub px-4 text-[13px] font-medium text-text transition-[transform,background-color] duration-100 hover:bg-surface-hover active:scale-[0.96] min-[900px]:h-8 min-[900px]:px-3";
+const FINISH_W = " w-[9.5rem]";
+const FINISH_SAVED = "inline-flex h-11 w-[9.5rem] shrink-0 items-center justify-center gap-1.5 rounded-full border border-border-sub px-4 text-[13px] font-medium text-text transition-[transform,background-color] duration-100 hover:bg-surface-hover active:scale-[0.96] min-[900px]:h-8 min-[900px]:px-3";
 function finishBtn(label, cls) {
   if (ro()) return "";
-  if (S.finishing) return `<button type="button" disabled aria-busy="true" class="${cls}">${icon("lucide:RefreshCw", "h-4 w-4 rf-spin")}Saving standup…</button>`;
+  if (S.finishing) return `<button type="button" disabled aria-busy="true" class="${cls}${FINISH_W}">${icon("lucide:RefreshCw", "h-4 w-4 rf-spin")}Saving…</button>`;
   const b = baseSnap();
   const saved = b && b.label === "standup" && b.takenAt && new Date(b.takenAt).toLocaleDateString("en-CA") === todayKey() && !allTasks().some((t) => t.change);
   if (saved) {
     const at = new Date(b.takenAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
-    return `<button type="button" data-finish aria-label="Standup saved at ${at}${b.by ? ` by ${esc(b.by)}` : ""}. Save again" data-tip="Saved${b.by ? ` by ${esc(b.by)}` : ""}. Press to save again." class="${FINISH_SAVED}"><span class="c-done">${statusGlyph("Done", "h-4 w-4")}</span>Standup saved · ${at}</button>`;
+    return `<button type="button" data-finish aria-label="Standup saved at ${at}${b.by ? ` by ${esc(b.by)}` : ""}. Save again" data-tip="Saved${b.by ? ` by ${esc(b.by)}` : ""}. Press to save again." class="${FINISH_SAVED}"><span class="c-done">${statusGlyph("Done", "h-4 w-4")}</span>Saved ${at}</button>`;
   }
-  return `<button type="button" data-finish class="${cls}${FINISH_PRESS}">${icon("lucide:CheckCheck", "h-4 w-4")}${label}</button>`;
+  return `<button type="button" data-finish data-tip="Saves where every task stands now. Next standup's New, Updated and Slipped markers start from here." class="${cls}${FINISH_W}${FINISH_PRESS}">${label}</button>`;
 }
 
 function statusGlyph(k, cls = "h-3.5 w-3.5") {
@@ -2235,7 +2240,8 @@ function openMenu(anchor, items, onPick, foot = "", mode = "choice") {
   menuFrom = anchor; anchor.setAttribute("aria-expanded", "true");
   menuEl = document.createElement("div");
   menuEl.setAttribute("role", "menu");
-  menuEl.className = "fixed z-[95] max-h-[70vh] min-w-[13rem] max-w-[min(20rem,calc(100vw-2rem))] overflow-y-auto rounded-xl border border-border-sub bg-surface-raised p-1 shadow-[var(--shadow-raised)]";
+  menuEl.style.minWidth = anchor.offsetWidth + "px";
+  menuEl.className = "fixed z-[95] max-h-[70vh] max-w-[min(20rem,calc(100vw-2rem))] overflow-y-auto rounded-xl border border-border-sub bg-surface-raised p-1 shadow-[var(--shadow-raised)]";
   menuEl.innerHTML = items.map((it, i) => it.sep ? `<div role="separator" class="my-1 h-px bg-border-sub"></div>` : it.heading ? `<p class="px-2.5 pb-1 pt-2 text-[12px] text-text-3">${esc(it.heading)}</p>` : mode === "current"
     ? `<button type="button" role="menuitem" ${it.checked ? `aria-current="true"` : ""} data-i="${i}" class="flex min-h-9 w-full items-center gap-2 rounded-lg px-2.5 text-left text-[14px] transition-colors touch:min-h-11 ${it.checked ? CURRENT : "text-text hover:bg-surface-hover focus-visible:bg-surface-hover"}"><span class="min-w-0 flex-1 truncate">${esc(it.label)}</span></button>`
     : `<button type="button" role="${it.toggle ? "menuitemcheckbox" : "menuitemradio"}" aria-checked="${!!it.checked}" data-i="${i}" class="flex min-h-9 w-full items-center gap-2 rounded-lg px-2.5 text-left text-[14px] text-text transition-colors hover:bg-surface-hover focus-visible:bg-surface-hover touch:min-h-11"><span class="grid w-4 shrink-0 place-items-center text-text">${it.checked ? icon("lucide:Check", "h-4 w-4", 2) : ""}</span><span class="min-w-0 flex-1 truncate">${esc(it.label)}</span>${it.meta !== undefined && it.meta !== "" ? `<span class="shrink-0 text-[12px] tabular-nums ${it.metaTone || "text-text-3"}">${esc(it.meta)}</span>` : ""}</button>`).join("") + (foot ? `<p class="mt-1 border-t border-border-sub px-2.5 pb-1.5 pt-2 text-[12px] leading-snug text-text-2">${foot}</p>` : "");
@@ -2325,69 +2331,57 @@ function renderHeader() {
   const c = C();
   $("#tool-title").textContent = c ? c.name : TOOL.name;
   document.title = c ? `${c.short || c.name} · Client dashboard` : TOOL.name;
-  $("#client-chev").innerHTML = icon("lucide:ChevronDown", "h-4 w-4");
-  $("#project-chev").innerHTML = icon("lucide:ChevronDown", "h-4 w-4");
+  $("#client-chev").innerHTML = icon("lucide:ChevronDown", "h-3.5 w-3.5");
+  $("#project-chev").innerHTML = icon("lucide:ChevronDown", "h-3.5 w-3.5");
   $("#project-label").textContent = projectName();
   const rb = $("#refresh");
   if (!rb.firstElementChild) rb.innerHTML = icon("lucide:RefreshCw", "h-[18px] w-[18px]"); // drawn once, so a redraw never restarts the spin
   rb.setAttribute("aria-busy", S.refreshing ? "true" : "false");
 }
-const projectName = () => S.list === "all" ? "All projects" : (C()?.lists || []).find((L) => L.key === S.list)?.title || "All projects";
+const projectName = () => S.list === "all" ? "All Projects" : (C()?.lists || []).find((L) => L.key === S.list)?.title || "All Projects";
 function renderViews() {
   const v = $("#views"); v.setAttribute("data-roving", "x");
-  /* The tabs sit at the right, next to refresh: an auto margin on the first one (unlike justify-end, it never pushes tabs
-     out of reach on the left when the bar is tight; they scroll instead). */
-  v.innerHTML = TOOL.views.map((x, i) => { const on = S.view === x.id; return `<button type="button" data-view="${x.id}" data-rove ${on ? `aria-current="page"` : ""} tabindex="${on ? 0 : -1}" class="relative inline-flex h-11 shrink-0 items-center gap-1.5 rounded-t-lg px-3 text-[14px] text-text transition-colors min-[900px]:h-14 min-[900px]:rounded-none ${i === 0 ? "min-[900px]:ml-auto " : ""}${on ? "font-semibold" : "font-medium hover:bg-surface-hover"}">${icon(x.icon, "h-4 w-4 text-text-2")}${esc(x.label)}${on ? `<span aria-hidden="true" class="absolute inset-x-2 bottom-0 h-0.5 rounded-full bg-sand"></span>` : ""}</button>`; }).join("");
+  /* Tabs sit on their own row under the breadcrumb, at the shared left edge. Labels only; the open tab is bold with a
+     2px blue underline sitting on the dividing line, and a blue label. The row scrolls sideways when the tabs don't fit. */
+  v.innerHTML = TOOL.views.map((x) => { const on = S.view === x.id; return `<button type="button" data-view="${x.id}" data-rove ${on ? `aria-current="page"` : ""} tabindex="${on ? 0 : -1}" class="relative inline-flex shrink-0 items-center text-[14px] transition-colors ${on ? "font-semibold text-sand" : "font-medium text-text-2 hover:text-text"}">${esc(x.label)}${on ? `<span aria-hidden="true" class="absolute inset-x-[-5px] bottom-0 h-0.5 rounded-full bg-sand"></span>` : ""}</button>`; }).join("");
 }
 /* One subheader: search, one Filter menu, grouping, the layout, and the standup controls. */
 function renderToolbar() {
   const fb = $("#filterbar");
-  /* Two bars on every page. The top bar says where you are (client, project, page); this one always holds what you can do
-     on that page, with the standup controls at the right end, so nothing disappears or jumps when you change pages. */
-  if (!C()) { fb.hidden = true; return; }
+  /* The toolbar is only on Tasks. Other pages have no second bar: their own actions sit in the page. */
+  if (!C() || S.view !== "tasks") { fb.hidden = true; fb.innerHTML = ""; return; }
   fb.hidden = false;
-  if (S.view !== "tasks") { fb.innerHTML = pageBar(); fb.style.minHeight = S.barH && !narrow() ? S.barH + "px" : ""; return; } // on a phone the Tasks bar wraps tall, so other pages keep their own height // as tall as the Tasks bar, so pages don't jump
   const base = listScope(allTasks());
-  if (S.layout === "timeline" && !timelineList()) S.layout = "list";
-  const layout = `<div role="radiogroup" aria-label="Layout" data-roving="x" class="flex items-center gap-1">${[["list", "List", "lucide:List"], ["board", "Board", "lucide:SquareKanban"], ["timeline", "Timeline", "lucide:CalendarDays"]].map(([k, l, ic]) => { const on = S.layout === k, off = k === "timeline" && !timelineList(); /* Timeline stays in place; it's switched off for projects without stages */ return `<button type="button" role="radio" data-layout="${k}" data-rove aria-checked="${on}" tabindex="${on ? 0 : -1}" ${off ? `disabled title="Timeline is for projects with stages"` : ""} class="${CHIP} ${on ? chipOn : chipOff} disabled:cursor-default disabled:opacity-40">${icon(ic, `h-4 w-4 ${on ? "" : "text-text-2"}`)}<span class="max-[600px]:sr-only">${l}</span></button>`; }).join("")}</div>`;
+  if (S.layout === "timeline") S.layout = "list"; // Timeline is a tab now
+  if (S.quick && !QUICK.some((x) => x.k === S.quick) && S.quick !== "changed") S.quick = "";
+  /* List / Board: one segmented control, the chosen view filled blue. */
+  const SEG_ON = "bg-sand-sub font-semibold text-sand", SEG_OFF = "font-medium text-text hover:bg-surface-hover";
+  const layout = `<div role="radiogroup" aria-label="Layout" data-roving="x" class="inline-flex h-11 shrink-0 items-center rounded-full border border-border-sub p-0.5 min-[900px]:h-8">${[["list", "List", "lucide:List"], ["board", "Board", "lucide:SquareKanban"]].map(([k, l, ic]) => { const on = S.layout === k; return `<button type="button" role="radio" data-layout="${k}" data-rove aria-checked="${on}" tabindex="${on ? 0 : -1}" class="inline-flex h-full items-center gap-1.5 rounded-full px-2.5 text-[13px] transition-colors min-[900px]:px-3 ${on ? SEG_ON : SEG_OFF}">${icon(ic, `h-4 w-4 ${on ? "" : "text-text-2"}`)}${l}</button>`; }).join("")}</div>`;
+  /* Group and Filter: ghost buttons sized to their label, gray name, value, arrow right after the text. */
+  const GHOST = "inline-flex h-11 shrink-0 items-center gap-1 rounded-full px-1.5 text-[13px] font-medium text-text transition-colors hover:bg-surface-hover min-[900px]:h-8 min-[900px]:px-2.5";
   const gk = S.layout === "board" ? boardKey() : groupKey(), gl = (TOOL.groups.find((g) => g[0] === gk) || [, "None"])[1], gword = S.layout === "board" ? "Columns" : "Group";
-  const groupBtn = `<button type="button" id="group-btn" aria-haspopup="menu" aria-expanded="false" aria-label="${gword}: ${esc(gl)}" class="${CHIP} ${chipOff} min-[900px]:min-w-[12.5rem]">${icon(S.layout === "board" ? "lucide:Columns3" : "lucide:Rows3", "h-4 w-4 text-text-2")}<span class="max-[600px]:sr-only"><span class="text-text-2">${gword}:</span> ${esc(gl)}</span>${icon("lucide:ChevronDown", "ml-auto h-3.5 w-3.5 text-text-2")}</button>`;
-  const search = `<label class="relative flex min-w-[10rem] flex-1 items-center min-[900px]:w-40 min-[900px]:flex-none"><span class="sr-only">Search tasks</span>${icon("lucide:Search", "pointer-events-none absolute left-3 h-4 w-4 text-text-2")}<input id="q" type="search" autocomplete="off" placeholder="Search" value="${esc(S.q)}" class="h-11 w-full rounded-lg bg-white/[0.05] pl-9 pr-3 text-[16px] text-text placeholder:text-text-3 min-[900px]:h-8 min-[900px]:text-[13px]"></label>`;
-  const qk = S.quick, qn = qk ? (qk === "archived" ? listScope(archivedTasks()).length : base.filter(QUICK.find((x) => x.k === qk).test).length) : 0;
-  const filterBtn = `<span class="inline-flex items-center"><button type="button" id="filter-btn" aria-haspopup="menu" aria-expanded="false" class="${CHIP} ${qk ? chipOn : chipOff} min-[900px]:min-w-[9.5rem]">${icon("lucide:ListFilter", `h-4 w-4 ${qk ? "" : "text-text-2"}`)}${qk ? `${esc(quickLabel(qk))}<span class="tabular-nums">${qn}</span>` : `<span><span class="text-text-2">Filter:</span> ${S.showDone ? "All" : "Open only"}</span>`}${icon("lucide:ChevronDown", `ml-auto h-3.5 w-3.5 ${qk ? "" : "text-text-2"}`)}</button></span>`;
-  /* While a quick filter is on, the second row says so and offers Clear, instead of a button appearing in the first row. */
-  const filterNote = qk ? `<span class="inline-flex items-center gap-1.5 text-[12px] text-text-2">${icon("lucide:ListFilter", "h-3.5 w-3.5")}Showing ${esc(quickLabel(qk).toLowerCase())}: ${plural(qn, "task", "tasks")}<button type="button" data-quick-clear class="-my-1 ml-1 inline-flex h-7 items-center rounded-full px-2 text-[12px] font-medium text-text transition-colors hover:bg-surface-hover">Clear</button></span>` : "";
-  const tl = S.layout === "timeline"; // search, filter and group don't apply to the timeline
+  const groupBtn = `<button type="button" id="group-btn" aria-haspopup="menu" aria-expanded="false" aria-label="${gword}: ${esc(gl)}" class="${GHOST}"><span class="text-text-2">${gword}:</span> ${esc(gl)}${icon("lucide:ChevronDown", "h-3.5 w-3.5 text-text-2")}</button>`;
+  const qk = S.quick, qn = qk ? (qk === "archived" ? listScope(archivedTasks()).length : base.filter((QUICK.find((x) => x.k === qk) || { test: (t) => !!t.change }).test).length) : 0;
+  const filterBtn = `<button type="button" id="filter-btn" aria-haspopup="menu" aria-expanded="false" class="${GHOST} ${qk ? "text-sand" : ""}">${qk ? `${esc(quickLabel(qk))} <span class="tabular-nums">${qn}</span>` : `<span class="text-text-2">Filter:</span> ${S.showDone ? "All" : "Open only"}`}${icon("lucide:ChevronDown", `h-3.5 w-3.5 ${qk ? "" : "text-text-2"}`)}</button>`;
+  const addBtn = ro() ? "" : `<button type="button" data-add-task data-tip="Add a task (N)" class="${GHOST} max-[899px]:order-4">${icon("lucide:Plus", "h-4 w-4")}Add task</button>`;
+  const search = `<label class="relative flex min-w-[10rem] flex-1 items-center max-[899px]:order-3 min-[900px]:w-48 min-[900px]:flex-none"><span class="sr-only">Search tasks</span>${icon("lucide:Search", "pointer-events-none absolute left-3 h-4 w-4 text-text-2")}<input id="q" type="search" autocomplete="off" placeholder="Search" value="${esc(S.q)}" class="h-11 w-full rounded-lg bg-white/[0.05] pl-9 pr-3 text-[16px] text-text placeholder:text-text-3 min-[900px]:h-8 min-[900px]:text-[13px]"></label>`;
+  const SEP = `<span aria-hidden="true" class="mx-0.5 hidden h-5 w-px shrink-0 bg-white/[0.16] min-[900px]:block"></span>`;
+  const BREAK = (o) => `<span aria-hidden="true" class="h-0 basis-full ${o} min-[900px]:hidden"></span>`;
+  /* A second row only for an active filter (with Clear) or the board's drag hint. */
+  const filterNote = qk ? `<span class="inline-flex items-center gap-1.5 text-[12px] text-text-2">Showing ${esc(quickLabel(qk).toLowerCase())}: ${plural(qn, "task", "tasks")}<button type="button" data-quick-clear class="-my-1 ml-1 inline-flex h-7 items-center rounded-full px-2 text-[12px] font-medium text-text transition-colors hover:bg-surface-hover">Clear</button></span>` : "";
   const bk = boardKey(), dragHint = S.layout !== "board" ? "" : `<span class="inline-flex items-center gap-1.5 text-[12px] text-text-3">${icon("lucide:GripVertical", "h-3.5 w-3.5")}${bk === "status" || bk === "stage" ? `Drag a card to change its ${bk}` : "Dragging works when columns are Status or Stage"}</span>`;
-  /* The toolbar keeps the same controls in the same places on every layout. Search, filter and group don't apply to the
-     timeline, so there they stay in place, dimmed and switched off, instead of disappearing and shifting the rest left. */
-  const off = (html) => html.replace(/^<(label|span|button) /, `<$1 inert aria-hidden="true" data-off-in-timeline `).replace('class="', 'class="opacity-40 ');
-  /* Order, left to right: how you're looking (List, Board, Timeline) | Filter and Group | Add task | Search.
-     Thin dividers mark the groups on wider screens; on a phone the bar wraps, so they're left out. */
-  const SEP = `<span aria-hidden="true" class="mx-1 hidden h-5 w-px shrink-0 bg-white/[0.16] min-[900px]:block"></span>`;
-  const controls = tl ? SEP + off(filterBtn) + off(groupBtn) + SEP + addBtnOf() + SEP + off(search) : SEP + filterBtn + groupBtn + SEP + addBtnOf() + SEP + search;
-  function addBtnOf() { return ro() ? "" : `<button type="button" data-add-task data-tip="Add a task (N)" class="${CHIP} ${chipOff}">${icon("lucide:Plus", "h-4 w-4")}<span class="max-[600px]:sr-only">Add task</span></button>`; }
-  fb.innerHTML = barRows(`${layout}${controls}`, [filterNote, dragHint].filter(Boolean).join(`<span aria-hidden="true" class="text-text-3">·</span>`));
-  fb.style.minHeight = ""; S.barH = fb.offsetHeight;
-}
-/* Every page's second bar has the same two rows, so nothing moves between pages, layouts or groupings:
-   row 1, that page's tools; row 2, context on the left (a drag hint, an active filter) and the standup controls on the right. */
-function barRows(tools, context) {
-  return `<div class="flex min-h-11 flex-wrap items-center gap-x-1.5 gap-y-2 min-[900px]:min-h-8${tools ? "" : " max-[899px]:hidden"}">${tools}</div>
-    <div class="${tools ? "mt-1.5 " : "max-[899px]:mt-0 mt-1.5 "}flex min-h-11 flex-wrap items-center gap-x-3 gap-y-1.5 min-[900px]:min-h-8"><span class="flex min-w-0 flex-1 flex-wrap items-center gap-x-2 gap-y-1">${context || ""}</span>${standupInfo()}</div>`;
-}
-/* The second bar on Meetings, Reports, Overview and My Day: that page's actions, and the standup controls in their usual place. */
-function pageBar() {
-  const left = S.view === "meetings" && !ro() ? `<button type="button" data-check-notes class="${CHIP} ${chipOff}">${icon("lucide:RefreshCw", "h-4 w-4 text-text-2")}Check for new notes</button>` : "";
-  return barRows(left, "");
+  const context = [filterNote, dragHint].filter(Boolean).join(`<span aria-hidden="true" class="text-text-3">·</span>`);
+  /* Desktop, one row: List / Board | Group, Filter | Add task | Search ... N changed, Finish standup.
+     Phone, three rows: List / Board, Group, Filter / Search, Add task / N changed, Finish standup. */
+  fb.innerHTML = `<div class="flex flex-wrap items-center gap-x-1 gap-y-2 min-[900px]:gap-x-1.5">${layout}${SEP}${groupBtn}${filterBtn}${BREAK("order-2")}${SEP}${addBtn}${SEP}${search}${BREAK("order-5")}${standupInfo()}</div>${context ? `<div class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">${context}</div>` : ""}`;
 }
 /* The standup controls in the subheader: what changed since last time, and Finish standup. */
 function standupInfo() {
-  const c = C(), date = nextMeetingDate(), today = date === todayKey(), b = baseSnap();
+  const b = baseSnap();
   const changed = listScope(allTasks()).filter((t) => t.change).length, ch = S.quick === "changed";
-  return `<span class="flex flex-wrap items-center gap-1.5 text-[13px]">
-    ${b ? `<button type="button" data-quick-toggle="changed" aria-pressed="${ch}" data-tip="Changed since the last standup. Click to see them." class="inline-flex h-8 items-center gap-1.5 rounded-full px-2.5 transition-colors hover:bg-surface-hover ${ch ? "text-sand" : "text-text"}">${icon("lucide:History", "h-4 w-4 text-text-2")}<span class="inline-block min-w-[2ch] text-right tabular-nums">${changed}</span> changed<span class="max-[1400px]:sr-only"> since last standup</span></button>` : ""}
-    ${finishBtn(`Finish ${today ? "today's " : ""}standup`, "inline-flex h-8 min-w-[13.75rem] shrink-0 items-center justify-center gap-1.5 rounded-full bg-btn-primary px-3 text-[13px] font-medium text-btn-primary-fg disabled:opacity-50")}</span>`;
+  return `<span class="flex items-center justify-between gap-1.5 text-[13px] max-[899px]:order-6 max-[899px]:w-full min-[900px]:ml-auto">
+    ${b ? `<button type="button" data-quick-toggle="changed" aria-pressed="${ch}" data-tip="Changed since the last standup. Click to see them." class="inline-flex h-11 items-center gap-1.5 rounded-full px-2.5 transition-colors hover:bg-surface-hover min-[900px]:h-8 ${ch ? "text-sand" : "text-text"}">${icon("lucide:History", "h-4 w-4 text-text-2")}<span class="tabular-nums">${changed}</span> changed</button>` : "<span></span>"}
+    ${finishBtn("Finish standup", "inline-flex h-11 shrink-0 items-center justify-center gap-1.5 rounded-full bg-btn-primary px-3 text-[13px] font-medium text-btn-primary-fg disabled:opacity-50 min-[900px]:h-8")}</span>`;
 }
 function renderFacts() {
   const c = C(), f = $("#facts");
@@ -2457,7 +2451,6 @@ function standupBar() {
 function renderTasks() {
   const el = $("#records"), c = C();
   if (S.mcpState === "ok" && (c.lists || []).every((L) => !S.slack[L.key]?.rows && !S.slack[L.key]?.error)) { el.innerHTML = loading("Reading the Slack lists"); return; }
-  if (timelineList() && S.layout === "timeline") { renderTimeline(); return; }
   if (S.layout === "board") { renderBoard(); return; }
   const ts = visibleTasks();
   $("#count-live").textContent = plural(ts.length, "task", "tasks") + " shown";
@@ -2524,7 +2517,7 @@ function renderDetails() {
   const keepNote = detEl.querySelector("#note-text")?.value; if (keepNote !== undefined) S.note = keepNote;
   detEl.hidden = false;
   const c = C();
-  const FACT = "-ml-2 flex min-h-9 w-[calc(100%+0.5rem)] min-w-0 items-center gap-2 rounded-lg px-2 text-left text-[14px] text-text transition-colors hover:bg-surface-hover touch:min-h-11";
+  const FACT = "-ml-2 inline-flex min-h-9 w-auto min-w-[11rem] max-w-full items-center gap-2 rounded-lg px-2 text-left text-[14px] text-text transition-colors hover:bg-surface-hover touch:min-h-11";
   const fact = (label, val) => `<dt class="pt-2 text-[13px] text-text-2">${esc(label)}</dt><dd class="min-w-0 py-2 text-[14px] text-text">${val}</dd>`;
   const factBtn = (label, attr, val) => `<dt class="pt-2.5 text-[13px] text-text-2">${esc(label)}</dt><dd class="min-w-0 py-0.5"><button type="button" ${attr} aria-haspopup="menu" aria-expanded="false" aria-label="${esc(label)}: ${esc(val.replace(/<[^>]+>/g, "").trim() || "not set")}. Change" class="${FACT}">${val || `<span class="text-text-3">Not set</span>`}${icon("lucide:ChevronDown", "ml-auto h-3.5 w-3.5 text-text-2")}</button></dd>`;
   const facts = [
@@ -2545,7 +2538,7 @@ function renderDetails() {
       ${t.url ? `<a href="${esc(t.url)}" target="_blank" rel="noopener" aria-label="Open this task in Slack" data-tip="Open in Slack" class="${ICON_BTN}">${icon("lucide:ExternalLink", "h-[18px] w-[18px]")}</a>` : ""}
       <button type="button" data-close aria-label="Close" data-tip="Close" class="${ICON_BTN}">${icon("lucide:X", "h-[18px] w-[18px]")}</button></div>
     <div class="min-h-0 flex-1 overflow-y-auto px-5 pb-8 pt-4 scrollbar-thin">
-      <div class="flex items-start gap-1"><h2 class="min-w-0 flex-1 text-[20px] font-semibold leading-7 text-text [overflow-wrap:anywhere]">${esc(t.title)}</h2>${t.archived ? "" : `<button type="button" data-rename-panel="${esc(t.id)}" aria-label="Rename this task" data-tip="Rename" class="${ICON_BTN} -mt-1">${icon("lucide:Pencil", "h-4 w-4")}</button>`}</div>
+      <h2 class="text-[20px] font-semibold leading-7 text-text [overflow-wrap:anywhere]">${t.archived ? esc(t.title) : `<button type="button" data-rename-panel="${esc(t.id)}" aria-label="${esc(t.title)}. Click to rename" class="-mx-1.5 w-[calc(100%+0.75rem)] cursor-text rounded-md px-1.5 text-left transition-colors hover:bg-surface-hover">${esc(t.title)}</button>`}</h2>
       <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">${marks(t)}</div>
       ${change}${issues}
       <dl class="mt-4 grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-3 pb-4">${facts}</dl>
@@ -2621,6 +2614,16 @@ function taskLink(t, detail = "", showList = true) {
   return `<li class="border-b border-white/[0.10] last:border-b-0"><button type="button" data-open="${esc(t.id)}" ${on ? `aria-current="true"` : ""} class="-mx-2 flex w-[calc(100%+1rem)] min-w-0 items-center gap-3 rounded-lg px-2 py-2 text-left transition-colors ${on ? CURRENT : "hover:bg-surface-hover focus-visible:bg-surface-hover"}">
     <span class="min-w-0 flex-1"><span class="flex min-w-0 items-center gap-2"><span class="truncate text-[14px] text-text ${on ? "font-semibold" : ""}">${esc(t.title)}</span>${S.list === "all" && showList ? listPill(t) : ""}</span><span class="flex min-w-0 items-center gap-2 text-[12px] text-text-3"><span class="truncate">${esc(t.people.join(", ") || "Unassigned")}</span>${stagePill(t.stage)}</span>${detail ? `<span class="mt-0.5 block text-[13px] text-text-2">${detail}</span>` : ""}</span>
     <span class="flex shrink-0 flex-col items-end gap-1">${dueText(t, "text-[12px]")}${t.status !== "Not started" ? statusText(t.status, "text-[12px]") : ""}</span></button></li>`;
+}
+/* A My Day row: the title opens the task; the status pill and the due date edit in place, as on the Tasks list. */
+function myRow(t, detail = "") {
+  const on = S.open === t.id, edit = !t.archived && !ro();
+  return `<li class="group border-b border-white/[0.10] py-1 last:!border-b-0"><div class="-mx-2 flex min-w-0 items-start gap-3 rounded-lg px-2 py-2.5 transition-colors hover:bg-white/[0.03] ${on ? CURRENT : ""}">
+    <button type="button" data-open="${esc(t.id)}" ${on ? `aria-current="true"` : ""} class="min-w-0 flex-1 rounded-md text-left">
+      <span class="flex min-w-0 items-center gap-2"><span class="truncate text-[14px] text-text group-hover:underline group-hover:decoration-text-3 group-hover:underline-offset-2 ${on ? "font-semibold" : ""}">${esc(t.title)}</span>${S.list === "all" ? listPill(t) : ""}</span>
+      <span class="flex min-w-0 items-center gap-2 text-[12px] text-text-3"><span class="truncate">${esc(t.people.join(", ") || "Unassigned")}</span>${stagePill(t.stage)}</span>${detail ? `<span class="mt-0.5 block text-[13px] text-text-2">${detail}</span>` : ""}
+    </button>
+    <span class="flex shrink-0 flex-col items-end gap-1.5">${edit ? dueCell(t) : dueBadge(t)}${statusPill(t, edit)}</span></div></li>`;
 }
 const sub = (title, n, body, action = "", tone = "") => `<div class="mb-6 last:mb-0"><div class="mb-1 flex min-h-8 items-center justify-between gap-2"><h5 class="flex items-center gap-2 text-[13px] font-semibold text-text">${tone === "done" ? `<span aria-hidden="true" class="inline-block h-2 w-2 rounded-full bg-done"></span>` : tone === "problem" || tone === "waiting" ? `<span aria-hidden="true" class="att-dot"></span>` : ""}${esc(title)}<span class="ml-1.5 font-normal tabular-nums text-text-3">${n}</span></h5>${action}</div>${body}</div>`;
 const notLoaded = () => S.mcpState !== "ok" || !listsLoaded();
@@ -2703,7 +2706,7 @@ function renderNext() {
   const stList = `<button type="button" id="st-list-btn" aria-haspopup="menu" aria-expanded="false" class="${CHIP} ${S.list === "all" ? chipOff : chipOn}"><span class="${S.list === "all" ? "text-text-2" : ""}">List:</span> ${esc(lt)}${icon("lucide:ChevronDown", `h-3.5 w-3.5 ${S.list === "all" ? "text-text-2" : ""}`)}</button>`;
   return `<header class="mb-6 flex flex-wrap items-start justify-between gap-3"><div><h2 class="text-[22px] font-semibold leading-7 text-text">${esc(m.title || "Standup")}${isToday ? ", today" : ""}</h2>
       <p class="mt-1 text-[14px] text-text-2">${esc(longDay(date))}${m.time ? ` at ${esc(m.time)}` : ""}</p>
-      <p class="mt-1 text-[12px] text-text-3">${b ? `Changes since the ${b.label === "baseline" ? "first saved copy" : "standup"} on ${esc(shortDay(b.takenAt))}` : "No standup saved yet"}</p></div><div class="flex flex-wrap items-center gap-1.5">${finish}</div></header>
+      <p class="mt-1 text-[12px] text-text-3">${b ? `Changes since the ${b.label === "baseline" ? "first saved copy" : "standup"} on ${esc(shortDay(b.takenAt))}` : "No standup saved yet"}</p></div></header>
     <div class="flex flex-col gap-8">
       <p class="-mt-4 flex items-start gap-2 rounded-lg border border-white/[0.10] px-3 py-2 text-[13px] text-text-2">${icon("lucide:Info", "mt-0.5 h-4 w-4 shrink-0")}<span>Run the meeting from the <button type="button" data-goto-tasks class="font-medium text-text underline decoration-text-3 underline-offset-2">Tasks tab</button>: the full list, editable in place, grouped by assignee. This page is for preparing beforehand and the meeting's records.</span></p>
       ${sec("What changed since the last standup", changedSection())}
@@ -2729,19 +2732,21 @@ function renderPast(mt) {
 function renderMeetings() {
   const el = $("#records"), ms = meetingsSorted(), date = nextMeetingDate();
   if (S.mSel !== "next" && !S.meetings.has(S.mSel)) S.mSel = "next";
-  const item = (id, title, subt) => { const on = S.mSel === id; return `<button type="button" data-msel="${esc(id)}" data-rove ${on ? `aria-current="true"` : ""} tabindex="${on ? 0 : -1}" class="flex w-full min-w-0 flex-col items-start rounded-lg px-3 py-2 text-left transition-colors ${on ? CURRENT : "text-text hover:bg-surface-hover"}"><span class="w-full truncate text-[14px] ${on ? "font-semibold" : "font-medium"}">${esc(title)}</span><span class="w-full truncate text-[12px] font-normal text-text-3">${esc(subt)}</span></button>`; };
-  const chip = (id, label) => { const on = S.mSel === id; return `<button type="button" data-msel="${esc(id)}" data-rove ${on ? `aria-current="true"` : ""} tabindex="${on ? 0 : -1}" class="inline-flex h-11 shrink-0 items-center rounded-full px-3.5 text-[14px] transition-colors ${on ? CURRENT : "font-medium text-text hover:bg-surface-hover"}">${esc(label)}</button>`; };
+  /* Plain rows; the open meeting gets a 2px blue bar at the left and semibold text. */
+  const item = (id, title, subt) => { const on = S.mSel === id; return `<button type="button" data-msel="${esc(id)}" data-rove ${on ? `aria-current="true"` : ""} tabindex="${on ? 0 : -1}" class="relative flex w-full min-w-0 flex-col items-start rounded-md py-1.5 pl-3 pr-2 text-left transition-colors hover:bg-surface-hover">${on ? `<span aria-hidden="true" class="absolute inset-y-1 left-0 w-0.5 rounded-full bg-sand"></span>` : ""}<span class="w-full truncate text-[14px] ${on ? "font-semibold text-sand" : "font-normal text-text"}">${esc(title)}</span><span class="w-full truncate text-[12px] text-text-3">${esc(subt)}</span></button>`; };
+  const importBtn = ro() ? "" : `<button type="button" data-check-notes data-tip="Find new meeting notes in Drive" class="-my-1 inline-flex h-7 items-center rounded-md px-1.5 text-[12px] font-medium text-text transition-colors hover:bg-surface-hover">Import notes</button>`;
   const panel = S.mSel === "next" ? renderNext() : renderPast(S.meetings.get(S.mSel));
-  const emptyPast = `<p class="px-3 py-2 text-[13px] leading-snug text-text-2">Meeting notes appear here once they're added from Drive with Check for new notes.</p>`;
+  const emptyPast = `<p class="py-2 pl-3 text-[13px] leading-snug text-text-2">Meeting notes appear here once they're added from Drive with Import notes.</p>`;
   if (narrow()) {
-    el.innerHTML = `<nav aria-label="Meetings" data-roving="x" class="gutter scrollbar-none flex gap-1.5 overflow-x-auto border-b border-white/[0.10] py-2">${chip("next", "Next standup")}${ms.map((m) => chip(m.id, shortDay(m.id))).join("")}</nav><div class="gutter py-5">${panel}</div><div class="h-10"></div>`;
+    const label = S.mSel === "next" ? "Next standup" : shortDay(S.mSel);
+    el.innerHTML = `<div class="gutter flex items-center justify-between gap-2 border-b border-white/[0.10] py-2"><button type="button" id="meeting-btn" aria-haspopup="menu" aria-expanded="false" class="inline-flex h-11 min-w-0 items-center gap-1 rounded-full px-3 text-[14px] font-medium text-text transition-colors hover:bg-surface-hover"><span class="text-text-2">Meeting:</span> <span class="truncate">${esc(label)}</span>${icon("lucide:ChevronDown", "h-3.5 w-3.5 shrink-0 text-text-2")}</button>${importBtn.replace("h-7", "h-11")}</div><div class="gutter py-5">${panel}</div><div class="h-10"></div>`;
     return;
   }
-  el.innerHTML = `<div class="grid min-h-full grid-cols-[15rem_minmax(0,1fr)]">
-    <nav aria-label="Meetings" data-roving="y" class="border-r border-white/[0.10] p-3"><div class="flex flex-col gap-0.5">${item("next", "Next standup", longDay(date))}</div>
-      ${""}
-      <h3 class="mb-1 mt-5 px-3 text-[12px] font-medium text-text-3">Past meetings</h3><div class="flex flex-col gap-0.5">${ms.map((m) => item(m.id, m.title || "Meeting", longDay(m.id))).join("") || emptyPast}</div></nav>
-    <div class="min-w-0 px-8 py-6"><div class="max-w-[48rem]">${panel}</div><div class="h-12"></div></div></div>`;
+  el.innerHTML = `<div class="grid min-h-full grid-cols-[16rem_minmax(0,52rem)_1fr]">
+    <nav aria-label="Meetings" data-roving="y" class="border-r border-white/[0.10] py-5 pl-5 pr-3">
+      <h3 class="mb-1 pl-3 text-[12px] font-medium text-text-3">Upcoming</h3><div class="flex flex-col gap-0.5">${item("next", "Next standup", longDay(date))}</div>
+      <div class="mb-1 mt-6 flex items-center justify-between gap-2 pl-3"><h3 class="text-[12px] font-medium text-text-3">Past meetings</h3>${importBtn}</div><div class="flex flex-col gap-0.5">${ms.map((m) => item(m.id, m.title || "Meeting", longDay(m.id))).join("") || emptyPast}</div></nav>
+    <div class="min-w-0 border-r border-white/[0.10] px-8 py-6">${panel}<div class="h-12"></div></div><div></div></div>`;
 }
 /* A follow-up for everything the client owes, grouped by what it holds up. */
 function followUpText() {
@@ -2784,7 +2789,7 @@ function renderOverview() {
   if ((ct.partners || []).length) right.push(sec("Partners", people(ct.partners)));
   if ((o.dates || []).length) right.push(sec("Dates that matter", `<ul class="flex flex-col">${o.dates.map((d) => `<li class="border-b border-white/[0.10] py-2 last:border-b-0"><p class="tabular-nums font-medium text-text">${esc(d.when)}</p><p class="text-[13px] text-text-2">${esc(d.what)}</p></li>`).join("")}</ul>`));
   if ((o.links || []).length) right.push(sec("Where things live", `<ul class="flex flex-col gap-0.5">${o.links.map((l) => `<li>${l.url ? `<a href="${esc(l.url)}" target="_blank" rel="noopener" class="-ml-2 flex min-h-9 flex-col justify-center rounded-lg px-2 py-1 transition-colors hover:bg-surface-hover"><span class="inline-flex items-center gap-1.5 font-medium text-text">${esc(l.label)}${icon("lucide:ExternalLink", "h-3.5 w-3.5 text-text-2")}</span>${l.note ? `<span class="text-[13px] text-text-3">${esc(l.note)}</span>` : ""}</a>` : `<span class="font-medium text-text">${esc(l.label)}</span>`}</li>`).join("")}</ul>`));
-  el.innerHTML = `<div class="gutter py-6 min-[900px]:px-8">
+  el.innerHTML = `<div class="gutter pagecol py-6" style="width:min(100%, 78rem)">
     <p class="mb-6 max-w-[42rem] text-[14px] text-text-2">Scope, people and where things live. Task status stays in the task lists, so this page only changes when the engagement does.${o.updatedAt ? ` <span class="text-text-3">Last updated ${esc(shortDay(o.updatedAt))}.</span>` : ""}</p>
     <div class="grid gap-8 min-[1100px]:grid-cols-[minmax(0,1fr)_20rem] min-[1100px]:gap-12">
       <div class="flex min-w-0 flex-col gap-8">${left.join("")}</div>
@@ -2808,6 +2813,7 @@ function renderBodyInner() {
   else if (S.view === "meetings") renderMeetings();
   else if (S.view === "reports") renderReports();
   else if (S.view === "progress") renderProgress();
+  else if (S.view === "timeline") { if (timelineList()) renderTimeline(); else $("#records").innerHTML = `<div class="gutter pagecol py-6"><div class="max-w-[40rem]"><h2 class="text-[22px] font-semibold leading-7 text-text">Timeline</h2><p class="mt-2 text-[14px] text-text-2">${esc(projectName())} has no stages, so there's no timeline to show. Pick the data project or All Projects at the top to see it.</p></div></div>`; }
   else if (S.view === "myday") renderMyDay();
   else renderOverview();
   placeDetails();
@@ -2827,7 +2833,7 @@ $("#client-btn").addEventListener("click", (e) => {
 $("#refresh").addEventListener("click", () => refreshSlack());
 $("#project-btn").addEventListener("click", (e) => {
   const c = C(); if (!c) return; const open = allTasks().filter((t) => !t.done);
-  const items = [{ value: "all", label: "All projects", checked: S.list === "all", meta: open.length }, ...(c.lists || []).map((L) => ({ value: L.key, label: L.title, checked: S.list === L.key, meta: open.filter((t) => t.list.key === L.key).length }))];
+  const items = [{ value: "all", label: "All Projects", checked: S.list === "all", meta: open.length }, ...(c.lists || []).map((L) => ({ value: L.key, label: L.title, checked: S.list === L.key, meta: open.filter((t) => t.list.key === L.key).length }))];
   openMenu(e.currentTarget, items, (k) => { S.list = k; savePrefs(); renderAll(); refocus("#project-btn"); }, "Counts are open tasks. Every tab follows the project you choose.");
 });
 $("#key-btn").addEventListener("click", () => openKey());
@@ -3054,24 +3060,24 @@ function renderTimeline() {
   const gateDone = gateTask.length && gateTask.every((t) => t.done) && !gateConflict;
   const col = (w) => `${((w - 1) / total) * 100}%`, wid = (a, b) => `${((b - a + 1) / total) * 100}%`;
   const axis = Array.from({ length: total }, (_, i) => `<div class="border-l border-white/[0.11] pl-1.5 text-[11px] tabular-nums text-text-3">${kick ? esc(shortDay(weekDate(i + 1))) : `W${i + 1}`}</div>`).join("");
-  const rowShell = (label, sub, bar) => `<div class="grid grid-cols-[13rem_minmax(0,1fr)] items-center gap-4 border-b border-white/[0.10] py-3 max-[700px]:grid-cols-1 max-[700px]:gap-2"><div class="min-w-0">${label}${sub ? `<p class="text-[12px] text-text-2">${sub}</p>` : ""}</div><div class="relative h-9">${bar}</div></div>`;
+  const rowShell = (label, sub, bar) => `<div class="grid grid-cols-[16rem_minmax(0,1fr)] items-center gap-4 border-b border-white/[0.10] py-4 max-[700px]:grid-cols-1 max-[700px]:gap-2"><div class="min-w-0">${label}${sub ? `<p class="mt-1 flex flex-wrap gap-x-3 gap-y-0.5 text-[12px] text-text-2">${sub}</p>` : ""}</div><div class="relative h-11">${bar}</div></div>`;
   const gate = tl.gate ? rowShell(`<p class="flex items-center gap-1.5 text-[14px] font-medium text-text">${icon("lucide:ShieldCheck", `h-4 w-4 ${gateDone ? "c-done" : "c-waiting"}`)}${esc(tl.gate.label || "Gate")}</p>`, gateDone ? "Done. The stages can start." : gateConflict ? "Marked complete in Slack, but the status still says in progress. Confirm it's signed off." : "Everything below waits on this.",
     `<div data-stagebar class="absolute inset-y-1 left-0 flex items-center gap-2 rounded-lg border border-white/[0.16] bg-white/[0.04] px-3 text-[12px] text-text-2" style="width:${wid(1, 1)};min-width:9rem">${gateDone ? icon("lucide:Check", "h-3.5 w-3.5 c-done") : icon(gateConflict ? "lucide:TriangleAlert" : "lucide:Clock", "h-3.5 w-3.5 c-problem")}${gateDone ? "Signed off" : gateConflict ? "Check status" : "Before week 1"}</div>`) : "";
   const rows = stages.map((s) => {
     const xs = ts.filter((t) => t.stage === s.k), done = xs.filter((t) => t.done).length, owed = xs.filter((t) => !t.done && t.waiting).length, late = xs.filter((t) => t.overdue).length;
     const pct = xs.length ? Math.round((done / xs.length) * 100) : 0;
     const label = `<button type="button" data-stage-open="${esc(s.k)}" class="-mx-2 flex w-[calc(100%+1rem)] flex-col items-start rounded-lg px-2 py-1 text-left transition-colors hover:bg-surface-hover">${stagePill(s.k)}<span class="mt-0.5 text-[12px] text-text-2">${esc(s.name || "")}</span></button>`;
-    const sub = [`${done} of ${xs.length} done`, owed ? `${owed} owed by the client` : "", late ? `<span class="inline-flex items-center gap-1"><span class="att-dot"></span>${late} overdue</span>` : ""].filter(Boolean).join(" · ");
+    const sub = [`${done} of ${xs.length} done`, owed ? `${owed} owed by the client` : "", late ? `<span class="inline-flex items-center gap-1"><span class="att-dot"></span>${late} overdue</span>` : ""].filter(Boolean).map((x) => x.startsWith("<span") ? x : `<span>${x}</span>`).join("");
     const bar = `<div data-stagebar class="absolute inset-y-1 overflow-hidden rounded-lg border bar-stage-${stageNum(s.k)}" style="left:${col(s.span[0])};width:${wid(s.span[0], s.span[1])}" role="img" aria-label="${esc(s.k)}, ${esc(s.weeks)}, ${pct}% done"><div class="h-full" style="width:${pct}%;background:color-mix(in srgb,var(--c-done) 35%,transparent)"></div><span class="absolute inset-0 flex items-center gap-2 px-2.5 text-[12px] text-text"><span class="truncate">${esc(s.weeks)}</span>${owed ? `<span class="inline-flex shrink-0 items-center gap-1">${icon("lucide:Clock", "h-3 w-3 c-waiting")}${owed}</span>` : ""}</span></div>`;
     return rowShell(label, sub, bar);
   }).join("");
-  const today = kick && nowWeek >= 1 && nowWeek <= total ? `<div class="pointer-events-none absolute inset-y-0 w-px bg-sand" style="left:calc(13rem + 1rem + (100% - 14rem) * ${(nowWeek - 0.5) / total})" aria-hidden="true"></div>` : "";
+  const today = kick && nowWeek >= 1 && nowWeek <= total ? `<div class="pointer-events-none absolute inset-y-0 w-px bg-sand" style="left:calc(16rem + 1rem + (100% - 17rem) * ${(nowWeek - 0.5) / total})" aria-hidden="true"></div>` : "";
   const ms = (tl.milestones || []).slice().sort((a, b) => a.date.localeCompare(b.date));
   const msHtml = ms.length ? `<ul class="mt-2 flex flex-col">${ms.map((m) => { const d = daysBetween(todayKey(), m.date); const w = kick ? Math.floor(daysBetween(kick, m.date) / 7) + 1 : 0; return `<li class="flex items-baseline gap-3 border-b border-white/[0.10] py-2 last:border-b-0"><span class="w-24 shrink-0 tabular-nums font-medium text-text">${esc(shortDay(m.date))}</span><span class="min-w-0 flex-1 text-text-2">${esc(m.label)}${w ? ` <span class="text-text-3">· week ${w}</span>` : ""}</span><span class="shrink-0 text-[12px] tabular-nums ${d < 0 ? "text-text-3" : d <= 30 ? "c-waiting" : "text-text-3"}">${d < 0 ? "passed" : d === 0 ? "today" : `in ${d} days`}</span></li>`; }).join("")}</ul>` : "";
-  el.innerHTML = `<div class="gutter py-5 min-[900px]:px-8"><div class="max-w-[64rem]">
+  el.innerHTML = `<div class="gutter pagecol py-6"><div class="w-[64rem] max-w-full">
     <h2 class="mb-3 flex items-center gap-2 text-[15px] font-semibold text-text">${listDot(L)}${esc(L.title)} timeline<span class="font-normal text-text-3">${esc(tl.weeks ? `${tl.weeks} weeks` : "")}</span></h2>
     ${kick ? `<p class="mb-4 text-[13px] text-text-2">Kickoff ${esc(longDay(kick))}. ${nowWeek >= 1 && nowWeek <= total ? `This is week ${nowWeek} of ${total}.` : nowWeek < 1 ? "Not started yet." : "Past the planned end."}</p>` : `<p class="mb-4 flex items-start gap-2 text-[13px] text-text-2">${icon("lucide:CalendarClock", "mt-0.5 h-4 w-4 shrink-0 text-text-2")}<span>Kickoff isn't scheduled yet, so the timeline shows week numbers. It switches to dates once a kickoff date is set.</span></p>`}
-    <div class="relative"><div class="grid grid-cols-[13rem_minmax(0,1fr)] gap-4 border-b border-white/[0.13] pb-2 max-[700px]:hidden"><span class="text-[12px] text-text-3">Stage</span><div class="grid" style="grid-template-columns:repeat(${total},minmax(0,1fr))">${axis}</div></div>
+    <div class="relative"><div class="grid grid-cols-[16rem_minmax(0,1fr)] gap-4 border-b border-white/[0.13] pb-2 max-[700px]:hidden"><span class="text-[12px] text-text-3">Stage</span><div class="grid" style="grid-template-columns:repeat(${total},minmax(0,1fr))">${axis}</div></div>
     ${gate}${rows}${today}</div>
     ${ms.length ? `<section aria-label="Fixed dates" class="mt-8"><h4 class="text-[15px] font-semibold text-text">Fixed dates</h4>${msHtml}</section>` : ""}
     </div><div class="h-12"></div></div>`;
@@ -3243,7 +3249,7 @@ function renderProgress() {
   </div>`;
   const burnTable = pgTable(["Standup", "Scope", "Done", "Open"], [{ at: tl.kickoff, kick: true, scope: pts[0].scope, done: 0 }, ...pts].map((p) => [p.kick ? "Kickoff" : pgWhen(c, p), p.scope, p.done, p.scope - p.done]));
   const trendTable = pgTable(["Standup", "Overdue", "Slipped", "Waiting on client"], pts.map((p) => [pgWhen(c, p), p.overdue, p.slipped, p.owed]));
-  el.innerHTML = `<div class="gutter py-6 min-[900px]:px-8"><div class="flex max-w-[64rem] flex-col gap-7">
+  el.innerHTML = `<div class="gutter pagecol py-6"><div class="flex w-[64rem] max-w-full flex-col gap-7">
     <header><h2 class="text-[22px] font-semibold leading-7 text-text">Progress</h2>
       <p class="mt-1 max-w-[40rem] text-[14px] text-text-2">Built from the saved standups. Each time you finish a standup, every chart gets a new point. Showing ${S.list === "all" ? "both projects" : esc(name)}; pick a project at the top to change it.</p></header>
     ${tiles}
@@ -3305,7 +3311,7 @@ function renderReports() {
   if (notLoaded()) { el.innerHTML = loading("Reading the Slack lists"); return; }
   const r = reportData(S.reportMonth), c = r.c, before = r.done.some((x) => x.m.before);
   const tl = (xs) => `<ul>${xs.map((t) => taskLink(t)).join("")}</ul>`;
-  el.innerHTML = `<div class="gutter py-6 min-[900px]:px-8"><div class="max-w-[48rem]">
+  el.innerHTML = `<div class="gutter pagecol py-6"><div class="w-[48rem] max-w-full">
     <header class="mb-6 flex flex-wrap items-start justify-between gap-3"><div><h2 class="text-[22px] font-semibold leading-7 text-text">${esc(projectName())}: ${esc(monthName(r.month))} report</h2>
       <p class="mt-1 max-w-[34rem] text-[14px] text-text-2">A draft from the task lists, saved standups and meeting notes. Internal tasks are included, so trim it before it goes to the client.</p></div>
       <div class="flex items-center gap-1.5"><button type="button" id="month-btn" aria-haspopup="menu" aria-expanded="false" class="${CHIP} ${chipOff}"><span class="text-text-2">Month:</span> ${esc(monthName(r.month))}${icon("lucide:ChevronDown", "h-3.5 w-3.5 text-text-2")}</button><button type="button" data-copy-report class="${BTN1}">${icon("lucide:Copy", "h-4 w-4")}Copy report</button></div></header>
@@ -3732,7 +3738,7 @@ function listTable(L, ts) {
   const row = (t) => { const on = S.open === t.id;
     return `<tr data-row="${esc(t.id)}" ${on ? `aria-current="true"` : ""} class="group cursor-default transition-colors ${t.done || t.archived ? "done-row" : ""} ${on ? "bg-[var(--sand-tint)]" : "hover:bg-surface-hover has-[:focus-visible]:bg-surface-hover"}">
       <td class="border-b border-white/[0.10] pl-1.5">${circleBtn(t)}</td>
-      <td class="overflow-hidden border-b border-white/[0.10] px-3 py-2"><div class="flex min-w-0 items-center gap-2.5 overflow-hidden"><button type="button" data-open="${esc(t.id)}" class="min-w-[min(11rem,65%)] shrink truncate text-left text-[14px] text-text ${on ? "font-semibold" : "font-medium"} ${t.done ? "line-through decoration-text-3" : ""}">${esc(t.title)}</button>${t.archived ? "" : `<button type="button" data-rename="${esc(t.id)}" aria-label="Rename ${esc(t.title)}" data-tip="Rename" class="grid h-7 w-7 shrink-0 place-items-center rounded-full text-text-2 opacity-0 transition-opacity hover:bg-surface-hover hover:text-text focus-visible:opacity-100 group-hover:opacity-100">${icon("lucide:Pencil", "h-3.5 w-3.5")}</button><span class="flex min-w-0 flex-1 items-center gap-2.5 overflow-hidden">${marks(t)}</span>`}</div></td>
+      <td class="overflow-hidden border-b border-white/[0.10] px-3 py-3"><div class="flex min-w-0 items-center gap-2.5 overflow-hidden"><button type="button" data-open="${esc(t.id)}" class="min-w-[min(11rem,65%)] shrink truncate text-left text-[14px] text-text ${on ? "font-semibold" : "font-medium"} ${t.done ? "line-through decoration-text-3" : ""}">${esc(t.title)}</button>${t.archived ? "" : `<span class="flex min-w-0 flex-1 items-center gap-2.5 overflow-hidden">${marks(t)}</span>`}</div></td>
       ${cols.map((k) => `<td class="border-b border-white/[0.10] px-3">${cellOf(k, t)}</td>`).join("")}
       <td class="border-b border-white/[0.10] pr-2"><div class="flex items-center justify-end gap-1">${rowActions(t)}</div></td></tr>`; };
   const body = groups.map((g) => (g.label ? groupHead({ ...g, key: g.key }, n) : "") + (collapsed[groupKey() + L.key + g.key] ? "" : g.rows.map(row).join(""))).join("");
@@ -3740,7 +3746,7 @@ function listTable(L, ts) {
 }
 function listCard(t) {
   const on = S.open === t.id, cols = colsOf(t.list);
-  return `<li class="gutter flex items-start gap-2 border-b border-white/[0.10] py-2.5 ${t.done || t.archived ? "done-card" : ""} ${on ? CURRENT : ""}">
+  return `<li class="gutter flex items-start gap-2 border-b border-white/[0.10] py-3.5 ${t.done || t.archived ? "done-card" : ""} ${on ? CURRENT : ""}">
     <div class="-ml-1.5 shrink-0">${circleBtn(t)}</div>
     <div class="min-w-0 flex-1 pt-1">
       <button type="button" data-open="${esc(t.id)}" class="block w-full text-left text-[15px] leading-snug text-text ${on ? "font-semibold" : "font-medium"} ${t.done ? "line-through decoration-text-3" : ""} [overflow-wrap:anywhere]">${esc(t.title)}</button>
@@ -3875,9 +3881,9 @@ function renderMyDay() {
   // A ticked item stays in place, crossed out, until you leave the tab, as everywhere else.
   const acts = [...S.actions.values()].filter((a) => !a.taskRef && (!a.done || S.justDone.has(a.id)) && (a.owner || "").toLowerCase().includes(who.toLowerCase()));
   const next = mine.filter((t) => t.due && t.due > (week ? end : today)).sort(taskOrder)[0];
-  const block = (title, xs, detail, dot) => xs.length ? sec(title, `<ul>${xs.map((t) => taskLink(t, detail ? detail(t) : "")).join("")}</ul>`, xs.length, dot ? `<span class="att-dot" aria-hidden="true"></span>` : "") : "";
+  const block = (title, xs, detail, dot) => xs.length ? sec(title, `<ul>${xs.map((t) => myRow(t, detail ? detail(t) : "")).join("")}</ul>`, xs.length, dot ? `<span class="att-dot" aria-hidden="true"></span>` : "") : "";
   const people = [...new Set(Object.values(c.people || {}))];
-  const modes = `<div role="radiogroup" aria-label="Range" data-roving="x" class="flex items-center gap-1">${[["day", "My Day"], ["week", "My Week"]].map(([k, l]) => { const on = S.myMode === k; return `<button type="button" role="radio" data-mymode="${k}" data-rove aria-checked="${on}" tabindex="${on ? 0 : -1}" class="${CHIP} ${on ? chipOn : chipOff}">${l}</button>`; }).join("")}</div>`;
+  const modes = `<div role="radiogroup" aria-label="Range" data-roving="x" class="inline-flex h-11 items-center rounded-full border border-border-sub p-0.5 min-[900px]:h-8">${[["day", "My Day"], ["week", "My Week"]].map(([k, l]) => { const on = S.myMode === k; return `<button type="button" role="radio" data-mymode="${k}" data-rove aria-checked="${on}" tabindex="${on ? 0 : -1}" class="inline-flex h-full items-center rounded-full px-3 text-[13px] transition-colors ${on ? "bg-sand-sub font-semibold text-sand" : "font-medium text-text hover:bg-surface-hover"}">${l}</button>`; }).join("")}</div>`;
   const summary = [overdue.length ? `${overdue.length} overdue` : "", `${due.length} due ${week ? "this week" : "today"}`, inProg.length ? `${inProg.length} in progress` : "", acts.length ? plural(acts.length, "action item", "action items") : ""].filter(Boolean).join(" · ");
   const body = [
     block("Overdue", overdue, (t) => esc(t.notes[0]?.text || ""), true),
@@ -3887,16 +3893,21 @@ function renderMyDay() {
     block(`Waiting on the client`, owed, (t) => t.waitDays ? `Waiting ${plural(t.waitDays, "day", "days")}` : ""),
     acts.length ? sec("Your action items", `<ul>${acts.map((a) => actionRow(a, true)).join("")}</ul>`, acts.filter((a) => !a.done).length || "") : "",
   ].filter(Boolean).join("");
-  el.innerHTML = `<div class="gutter py-6 min-[900px]:px-8"><div class="max-w-[48rem]">
+  el.innerHTML = `<div class="gutter pagecol py-6"><div class="w-[48rem] max-w-full">
     <header class="mb-6 flex flex-wrap items-start justify-between gap-3"><div>
       <h2 class="text-[22px] font-semibold leading-7 text-text">${esc(who)}'s ${week ? "week" : "day"}</h2>
       <p class="mt-1 text-[14px] text-text-2">${esc(week ? `${longDay(today)} to ${shortDay(end)}` : longDay(today))}${S.list === "all" ? "" : ` · ${esc(projectName())}`}</p>
       <p class="mt-1 text-[13px] text-text-3">${esc(summary)}</p></div>
-      <div class="flex flex-wrap items-center gap-1.5">${modes}<button type="button" id="person-btn" aria-haspopup="menu" aria-expanded="false" class="${CHIP} ${chipOff}"><span class="text-text-2">Viewing:</span> ${esc(who)}${icon("lucide:ChevronDown", "h-3.5 w-3.5 text-text-2")}</button></div></header>
+      <div class="flex flex-wrap items-center gap-1.5">${modes}<button type="button" id="person-btn" aria-haspopup="menu" aria-expanded="false" class="inline-flex h-11 items-center gap-1 rounded-full px-3 text-[13px] font-medium text-text transition-colors hover:bg-surface-hover min-[900px]:h-8 min-[900px]:px-2.5"><span class="text-text-2">Viewing:</span> ${esc(who)}${icon("lucide:ChevronDown", "h-3.5 w-3.5 text-text-2")}</button></div></header>
     <div class="flex flex-col gap-8">${body || `<p class="text-[15px] text-text">Nothing overdue or due ${week ? "this week" : "today"}.${next ? ` Next up: <button type="button" data-open="${esc(next.id)}" class="font-medium text-text underline decoration-text-3 underline-offset-2">${esc(next.title)}</button>, due ${esc(shortDay(next.due))}.` : ""}</p>`}</div>
     </div><div class="h-12"></div></div>`;
   $("#person-btn")?.addEventListener("click", (e) => openMenu(e.currentTarget, people.map((p) => ({ value: p, label: p, checked: p === who })), (p) => { S.myPerson = p; renderBody(); refocus("#person-btn"); }));
 }
+$("#records").addEventListener("click", (e) => {
+  const mb = e.target.closest("#meeting-btn"); if (!mb) return;
+  const items = [{ value: "next", label: "Next standup", checked: S.mSel === "next" }, ...meetingsSorted().map((m) => ({ value: m.id, label: `${m.title || "Meeting"}, ${shortDay(m.id)}`, checked: S.mSel === m.id }))];
+  openMenu(mb, items, (id) => { S.mSel = id; renderBody(); refocus("#meeting-btn"); });
+});
 $("#records").addEventListener("click", (e) => { const b = e.target.closest("[data-mymode]"); if (!b) return; S.myMode = b.dataset.mymode; savePrefs(); renderBody(); refocus(`[data-mymode="${S.myMode}"]`); });
 
 /* Card titles are not buttons (a button can't start a drag in Safari), so Enter and Space open them. */

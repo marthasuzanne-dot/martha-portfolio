@@ -293,12 +293,6 @@
   <p class="t-body">Before the team saw it, I ran a structured design critique on screenshots of the dashboard. It found four problems. The standup agenda was buried under stale dates, the details panel covered the toolbar, the toolbar competed with the tasks, and on a phone the filters were cramped. I fixed all four.</p>
 </div>
 
-<!-- Fig 04 -->
-<div class="img-full reveal">
-  <img src="../assets/images/cs-dash-04-critique.jpg" alt="Four problems found in the design critique, annotated with where each fix landed" loading="lazy">
-  <p class="img-caption">Fig 04. Four problems from the design critique, and where each fix landed</p>
-</div>
-
 <div class="divider"><hr></div>
 
 <!-- DESIGN STRATEGY -->
@@ -315,7 +309,7 @@
     <li>Every status has a word and an icon, and color follows the company's rules, so color is never the only signal.</li>
   </ol>
   <h3 class="t-subtitle" style="margin-top:var(--content-gap)">Tasks and standup in one place</h3>
-  <p class="t-body">The Tasks tab shows tasks as a board, a list or a stage timeline, and every field edits in place. Standup runs from the same tab. Each task is marked New, Updated or Slipped since the last standup, and Finish standup saves a snapshot that next week's markers start from.</p>
+  <p class="t-body">The Tasks tab shows tasks as a list or a board, and every field edits in place. The stage timeline has its own tab. Standup runs from the same tab. Each task is marked New, Updated or Slipped since the last standup, and Finish standup saves a snapshot that next week's markers start from.</p>
 </div>
 
 <!-- Fig 05: Tasks tab carousel -->
@@ -330,7 +324,7 @@
   <div class="menu-controls">
     <button class="menu-arrow" id="dashPrev" aria-label="Previous">&#8592;</button>
     <div class="menu-center">
-      <span class="menu-label-text" id="dashLabel">List view</span>
+      <span class="menu-label-text" id="dashLabel">List</span>
       <div class="menu-dot-row" id="dashDots">
         <button class="menu-dot-btn active" data-i="0"></button>
         <button class="menu-dot-btn" data-i="1"></button>
@@ -340,35 +334,46 @@
     <span class="menu-counter" id="dashCounter">1 / 3</span>
     <button class="menu-arrow" id="dashNext" aria-label="Next">&#8594;</button>
   </div>
-  <p class="img-caption" style="margin-top:8px">Fig 05. Tasks tab: one set of tasks in three views. Tap the arrows to switch.</p>
+  <p class="img-caption" style="margin-top:8px">Fig 04. Tasks as a list and a board, and the Timeline tab. Tap the arrows to switch.</p>
 </div>
 
 <!-- Fig 06 -->
 <div class="img-full reveal">
   <img src="../assets/images/cs-dash-06-standup.jpg" alt="Standup running from the task list with tasks marked New, Updated or Slipped" loading="lazy">
-  <p class="img-caption">Fig 06. Standup run from the task list</p>
+  <p class="img-caption">Fig 05. Standup run from the task list</p>
 </div>
 
 <div class="case-section reveal" style="padding-bottom:0">
-  <h3 class="t-subtitle">Meetings</h3>
-  <p class="t-body">The Meetings tab pulls meeting transcripts from Google Drive. Claude drafts the summary, decisions and action items, and a person approves them before anything saves.</p>
+  <h3 class="t-subtitle">Standup prep</h3>
+  <p class="t-body">The Standup prep tab pulls meeting transcripts from Google Drive. Claude drafts the summary, decisions and action items, and a person approves them before anything saves.</p>
 </div>
 
-<!-- Fig 07 -->
+<!-- Fig 06 -->
 <div class="img-full reveal">
-  <img src="../assets/images/cs-dash-07-meetings.jpg" alt="Meetings tab showing Claude's draft summary and action items waiting for approval" loading="lazy">
-  <p class="img-caption">Fig 07. A person approves Claude's draft before anything saves</p>
+  <img src="../assets/images/cs-dash-07-meetings.jpg" alt="Standup prep tab showing Claude's draft summary and action items waiting for approval" loading="lazy">
+  <p class="img-caption">Fig 06. A person approves Claude's draft before anything saves</p>
 </div>
 
 <div class="case-section reveal" style="padding-bottom:0">
   <h3 class="t-subtitle">My Day</h3>
-  <p class="t-body">My Day became the team's favorite feature. It shows each person only their own work for the day: what's overdue, what's due, what's in progress, what changed since the last standup, and what's waiting on the client. Action items approved in Meetings show up there too, so each person sees what they agreed to without going back through the notes. My Week shows the same view across the whole week, and you can switch the view to see a teammate's day. It works on a phone as well as a laptop.</p>
+  <p class="t-body">My Day became the team's favorite feature. It shows each person only their own work for the day: what's overdue, what's due, what's in progress, what changed since the last standup, and what's waiting on the client. Action items approved in Standup prep show up there too, so each person sees what they agreed to without going back through the notes. My Week shows the same view across the whole week, and you can switch the view to see a teammate's day.</p>
+</div>
+
+<!-- Fig 07 -->
+<div class="img-wide reveal">
+  <img src="../assets/images/cs-dash-myday.jpg" alt="My Day on a laptop, showing one person's changed and waiting tasks with editable status and due dates" loading="lazy">
+  <p class="img-caption">Fig 07. My Day: one person's work for the day</p>
+</div>
+
+<div class="case-section reveal" style="padding-bottom:0">
+  <h3 class="t-subtitle">Responsive mobile design</h3>
+  <p class="t-body">The whole dashboard works on a phone. The Tasks toolbar wraps into three rows, every button is a full 44px tap target, and the Standup prep side list becomes a dropdown.</p>
 </div>
 
 <!-- Fig 08 -->
 <div class="img-wide reveal">
-  <img src="../assets/images/cs-dash-08-myday-phones.jpg" alt="My Day and My Week on two phones, showing one person's tasks for the day and the week" loading="lazy">
-  <p class="img-caption">Fig 08. My Day and My Week on a phone</p>
+  <img src="../assets/images/cs-dash-phones.jpg" alt="Tasks, My Day and Standup prep on three phones" loading="lazy">
+  <p class="img-caption">Fig 08. Tasks, My Day and Standup prep on a phone</p>
 </div>
 
 <div class="divider"><hr></div>
@@ -392,7 +397,7 @@
       <tr>
         <td>Getting lost between pages</td>
         <td>Leaving Tasks dropped the second bar, and I got lost in my own dashboard while presenting it</td>
-        <td>Page tabs grouped at the right of the top bar, and a second bar on every page: tools on the first row, context and the standup controls on the second</td>
+        <td>Tabs on their own row under the breadcrumb, the same on every page, and the toolbar only on Tasks, where standup runs</td>
       </tr>
       <tr>
         <td>Too many ways to add a task</td>
@@ -420,13 +425,15 @@
 </div>
 
 <div class="case-section reveal" style="padding-bottom:0">
-  <p class="t-body">I called getting lost in my own dashboard a red flag. In the final design nothing moves between pages, layouts or groupings, and I checked it at several screen widths. The second bar follows Asana's pattern of views first and then the create action: List, Board and Timeline, then Filter and Group, then Add task, then Search.</p>
+  <p class="t-body">I called getting lost in my own dashboard a red flag. In the final design the header is the same on every page: the breadcrumb, then the tabs on their own row, then the toolbar on Tasks. The toolbar follows Asana's pattern of views first and then the create action: List and Board, then Group and Filter, then Add task, then Search.</p>
+  <h3 class="t-subtitle" style="margin-top:var(--content-gap)">A final pass with fresh eyes</h3>
+  <p class="t-body">After the review, I stepped away from the design for a day and came back for one last pass. With fresh eyes I moved it closer to the conventions people know from GitHub, Jira and Linear. I cut most of the icons, lined everything up on one left edge, gave Timeline its own tab, renamed Meetings to Standup prep, and kept the standup controls on Tasks, where standup runs. Task titles now rename with a click, and the rows have more room.</p>
 </div>
 
 <!-- Fig 10 -->
 <div class="img-full reveal">
   <img src="../assets/images/cs-dash-10-navigation.jpg" alt="Navigation before and after the design review" loading="lazy">
-  <p class="img-caption">Fig 10. Navigation before and after the review</p>
+  <p class="img-caption">Fig 10. Navigation before the review and in the final design</p>
 </div>
 
 <!-- Fig 11 -->
@@ -471,9 +478,9 @@
       </tr>
       <tr>
         <td>Navigation</td>
-        <td>A toolbar that changes from page to page, or one bar that stays the same</td>
-        <td>One bar on every page</td>
-        <td>When the bar changed, people lost their place</td>
+        <td>A second bar on every page, or a fixed header with the toolbar only on Tasks</td>
+        <td>A fixed header, with the toolbar only on Tasks</td>
+        <td>The header never moves, and the standup controls sit where standup runs</td>
       </tr>
       <tr>
         <td>Adding tasks</td>
@@ -510,7 +517,7 @@
     <li>A dashboard that replaced both Slack lists and updates every day from email, meeting transcripts, Slack messages and Google Drive</li>
     <li>A standup that runs from the task list and saves a snapshot each week</li>
     <li>Claude-drafted updates and meeting summaries, with a person approving every save</li>
-    <li>Navigation that stays in place across every page, layout and grouping</li>
+    <li>A header that stays the same on every page, with the toolbar where standup runs</li>
     <li>A color system cut to four colors, with a word and an icon on every status</li>
   </ul>
   <div class="outcomes-grid">
@@ -601,8 +608,8 @@
   <div class="reflection-inner reveal">
     <h2 class="t-heading">Reflection</h2>
     <h3 class="t-subtitle">What I learned</h3>
-    <p class="t-body">Starting from the three groups who would use the dashboard kept it to five tabs. Each one answers a question one of those groups asked.</p>
-    <p class="t-body">Most of the important changes came from watching the team use it. Getting lost in my own navigation during the review was the clearest example, and keeping the bars in place on every page is a rule I'll carry into the Cerino tools.</p>
+    <p class="t-body">Starting from the three groups who would use the dashboard kept it to six tabs. Each one answers a question one of those groups asked.</p>
+    <p class="t-body">Most of the important changes came from watching the team use it. Getting lost in my own navigation during the review was the clearest example. Taking a break before the final pass helped just as much, because I could see the design with fresh eyes.</p>
   </div>
 </div>
 
@@ -633,7 +640,7 @@
 
   // Tasks tab carousel
   (function() {
-    const labels = ['List view', 'Board view', 'Timeline view'];
+    const labels = ['List', 'Board', 'Timeline tab'];
     const outer  = document.getElementById('dashOuter');
     const track  = document.getElementById('dashTrack');
     const dots   = document.querySelectorAll('#dashDots .menu-dot-btn');
@@ -676,12 +683,12 @@
   // Hotspots — positions calibrated to cs-dash-13-final.jpg
   (function() {
     var P = [
-      {x:97.6, y:2.8,  t:"Every task in one place",           d:"Every task lives in the dashboard, and daily updates from email, meeting transcripts, Slack messages and Google Drive come into it, so nobody keeps a second list."},
-      {x:64.3, y:20.1, t:"The same columns as Slack",          d:"The rows started out matching the Slack lists' columns exactly, so moving over meant nothing new to learn."},
-      {x:85.7, y:2.8,  t:"Client details in Overview",         d:"Client details and decisions stay in Overview, apart from the week's task changes in Tasks."},
-      {x:94.6, y:24.1, t:"Nothing disappears by accident",     d:"Finished tasks fade instead of vanishing, archiving is a separate step, and undo covers mistakes."},
-      {x:65.4, y:2.8,  t:"A person approves Claude's drafts",  d:"Claude can draft updates, meeting summaries and action items, but nothing saves until a person accepts it."},
-      {x:63.0, y:33.0, t:"A word and an icon on every status", d:"Every status has a word and an icon, and color follows the company's rules, so color is never the only signal."}
+      {x:97.3, y:2.4,  t:"Every task in one place",           d:"Every task lives in the dashboard, and daily updates from email, meeting transcripts, Slack messages and Google Drive come into it, so nobody keeps a second list."},
+      {x:63.3, y:20.6, t:"The same columns as Slack",          d:"The rows started out matching the Slack lists' columns exactly, so moving over meant nothing new to learn."},
+      {x:36.5, y:7.0,  t:"Client details in Overview",         d:"Client details and decisions stay in Overview, apart from the week's task changes in Tasks."},
+      {x:93.6, y:24.6, t:"Nothing disappears by accident",     d:"Finished tasks fade instead of vanishing, archiving is a separate step, and undo covers mistakes."},
+      {x:13.9, y:7.0,  t:"A person approves Claude's drafts",  d:"Claude can draft updates, meeting summaries and action items, but nothing saves until a person accepts it."},
+      {x:62.0, y:33.7, t:"A word and an icon on every status", d:"Every status has a word and an icon, and color follows the company's rules, so color is never the only signal."}
     ];
     var box = document.getElementById('csd-hs');
     var list = document.getElementById('csd-list');
