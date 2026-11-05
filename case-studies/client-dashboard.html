@@ -162,7 +162,7 @@
 <div class="case-hero reveal">
   <h1 class="t-display">Consciens</h1>
   <p class="t-subtitle">A live project dashboard built from our weekly standup</p>
-  <p class="lead t-intro">A project dashboard for our work with a construction industry client, built around the weekly standup I started. It replaced two Slack lists, updates every day from email, meeting transcripts, Slack messages and Google Drive, and nothing saves until a person approves it. It's now the template for future client dashboards, a key feature in Cerino.</p>
+  <p class="lead t-intro">A project dashboard for our work with a construction industry client, built around the weekly standup I started. It replaced two Slack lists and updates every day from email, Slack messages, Google Drive, and the transcripts of our standups and client meetings. Claude drafts tasks from those transcripts, and nothing saves until a person approves it. It's now the template for future client dashboards, a key feature in Cerino.</p>
   <div class="meta-row">
     <div class="meta-item">
       <div class="meta-label t-strip">Role</div>
@@ -174,7 +174,7 @@
     </div>
     <div class="meta-item" style="padding-left:20px">
       <div class="meta-label t-strip">Platform</div>
-      <div class="meta-value t-meta">Web dashboard,<br>desktop and phone</div>
+      <div class="meta-value t-meta">Web dashboard,<br>desktop</div>
     </div>
     <div class="meta-item" style="padding-left:20px">
       <div class="meta-label t-strip">Tools</div>
@@ -197,7 +197,8 @@
       </div>
     </div>
     <div class="csd-phone">
-      <img src="../assets/images/cs-dash-hero.jpg" alt="Client dashboard on desktop and phone">
+      <img src="../assets/images/cs-dash-hero-desktop.jpg" alt="Client dashboard Tasks board on desktop">
+      <p class="img-caption" style="margin-top:10px">The prototype is built for desktop. Open this page on a computer to try it.</p>
     </div>
     <figcaption class="csd-links">
       <span>Sample data only. Edits reset when you reload.</span>
@@ -292,7 +293,7 @@
 
 <div class="case-section reveal" style="padding-bottom:0">
   <h3 class="t-subtitle">A design critique on rendered screens</h3>
-  <p class="t-body">Before the team saw it, I ran a structured design critique on screenshots of the dashboard. It found four problems. The standup agenda was buried under stale dates, the details panel covered the toolbar, the toolbar competed with the tasks, and on a phone the filters were cramped. I fixed all four.</p>
+  <p class="t-body">Before the team saw it, I ran a structured design critique on screenshots of the dashboard. It found three problems. The standup agenda was buried under stale dates, the details panel covered the toolbar, and the toolbar competed with the tasks. I fixed all three.</p>
 </div>
 
 <div class="divider"><hr></div>
@@ -347,7 +348,7 @@
 
 <div class="case-section reveal" style="padding-bottom:0">
   <h3 class="t-subtitle">Standup prep</h3>
-  <p class="t-body">The Standup prep tab pulls meeting transcripts from Google Drive. Claude drafts the summary, decisions and action items, and a person approves them before anything saves.</p>
+  <p class="t-body">Our standups and client meetings are recorded and transcribed, and those transcripts are part of how we track the project. The Standup prep tab pulls each transcript from Google Drive. Claude reads it and drafts the summary, decisions and new tasks, and a person approves them before anything saves.</p>
 </div>
 
 <!-- Fig 06 -->
@@ -365,17 +366,6 @@
 <div class="img-wide reveal">
   <img src="../assets/images/cs-dash-myday.jpg" alt="My Day on a laptop, showing one person's changed and waiting tasks with editable status and due dates" loading="lazy">
   <p class="img-caption">Fig 07. My Day: one person's work for the day</p>
-</div>
-
-<div class="case-section reveal" style="padding-bottom:0">
-  <h3 class="t-subtitle">Responsive mobile design</h3>
-  <p class="t-body">The whole dashboard works on a phone. The Tasks toolbar wraps into three rows, every button is a full 44px tap target, and the Standup prep side list becomes a dropdown.</p>
-</div>
-
-<!-- Fig 08 -->
-<div class="img-wide reveal">
-  <img src="../assets/images/cs-dash-phones.jpg" alt="Tasks, My Day and Standup prep on three phones" loading="lazy">
-  <p class="img-caption">Fig 08. Tasks, My Day and Standup prep on a phone</p>
 </div>
 
 <div class="divider"><hr></div>
@@ -420,10 +410,10 @@
   </table>
 </div>
 
-<!-- Fig 09 -->
+<!-- Fig 08 -->
 <div class="img-full reveal">
   <img src="../assets/images/cs-dash-09-themes.jpg" alt="Feedback from the trial and design review grouped into four themes" loading="lazy">
-  <p class="img-caption">Fig 09. Feedback from the trial and the review, grouped into themes</p>
+  <p class="img-caption">Fig 08. Feedback from the trial and the review, grouped into themes</p>
 </div>
 
 <div class="case-section reveal" style="padding-bottom:0">
@@ -432,16 +422,16 @@
   <p class="t-body">After the review, I stepped away from the design for a day and came back for one last pass. With fresh eyes I moved it closer to the conventions people know from GitHub, Jira and Linear. I cut most of the icons, lined everything up on one left edge, gave Timeline its own tab, renamed Meetings to Standup prep, and kept the standup controls on Tasks, where standup runs. Task titles now rename with a click, and the rows have more room.</p>
 </div>
 
-<!-- Fig 10 -->
+<!-- Fig 09 -->
 <div class="img-full reveal">
   <img src="../assets/images/cs-dash-10-navigation.jpg" alt="Navigation before and after the design review" loading="lazy">
-  <p class="img-caption">Fig 10. Navigation before the review and in the final design</p>
+  <p class="img-caption">Fig 09. Navigation before the review and in the final design</p>
 </div>
 
-<!-- Fig 11 -->
+<!-- Fig 10 -->
 <div class="img-wide reveal">
   <img src="../assets/images/cs-dash-11-row-styles.jpg" alt="Three task row styles shown side by side for comparison" loading="lazy">
-  <p class="img-caption">Fig 11. The three row styles shared with the team, recreated with sample data</p>
+  <p class="img-caption">Fig 10. The three row styles shared with the team, recreated with sample data</p>
 </div>
 
 <div class="divider"><hr></div>
@@ -503,10 +493,10 @@
   <p class="t-body">The final set uses four colors. Green means done, orange means something needs attention, red means archive or delete, and blue marks where you are. Blocked is the only status shown in color, which the team agreed on at the trial.</p>
 </div>
 
-<!-- Fig 12 -->
+<!-- Fig 11 -->
 <div class="img-full reveal">
   <img src="../assets/images/cs-dash-12-color.jpg" alt="Status color system after the company color rules were applied" loading="lazy">
-  <p class="img-caption">Fig 12. Status colors after the company color rules</p>
+  <p class="img-caption">Fig 11. Status colors after the company color rules</p>
 </div>
 
 <div class="divider"><hr></div>
@@ -550,7 +540,7 @@
       <img src="../assets/images/cs-dash-13-final.jpg" alt="Final Tasks tab with six numbered points marking the design principles" loading="lazy">
     </div>
     <ol class="csd-list" id="csd-list"></ol>
-    <figcaption class="img-caption">Fig 13. Final design. Tap a number to see the principle behind that part of the screen.</figcaption>
+    <figcaption class="img-caption">Fig 12. Final design. Tap a number to see the principle behind that part of the screen.</figcaption>
   </figure>
 </div>
 
@@ -563,10 +553,10 @@
   <p class="t-body">The current version shows where every task stands this week, but not whether the project is getting better or worse. Every Finish standup already saves a snapshot, so I used those snapshots to design a Progress tab for the next version. It's in the demo with the same sample data, and it answers four questions from standup. Will the data project finish by week 12? Which stages are behind? What does the client owe us, and for how long? And are overdue and slipped tasks going up or down?</p>
 </div>
 
-<!-- Fig 14 -->
+<!-- Fig 13 -->
 <div class="img-full reveal">
   <img src="../assets/images/cs-dash-14-progress.jpg" alt="The Progress tab showing burn-up, bullet, and bar charts for the project" loading="lazy">
-  <p class="img-caption">Fig 14. The Progress tab, planned for the next version</p>
+  <p class="img-caption">Fig 13. The Progress tab, planned for the next version</p>
 </div>
 
 <div class="case-section reveal" style="padding-bottom:0">
@@ -597,12 +587,12 @@
     <span class="menu-counter" id="chartCounter">1 / 4</span>
     <button class="menu-arrow" id="chartNext" aria-label="Next">&#8594;</button>
   </div>
-  <p class="img-caption" style="margin-top:8px">Fig 15. The charts up close. Tap the arrows to switch.</p>
+  <p class="img-caption" style="margin-top:8px">Fig 14. The charts up close. Tap the arrows to switch.</p>
 </div>
 
 <div class="case-section reveal">
   <h3 class="t-subtitle">The next round</h3>
-  <p class="t-body">Next, I'll design for Cerino's screen sizes, about 1020px standard and 1640px expanded, and set shared rules for headers, subheaders, search and filters across tools. I also want a deeper competitive analysis. One known issue stays for now. A row moves to a new spot when its date changes, because Stephen prefers sorting by what's next up.</p>
+  <p class="t-body">This version is built for desktop, where the team runs standup, so a phone version will be its own project. Next, I'll design for Cerino's screen sizes, about 1020px standard and 1640px expanded, and set shared rules for headers, subheaders, search and filters across tools. I also want a deeper competitive analysis. One known issue stays for now. A row moves to a new spot when its date changes, because Stephen prefers sorting by what's next up.</p>
 </div>
 
 <!-- REFLECTION -->
