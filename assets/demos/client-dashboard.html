@@ -1721,7 +1721,7 @@ const TOOL = {
   prioMax: 3,                     // the team rates priority 1 to 3 stars
   /* Each list's row columns, in its Slack list's order (the client record's list.columns overrides). */
   columns: { aibi: ["status", "priority", "assignee", "due"], data: ["stage", "assignee", "due", "priority", "status"] },
-  storageKey: "client-dashboard-demo",
+  storageKey: "client-dashboard-demo-v2",
 };
 
 /* =====================================================================
@@ -1795,7 +1795,7 @@ const S = {
   quick: "", showDone: prefs.showDone2 ?? true, q: "", open: null, canWrite: null, me: { name: "", email: "" },
   slack: {}, mcpState: "loading", dbState: "loading", pending: {}, saving: new Set(),
   meetings: new Map(), actions: new Map(), agenda: new Map(), snaps: [], snapsLoaded: false, mSel: "next", person: "",
-  topic: { title: "", owner: "" }, note: "", justDone: new Set(), walkList: prefs.walkList || "", boardGroups: prefs.boardGroups || {}, subtasks: new Map(), stepDraft: "", archive: new Map(), justCompleted: new Set(), completedFrom: new Map(), placeFrom: new Map(), myMode: prefs.myMode || "day", myPerson: "", dismissed: new Map(), layout: prefs.layout && prefs.layout !== "myday" ? prefs.layout : "list", reportMonth: todayKey().slice(0, 7), scope: new Map(), decQ: "",
+  topic: { title: "", owner: "" }, note: "", justDone: new Set(), walkList: prefs.walkList || "", boardGroups: prefs.boardGroups || {}, subtasks: new Map(), stepDraft: "", archive: new Map(), justCompleted: new Set(), completedFrom: new Map(), placeFrom: new Map(), myMode: prefs.myMode || "day", myPerson: "", dismissed: new Map(), layout: prefs.layout && prefs.layout !== "myday" ? prefs.layout : "board", reportMonth: todayKey().slice(0, 7), scope: new Map(), decQ: "",
 };
 const C = () => S.clients.get(S.clientId) || null;
 
@@ -3914,5 +3914,7 @@ $("#records").addEventListener("click", (e) => { const b = e.target.closest("[da
 document.addEventListener("keydown", (e) => { if ((e.key === "Enter" || e.key === " ") && e.target.matches?.('[role="button"][data-open]')) { e.preventDefault(); e.target.click(); } });
 
 </script>
+<style id="desk-only-css">#desk-only{display:none}@media (max-width:899px){#desk-only{display:flex;position:fixed;inset:0;z-index:99999;background:#0c111e;color:#e6e9ef;align-items:center;justify-content:center;padding:32px;text-align:center;font:500 17px/1.5 system-ui,-apple-system,sans-serif}#desk-only p{max-width:320px;margin:0}#desk-only b{display:block;font-size:20px;margin-bottom:8px;color:#fff}}</style>
+<div id="desk-only" role="note"><p><b>Built for desktop</b>This prototype is designed for a computer screen. Open it on a laptop or desktop, or widen your browser window.</p></div>
 </body>
 </html>
