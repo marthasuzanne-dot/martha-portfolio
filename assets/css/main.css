@@ -294,7 +294,7 @@ nav.nav-case {
 .work-row {
   display: grid; gap: 44px; align-items: center;
   padding: 40px;
-  background: var(--paper);
+  background: var(--surface-tint);
   border: 1px solid var(--teal-pale);
   border-radius: 12px;
   min-height: 270px;
@@ -304,7 +304,7 @@ nav.nav-case {
   cursor: pointer;
   text-decoration: none; color: inherit;
 }
-.work-row:hover { background: var(--surface-tint); }
+.work-row:hover { background: #E1EAEA; }
 .work-row--odd  { grid-template-columns: 1fr 460px; }
 .work-row--even { grid-template-columns: 460px 1fr; }
 .work-row--odd:hover  .row-text { transform: translateX(6px); }
