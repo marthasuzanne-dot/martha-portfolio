@@ -636,7 +636,7 @@ h2 + .t-subtitle            { margin: 0 0 24px; }
 .outcome-num em { font-style: normal; color: inherit; }
 .outcome-label { color: var(--slate); line-height: 1.3; }
 
-.reflection { background: var(--band); color: var(--ink); padding: var(--sub-gap) 0; }
+.reflection { background: var(--surface-tint); color: var(--ink); padding: var(--sub-gap) 0; }
 .reflection-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--case-gutter); }
 .reflection h3 { color: var(--ink); }
 .reflection p { color: var(--slate); margin-bottom: 20px; }
@@ -677,7 +677,7 @@ h2 + .t-subtitle            { margin: 0 0 24px; }
   text-transform: uppercase; color: var(--muted); text-align: center; padding: 40px;
 }
 
-.next-case { background: var(--surface-tint); box-shadow: 0 0 0 100vmax var(--surface-tint); clip-path: inset(0 -100vmax); padding: var(--content-gap) var(--case-gutter); max-width: var(--max); margin: 0 auto; border-top: 0; display: flex; justify-content: space-between; align-items: center; }
+.next-case { background: var(--paper); padding: var(--content-gap) var(--case-gutter); max-width: var(--max); margin: 0 auto; border-top: 0; display: flex; justify-content: space-between; align-items: center; }
 .next-label { color: var(--ink); margin-bottom: 8px; }
 .next-title { color: var(--ink); }
 .next-title em { font-style: normal; color: inherit; }
