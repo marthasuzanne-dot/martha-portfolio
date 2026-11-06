@@ -295,7 +295,7 @@ nav.nav-case {
 .work-row {
   display: grid; gap: 44px; align-items: center;
   padding: 40px;
-  background: var(--surface-tint);
+  background: var(--white);
   border: 1px solid var(--teal-pale);
   border-radius: 12px;
   min-height: 270px;
@@ -305,7 +305,9 @@ nav.nav-case {
   cursor: pointer;
   text-decoration: none; color: inherit;
 }
-.work-row:hover { background: #E1EAEA; }
+.work-row:hover { background: var(--surface-tint); }
+.work-row:active { background: #E1EAEA; }
+.work-row:focus-visible { background: var(--surface-tint); outline: 2px solid var(--teal); outline-offset: 2px; }
 .work-row--odd  { grid-template-columns: 1fr 420px; }
 .work-row--even { grid-template-columns: 420px 1fr; }
 .work-row--odd:hover  .row-text { transform: translateX(6px); }

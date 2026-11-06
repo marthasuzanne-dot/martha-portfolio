@@ -7,19 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Instrument+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="../assets/css/main.css?v=36">
+<link rel="stylesheet" href="../assets/css/main.css?v=37">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <style>
   /* wm:start */
   /* Hero watermark: the Green Chef logo in place of mine on this case study.
      On wider screens it sits just after the H1, so it stays close to the title whatever its length. */
-  .case-hero::before { background-image: url('../assets/images/greenchef-mark.png'); opacity: 0.12; top: 120px; }
+  .case-hero::before { background-image: url('../assets/images/greenchef-mark.png'); opacity: 0.22; top: 120px; }
   @media (min-width: 901px) {
     .case-hero::before { display: none; }
     .case-hero h1 { display: inline-block; position: relative; }
-    .case-hero h1::after { content: ''; position: absolute; left: calc(100% + 48px); top: 50%; width: 176px; height: 98px; transform: translateY(-50%);
-      background: url('../assets/images/greenchef-mark.png') center / contain no-repeat; opacity: 0.12; pointer-events: none; }
+    .case-hero h1::after { content: ''; position: absolute; left: calc(100% + 48px); top: 50%; width: 176px; height: 101px; transform: translateY(-50%);
+      background: url('../assets/images/greenchef-mark.png') center / contain no-repeat; opacity: 0.22; pointer-events: none; }
   }
   /* wm:end */
 </style>
@@ -53,7 +52,7 @@
 <div class="case-hero reveal">
   <h1 class="t-display">Green Chef</h1>
   <p class="t-subtitle">Onboarding redesign</p>
-  <p class="lead t-intro">New Green Chef subscribers were cancelling before they placed their first order. Over two weeks I looked into why and tested a coach marks tutorial, which didn't hold up in usability testing. I switched to a carousel instead, and after it shipped, retention went up 13% and NPS rose 15 points.</p>
+  <p class="lead t-intro">New Green Chef subscribers were cancelling before they placed their first order, and many of them couldn't find their way around the account page. Working with HelloFresh's research team, I designed a short onboarding tour in two weeks. My first version used coach marks and didn't hold up in usability testing, so I switched to a carousel of four screens. After launch, our product manager reported a 13% increase in retention and a 15-point rise in NPS.</p>
   <div class="meta-row">
     <div class="meta-item">
       <div class="meta-label t-strip">Role</div>
@@ -61,7 +60,7 @@
     </div>
     <div class="meta-item" style="padding-left:20px">
       <div class="meta-label t-strip">Duration</div>
-      <div class="meta-value t-meta">2 weeks<br>Aug 2020</div>
+      <div class="meta-value t-meta">2 weeks + revisions<br>Aug to Sep 2020</div>
     </div>
     <div class="meta-item" style="padding-left:20px">
       <div class="meta-label t-strip">Platform</div>
@@ -76,18 +75,16 @@
 
 <!-- HERO IMAGE -->
 <div class="img-full reveal">
-  <img src="../assets/images/cs-greenchef-carousel.webp" alt="Five-step carousel onboarding flow shown across mobile screens">
-</div>
-<div class="img-contained reveal" style="margin-top:-16px">
-  <p class="img-caption">Fig 01. Five-step carousel onboarding flow across mobile and desktop</p>
+  <img src="../assets/images/cs-gc-hero.jpg" alt="The Choose a Week screen of the onboarding tour over the dimmed account page on desktop, next to the Set Order Quantity screen on a phone">
+  <p class="img-caption">Fig 01. The onboarding tour on desktop and mobile, final design</p>
 </div>
 
 <!-- 01 CHALLENGE -->
 <div class="case-section reveal" style="padding-bottom: 0">
   <h2 class="t-heading">The challenge</h2>
-  <h3 class="t-subtitle">Subscribers were cancelling before they placed their first order</h3>
-  <p class="t-body">Green Chef is a meal kit service built around diet-specific recipes like keto, paleo, vegan and vegetarian. Subscribers handle almost everything from their account page, including weekly menus, delivery dates, skipped weeks and subscription settings.</p>
-  <p class="t-body">New customers weren't using it. Survey answers from sign-up and from cancellation pointed to the same problem: people couldn't figure out how to manage their account or finish their first order. The page was cluttered, the navigation was hard to follow, and important features were buried. Competitors made it easier to go from signing up to placing an order.</p>
+  <h3 class="t-subtitle">Subscribers were cancelling before their first order</h3>
+  <p class="t-body">Green Chef is a meal kit service owned by HelloFresh, built around diet-specific plans like keto, paleo and plant-powered. Subscribers handle almost everything from their account page, including weekly menus, delivery dates, skipped weeks and subscription settings.</p>
+  <p class="t-body">New subscribers weren't using it well. Many didn't know how to choose meals for a given week or change an order, and the page was cluttered enough that important features were easy to miss. Some cancelled before they'd placed a first order.</p>
   <p class="t-body">A full redesign of the account page was already on the roadmap, but it was months away. The team needed something that could ship within a few weeks inside the existing interface.</p>
 </div>
 
@@ -101,47 +98,35 @@
 <!-- 02 RESEARCH -->
 <div class="case-section reveal" style="padding-bottom: 24px">
   <h2 class="t-heading">Research and discovery</h2>
-  <h3 class="t-subtitle">Sign-up and cancellation surveys pointed to the same problems</h3>
-  <p class="t-body">I looked at survey data from new and recently subscribed customers, including the questions they asked during sign-up, what they expected from the subscription, and why they cancelled.</p>
-  <p class="t-body">Both sets of answers lined up. People were leaving for reasons that had nothing to do with the food, and the features that confused them at sign-up were the same ones behind cancellations a few weeks later.</p>
+  <h3 class="t-subtitle">What customers struggled with</h3>
+  <p class="t-body">I worked with HelloFresh's research team and used two of their studies. The first was a survey of 63 brand ambassadors, HelloFresh's direct sales staff, about the questions and problems they hear from customers during sign-up.</p>
+  <p class="t-body">Account management came up in 18.3% of responses, and the most common problem was forgetting to choose meals before the weekly cutoff. Customers also had trouble finding where to change their delivery date, address or payment. When ambassadors rated how well customers understood each part of the service, cutoff dates and the weekly subscription were near the bottom.</p>
+  <p class="t-body">The questions they heard most were about commitment and how the subscription works, like "Is there a contract?", "Can I skip? When?" and "When can I make changes until?"</p>
 </div>
 
-<!-- Research charts -->
-<div class="charts-grid reveal">
-  <div class="chart-card">
-    <p class="chart-kicker t-label">Top Reasons to Cancel</p>
-    <div class="chart-canvas-wrap">
-      <canvas id="cancelChart"></canvas>
-    </div>
-    <p class="img-caption">Fig 02. Top cancellation reasons from exit survey data</p>
-  </div>
-  <div class="chart-card">
-    <p class="chart-kicker t-label">Top Sign-Up Questions</p>
-    <div class="chart-canvas-wrap">
-      <canvas id="signupChart"></canvas>
-    </div>
-    <p class="img-caption">Fig 03. Most frequently asked questions during sign-up</p>
-  </div>
+<div class="img-wide reveal">
+  <img src="../assets/images/cs-gc-research.jpg" alt="Two charts from the brand ambassador survey: account management at 18.3% of responses about what customers struggle with, and cutoff dates rated 5.26 out of 7 for how well customers understand them">
+  <p class="img-caption">Fig 02. Two findings from HelloFresh's brand ambassador survey, May 2020</p>
 </div>
 
 <div class="case-section reveal" style="padding-bottom: 24px">
-  <h3 class="t-subtitle">Card sorting told us which features mattered to subscribers</h3>
-  <p class="t-body">I ran card sorts with active subscribers to see which account features mattered most to them. The results decided which features the tutorial covered first.</p>
+  <h3 class="t-subtitle">What active subscribers do most</h3>
+  <p class="t-body">The second study asked 30 active subscribers and 10 people from the business to rank the tasks people do on the account page. I used the subscriber rankings to decide what the tour should cover first.</p>
   <div class="decisions">
     <div class="decision">
-      <p class="decision-num t-label">Priority 1</p>
-      <h3 class="t-subhead">Menu and delivery management</h3>
-      <p class="t-body">Choosing this week's and next week's menus, and changing the delivery date. Every participant put these first.</p>
+      <p class="decision-num t-label">Ranked highest</p>
+      <h3 class="t-subhead">Choosing and viewing meals</h3>
+      <p class="t-body">Picking and viewing meals for this week and next took the top four spots for subscribers.</p>
     </div>
     <div class="decision">
-      <p class="decision-num t-label">Priority 2</p>
-      <h3 class="t-subhead">Subscription control</h3>
-      <p class="t-body">Reviewing pricing, setting dietary preferences and contacting Customer Care. These are about the subscription itself, beyond the weekly menu.</p>
+      <p class="decision-num t-label">Ranked next</p>
+      <h3 class="t-subhead">Skipping a week</h3>
+      <p class="t-body">Skipping this week or next came right after, followed by checking a meal's ingredients and cooking time.</p>
     </div>
     <div class="decision">
-      <p class="decision-num t-label">Priority 3</p>
-      <h3 class="t-subhead">Flexibility and extras</h3>
-      <p class="t-body">Recipe cards, skipping a week and referral rewards. Subscribers used these, but they weren't why people cancelled.</p>
+      <p class="decision-num t-label">Ranked lower</p>
+      <h3 class="t-subhead">Everything else</h3>
+      <p class="t-body">Contacting Customer Care, pausing a plan and inviting friends were near the bottom of the list for subscribers.</p>
     </div>
   </div>
 </div>
@@ -173,11 +158,11 @@
     </div>
     <blockquote class="persona-quote t-quote">"Health and nutrition are important to me and my family. Balancing my busy career and taking care of my family are my main priorities."</blockquote>
   </div>
-  <p class="img-caption">Fig 04. Primary persona: Everly, 35 years old, $110K household income, cooks dinner for family four times per week</p>
+  <p class="img-caption">Fig 03. Primary persona: Everly, 35 years old, $110K household income, cooks dinner for family four times per week</p>
 </div>
 
 <div class="case-section reveal">
-  <p class="t-body">Everly is busy with work and family, so I kept the tutorial short and the copy brief.</p>
+  <p class="t-body">Everly is busy with work and family, so I kept the tour short and the copy brief.</p>
 </div>
 
 <div class="divider"><hr></div>
@@ -185,12 +170,12 @@
 <!-- 03 STRATEGY -->
 <div class="case-section reveal">
   <h2 class="t-heading">Design strategy</h2>
-  <h3 class="t-subtitle">A tutorial that could ship in two weeks</h3>
-  <p class="t-body">The research pointed to a short onboarding tutorial covering the features most tied to placing a first order and staying subscribed: choosing meals, managing delivery and editing the subscription. It wasn't meant to cover the whole account page or stand in for the redesign that was coming later.</p>
+  <h3 class="t-subtitle">A tour that could ship in two weeks</h3>
+  <p class="t-body">The research pointed to a short tour of the account features most tied to placing a first order and staying subscribed: choosing a week, picking recipes, changing an order and editing the subscription. It wasn't meant to cover the whole account page or stand in for the redesign that was coming later.</p>
   <div class="decisions">
     <div class="decision">
       <p class="decision-num t-label">In Scope</p>
-      <h3 class="t-subhead">Tutorial for the main account page</h3>
+      <h3 class="t-subhead">A tour of the main account page</h3>
       <p class="t-body">Walk first-time subscribers through the features that decide whether they place a first order and stay subscribed. It had to work inside the existing interface, so engineering didn't have to rebuild anything.</p>
     </div>
     <div class="decision">
@@ -199,7 +184,7 @@
       <p class="t-body">Tutorials for every feature, the full customer journey and a separate review onboarding feature were left out. Keeping the scope narrow is what made two weeks realistic.</p>
     </div>
   </div>
-  <p class="t-body" style="margin-top:24px;">There was a chance the tutorial could backfire. If it felt slow or mandatory, it could frustrate people enough to cancel before they ever reached the account page.</p>
+  <p class="t-body" style="margin-top:24px;">There was a chance the tour could backfire. If it felt slow or mandatory, it could frustrate people enough to cancel before they ever got comfortable with the account page.</p>
 </div>
 
 <div class="divider"><hr></div>
@@ -213,66 +198,81 @@
   <p class="t-body">I wrote up what went wrong and started on a different approach.</p>
 </div>
 
-<!-- Coach marks wireframes -->
 <div class="img-wide reveal">
-  <img src="../assets/images/cs-greenchef-coachmarks.webp" alt="Coach marks first iteration: five tooltip overlays on the Green Chef account page">
-  <p class="img-caption">Fig 05. Coach marks approach: five tooltip steps overlaid on the existing account interface</p>
+  <img src="../assets/images/cs-gc-coach.jpg" alt="The first version on mobile: five coach mark tooltips over the Green Chef account page">
+  <p class="img-caption">Fig 04. The first version, with coach marks over the account page</p>
 </div>
 
 <div class="case-section reveal" style="padding-bottom: 0">
   <h3 class="t-subtitle">Switching to a carousel</h3>
-  <p class="t-body">Instead of explaining things on top of a cluttered page, the carousel covers one idea per screen before the subscriber gets to their account.</p>
-  <p class="t-body">I also cut the copy down, reduced the number of steps, and removed a cut-off date in the first step that was confusing people. Every screen works on mobile and desktop, and the final version has five steps.</p>
+  <p class="t-body">Instead of pointing at things on a busy page, the carousel explains one feature per screen in a modal, with the account page dimmed behind it. Each screen shows a small version of the part it's explaining, so people can find it again once the tour closes.</p>
+  <p class="t-body">My wireframes started with six screens. The welcome screen later moved into the sign-up confirmation, and I cut the order summary to keep the tour at four steps. I also shortened the copy and took the cutoff date out of the first step, where it was confusing people.</p>
+</div>
+
+<div class="img-wide reveal">
+  <img src="../assets/images/cs-gc-wire.jpg" alt="Carousel wireframes: six screens, one idea per screen">
+  <p class="img-caption">Fig 05. Carousel wireframes, before the tour was cut to four steps</p>
+</div>
+
+<div class="case-section reveal" style="padding-bottom: 0">
+  <h3 class="t-subtitle">Where the tour starts</h3>
+  <p class="t-body">The tour opens from the confirmation at the end of sign-up. Subscribers pick a meal preference, then choose Confirm &amp; Take a Tour or go straight to their account. Since it's optional, people who already know their way around can skip it.</p>
+</div>
+
+<div class="img-wide reveal">
+  <img src="../assets/images/cs-gc-start.jpg" alt="The Thank You for Joining confirmation on desktop and mobile, with meal preference options and the Confirm and Take a Tour button">
+  <p class="img-caption">Fig 06. The sign-up confirmation, where subscribers choose the tour or their account</p>
+</div>
+
+<div class="case-section reveal" style="padding-bottom: 0">
+  <h3 class="t-subtitle">The four steps</h3>
   <div class="decisions">
     <div class="decision">
       <p class="decision-num t-label">Step 1</p>
-      <h3 class="t-subhead">Welcome</h3>
-      <p class="t-body">Tells the subscriber what the next few screens cover, so the steps that follow make sense.</p>
+      <h3 class="t-subhead">Choose a Week</h3>
+      <p class="t-body">Choosing a week was the first thing most people got wrong on their own. This screen shows the week selector at the top of the account page.</p>
     </div>
     <div class="decision">
       <p class="decision-num t-label">Step 2</p>
-      <h3 class="t-subhead">Select a Week</h3>
-      <p class="t-body">Choosing a week was the first thing most people got wrong on their own, so it gets its own screen before they see the account page.</p>
+      <h3 class="t-subhead">Set Order Quantity and Change Recipes</h3>
+      <p class="t-body">The main part of placing an order: the number of people, the number of recipes and the Change Recipes button.</p>
     </div>
     <div class="decision">
       <p class="decision-num t-label">Step 3</p>
-      <h3 class="t-subhead">Set Order Quantity and Choose Recipes</h3>
-      <p class="t-body">This is the main part of placing an order. The screen shows what the interface looks like when it's filled in correctly.</p>
+      <h3 class="t-subhead">Modify Your Order</h3>
+      <p class="t-body">How to change an order after placing it, through the Edit Order menu. People had trouble finding this when they needed it.</p>
     </div>
     <div class="decision">
       <p class="decision-num t-label">Step 4</p>
-      <h3 class="t-subhead">Modify a Week</h3>
-      <p class="t-body">How to change an order after placing it. This came up a lot in the cancellation survey, because people couldn't find it when they needed it.</p>
-    </div>
-    <div class="decision">
-      <p class="decision-num t-label">Step 5</p>
-      <h3 class="t-subhead">Edit Subscription</h3>
-      <p class="t-body">Skipping a week, changing frequency and updating dietary preferences. These came up most in sign-up questions, and they're what let subscribers feel in control of their plan.</p>
+      <h3 class="t-subhead">Manage Your Subscription</h3>
+      <p class="t-body">Where the meal plan, delivery day and servings are listed, and the Edit Subscription link for changing them.</p>
     </div>
   </div>
 </div>
 
-<!-- Carousel wireframes -->
 <div class="img-wide reveal">
-  <img src="../assets/images/cs-greenchef-wireframes.webp" alt="Carousel wireframes: six-screen flow, one concept per screen">
-  <p class="img-caption">Fig 06. Carousel model after pivot: five steps across mobile and desktop</p>
+  <img src="../assets/images/cs-gc-desktop.jpg" alt="The four tour screens on desktop: Choose a Week, Set Order Quantity and Change Recipes, Modify Your Order, and Manage Your Subscription">
+  <p class="img-caption">Fig 07. The four steps on desktop, final design</p>
 </div>
 
-<!-- Final designs — desktop -->
 <div class="img-wide reveal">
-  <img src="../assets/images/cs-greenchef-desktop.webp" alt="Final high-fidelity desktop designs: five-step carousel onboarding">
-  <p class="img-caption">Fig 07. Final high-fidelity carousel onboarding, desktop</p>
+  <img src="../assets/images/cs-gc-mobile.jpg" alt="The same four tour screens on a phone, each with a full-width Next or Finish button">
+  <p class="img-caption">Fig 08. The four steps on a phone, final design</p>
 </div>
 
-<!-- Final designs — mobile -->
+<div class="case-section reveal" style="padding-bottom: 0">
+  <h3 class="t-subtitle">Handoff</h3>
+  <p class="t-body">I handed off redlines for every screen on desktop and mobile, with spacing, font sizes and colors marked. Engineering built the tour as a layer over the existing account page, so nothing underneath had to change.</p>
+</div>
+
 <div class="img-wide reveal">
-  <img src="../assets/images/cs-greenchef-mobile-final.webp" alt="Final high-fidelity mobile designs: five-step carousel onboarding">
-  <p class="img-caption">Fig 08. Final high-fidelity carousel onboarding, mobile</p>
+  <img src="../assets/images/cs-gc-redlines.jpg" alt="Redlines for the Choose a Week screen on desktop and mobile, and type specs for the Manage Your Subscription screen">
+  <p class="img-caption">Fig 09. Redlines for the Choose a Week and Manage Your Subscription screens</p>
 </div>
 
 <!-- Brand image 2 -->
 <div class="img-brand reveal">
-  <img src="../assets/images/cs-greenchef-brand2.webp" alt="Green Chef carousel onboarding displayed on MacBook Pro and iPhone">
+  <img src="../assets/images/cs-greenchef-brand2.webp" alt="The Modify Your Order screen of the tour on a laptop, with a phone beside it">
 </div>
 
 <div class="divider"><hr></div>
@@ -280,22 +280,36 @@
 <!-- 05 OUTCOMES -->
 <div class="case-section reveal">
   <h2 class="t-heading">Outcomes</h2>
-  <h3 class="t-subtitle">Shipped in two weeks</h3>
-  <p class="t-body">First-order completion went up after launch, and Green Chef used the same carousel approach for later onboarding work across the platform.</p>
+  <h3 class="t-subtitle">Results after launch</h3>
+  <p class="t-body">Our product manager reported these results after the tour launched. Green Chef also used the same carousel approach for later onboarding work.</p>
   <div class="outcomes-grid">
     <div class="outcome-card">
       <div class="outcome-num t-numeral">13%</div>
-      <div class="outcome-label t-label">Improvement in retention after the carousel onboarding shipped</div>
+      <div class="outcome-label t-label">Increase in retention after the tour launched</div>
     </div>
     <div class="outcome-card">
       <div class="outcome-num t-numeral">15 pt</div>
-      <div class="outcome-label t-label">Increase in NPS after the redesign</div>
+      <div class="outcome-label t-label">Increase in NPS</div>
     </div>
     <div class="outcome-card">
       <div class="outcome-num t-numeral">2 wk</div>
-      <div class="outcome-label t-label">From research through two design rounds, usability testing and engineering handoff</div>
+      <div class="outcome-label t-label">From research to engineering handoff, followed by a round of revisions</div>
     </div>
   </div>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- 06 OTHER WORK -->
+<div class="case-section reveal" style="padding-bottom: 0">
+  <h2 class="t-heading">Other work at Green Chef</h2>
+  <h3 class="t-subtitle">Cancellation, reactivation and meal plans</h3>
+  <p class="t-body">I was at Green Chef from 2019 to 2020, and the onboarding tour was one of several projects there. Most of the others were about keeping subscribers too, like a cancellation flow that offers a few alternatives before the cancel button, and a reactivation page for people coming back.</p>
+</div>
+
+<div class="img-wide reveal">
+  <img src="../assets/images/cs-gc-other.jpg" alt="Three other Green Chef designs: the Cancel My Subscription page, the reactivation page, and the meal plans page">
+  <p class="img-caption">Fig 10. The cancellation flow, reactivation page and meal plans page</p>
 </div>
 
 <!-- REFLECTION -->
@@ -303,8 +317,8 @@
   <div class="reflection-inner reveal">
     <h2 class="t-heading">Reflection</h2>
     <h3 class="t-subtitle">What I learned</h3>
-    <p class="t-body">Coach marks seemed like the right call until testing showed otherwise. Changing direction partway through a two-week project didn't leave much room, but the first version made the problem clear. People needed to understand the concepts before they saw the account page.</p>
-    <p class="t-body">Testing made the failure easy to see, since people struggled more with the tutorial than without it. Once that was clear, moving the explanations onto their own screens was the natural next thing to try.</p>
+    <p class="t-body">Coach marks seemed like the right call until testing showed otherwise. Changing direction partway through a two-week project didn't leave much room, but the first version made the problem clear. People needed one idea at a time, without the rest of the page competing for their attention.</p>
+    <p class="t-body">Working with HelloFresh's research team gave me a head start. Their survey had already pointed at account management and cutoff dates, so I knew early on what the tour needed to cover.</p>
     <p class="t-body">Next time I'd test earlier. A rough prototype of both approaches in the first few days would have shown the coach marks problem before I committed to full wireframes, and left more time to refine the carousel and try a few versions of it.</p>
   </div>
 </div>
@@ -344,65 +358,6 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  // Research charts
-  Chart.defaults.font.family = "'Instrument Sans', system-ui, sans-serif";
-  Chart.defaults.font.size = 11;
-  Chart.defaults.color = '#556666';
-
-  const gcColors = ['#1D5C3C', '#2E8755', '#5FAF85', '#2d6b6b', '#DEB868'];
-
-  const sharedOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    cutout: '62%',
-    plugins: {
-      legend: {
-        position: 'bottom',
-        labels: {
-          padding: 14,
-          usePointStyle: true,
-          pointStyle: 'circle',
-          pointStyleWidth: 8,
-          font: { size: 11 }
-        }
-      },
-      tooltip: {
-        backgroundColor: '#1a2828',
-        bodyColor: '#f6f2eb',
-        bodyFont: { size: 12, weight: '400' },
-        padding: 12,
-        cornerRadius: 6,
-        displayColors: true,
-        boxWidth: 10,
-        boxHeight: 10,
-        boxPadding: 5,
-        callbacks: {
-          title: () => '',
-          label: (ctx) => `  ${ctx.label}: ${ctx.parsed} responses`
-        }
-      }
-    },
-    animation: { animateRotate: true, duration: 900, easing: 'easeInOutQuart' }
-  };
-
-  new Chart(document.getElementById('cancelChart'), {
-    type: 'doughnut',
-    data: {
-      labels: ['Cutting back on budget', 'Not enough value', 'Account management', 'Did not like recipes', 'Wanted more recipes'],
-      datasets: [{ data: [118, 87, 72, 53, 47], backgroundColor: gcColors, borderWidth: 0, hoverOffset: 10 }]
-    },
-    options: sharedOptions
-  });
-
-  new Chart(document.getElementById('signupChart'), {
-    type: 'doughnut',
-    data: {
-      labels: ['Commitment', 'Subscription', 'How to choose meals', 'Price and discounts', 'Delivery methods'],
-      datasets: [{ data: [147, 133, 128, 77, 63], backgroundColor: gcColors, borderWidth: 0, hoverOffset: 10 }]
-    },
-    options: sharedOptions
-  });
 </script>
 </body>
 </html>
