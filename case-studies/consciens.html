@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consciens, Martha Asselin</title>
+<meta name="description" content="A summary of Martha Asselin's Consciens case study: an AI-assisted project dashboard built from a weekly standup.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/main.css?v=39">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<style>
+  /* wm:start */
+  /* Hero watermark: the Consciens mark in place of mine on this case study.
+     On wider screens it sits just after the H1, so it stays close to the title whatever its length. */
+  .case-hero::before { background-image: url('../assets/images/consciens-mark.svg'); opacity: 0.1; top: 120px; }
+  @media (min-width: 901px) {
+    .case-hero::before { display: none; }
+    .case-hero h1 { display: inline-block; position: relative; }
+    .case-hero h1::after { content: ''; position: absolute; left: calc(100% + 48px); top: 50%; width: 124px; height: 124px; transform: translateY(-50%);
+      background: url('../assets/images/consciens-mark.svg') center / contain no-repeat; opacity: 0.1; pointer-events: none; }
+  }
+  /* wm:end */
+  .cta-block{max-width:var(--max);margin:0 auto;padding:0 var(--case-gutter,24px)}
+  .cta-card{border:1px solid var(--teal-pale);border-radius:12px;padding:40px;background:var(--white)}
+  .cta-card h2{margin:0 0 12px}
+  .cta-card p{margin:0 0 28px;color:var(--slate)}
+  .cta-actions{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center}
+  @media (max-width:600px){.cta-card{padding:28px 24px}}
+</style>
+</head>
+<body>
+<nav class="nav-home" id="mainNav">
+  <a href="../index.html" class="nav-logo">
+    <svg width="36" height="36" viewBox="0 0 1032 1034" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0;">
+      <path d="M520 60.5V95.5C749.198 95.5 935 281.302 935 510.5H970H1005C1005 242.642 787.858 25.5 520 25.5V60.5ZM970 510.5H935C935 739.698 749.198 925.5 520 925.5V960.5V995.5C787.858 995.5 1005 778.358 1005 510.5H970ZM520 960.5V925.5C290.802 925.5 105 739.698 105 510.5H70H35C35 778.358 252.142 995.5 520 995.5V960.5ZM70 510.5H105C105 281.302 290.802 95.5 520 95.5V60.5V25.5C252.142 25.5 35 242.642 35 510.5H70Z" fill="#B87A00"/>
+      <line x1="157.353" y1="667.597" x2="406.097" y2="326.647" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+      <path d="M670 319.5L887 664.5" stroke="#B87A00" stroke-width="70" stroke-linecap="round" fill="none"/>
+      <line x1="666.449" y1="320.587" x2="413.587" y2="695.551" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+      <line x1="520.44" y1="522.003" x2="794.439" y2="526.018" stroke="#B87A00" stroke-width="60"/>
+      <line x1="413.32" y1="318.23" x2="650.73" y2="691.18" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-name">Martha Asselin</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#work" class="active">Work</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="progress-bar" id="progressBar"></div>
+</nav>
+
+<!-- HERO -->
+<div class="case-hero reveal">
+  <h1 class="t-display">Consciens</h1>
+  <p class="t-subtitle">A live project dashboard built from our weekly standup</p>
+  <p class="lead t-intro">A project dashboard for our work with a construction industry client, built around the weekly standup I started. It replaced two Slack lists and updates every day from email, Slack messages, Google Drive, and the transcripts of our standups and client meetings. Claude drafts tasks from those transcripts, and nothing saves until a person approves it. It's now the template for future client dashboards, a key feature in Cerino.</p>
+  <div class="meta-row">
+    <div class="meta-item">
+      <div class="meta-label t-strip">Role</div>
+      <div class="meta-value t-meta">Product Designer<br>Also ran the project</div>
+    </div>
+    <div class="meta-item" style="padding-left:20px">
+      <div class="meta-label t-strip">Duration</div>
+      <div class="meta-value t-meta">5 days</div>
+    </div>
+    <div class="meta-item" style="padding-left:20px">
+      <div class="meta-label t-strip">Platform</div>
+      <div class="meta-value t-meta">Web dashboard,<br>desktop</div>
+    </div>
+    <div class="meta-item" style="padding-left:20px">
+      <div class="meta-label t-strip">Tools</div>
+      <div class="meta-value t-meta">Claude, Slack<br>&amp; Google Drive</div>
+    </div>
+  </div>
+  <p style="margin-top:20px;font-family:var(--sans);font-size:12px;line-height:1.6;color:var(--mist);">To keep client and company information private, the client, team names, tasks and numbers in these screens and the prototype are made up. The process and design decisions come from the actual project.</p>
+</div>
+
+
+<div class="img-full reveal">
+  <img src="../assets/images/cs-dash-hero-desktop.jpg" alt="The client dashboard Tasks board on desktop, with sample data">
+  <p class="img-caption">Fig 01. The Tasks board, final design, shown with sample data</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<div class="case-section reveal">
+  <h2 class="t-heading">The challenge</h2>
+  <h3 class="t-subtitle">No project management to start from</h3>
+  <p class="t-body">I joined Consciens early, when the startup had no project management set up. When we took on a client in the construction industry, I started tracking that project's tasks in two Slack lists and started our weekly standup meetings.</p>
+  <p class="t-body">The lists held the tasks, but decisions lived in meeting notes in Google Drive, and the latest news came in through Slack messages and email. At standup nobody had one place to see what had changed, what was overdue or what the client owed us. Over five days I designed and built a dashboard that brings all of it together, tested it with the team during a normal work week, and revised it after a design review.</p>
+</div>
+
+<div class="case-section reveal" style="padding-bottom:0">
+  <h3 class="t-subtitle">Claude drafts, a person approves</h3>
+  <p class="t-body">Our standups and client meetings are recorded and transcribed. The dashboard pulls each transcript from Google Drive, Claude drafts the summary, decisions and new tasks, and nothing saves until someone on the team accepts it.</p>
+</div>
+<div class="img-full reveal">
+  <img src="../assets/images/cs-dash-07-meetings.jpg" alt="Standup prep tab showing Claude's draft summary and action items waiting for approval" loading="lazy">
+  <p class="img-caption">Fig 02. A person approves Claude's draft before anything saves</p>
+</div>
+
+<div class="case-section reveal" style="padding-bottom:0">
+  <h3 class="t-subtitle">My Day</h3>
+  <p class="t-body">My Day became the team's favorite feature. It shows each person only their own work for the day, including what's overdue, what changed since the last standup and what's waiting on the client.</p>
+</div>
+<div class="img-wide reveal">
+  <img src="../assets/images/cs-dash-myday.jpg" alt="My Day on a laptop, showing one person's changed and waiting tasks with editable status and due dates" loading="lazy">
+  <p class="img-caption">Fig 03. My Day: one person's work for the day</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- OUTCOMES -->
+<div class="case-section reveal" style="padding-bottom:0">
+  <h2 class="t-heading">Outcomes</h2>
+  <h3 class="t-subtitle">What shipped</h3>
+  <ul class="t-body" style="margin-bottom:32px;padding-left:1.4em;line-height:1.85;">
+    <li>A dashboard that replaced both Slack lists and updates every day from email, meeting transcripts, Slack messages and Google Drive</li>
+    <li>A standup that runs from the task list and saves a snapshot each week</li>
+    <li>Claude-drafted updates and meeting summaries, with a person approving every save</li>
+    <li>A header that stays the same on every page, with the toolbar where standup runs</li>
+    <li>A color system cut to four colors, with a word and an icon on every status</li>
+  </ul>
+  <div class="outcomes-grid">
+    <div class="outcome-card">
+      <div class="outcome-num t-numeral">5 days</div>
+      <div class="outcome-label t-label">From the first version to the template for every new client dashboard</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num t-numeral">Weekly to daily</div>
+      <div class="outcome-label t-label">Project status went from pieced together at standup to updated every day</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num t-numeral">4 to 1</div>
+      <div class="outcome-label t-label">Email, meeting notes, Slack and Google Drive feed one dashboard</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-num t-numeral">100%</div>
+      <div class="outcome-label t-label">Of Claude's drafts checked by a person before anything saves</div>
+    </div>
+  </div>
+  <p class="t-body" style="margin-top:32px">The dashboard is now the standard template for client dashboards in Cerino, and Devendra approved extending my work to more project areas.</p>
+</div>
+
+
+<div class="cta-block reveal" style="margin-top:72px;margin-bottom:96px">
+  <div class="cta-card">
+    <h2 class="t-heading">The full case study</h2>
+    <p class="t-body">The full version walks through the research, the tools I compared, the design review with the team, the decisions and trade-offs, and a clickable prototype of the dashboard. Since it's client work, it's password protected. Feel free to email me for the password.</p>
+    <div class="cta-actions">
+      <a href="client-dashboard.html" class="btn-primary-v6 t-action">Read the full case study</a>
+      <a href="mailto:marthaasselin@gmail.com?subject=Password%20for%20the%20Consciens%20case%20study" class="btn-secondary-v6 t-action">Email me for the password</a>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT CASE -->
+<div class="next-case reveal">
+  <div>
+    <p class="next-label t-label">Next case study</p>
+    <p class="next-title t-title">MSB: Members' Portal Redesign</p>
+  </div>
+  <a href="mangala.html" class="next-link t-action">View case study</a>
+</div>
+
+<footer>
+  <span>&copy; 2026 Martha Asselin</span>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  }, { passive: true });
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
