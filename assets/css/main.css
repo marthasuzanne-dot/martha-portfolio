@@ -549,6 +549,8 @@ footer {
 .img-contained { max-width: 640px; margin: 40px auto; padding: 0 var(--case-gutter); }
 .img-contained img { width: 100%; display: block; border-radius: var(--radius); }
 .img-caption { color: var(--mist); line-height: 1.5; margin-top: 12px; text-align: left; }
+/* Figure captions hidden for now. The text stays in each page; delete this rule to bring them back. Captions marked .keep stay visible. */
+.img-caption:not(.keep) { display: none; }
 
 .img-two { max-width: var(--max); margin: 40px auto; padding: 0 var(--case-gutter); display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .img-two img { width: 100%; display: block; border-radius: var(--radius); }
