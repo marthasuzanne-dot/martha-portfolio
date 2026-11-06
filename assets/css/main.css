@@ -462,10 +462,10 @@ nav.nav-case {
    FOOTER
    ============================================================ */
 footer {
-  background: var(--band); padding: 22px var(--gutter);
+  background: var(--surface-tint); padding: 22px var(--gutter);
   display: flex; justify-content: space-between; align-items: center;
   color: var(--mist);
-  border-top: 1px solid var(--teal-pale);
+  border-top: 1px solid #CADAD7;
 }
 .footer-linkedin {
   color: var(--teal-deep); text-decoration: none;
