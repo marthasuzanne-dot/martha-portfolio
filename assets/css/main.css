@@ -109,7 +109,7 @@ nav.nav-home.scrolled {
 }
 .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
 .nav-logo svg { }
-.nav-name { font-family: var(--serif); font-size: 19px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+.nav-name { font-family: var(--serif); font-size: 19px; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); }
 .nav-right { display: flex; align-items: center; gap: 40px; }
 .nav-links { display: flex; gap: 30px; list-style: none; }
 .nav-links a { color: var(--mist); text-decoration: none; position: relative; padding-bottom: 3px; transition: color .15s ease; }
@@ -1131,4 +1131,29 @@ body.home { background: var(--paper); }
   .home-about-inner { grid-template-columns: 1fr; gap: 40px; }
   .home-how-grid { grid-template-columns: 1fr; }
   .home-contact { padding-top: 72px; }
+}
+
+/* ============================================================
+   RESPONSIVE FIXES (Nov 2026)
+   ============================================================ */
+/* Home hero: keep the portrait on phones, below the intro */
+@media (max-width: 767px) {
+  .hero-v6-portrait { display: block; padding: 0 var(--gutter) 56px; }
+  .hero-v6-text { padding-bottom: 36px; }
+  .portrait-img { aspect-ratio: 1 / 1; object-position: 50% 22%; }
+  .portrait-overlay { display: none; }
+}
+/* Case study and about watermarks: a small mark above the title instead of over it */
+@media (max-width: 900px) {
+  html body .case-hero::before { display: block; position: static; width: 56px; height: 56px; margin: 0 0 20px; opacity: .5; }
+}
+/* Space between sections that sit directly after each other */
+.case-section[style*="padding-bottom:0"] + .case-section,
+.case-section[style*="padding-bottom: 0"] + .case-section { padding-top: var(--content-gap); }
+@media (max-width: 600px) {
+  .case-section[style*="padding-bottom:0"] + .case-section,
+  .case-section[style*="padding-bottom: 0"] + .case-section { padding-top: 40px; }
+  .contact-actions { flex-wrap: wrap; gap: 20px 28px; }
+  .contact-email-btn { width: 100%; text-align: center; }
+  .ab-pad { padding-left: 20px !important; padding-right: 20px !important; }
 }

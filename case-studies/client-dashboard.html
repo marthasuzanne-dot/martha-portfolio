@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Instrument+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="../assets/css/main.css?v=43">
+<link rel="stylesheet" href="../assets/css/main.css?v=45">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <script src="../assets/js/protect.js"></script>
 <style>
@@ -133,6 +133,17 @@
   .cs-table td { font-family: var(--sans); font-size: 14.5px; line-height: 1.55; padding: 12px 14px; border-bottom: 1px solid var(--teal-pale); vertical-align: top; }
   .cs-table tr:last-child td { border-bottom: none; }
   .cs-table td:first-child { font-weight: 500; }
+  @media (max-width: 640px) {
+    .cs-table thead { display: none; }
+    .cs-table, .cs-table tbody, .cs-table tr, .cs-table td { display: block; width: 100%; }
+    .cs-table tr { border-top: 1px solid var(--teal-pale); padding: 16px 0; }
+    .cs-table tr:last-child { border-bottom: 1px solid var(--teal-pale); }
+    .cs-table td { border: none; padding: 4px 0; }
+    .cs-table td::before { content: attr(data-label); display: block; font: 500 13px/1.4 var(--sans); color: var(--mist); margin-bottom: 2px; }
+    .cs-table td:first-child { font: 600 18px/1.35 var(--serif); color: var(--ink); padding-bottom: 6px; }
+    .cs-table td:first-child::before { display: none; }
+    .csd-dot { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -257,19 +268,19 @@
     </thead>
     <tbody>
       <tr>
-        <td>The team at standup</td>
-        <td>What changed, what's overdue and what the client owes us</td>
-        <td>The Tasks tab, with each task marked New, Updated or Slipped since the last standup</td>
+        <td data-label="Who">The team at standup</td>
+        <td data-label="Their question">What changed, what's overdue and what the client owes us</td>
+        <td data-label="What it became">The Tasks tab, with each task marked New, Updated or Slipped since the last standup</td>
       </tr>
       <tr>
-        <td>Each person during the week</td>
-        <td>What do I need to do today?</td>
-        <td>My Day, with a My Week view</td>
+        <td data-label="Who">Each person during the week</td>
+        <td data-label="Their question">What do I need to do today?</td>
+        <td data-label="What it became">My Day, with a My Week view</td>
       </tr>
       <tr>
-        <td>Stephen, our founder</td>
-        <td>Where the project stands with the client</td>
-        <td>The Overview tab for client details and decisions, and the Reports tab for a monthly client report</td>
+        <td data-label="Who">Stephen, our founder</td>
+        <td data-label="Their question">Where the project stands with the client</td>
+        <td data-label="What it became">The Overview tab for client details and decisions, and the Reports tab for a monthly client report</td>
       </tr>
     </tbody>
   </table>
@@ -373,24 +384,24 @@
     </thead>
     <tbody>
       <tr>
-        <td>Getting lost between pages</td>
-        <td>Leaving Tasks dropped the second bar, and I got lost in my own dashboard while presenting it</td>
-        <td>Tabs on their own row under the breadcrumb, the same on every page, and the toolbar only on Tasks, where standup runs</td>
+        <td data-label="Theme">Getting lost between pages</td>
+        <td data-label="What we saw">Leaving Tasks dropped the second bar, and I got lost in my own dashboard while presenting it</td>
+        <td data-label="What changed">Tabs on their own row under the breadcrumb, the same on every page, and the toolbar only on Tasks, where standup runs</td>
       </tr>
       <tr>
-        <td>Too many ways to add a task</td>
-        <td>Add task had five entry points, and the team found that confusing</td>
-        <td>Two entry points: the toolbar button and a link at the bottom of each list</td>
+        <td data-label="Theme">Too many ways to add a task</td>
+        <td data-label="What we saw">Add task had five entry points, and the team found that confusing</td>
+        <td data-label="What changed">Two entry points: the toolbar button and a link at the bottom of each list</td>
       </tr>
       <tr>
-        <td>Two signals for done</td>
-        <td>Finished tasks showed a green check and a Done pill</td>
-        <td>The green check is the only done signal</td>
+        <td data-label="Theme">Two signals for done</td>
+        <td data-label="What we saw">Finished tasks showed a green check and a Done pill</td>
+        <td data-label="What changed">The green check is the only done signal</td>
       </tr>
       <tr>
-        <td>Problems found in use</td>
-        <td>Finish standup did nothing when clicked, and the &#8220;owes&#8221; label used the client's name</td>
-        <td>Finish standup works and shows three states: ready, saving, and saved with the time. &#8220;Client owes&#8221; works for any client, which was Stephen's suggestion. Assignees edit in the row and the task panel, with the founder as the default</td>
+        <td data-label="Theme">Problems found in use</td>
+        <td data-label="What we saw">Finish standup did nothing when clicked, and the &#8220;owes&#8221; label used the client's name</td>
+        <td data-label="What changed">Finish standup works and shows three states: ready, saving, and saved with the time. &#8220;Client owes&#8221; works for any client, which was Stephen's suggestion. Assignees edit in the row and the task panel, with the founder as the default</td>
       </tr>
     </tbody>
   </table>
@@ -433,40 +444,40 @@
     </thead>
     <tbody>
       <tr>
-        <td>Buy or build</td>
-        <td>Subscribe to Linear, ClickUp, Notion or Jira, or build our own</td>
-        <td>Build our own in Claude</td>
-        <td>Those tools did more than we needed, and our own build connects to the tools the team already uses without a new subscription</td>
+        <td data-label="Decision">Buy or build</td>
+        <td data-label="Options">Subscribe to Linear, ClickUp, Notion or Jira, or build our own</td>
+        <td data-label="What I chose">Build our own in Claude</td>
+        <td data-label="Why">Those tools did more than we needed, and our own build connects to the tools the team already uses without a new subscription</td>
       </tr>
       <tr>
-        <td>How to launch</td>
-        <td>Build it inside Cerino now, or as a standalone dashboard first</td>
-        <td>Standalone first</td>
-        <td>The team could test it and Stephen could approve the design before it moves into the product</td>
+        <td data-label="Decision">How to launch</td>
+        <td data-label="Options">Build it inside Cerino now, or as a standalone dashboard first</td>
+        <td data-label="What I chose">Standalone first</td>
+        <td data-label="Why">The team could test it and Stephen could approve the design before it moves into the product</td>
       </tr>
       <tr>
-        <td>Where the standup runs</td>
-        <td>A separate walk-through page, or the Tasks tab</td>
-        <td>The Tasks tab</td>
-        <td>One editable list was faster than a page that only showed tasks</td>
+        <td data-label="Decision">Where the standup runs</td>
+        <td data-label="Options">A separate walk-through page, or the Tasks tab</td>
+        <td data-label="What I chose">The Tasks tab</td>
+        <td data-label="Why">One editable list was faster than a page that only showed tasks</td>
       </tr>
       <tr>
-        <td>Navigation</td>
-        <td>A second bar on every page, or a fixed header with the toolbar only on Tasks</td>
-        <td>A fixed header, with the toolbar only on Tasks</td>
-        <td>The header never moves, and the standup controls sit where standup runs</td>
+        <td data-label="Decision">Navigation</td>
+        <td data-label="Options">A second bar on every page, or a fixed header with the toolbar only on Tasks</td>
+        <td data-label="What I chose">A fixed header, with the toolbar only on Tasks</td>
+        <td data-label="Why">The header never moves, and the standup controls sit where standup runs</td>
       </tr>
       <tr>
-        <td>Adding tasks</td>
-        <td>An add button everywhere, or a few clear places</td>
-        <td>Two places</td>
-        <td>Five entry points confused the team</td>
+        <td data-label="Decision">Adding tasks</td>
+        <td data-label="Options">An add button everywhere, or a few clear places</td>
+        <td data-label="What I chose">Two places</td>
+        <td data-label="Why">Five entry points confused the team</td>
       </tr>
       <tr>
-        <td>Saving Claude's drafts</td>
-        <td>Save automatically, or approve first</td>
-        <td>Approve first, with &#8220;Accept all suggestions&#8221;</td>
-        <td>Nothing saves without someone seeing it, and good suggestions take one click to accept</td>
+        <td data-label="Decision">Saving Claude's drafts</td>
+        <td data-label="Options">Save automatically, or approve first</td>
+        <td data-label="What I chose">Approve first, with &#8220;Accept all suggestions&#8221;</td>
+        <td data-label="Why">Nothing saves without someone seeing it, and good suggestions take one click to accept</td>
       </tr>
     </tbody>
   </table>
