@@ -1067,3 +1067,70 @@ body.home { background: var(--paper); }
 .wb-list .wc:nth-child(odd){grid-template-columns:1fr 1.25fr}
 .wb-list .wc:nth-child(odd) .wc-img{order:2}
 @media (max-width:820px){.wb-list .wc:nth-child(odd){grid-template-columns:1fr}.wb-list .wc:nth-child(odd) .wc-img{order:0}}
+/* Selected work: plain text under each title, no meta line or big numbers */
+.wc-title{margin:0 0 12px}
+.wc-body{margin:0;max-width:520px}
+.wc-note{margin:12px 0 0;font:400 14px/1.5 var(--sans);color:var(--mist)}
+
+/* ============================================================
+   HOME PAGE REFRESH (Nov 2026)
+   Teal for everything clickable, gold only for card results.
+   Two grounds: white, and the light blue surface tint.
+   ============================================================ */
+:root { --home-line: var(--teal-pale); --home-line-on-tint: #CADAD7; }
+
+/* Nav: teal for the current page and hover */
+.nav-links a.active, .nav-links a[aria-current], .nav-links a:hover { color: var(--teal); border-color: var(--teal); }
+
+/* Links: teal, deeper teal on hover */
+.about-link, .contact-text-link { color: var(--teal); border-color: var(--teal); }
+.case-link:hover, .about-link:hover, .contact-text-link:hover,
+.about-link:active, .contact-text-link:active { color: var(--teal-deep); border-color: var(--teal-deep); }
+
+/* Hero headline */
+.hero-v6 h1.t-display { font-size: clamp(46px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -0.03em; }
+
+/* Selected work */
+.work2 { padding-top: 72px; }
+.wc-img { background: #F8F8F8; }
+.wc-body { margin: 0 0 14px; }
+.wc-res { margin: 0; font: 400 16px/1.5 var(--sans); color: var(--slate); }
+.wc-res strong { font-weight: 600; color: var(--gold); }
+
+/* A bit about me */
+.home-about { background: var(--surface-tint); padding: var(--section-gap) var(--gutter); }
+.home-about-inner { max-width: calc(var(--home-max) - 2 * var(--gutter)); margin: 0 auto; display: grid; grid-template-columns: 5fr 6fr; gap: 96px; align-items: start; }
+.home-about-left h2 { margin: 0 0 36px; }
+.home-facts { margin: 0; }
+.home-facts div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--home-line-on-tint); }
+.home-facts div:last-child { border-bottom: 1px solid var(--home-line-on-tint); }
+.home-facts dt { font: 500 14px/1.5 var(--sans); color: var(--mist); }
+.home-facts dd { margin: 0; font: 400 15px/1.5 var(--sans); color: var(--ink); }
+.home-lead { font: 500 clamp(22px, 2vw, 26px)/1.4 var(--serif); letter-spacing: -0.01em; color: var(--ink); margin: 0 0 24px; }
+.home-about-text p { margin: 0 0 18px; max-width: 520px; color: var(--slate); }
+.home-about-text .about-link { margin-top: 10px; display: inline-flex; }
+
+/* How I work */
+.home-how { padding: var(--section-gap) var(--gutter); }
+.home-how-inner { max-width: calc(var(--home-max) - 2 * var(--gutter)); margin: 0 auto; }
+.home-how-inner h2 { margin: 0 0 48px; }
+.home-how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 72px; }
+.home-how-item { border-top: 1px solid var(--home-line); padding: 28px 0 40px; }
+.home-how-item h3 { font: 600 22px/1.25 var(--serif); color: var(--ink); margin: 0 0 10px; }
+.home-how-item p { font: 400 16px/1.65 var(--sans); color: var(--slate); margin: 0; max-width: 460px; }
+
+/* Let's talk, with the footer inside it */
+.home-contact { background: var(--surface-tint); padding: 96px var(--gutter) 40px; }
+.home-contact-inner { max-width: calc(var(--home-max) - 2 * var(--gutter)); margin: 0 auto; }
+.home-contact h2 { font: 600 clamp(44px, 5vw, 64px)/1.05 var(--serif); letter-spacing: -0.025em; color: var(--ink); margin: 0 0 16px; }
+.home-contact p.t-body { color: var(--slate); margin: 0 0 28px; max-width: 560px; }
+.home-email { display: inline-block; font: 500 clamp(22px, 2.4vw, 30px)/1.3 var(--serif); color: var(--teal); text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1.5px no-repeat; padding-bottom: 4px; transition: color .2s ease; }
+.home-email:hover { color: var(--teal-deep); }
+.home-links { display: flex; gap: 28px; margin-top: 28px; }
+.home-foot { margin: 88px 0 0; padding-top: 20px; border-top: 1px solid var(--home-line-on-tint); font: 400 13px/1.4 var(--sans); color: var(--mist); }
+
+@media (max-width: 820px) {
+  .home-about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .home-how-grid { grid-template-columns: 1fr; }
+  .home-contact { padding-top: 72px; }
+}
