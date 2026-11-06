@@ -22,6 +22,8 @@
       background: url('../assets/images/consciens-mark.svg') center / contain no-repeat; opacity: 0.1; pointer-events: none; }
   }
   /* wm:end */
+  .cs-results p{margin:0 0 10px}
+  .cs-results strong{color:var(--gold);font-weight:600}
 
 
   /* Tasks tab and charts carousels */
@@ -85,7 +87,7 @@
   }
 
   /* Hotspots figure */
-  .csd-hs-wrap{--csd-gold:#A36A00;--csd-gold-tint:#F6EEDF;--csd-ink:#1E1B17;--csd-muted:#6A6258;display:flex;flex-direction:column;gap:14px;margin:0}
+  .csd-hs-wrap{--csd-gold:#3D7872;--csd-gold-tint:#E3EFEE;--csd-ink:#1E1B17;--csd-muted:#6A6258;display:flex;flex-direction:column;gap:14px;margin:0}
   .csd-hs{position:relative}
   .csd-hs img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 0 0 1px rgba(30,20,5,.08),0 24px 50px -24px rgba(60,40,10,.45)}
   .csd-dot{position:absolute;z-index:4;width:28px;height:28px;margin:-14px 0 0 -14px;padding:0;border:0;border-radius:50%;background:var(--csd-gold);color:#fff;font-family:inherit;font-size:13px;font-weight:600;line-height:28px;text-align:center;cursor:pointer;box-shadow:0 0 0 3px #fff,0 6px 14px rgba(0,0,0,.35);transition:transform .2s}
@@ -106,7 +108,7 @@
   @media (max-width:640px){.csd-pop{position:static;width:auto}.csd-dot{width:22px;height:22px;margin:-11px 0 0 -11px;line-height:22px;font-size:11px}}
 
   /* Prototype embed */
-  .csd-proto-wrap{--csd-gold:#A36A00;display:flex;flex-direction:column;gap:32px;margin:0}
+  .csd-proto-wrap{--csd-gold:#3D7872;display:flex;flex-direction:column;gap:32px;margin:0}
   /* The prototype's shadow needs room: its container must not clip it, and the caption sits clear below it. */
   .img-full:has(.csd-proto-wrap){overflow:visible;padding-bottom:8px}
   .csd-proto{border-radius:14px;overflow:hidden;background:#0c111e;box-shadow:0 0 0 1px rgba(30,20,5,.12),0 18px 36px -20px rgba(40,25,5,.45)}
@@ -115,7 +117,7 @@
   .csd-bar span{position:absolute;left:50%;transform:translateX(-50%);font-size:12px;font-weight:500;color:#8a93a5;background:#0d1220;padding:6px 14px;border-radius:7px;white-space:nowrap}
   .csd-view{position:relative;width:100%;aspect-ratio:1440/900;overflow:hidden}
   .csd-view iframe{position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0;background:#0c111e}
-  .csd-cover{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(12,17,30,.15),rgba(12,17,30,.55))}
+  .csd-cover{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(12,17,30,.15),rgba(12,17,30,.55)),url('../assets/images/cs-dash-13-final.jpg') center top/cover no-repeat}
   .csd-cover[hidden]{display:none}
   .csd-start{font:inherit;font-weight:600;font-size:15px;color:#1E1B17;background:#fff;border:0;border-radius:999px;padding:14px 22px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.35)}
   .csd-start:focus-visible{outline:2px solid var(--csd-gold);outline-offset:3px}
@@ -229,7 +231,7 @@
 <!-- HOW I WORKED -->
 <div class="case-section reveal" style="padding-bottom:0">
   <h2 class="t-heading">How I worked</h2>
-  <h3 class="t-subtitle">What I did over five days</h3>
+  <h3 class="t-subtitle">My process</h3>
   <p class="t-body">I designed and built the dashboard in Claude and shared each version with the team early, while it was still easy to change.</p>
   <ol class="t-body" style="margin-top:8px;padding-left:1.4em;line-height:1.85;">
     <li>Mapped how our standup ran and who needed what from it.</li>
@@ -242,11 +244,7 @@
   </ol>
 </div>
 
-<!-- Fig 02 -->
-<div class="img-full reveal">
-  <img src="../assets/images/cs-dash-02-process.jpg" alt="The seven steps of the design process, each with the tool used" loading="lazy">
-  <p class="img-caption">Fig 02. The seven steps, each with the tool I used for it</p>
-</div>
+
 
 <div class="divider"><hr></div>
 
@@ -285,14 +283,10 @@
   <p class="t-body">I compared Linear, ClickUp, Notion and Jira for how they design dashboards, which features they offer and how they track projects. Monday came up again in the review. Most were built for more than we needed, and a new subscription didn't make sense when we already had our own Claude setup. GitHub became the main reference for the UI, for its dashboards and its restrained use of color.</p>
 </div>
 
-<!-- Fig 03 -->
-<div class="img-full reveal">
-  <img src="../assets/images/cs-dash-03-tools.jpg" alt="The four project management tools compared, with notes on what I took from each" loading="lazy">
-  <p class="img-caption">Fig 03. The tools I compared and what I took from each</p>
-</div>
+
 
 <div class="case-section reveal" style="padding-bottom:0">
-  <h3 class="t-subtitle">A design critique on rendered screens</h3>
+  <h3 class="t-subtitle">Design critique</h3>
   <p class="t-body">Before the team saw it, I ran a structured design critique on screenshots of the dashboard. It found three problems. The standup agenda was buried under stale dates, the details panel covered the toolbar, and the toolbar competed with the tasks. I fixed all three.</p>
 </div>
 
@@ -311,7 +305,7 @@
     <li>Claude can draft updates, meeting summaries and action items, but nothing saves until a person accepts it.</li>
     <li>Every status has a word and an icon, and color follows the company's rules, so color is never the only signal.</li>
   </ol>
-  <h3 class="t-subtitle" style="margin-top:var(--content-gap)">Tasks and standup in one place</h3>
+  <h3 class="t-subtitle" style="margin-top:var(--content-gap)">The Tasks tab</h3>
   <p class="t-body">The Tasks tab shows tasks as a list or a board, and every field edits in place. The stage timeline has its own tab. Standup runs from the same tab. Each task is marked New, Updated or Slipped since the last standup, and Finish standup saves a snapshot that next week's markers start from.</p>
 </div>
 
@@ -410,15 +404,11 @@
   </table>
 </div>
 
-<!-- Fig 08 -->
-<div class="img-full reveal">
-  <img src="../assets/images/cs-dash-09-themes.jpg" alt="Feedback from the trial and design review grouped into four themes" loading="lazy">
-  <p class="img-caption">Fig 08. Feedback from the trial and the review, grouped into themes</p>
-</div>
+
 
 <div class="case-section reveal" style="padding-bottom:0">
   <p class="t-body">I called getting lost in my own dashboard a red flag. In the final design the header is the same on every page: the breadcrumb, then the tabs on their own row, then the toolbar on Tasks. The toolbar follows Asana's pattern of views first and then the create action: List and Board, then Group and Filter, then Add task, then Search.</p>
-  <h3 class="t-subtitle" style="margin-top:var(--content-gap)">A final pass with fresh eyes</h3>
+  <h3 class="t-subtitle" style="margin-top:var(--content-gap)">Final pass</h3>
   <p class="t-body">After the review, I stepped away from the design for a day and came back for one last pass. With fresh eyes I moved it closer to the conventions people know from GitHub, Jira and Linear. I cut most of the icons, lined everything up on one left edge, gave Timeline its own tab, renamed Meetings to Standup prep, and kept the standup controls on Tasks, where standup runs. Task titles now rename with a click, and the rows have more room.</p>
 </div>
 
@@ -488,7 +478,7 @@
       </tr>
     </tbody>
   </table>
-  <h3 class="t-subtitle" style="margin-top:var(--content-gap)">Color in two rounds</h3>
+  <h3 class="t-subtitle" style="margin-top:var(--content-gap)">Status colors</h3>
   <p class="t-body">With every status in gray, the task list was hard to scan, so the first version used a full palette of seven colors. Stephen reviewed it against Cerino's color rules, which keep the interface mostly monochrome and let words and icons carry meaning. I had added the colors because they make progress easy to see at a glance, and I said so. We agreed to try the simpler system first.</p>
   <p class="t-body">The final set uses four colors. Green means done, orange means something needs attention, red means archive or delete, and blue marks where you are. Blocked is the only status shown in color, which the team agreed on at the trial.</p>
 </div>
@@ -512,23 +502,11 @@
     <li>A header that stays the same on every page, with the toolbar where standup runs</li>
     <li>A color system cut to four colors, with a word and an icon on every status</li>
   </ul>
-  <div class="outcomes-grid">
-    <div class="outcome-card">
-      <div class="outcome-num t-numeral">5 days</div>
-      <div class="outcome-label t-label">From the first version to the template for every new client dashboard</div>
-    </div>
-    <div class="outcome-card">
-      <div class="outcome-num t-numeral">Weekly to daily</div>
-      <div class="outcome-label t-label">Project status went from pieced together at standup to updated every day</div>
-    </div>
-    <div class="outcome-card">
-      <div class="outcome-num t-numeral">4 to 1</div>
-      <div class="outcome-label t-label">Email, meeting notes, Slack and Google Drive feed one dashboard</div>
-    </div>
-    <div class="outcome-card">
-      <div class="outcome-num t-numeral">100%</div>
-      <div class="outcome-label t-label">Of Claude's drafts checked by a person before anything saves</div>
-    </div>
+  <div class="cs-results">
+    <p class="t-body"><strong>5 days</strong> from the first version to the template for every new client dashboard.</p>
+    <p class="t-body">Project status now updates every day instead of being pieced together at standup.</p>
+    <p class="t-body">Email, meeting notes, Slack and Google Drive all feed one dashboard.</p>
+    <p class="t-body">A person checks every Claude draft before anything saves.</p>
   </div>
   <p class="t-body" style="margin-top:32px">The dashboard is now the standard template for client dashboards in Cerino, and Devendra approved extending my work to more project areas.</p>
 </div>
