@@ -962,10 +962,8 @@ body.home { background: var(--paper); }
   width: 100%; aspect-ratio: 4/5;
   object-fit: cover; object-position: 50% 16%;
   display: block; border-radius: 14px;
-  filter: grayscale(1) contrast(1.04);
   transition: filter .45s ease;
 }
-.portrait-wrap:hover .portrait-img { filter: grayscale(0) contrast(1); }
 .portrait-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(43,43,43,.78) 0%, rgba(43,43,43,.18) 55%, transparent 100%);
