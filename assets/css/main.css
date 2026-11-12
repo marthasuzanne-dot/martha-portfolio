@@ -1157,3 +1157,15 @@ body.home { background: var(--paper); }
   .contact-email-btn { width: 100%; text-align: center; }
   .ab-pad { padding-left: 20px !important; padding-right: 20px !important; }
 }
+
+/* ============================================================
+   CASE STUDY SUMMARY (Nov 2026)
+   Problem, Approach, Result at the top of each case study.
+   ============================================================ */
+.cs-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 0 0 48px; }
+.cs-summary > div { border-top: 2px solid var(--teal); padding-top: 14px; }
+.cs-summary-label { font: 600 15px/1.4 var(--sans); color: var(--ink); margin: 0 0 8px; }
+.cs-summary p { font: 400 16px/1.6 var(--sans); color: var(--slate); margin: 0; }
+@media (max-width: 760px) {
+  .cs-summary { grid-template-columns: 1fr; gap: 20px; margin-bottom: 32px; }
+}
