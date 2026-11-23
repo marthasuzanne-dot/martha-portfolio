@@ -1173,3 +1173,6 @@ body.home { background: var(--paper); }
 .wc-link::after{content:'\2192';display:inline-block;transition:transform .2s ease}
 .wc:hover .wc-link,.wc:active .wc-link{color:var(--gold);border-color:var(--gold)}
 .wc:hover .wc-link::after{transform:translateX(4px)}
+
+/* Next case study: client name on one line, project description below */
+.next-desc { color: var(--slate); margin: 6px 0 0; }
