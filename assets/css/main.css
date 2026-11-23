@@ -1180,3 +1180,7 @@ body.home { background: var(--paper); }
   footer { padding-left: max(var(--gutter), calc((100% - var(--max)) / 2 + var(--case-gutter)));
            padding-right: max(var(--gutter), calc((100% - var(--max)) / 2 + var(--case-gutter))); }
 }
+
+/* Optical alignment: the large serif title sits a hair left so its round
+   capitals (O, C, G) line up visually with the label above */
+.next-title { margin-left: -0.045em; }
