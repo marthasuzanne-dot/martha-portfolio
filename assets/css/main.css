@@ -1089,7 +1089,7 @@ body.home { background: var(--paper); }
 /* Selected work */
 .work2 { padding-top: 72px; }
 .wc-img { background: #F8F8F8; }
-.wc-body { margin: 0 0 14px; }
+.wc-body { margin: 0 0 18px; }
 .wc-res { margin: 0; font: 400 16px/1.5 var(--sans); color: var(--slate); }
 .wc-res strong { font-weight: 600; color: var(--gold); }
 
