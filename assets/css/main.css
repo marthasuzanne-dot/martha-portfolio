@@ -1174,11 +1174,6 @@ body.home { background: var(--paper); }
 .wc:hover .wc-link,.wc:active .wc-link{color:var(--gold);border-color:var(--gold)}
 .wc:hover .wc-link::after{transform:translateX(4px)}
 
-/* Next case study: one left column, like the home page cards.
-   Label, client name, description, then the link 28px below. */
-.next-case { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 0; }
-.next-desc { color: var(--slate); margin: 4px 0 0; line-height: 1.45; }
-.next-link { margin-top: 28px; }
 
 /* Footer text lines up with the page content column on about and case study pages */
 @media (min-width: 769px) {
