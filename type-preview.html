@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Type System Preview — Martha Asselin Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+
+/* ── Tokens ── */
+:root {
+  --serif: 'Literata', Georgia, serif;
+  --sans:  'Instrument Sans', system-ui, sans-serif;
+
+  --ink:          #1D2B29;
+  --slate:        #3B4D4B;
+  --mist:         #5B7270;
+  --teal:         #3D7872;
+  --teal-light:   #4e8f8a;
+  --teal-deep:    #2F625D;
+  --teal-pale:    #d4e8e8;
+  --gold:         #B87A00;
+  --amber-deep:   #8F5D00;
+  --amber-hover:  #D99A1F;
+  --light:        #8AB8B3;
+  --mint:         #8AB8B3;
+  --on-dark:      #E8F0EF;
+  --on-dark-2:    #B2C4C2;
+  --band:         #132725;
+  --card-fill:    #FAF8F4;
+  --teal-pale:    #d4e8e8;
+  --hairline:     #E2DDD4;
+  --tag-fill:     #E4E6DF;
+  --surface-tint: #EAF0F0;
+}
+
+/* ── Type roles ── */
+.t-display { font: 600 clamp(40px, 5.5vw, 74px)/1.02 var(--serif); letter-spacing: -0.028em; color: var(--ink); }
+.t-heading { font: 600 clamp(30px, 3.5vw, 44px)/1.08 var(--serif); letter-spacing: -0.022em; color: var(--ink); }
+.t-title   { font: 600 clamp(24px, 2.5vw, 33px)/1.15 var(--serif); letter-spacing: -0.018em; color: var(--ink); }
+.t-quote   { font: italic 400 clamp(24px, 2.5vw, 33px)/1.3 var(--serif); letter-spacing: -0.012em; color: var(--ink); }
+.t-numeral { font: 600 36px/1 var(--serif); color: var(--gold); }
+.t-intro   { font: 400 21px/1.5 var(--sans); letter-spacing: -0.005em; color: var(--slate); }
+.t-body    { font: 400 17px/1.75 var(--sans); color: var(--slate); }
+.t-subhead { font: 600 17px/1.4 var(--sans); color: var(--ink); }
+.t-label   { font: 600 15px/1.4 var(--sans); color: var(--ink); }
+.t-action  { font: 600 15px/1.4 var(--sans); }
+.t-nav     { font: 500 14px/1.4 var(--sans); }
+.t-meta    { font: 400 13px/1.6 var(--sans); letter-spacing: 0.02em; color: var(--mist); }
+.t-strip   { font: 600 12px/1.4 var(--sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--mist); }
+
+.on-dark .t-display, .on-dark .t-heading, .on-dark .t-title, .on-dark .t-quote { color: var(--on-dark); }
+.on-dark .t-body, .on-dark .t-intro { color: var(--on-dark-2); }
+.on-dark .t-label { color: var(--mint); }
+
+@media (max-width: 390px) {
+  .t-intro { font-size: 18px; }
+  .t-body  { font-size: 16px; }
+}
+
+/* ── Preview chrome ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #fff; color: var(--slate); font: 400 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+
+.page { max-width: 900px; margin: 0 auto; padding: 64px 48px 120px; }
+
+h1.page-title { font: 600 13px/1.4 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--mist); margin-bottom: 8px; }
+p.page-sub { font: 400 17px/1.5 var(--sans); color: var(--slate); margin-bottom: 64px; padding-bottom: 40px; border-bottom: 1px solid var(--hairline); }
+
+.section { margin-bottom: 72px; }
+.section-label { font: 600 11px/1.4 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 32px; padding-bottom: 12px; border-bottom: 1px solid var(--teal-pale); }
+
+/* Type specimen rows */
+.role-row { display: grid; grid-template-columns: 200px 1fr 200px; gap: 32px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid var(--hairline); }
+.role-row:last-child { border-bottom: none; }
+.role-name { font: 600 12px/1.4 var(--sans); color: var(--teal); font-variant-numeric: tabular-nums; }
+.role-spec  { font: 400 12px/1.6 var(--sans); color: var(--mist); }
+.role-sample { overflow: hidden; }
+
+/* Color swatches */
+.color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; }
+.swatch { border-radius: 10px; overflow: hidden; }
+.swatch-chip { height: 56px; width: 100%; }
+.swatch-info { padding: 10px 12px; background: var(--card-fill); }
+.swatch-token { font: 600 11px/1.4 var(--sans); color: var(--ink); display: block; }
+.swatch-hex   { font: 400 11px/1.4 var(--sans); color: var(--mist); letter-spacing: 0.04em; }
+
+/* Dark band demo */
+.dark-demo { background: var(--band); border-radius: 16px; padding: 48px; margin-top: 24px; }
+
+/* Link color demo */
+.link-demo { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 16px; }
+.link-demo-group { display: flex; flex-direction: column; gap: 8px; }
+.link-demo-surface { font: 600 11px/1.4 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--mist); margin-bottom: 4px; }
+.link-paper  { font: 600 15px/1.4 var(--sans); color: var(--teal); text-decoration: none; }
+.link-paper:hover { color: var(--amber-deep); }
+.link-dark   { font: 600 15px/1.4 var(--sans); color: var(--gold); text-decoration: none; }
+.link-dark:hover { color: var(--amber-hover); }
+.link-nav    { font: 500 14px/1.4 var(--sans); color: var(--mist); text-decoration: none; }
+.link-nav:hover { color: var(--teal); }
+
+/* Button demo */
+.btn-demo { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
+.btn-primary-new { background: var(--teal); color: #fff; padding: 15px 30px; font: 600 15px/1.4 var(--sans); text-decoration: none; border-radius: 4px; display: inline-block; }
+.btn-secondary-new { color: var(--teal); padding: 14px 28px; font: 600 15px/1.4 var(--sans); text-decoration: none; border-radius: 4px; border: 1px solid #d6d0c5; display: inline-block; }
+
+/* Spacing tokens */
+.spacing-row { display: flex; align-items: center; gap: 20px; padding: 12px 0; border-bottom: 1px solid var(--hairline); }
+.spacing-bar { background: var(--teal-pale); border-radius: 3px; height: 16px; flex-shrink: 0; }
+.spacing-token { font: 600 12px/1.4 var(--sans); color: var(--teal); width: 160px; flex-shrink: 0; }
+.spacing-value { font: 400 12px/1.4 var(--sans); color: var(--mist); }
+
+/* Deleted items */
+.deleted { text-decoration: line-through; opacity: 0.45; }
+.deleted-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+.deleted-list li { font: 400 14px/1.4 var(--sans); color: var(--mist); padding-left: 20px; position: relative; }
+.deleted-list li::before { content: '×'; position: absolute; left: 0; color: #c0392b; font-weight: 600; }
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1 class="page-title">Martha Asselin Portfolio</h1>
+  <p class="page-sub">Type system preview — review before going live. All 12 roles, color tokens, link behavior, buttons, and spacing.</p>
+
+  <!-- TYPE SCALE -->
+  <div class="section">
+    <div class="section-label">Type roles — light backgrounds</div>
+
+    <div class="role-row">
+      <span class="role-name">.t-display</span>
+      <span class="role-sample t-display">Design, strategy, and delivery</span>
+      <span class="role-spec">Literata 600 · 74px · −0.028em<br>Hero H1, case H1, About H1</span>
+    </div>
+
+    <div class="role-row">
+      <span class="role-name">.t-heading</span>
+      <span class="role-sample t-heading">The classification model</span>
+      <span class="role-spec">Literata 600 · 44px · −0.022em<br>All section H2s</span>
+    </div>
+
+    <div class="role-row">
+      <span class="role-name">.t-title</span>
+      <span class="role-sample t-title">Ourself Health</span>
+      <span class="role-spec">Literata 600 · 33px · −0.018em<br>Project titles, persona names</span>
+    </div>
+
+    <div class="role-row">
+      <span class="role-name">.t-quote</span>
+      <span class="role-sample t-quote">"The website feels welcoming."</span>
+      <span class="role-spec">Literata italic 400 · 33px · −0.012em<br>Pull quotes</span>
+    </div>
+
+    <div class="role-row">
+      <span class="role-name">.t-numeral</span>
+      <span class="role-sample t-numeral">21</span>
+      <span class="role-spec">Literata 600 · 36px · gold<br>Outcome numbers</span>
+    </div>
+
+    <div class="role-row">
+      <span class="role-name">.t-intro</span>
+      <span class="role-sample t-intro">I work in the space between design and delivery.</span>
+      <span class="role-spec">Sans 400 · 21px · −0.005em<br>Hero sub, case study lead</span>
+    </div>
+
+    <div class="role-row">
+      <span class="role-name">.t-body</span>
+      <span class="role-sample t-body">Based on the audit, I developed a metric classification model to guide all design decisions. Every metric fell into one of two categories.</span>
+      <span class="role-spec">Sans 400 · 17px · 1.75lh<br>All paragraphs</span>
+    </div>
+
+    <div class="role-row">
+      <span class="role-name">.t-subhead</span>
+      <span class="role-sample t-subhead">Device-derived, read-only summaries</span>
+      <span class="role-spec">Sans 600 · 17px · 1.4lh<br>Decision titles, skill titles, outside cards</span>
+    </div>
+
+    <div class="role-row">
+      <span class="role-name">.t-label</span>
+      <span class="role-sample t-label">Category 1</span>
+      <span class="role-spec">Sans 600 · 15px · 1.4lh<br>All in-content labels, sentence case</span>
+    </div>
+
+    <div class="role-row">
+      <span class="role-name">.t-action</span>
+      <span class="role-sample t-action" style="color:var(--teal)">Read the case study →</span>
+      <span class="role-spec">Sans 600 · 15px<br>All buttons and text links</span>
+    </div>
+
+    <div class="role-row">
+      <span class="role-name">.t-nav</span>
+      <span class="role-sample t-nav">Home &nbsp; Work &nbsp; About &nbsp; Contact</span>
+      <span class="role-spec">Sans 500 · 14px<br>Nav, back / next</span>
+    </div>
+
+    <div class="role-row">
+      <span class="role-name">.t-meta</span>
+      <span class="role-sample t-meta">2025 · Product designer · 4 weeks</span>
+      <span class="role-spec">Sans 400 · 13px · mist<br>Meta line, captions, metadata values</span>
+    </div>
+
+    <div class="role-row">
+      <span class="role-name">.t-strip</span>
+      <span class="role-sample t-strip">Based in &nbsp;&nbsp; Practice &nbsp;&nbsp; Open for</span>
+      <span class="role-spec">Sans 600 · 12px · uppercase +0.06em<br>Metadata strip only</span>
+    </div>
+  </div>
+
+  <!-- DARK BAND -->
+  <div class="section">
+    <div class="section-label">Type roles — dark band</div>
+    <div class="dark-demo on-dark">
+      <p class="t-heading" style="margin-bottom:16px">What I learned</p>
+      <p class="t-body" style="margin-bottom:16px">When the brief is exact replication, the work is in the details. Units, structure, microcopy.</p>
+      <p class="t-label">Reflection</p>
+    </div>
+  </div>
+
+  <!-- COLORS -->
+  <div class="section">
+    <div class="section-label">Color palette</div>
+    <div class="color-grid">
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#1D2B29"></div>
+        <div class="swatch-info"><span class="swatch-token">--ink</span><span class="swatch-hex">#1D2B29</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#3B4D4B"></div>
+        <div class="swatch-info"><span class="swatch-token">--slate</span><span class="swatch-hex">#3B4D4B</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#5B7270"></div>
+        <div class="swatch-info"><span class="swatch-token">--mist</span><span class="swatch-hex">#5B7270</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#3D7872"></div>
+        <div class="swatch-info"><span class="swatch-token">--teal</span><span class="swatch-hex">#3D7872</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#4e8f8a"></div>
+        <div class="swatch-info"><span class="swatch-token">--teal-light</span><span class="swatch-hex">#4e8f8a</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#2F625D"></div>
+        <div class="swatch-info"><span class="swatch-token">--teal-deep</span><span class="swatch-hex">#2F625D</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#d4e8e8"></div>
+        <div class="swatch-info"><span class="swatch-token">--teal-pale</span><span class="swatch-hex">#d4e8e8</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#B87A00"></div>
+        <div class="swatch-info"><span class="swatch-token">--gold</span><span class="swatch-hex">#B87A00</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#8F5D00"></div>
+        <div class="swatch-info"><span class="swatch-token">--amber-deep</span><span class="swatch-hex">#8F5D00</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#D99A1F"></div>
+        <div class="swatch-info"><span class="swatch-token">--amber-hover</span><span class="swatch-hex">#D99A1F</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#8AB8B3"></div>
+        <div class="swatch-info"><span class="swatch-token">--mint / --light</span><span class="swatch-hex">#8AB8B3</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#132725"></div>
+        <div class="swatch-info"><span class="swatch-token">--band</span><span class="swatch-hex">#132725</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#FAF8F4; border:1px solid #E2DDD4"></div>
+        <div class="swatch-info"><span class="swatch-token">--card-fill</span><span class="swatch-hex">#FAF8F4</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background:#E2DDD4"></div>
+        <div class="swatch-info"><span class="swatch-token">--hairline</span><span class="swatch-hex">#E2DDD4</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINKS -->
+  <div class="section">
+    <div class="section-label">Link colors (corrected — was reversed)</div>
+    <div class="link-demo">
+      <div class="link-demo-group">
+        <span class="link-demo-surface">Paper (rest → hover)</span>
+        <a href="#" class="link-paper">Read the case study</a>
+        <span class="t-meta">teal #3D7872 → amber deep #8F5D00</span>
+      </div>
+      <div class="link-demo-group">
+        <span class="link-demo-surface">Nav (rest → hover)</span>
+        <a href="#" class="link-nav">About</a>
+        <span class="t-meta">mist #5B7270 → teal #3D7872</span>
+      </div>
+      <div class="link-demo-group" style="background:var(--band);padding:16px 20px;border-radius:10px">
+        <span class="link-demo-surface" style="color:var(--on-dark-2)">Dark band (rest → hover)</span>
+        <a href="#" class="link-dark">View case study</a>
+        <span class="t-meta" style="color:var(--on-dark-2)">gold #B87A00 → #D99A1F</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="section">
+    <div class="section-label">Buttons (new spec: 4px radius, 15/600)</div>
+    <div class="btn-demo">
+      <a href="#" class="btn-primary-new">View my work</a>
+      <a href="#" class="btn-secondary-new">About me</a>
+    </div>
+    <p class="t-meta" style="margin-top:12px">Primary: teal fill, 15/600, 4px radius, padding 15px 30px &nbsp;·&nbsp; Secondary: 1px #d6d0c5 border, 4px radius</p>
+  </div>
+
+  <!-- SPACING -->
+  <div class="section">
+    <div class="section-label">Spacing tokens</div>
+    <div class="spacing-row">
+      <span class="spacing-token">--section-gap</span>
+      <div class="spacing-bar" style="width:120px"></div>
+      <span class="spacing-value">120px — between major page sections</span>
+    </div>
+    <div class="spacing-row">
+      <span class="spacing-token">--sub-gap</span>
+      <div class="spacing-bar" style="width:72px"></div>
+      <span class="spacing-value">72px — between case study sections</span>
+    </div>
+    <div class="spacing-row">
+      <span class="spacing-token">--content-gap</span>
+      <div class="spacing-bar" style="width:64px"></div>
+      <span class="spacing-value">64px — between content blocks</span>
+    </div>
+    <div class="spacing-row">
+      <span class="spacing-token">--gutter</span>
+      <div class="spacing-bar" style="width:48px"></div>
+      <span class="spacing-value">48px — page edge gutter</span>
+    </div>
+    <div class="spacing-row">
+      <span class="spacing-token">--case-gutter</span>
+      <div class="spacing-bar" style="width:40px"></div>
+      <span class="spacing-value">40px — case study gutter</span>
+    </div>
+    <div class="spacing-row">
+      <span class="spacing-token">--radius</span>
+      <div class="spacing-bar" style="width:16px;border-radius:4px"></div>
+      <span class="spacing-value">16px — card border radius</span>
+    </div>
+  </div>
+
+  <!-- WHAT GETS DELETED -->
+  <div class="section">
+    <div class="section-label">Retired — deleted from the system</div>
+    <ul class="deleted-list">
+      <li><span class="deleted">.section-num · .section-kicker</span> — section labels removed from HTML and CSS</li>
+      <li><span class="deleted">.case-tag</span> — "Case study · Health Tech" hero eyebrow removed</li>
+      <li><span class="deleted">.hero-label</span> — homepage hero eyebrow</li>
+      <li><span class="deleted">.section-heading</span> — 13/500 mist, unused under new system</li>
+      <li><span class="deleted">Sizes 52, 38, 32, 22, 18, 11, 10px</span> — off-scale, retired</li>
+      <li><span class="deleted">Serif below 24px</span> — .section-num at 17, .pull-quote at 17 italic</li>
+      <li><span class="deleted">--display · --body tokens</span> — replaced by --sans</li>
+      <li><span class="deleted">--gold-deep: #2F625D</span> — token name lies (it's teal), replaced by --amber-deep</li>
+      <li><span class="deleted">Mobile 13–14px body text</span> — body never goes below 16px</li>
+      <li><span class="deleted">Overlay text on hero photo</span> — .overlay-location, .overlay-sub, .overlay-tag, .overlay-hint</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

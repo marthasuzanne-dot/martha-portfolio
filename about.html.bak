@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About, Martha Asselin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=16">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  .outside-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .outside-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0,0,0,.08);
+  }
+  /* Color themes — unified warm card fill */
+  .outside-card.theme-bronze,
+  .outside-card.theme-earth,
+  .outside-card.theme-sky    { background: #FAF8F4; }
+
+  /* Side-by-side image pair */
+  .outside-img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+  .outside-img-pair > div { overflow: hidden; }
+  .outside-img-pair img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease;
+  }
+  .outside-card:hover .outside-img-pair img { transform: scale(1.04); }
+
+  /* Single image */
+  .outside-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+  .outside-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease;
+  }
+  .outside-card:hover .outside-img img { transform: scale(1.04); }
+
+  .outside-body { padding: 20px 24px 26px; }
+  .outside-card h3 {
+    color: var(--ink);
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+  .outside-card p {
+    line-height: 1.65;
+    color: var(--slate);
+    margin: 0;
+  }
+  @media (max-width: 720px) {
+    .outside-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav-home" id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <svg width="36" height="36" viewBox="0 0 1032 1034" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0;">
+      <path d="M520 60.5V95.5C749.198 95.5 935 281.302 935 510.5H970H1005C1005 242.642 787.858 25.5 520 25.5V60.5ZM970 510.5H935C935 739.698 749.198 925.5 520 925.5V960.5V995.5C787.858 995.5 1005 778.358 1005 510.5H970ZM520 960.5V925.5C290.802 925.5 105 739.698 105 510.5H70H35C35 778.358 252.142 995.5 520 995.5V960.5ZM70 510.5H105C105 281.302 290.802 95.5 520 95.5V60.5V25.5C252.142 25.5 35 242.642 35 510.5H70Z" fill="#B87A00"/>
+      <line x1="157.353" y1="667.597" x2="406.097" y2="326.647" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+      <path d="M670 319.5L887 664.5" stroke="#B87A00" stroke-width="70" stroke-linecap="round" fill="none"/>
+      <line x1="666.449" y1="320.587" x2="413.587" y2="695.551" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+      <line x1="520.44" y1="522.003" x2="794.439" y2="526.018" stroke="#B87A00" stroke-width="60"/>
+      <line x1="413.32" y1="318.23" x2="650.73" y2="691.18" stroke="#B87A00" stroke-width="70" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-name">Martha Asselin</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="progress-bar" id="progressBar"></div>
+</nav>
+
+<!-- INTRO -->
+<div class="case-hero reveal" style="padding-bottom: 16px">
+  <h1 class="t-display">About me</h1>
+  <p class="t-subtitle">I bring both structure and heart to every project</p>
+  <p class="lead t-intro" style="margin-bottom: 0">I am a Product Designer with a background in psychology, user research, and team leadership. I take work from discovery through delivery, keep clients and teams aligned, and use AI throughout to reach better decisions faster. Currently open to full-time, part-time, and contract roles.</p>
+</div>
+
+<!-- HIKING PHOTO -->
+<div class="img-full reveal" style="margin-top: 24px; max-width: var(--max); padding: 0 40px;">
+  <img src="assets/images/about-hero.jpg" alt="Martha Asselin" style="width: 100%; display: block;">
+</div>
+
+<!-- BACKGROUND -->
+<div class="case-section reveal" style="padding-top:64px;">
+  <h2 class="t-heading">Background</h2>
+  <h3 class="t-subtitle">I studied psychology before I found UX</h3>
+  <p class="t-body">People make decisions in ways that do not always match what they say they want. Understanding that gap is what psychology teaches you, and it is exactly what user research is built on. I came to UX from that direction, which means I was already thinking about behavior, motivation, and the distance between intent and action before I learned what a wireframe was.</p>
+  <p class="t-body">Leadership came with the work. Managing stakeholders, keeping cross-functional teams aligned, and translating between product, engineering, and business goals changed how I design. I stopped thinking about design as something that gets handed off and started thinking about it as something that has to hold up all the way through implementation.</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- HOW I WORK -->
+<div class="case-section reveal">
+  <h2 class="t-heading">How I work</h2>
+  <h3 class="t-subtitle">I start every project with research</h3>
+  <p class="t-body">I start every project with research. Designing without it means working toward the wrong problem, and I have seen that happen. User interviews, competitive audits, card sorting, usability testing: the method depends on what the project needs.</p>
+  <p class="t-body">I integrate AI into my workflow to support better research, ideation, and design decisions. Claude helped me run an 8-site competitive audit for Polly Banerjee in a fraction of the time it would have taken manually. ChatGPT helped me pressure test data logic during the Ourself Health metric audit. I keep exploring how these tools fit into human-centered design.</p>
+  <p class="t-body">I am most useful to teams that need someone who can hold the full picture, from the first research question to the final handoff, and keep the work coherent across all the people it touches.</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<!-- OUTSIDE WORK -->
+<div class="case-section reveal" style="padding-bottom:16px">
+  <h2 class="t-heading">Outside of work</h2>
+  <h3 class="t-subtitle">How I spend my time</h3>
+</div>
+
+<div class="reveal" style="max-width:1100px;margin:0 auto 72px;padding:0 40px;">
+  <div class="outside-grid">
+
+    <div class="outside-card theme-bronze">
+      <div class="outside-img-pair">
+        <div><img src="assets/images/outside-statue-1.jpg" alt="Buddhist statue restoration"></div>
+        <div><img src="assets/images/outside-statue-2.jpg" alt="Buddhist statue restoration"></div>
+      </div>
+      <div class="outside-body">
+        <h3 class="t-subhead">Buddhist statue restoration</h3>
+        <p class="t-body">I picked up this craft after a shipment of antique Buddhist statues arrived water damaged. What started as a problem became a new passion.</p>
+      </div>
+    </div>
+
+    <div class="outside-card theme-earth">
+      <div class="outside-img">
+        <img src="assets/images/outside-travel.jpg" alt="Travel in Athens, Greece">
+      </div>
+      <div class="outside-body">
+        <h3 class="t-subhead">Travel</h3>
+        <p class="t-body">History, delicious food, and being somewhere long enough to meet the culture.</p>
+      </div>
+    </div>
+
+    <div class="outside-card theme-sky">
+      <div class="outside-img">
+        <img src="assets/images/outside-photography.jpg" alt="Photography">
+      </div>
+      <div class="outside-body">
+        <h3 class="t-subhead">Photography</h3>
+        <p class="t-body">It slows me down and changes how I notice things. I see more when I'm looking for a photograph.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <h2 class="t-heading">Get in touch</h2>
+      <p class="contact-sub t-body">Open to full-time, part-time, and contract roles. Based in Boulder, CO and available remotely across the US.</p>
+    </div>
+    <div class="contact-actions reveal d2">
+      <a href="mailto:martha.asselin@gmail.com" class="contact-email-btn t-action">martha.asselin@gmail.com</a>
+      <a href="https://www.linkedin.com/in/martha-asselin/" target="_blank" rel="noopener" class="contact-text-link t-action">LinkedIn</a>
+      <a href="assets/Martha_Asselin_Resume.pdf" target="_blank" rel="noopener" class="contact-text-link t-action">R&eacute;sum&eacute;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>&copy; 2026 Martha Asselin</span>
+
+</footer>
+
+<script>
+  function copyEmail() {
+    navigator.clipboard.writeText('martha.asselin@gmail.com').then(() => {
+      let t = document.getElementById('copyToast');
+      if (!t) { t = document.createElement('div'); t.id = 'copyToast'; t.className = 'copy-toast'; document.body.appendChild(t); }
+      t.textContent = 'Copied: martha.asselin@gmail.com';
+      t.classList.add('show');
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.remove('show'), 2400);
+    }).catch(() => { window.location.href = 'mailto:martha.asselin@gmail.com'; });
+  }
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  }, { passive: true });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
