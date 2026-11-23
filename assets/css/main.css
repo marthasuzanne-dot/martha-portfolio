@@ -1169,7 +1169,7 @@ body.home { background: var(--paper); }
 }
 
 /* Case study cards: visible "View case study" link (phones have no hover) */
-.wc-link{display:inline-flex;align-items:center;gap:7px;margin-top:18px;color:var(--teal);border-bottom:1px solid var(--teal);padding-bottom:3px;align-self:flex-start;transition:color .2s ease,border-color .2s ease}
+.wc-link{display:inline-flex;align-items:center;gap:7px;margin-top:28px;color:var(--teal);border-bottom:1px solid var(--teal);padding-bottom:3px;align-self:flex-start;transition:color .2s ease,border-color .2s ease}
 .wc-link::after{content:'\2192';display:inline-block;transition:transform .2s ease}
 .wc:hover .wc-link,.wc:active .wc-link{color:var(--gold);border-color:var(--gold)}
 .wc:hover .wc-link::after{transform:translateX(4px)}
